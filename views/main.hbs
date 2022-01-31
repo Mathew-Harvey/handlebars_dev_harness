@@ -1,513 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+        * {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        h1 {
+            text-align: center;
+            font-size: 1.3em;
+            text-transform: uppercase;
+        }
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+            margin-bottom: 3px;
+        }
+        td,
+        th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+            border: 1px solid black;
+        }
+        .noBorder {
+            border: none !important;
+           padding-top: 50px;
+           padding-bottom: 50px;
+            
+        }
+        .signatureBox {
+  
+            padding-bottom: 70px;
+        }
+        #grey {
+            background-color: #dddddd;
+        }
+    </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Mooring Inspection Report</title>
+    {{#each css}}
+    <link rel="stylesheet" href="/{{this}}">
+    {{/each}}
+</head>
+<body>
+  <header>
+      <table>
+          <tr>
+              <td style="float:left">FUS LOGO HERE</td>
+              <td style="float:right">Client LOGO HERE</td>
+          </tr>
+      </table>
+   {{!-- {{{getImages attachments.0.fullUri}}} --}}
+
+</header>
 <main> 
+    <h1>Mooring Inspection Report</h1>
 
-
-    <h1>Report</h1>
-    <h2> {{data.vessel.data.name}} Biofouling Inspection</h2>
-    <h3>NSM</h3>
-    <h3>Date: April 2021</h3>
-    <div id="coverImg">
-        {{!-- images not working yet --}}
-        <img src="../public/assets/hmas_Arunta.jpg">
-    </div>
     <div class="report-container">
-        <script id="report-container" type="text/x-handlebars-template"></script>
-        <style>
-            table {
-                font-family: arial, sans-serif;
-                border-collapse: collapse;
-                width: 100%;
-            }
-
-            td,
-            th {
-                border: 1px solid #dddddd;
-                text-align: left;
-                padding: 8px;
-            }
-
-            tr:nth-child(even) {
-                background-color: #dddddd;
-            }
-        </style>
-        </head>
-        <h2>Project Particulars</h2>
-        <table>
-            <tr>
-                <td><b>Diving Contractor</b></td>
-                <td>Franmarine Underwater Services</td>
-            </tr>
-            <tr>
-                <td><b>Project</b></td>
-                <td>{{{data.scopeOfWork}}}</td>
-            </tr>
-            <tr>
-                <td><b>Vessel</b></td>
-                <td>{{data.vessel.data.name}}</td>
-            </tr>
-            <tr>
-                <td><b>Client</b></td>
-                <td>NSM Australia</td>
-            </tr>
-            <tr>
-                <td><b>Client Rep</b></td>
-                <td>{{data.invites.buyer.[0].name}}</td>
-            </tr>
-            <tr>
-                <td><b>Date</b></td>
-                <td>{{data.delivery.actualDate.date}}</td>
-            </tr>
-            <tr>
-                <td><b>Job Location</b></td>
-                <td>{{data.location.data.portName}}, {{data.location.data.regionName}} </td>
-            </tr>
-            <tr>
-                <td><b>Project Manager</b></td>
-                <td>{{data.invites.supplier.[0].name}}</td>
-            </tr>
-
-            <tr>
-                <td><b>Dive Team Supervisor</b></td>
-                <td>{{data.invites.supervisor.[0].name}}</td>
-            </tr>
-            <tr>
-                <td><b>Dive Team Member 1</b></td>
-                <td>{{data.invites.divers.[0].name}}</td>
-            </tr>
-            </tr>
-            <tr>
-                <td><b>Dive Team Member 2</b></td>
-                <td>{{data.invites.divers.[1].name}}</td>
-            </tr>
-            </tr>
-            <tr>
-                <td><b>Dive Team Member 3</b></td>
-                <td>{{data.invites.divers.[2].name}}</td>
-            </tr>
-            </tr>
-            <tr>
-                <td><b>Dive Team Member 4</b></td>
-                <td>{{data.invites.divers.[3].name}}</td>
-            </tr>
-            </tr>
-
-        </table>
-        <h2>Vessel Particulars</h2>
-        <table>
-            <tr>
-                <td><b>Ship's Name</b></td>
-                <td>{{data.vessel.data.name}}</td>
-            </tr>
-            <tr>
-                <td><b>Flag</b></td>
-                <td>{{{data.vessel.data.flag}}}</td>
-            </tr>
-            <tr>
-                <td><b>Port of Registery</b></td>
-                <td>{{data.vessel.data.registry}}</td>
-            </tr>
-            <tr>
-                <td><b>Class</b></td>
-                <td>{{data.vessel.data.class}}</td>
-            </tr>
-            <tr>
-                <td><b>Gross Tonnage</b></td>
-                <td>{{data.vessel.data.grossTonage}}</td>
-            </tr>
-            <tr>
-                <td><b>Pennant</b></td>
-                <td>{{data.vessel.data.pennant}}</td>
-            </tr>
-            <tr>
-                <td><b>Length</b></td>
-                <td>{{data.vessel.data.length}}</td>
-            </tr>
-            <tr>
-                <td><b>Beam</b></td>
-                <td>{{data.vessel.data.beam}}</td>
-            </tr>
-
-            <tr>
-                <td><b>Ship Type</b></td>
-                <td>{{data.vessel.data.shipType}}</td>
-            </tr>
-            <tr>
-                <td><b>Call Sign</b></td>
-                <td>{{data.vessel.data.callSign}}</td>
-            </tr>
-            </tr>
-            <tr>
-                <td><b>Vessel Draft Forward</b></td>
-                <td>{{data.vessel.data.draughtForward}}</td>
-            </tr>
-            </tr>
-            <tr>
-                <td><b>Vessel Draft Midships</b></td>
-                <td>{{data.vessel.data.draughtMidships}}</td>
-            </tr>
-            </tr>
-            <tr>
-                <td><b>Vessel Draft Aft</b></td>
-                <td>{{data.vessel.data.draughtAft}}</td>
-            </tr>
-        </table>
-        <h2> Overview</h2>
-        <p>{{{data.report.overview}}}</p>
-        <h2>Reference Tables</h2>
-        <p>The below tables are referenced throughout the report to formally standardise both biofouling and
-            anti-fouling condition ratings referred to herein.</p>
-        <h3>Fouling Ratings (FR) Scale</h3>
-        <table>
-            <tr>
-                <td><b>Type</b></td>
-                <td><b>Fouling Rating (FR)</b></td>
-                <td><b>Description</b></td>
-            </tr>
-            <tr>
-                <td>Soft</td>
-                <td>0</td>
-                <td>A clean, foul-free surface; red and/or black AF paint or bare metal surface.</td>
-            </tr>
-            <tr>
-                <td>Soft</td>
-                <td>10</td>
-                <td>Light shades of red and green (incipient slime). Bare metal and painted surfaces are visible beneath
-                    the fouling.</td>
-            </tr>
-            <tr>
-                <td>Soft</td>
-                <td>20</td>
-                <td>Slime as dark green patches with yellow or brown colored areas (advanced slime). Bare metal and
-                    painted surfaces may be obscured by the fouling.</td>
-            </tr>
-            <tr>
-                <td>Soft</td>
-                <td>30</td>
-                <td>Slime as dark green patches with yellow or brown colored areas (advanced slime). Bare metal and
-                    painted surfaces may be obscured by the fouling.</td>
-            </tr>
-            <tr>
-                <td>Hard</td>
-                <td>40</td>
-                <td>Calcareous fouling in the form of tube worms less than ¼ inch (6.4 mm) in diameter or height.</td>
-            </tr>
-            <tr>
-                <td>Hard</td>
-                <td>50</td>
-                <td>Calcareous fouling in the form of barnacles, less than ¼ inch (6.4 mm) in diameter or height.</td>
-            </tr>
-            <tr>
-                <td>Hard</td>
-                <td>60</td>
-                <td>Calcareous fouling in the form of barnacles, less than ¼ inch (6.4 mm) in diameter or height.</td>
-            </tr>
-            <tr>
-                <td>Hard</td>
-                <td>70</td>
-                <td>Calcareous fouling in the form of barnacles, less than ¼ inch (6.4 mm) in diameter or height.</td>
-            </tr>
-            <tr>
-                <td>Hard</td>
-                <td>80</td>
-                <td>Tubeworms closely packed together and growing upright away from surface. Barnacles growing one on
-                    top of another, ¼ inch (6.4 mm) or less in height. Calcareous shells appear clean or white in color.
-                </td>
-            </tr>
-            <tr>
-                <td>Hard</td>
-                <td>90</td>
-                <td>Dense growth of tubeworms with barnacles, ¼ inch (6.4 mm) or greater in height. Calcareous shells
-                    brown in color (oysters and mussels); or with slime or grass overlay.</td>
-            </tr>
-            <tr>
-                <td>Composite</td>
-                <td>100</td>
-                <td>All forms of fouling present, soft and hard, particularly soft sedentary animals without calcareous
-                    covering (tunicates) growing over various forms of hard growth</td>
-            </tr>
-        </table>
-        <h3>Paint Deterioration Rating (PDR) Scale</h3>
-        <table>
-            <tr>
-                <td><b>Rating</b></td>
-                <td><b>Description</b></td>
-            </tr>
-            <tr>
-                <td>PDR-10</td>
-                <td>Anti-Foul (AF) Paint intact.</td>
-            </tr>
-            <tr>
-                <td>PDR-20</td>
-                <td>AF paint missing from edges, corners, seams, welds rivet or bolt heads to expose anti corrosion (AC)
-                    paint. (undercoat)</td>
-            </tr>
-            <tr>
-                <td>PDR-30</td>
-                <td>AF paint missing from slightly curved or flat areas to expose underlying AC paint; An AF paint with
-                    visible brush swirl marks within the outermost layer – not extending into underlying layers of
-                    paint.</td>
-            </tr>
-            <tr>
-                <td>PDR-40</td>
-                <td>AF paint missing from intact blisters to expose AC paint or an AF coating with visible brush swirl
-                    marks exposing the next underlying layer of AF or AC paint.</td>
-            </tr>
-            <tr>
-                <td>PDR-50</td>
-                <td>AF blisters ruptured to expose intact AC paint.</td>
-            </tr>
-            <tr>
-                <td>PDR-60</td>
-                <td>AF/AC paint missing or peeling to expose steel substrate with corrosion present.</td>
-            </tr>
-            <tr>
-                <td>PDR-70</td>
-                <td>AF/AC paint removed from edges, corners, seams, welds rivet or bolt heads to expose steel substrate
-                    with corrosion present.</td>
-            </tr>
-            <tr>
-                <td>PDR-80</td>
-                <td>Ruptured AF/AC blisters on slightly curved or flat surfaces with corrosion or corrosion stains
-                    present.</td>
-            </tr>
-            <tr>
-                <td>PDR-90</td>
-                <td>Area corrosion of steel substrate with no AF/AC paint cover due to peeling or abrasion damage.</td>
-            </tr>
-            <tr>
-                <td>PDR-100</td>
-                <td>Area corrosion showing visible surface evidence of pitting, scaling, and roughening of steel
-                    substrate.</td>
-            </tr>
-        </table>
-        <h2>Observation and findings</h2>
-        <h3>Niche Area Locations</h3>
-        <div id="nicheArea">
-            {{!-- images not working yet --}}
-            <img src="../public/assets/temp.png">
-        </div>
-
-        <h2> Rudder </h2>
-        <p>{{{data.rudder.rudder.comments}}}</p>
-        <h3>Rudder images</h3>
-        <div id="image">
-            {{!-- images not working yet --}}
-            <img src="../public/assets/temp.png">
-        </div>
-
-        <h2> Propellers </h2>
-        <p>{{{data.propeller.propeller.comments}}}</p>
-        <h3>Port side propeller images</h3>
-        <div id="image">
-            {{!-- images not working yet --}}
-            <img src="../public/assets/temp.png">
-        </div>
-        <h3>Starboard side propeller images</h3>
-        <div id="image">
-            {{!-- images not working yet --}}
-            <img src="../public/assets/temp.png">
-        </div>
-
-        <h2> Rope Guards </h2>
-        <p>{{{data.ropeGuard.ropeGuard.comments}}}</p>
-        <h3>Port side rope guard images</h3>
-        <div id="image">
-            {{!-- images not working yet --}}
-            <img src="../public/assets/temp.png">
-        </div>
-        <h3>Starboard side rope guard images</h3>
-        <div id="image">
-            {{!-- images not working yet --}}
-            <img src="../public/assets/temp.png">
-        </div>
 
 
-        <h2>Stern arrangement (A-brackets and shaft housings)</h2>
-        <p>{{{data.sternArrangement.sternArrangement.comments}}}</p>
-        <h3>Port side stern arrangment images</h3>
-        <div id="image">
-            {{!-- images not working yet --}}
-            <img src="../public/assets/temp.png">
-        </div>
-        <h3>Starboard stern arrangment images</h3>
-        <div id="image">
-            {{!-- images not working yet --}}
-            <img src="../public/assets/temp.png">
-        </div>
-
-        <h2>Skeg</h2>
-        <p>{{{data.bulbousBow.bulbousBow.comments}}}</p>
-        <h3>Port side stern arrangment images</h3>
-        <div id="image">
-            {{!-- images not working yet --}}
-            <img src="../public/assets/temp.png">
-        </div>
+      
 
 
-        <h2>Stabliser Fins</h2>
-        <p>{{{data.stabiliserFins.stabiliserFins.comments}}}</p>
-        <h3>Portside stabliser fin images</h3>
-        <div id="image">
-            {{!-- images not working yet --}}
-            <img src="../public/assets/temp.png">
-        </div>
-        <h3>Starboard stabliser fin images</h3>
-        <div id="image">
-            {{!-- images not working yet --}}
-            <img src="../public/assets/temp.png">
-        </div>
-
-        <h2>Bilge Keels</h2>
-        <p>{{{data.bilgeKeels.bilgeKeels.comments}}}</p>
-        <h3>Portside bilge keel images</h3>
-        <div id="image">
-            {{!-- images not working yet --}}
-            <img src="../public/assets/temp.png">
-        </div>
-        <h3>Starboard bilge keel images</h3>
-        <div id="image">
-            {{!-- images not working yet --}}
-            <img src="../public/assets/temp.png">
-        </div>
-
-        <h2>Echo Sounder</h2>
-        <p>{{{data.echoSounder.echoSounder.comments}}}</p>
-        <h3>Echo sounder images</h3>
-        <div id="image">
-            {{!-- images not working yet --}}
-            <img src="../public/assets/temp.png">
-        </div>
-
-        <h2>Log Probe</h2>
-        <p>{{{data.logProbe.logProbe.comments}}}</p>
-        <h3>Log probe images</h3>
-        <div id="image">
-            {{!-- images not working yet --}}
-            <img src="../public/assets/temp.png">
-        </div>
-
-
-        <h2>Sonar Dome</h2>
-        <p>{{{data.sonarDome.sonarDome.comments}}}</p>
-        <h3>Sonar dome images</h3>
-        <div id="image">
-            {{!-- images not working yet --}}
-            <img src="../public/assets/temp.png">
-        </div>
-
-
-        <h2>Mine and Obstacle Avoidance Sonar (Moas)</h2>
-        <p>{{{data.moas.moas.comments}}}</p>
-        <h3>Moas images</h3>
-        <div id="image">
-            {{!-- images not working yet --}}
-            <img src="../public/assets/temp.png">
-        </div>
-
-
-        <h2>Sacrificial Hull Anodes</h2>
-        <p>{{{data.hullAnodes.hullAnodes.comments}}}</p>
-        <h3>Sacrificial hull anodes images</h3>
-        <div id="image">
-            {{!-- images not working yet --}}
-            <img src="../public/assets/temp.png">
-        </div>
-
-        <h2>Seachests</h2>
-        <p>{{{data.seaChests.seaChests.comments}}}</p>
-        <h3>Seachest images</h3>
-        <div id="image">
-            {{!-- images not working yet --}}
-            <img src="../public/assets/temp.png">
-        </div>
-
-        <h2>Overboard Discharges (OBD)</h2>
-        <p>{{{data.obd.obd.comments}}}</p>
-        <h3>OBD images</h3>
-        <div id="image">
-            {{!-- images not working yet --}}
-            <img src="../public/assets/temp.png">
-        </div>
-
-        <h2>Draft Marks (problem, renamed sections in report, don't rename sections in the Json file</h2>
-        <p>{{{data.obd.obd2.comments}}}</p>
-        <h3>Draft marks images</h3>
-        <div id="image">
-            {{!-- images not working yet --}}
-            <img src="../public/assets/temp.png">
-        </div>
-
-
-        <h2>Bow Plate (problem, renamed sections in report, don't rename sections in the Json file</h2>
-        <p>{{{data.obd.obd3.comments}}}</p>
-        <h3>Bow plate images</h3>
-        <div id="image">
-            {{!-- images not working yet --}}
-            <img src="../public/assets/temp.png">
-        </div>
-
-
-        <h2>Hull Plating Areas</h2>
-        <h3>Hull photo location guideline</h3>
-        <div id="image">
-            {{!-- images not working yet --}}
-            <img src="../public/assets/temp.png">
-        </div>
-
-
-        <h3>Forward Hull Plate</h3>
-        <p>{{{data.hullPlating.hullPlatingFwdHull.comments}}}</p>
-        <h3>Forward hull plate images</h3>
-        <div id="image">
-            {{!-- images not working yet --}}
-            <img src="../public/assets/temp.png">
-        </div>
-
-
-        <h3>Midship Hull Plate</h3>
-        <p>{{{data.hullPlating.hullPlatingMidships.comments}}}</p>
-        <h3>Midship hull plate images</h3>
-        <div id="image">
-            {{!-- images not working yet --}}
-            <img src="../public/assets/temp.png">
-        </div>
-
-      <h3>Aft Hull Plate</h3>
-        <p>{{{data.hullPlating.hullPlatingAftHull.comments}}}</p>
-        <h3>Aft hull plate images</h3>
-        <div id="image">
-            {{!-- images not working yet --}}
-            <img src="../public/assets/temp.png">
-        </div>
-
-
-      <h3>Transom Plate</h3>
-        <p>{{{data.hullPlating.hullPlatingTransom.comments}}}</p>
-        <h3>Transom plate images</h3>
-        <div id="image">
-            {{!-- images not working yet --}}
-            <img src="../public/assets/temp.png">
-        </div>
-
-
-      <h2>Report Summary</h2>
-        <p>{{{data.report.summary}}}</p>
-        <h3>Transom plate images</h3>
-        <div id="image">
-            {{!-- images not working yet --}}
-            <img src="../public/assets/temp.png">
-        </div>
-
-
-
-    </div>
-
-
-
-    <section class="sheet padding-10mm">
-
-        <!-- Write HTML just like a web page -->
-        <article>This is the second sheet.</article>
-
-    </section>
 
 </main>
+    {{!-- {{> footer}} --}}
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+    <script src='/index.js'></script>
+
+</body>

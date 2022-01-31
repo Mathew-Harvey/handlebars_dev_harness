@@ -13,8 +13,26 @@ app.set("view engine", "hbs");
 app.engine("hbs", exphbs({
     extname: "hbs",
     defaultLayout: "index",
-    layoutsDir: __dirname + "/views/layouts",
-    partialsDir: __dirname + "/views/partials",
+
+    helpers: {
+        formatDateTime: function (dateTime, dateTimeFormat) {
+            let currentTime = moment(dateTime);
+            let timeFixed = currentTime.local().format(dateTimeFormat)
+            return timeFixed
+        },
+        todaysDate: function () {
+            let nowDate = moment().format("dddd DD MMMM YYYY")
+            return nowDate  
+        }
+        
+        // THIS HELPER IS FOR DIANA INTEGRATION
+        // Handlebars.registerHelper("getImages", function (path, options) {
+        //     const attachments = currentWork.attachments.filter((x) => x.path === path);
+        //     return attachments.map((attachment) => {
+        //     return options.fn(attachment);
+        //     });
+        //     });
+    }
 
 }));
 const port = 8900;
