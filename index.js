@@ -43,6 +43,9 @@ console.log(`Server is running on Port: ${port}`)
 app.get("/static", (req, res) => {
     res.render("static");
 });
+app.get("/views/", (req, res) => {
+    res.render("static");
+});
 
 app.get('/', (req, res) => {
     res.render("main", vesselData);

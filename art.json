@@ -1,0 +1,634 @@
+{
+    "invites": {
+        "supervisor": [
+            {
+                "id": "d673ebf7-5617-4d8a-983e-6cb07bf6aa33",
+                "name": "Mat Harvey",
+                "email": "mat.harvey@marinestream.io",
+                "roles": [
+                    "Supervisor"
+                ]
+            }
+        ],
+        "inspector": [
+            {
+                "id": "f0183cf8-7914-53e9-bd8e-f1570b79d2ae",
+                "name": "Rowan Fenn",
+                "email": "rowan.fenn@rise-x.io",
+                "roles": [
+                    "Inspector"
+                ]
+            }
+        ],
+        "qa": [
+            {
+                "id": "d38c685c-4395-42db-a0eb-84a1619e24ab",
+                "name": "David Barker",
+                "email": "david.barker@rise-x.io",
+                "roles": [
+                    "QA"
+                ]
+            }
+        ],
+        "approver": [
+            {
+                "id": "976d7ea2-eb09-51e1-b748-c8f1bf45220f",
+                "name": "Mat Harvey",
+                "email": "mat.harvey@rise-x.io",
+                "roles": [
+                    "Supervisor",
+                    "Inspector",
+                    "QA",
+                    "Approver",
+                    "ReadOnly"
+                ]
+            }
+        ],
+        "divers": [
+            {
+                "id": "4dbba6c0-94e2-4121-a49d-6d833898e5a0",
+                "name": "Fox Smith",
+                "email": "Fox_Smith@testemail.com",
+                "roles": [
+                    "ReadOnly"
+                ]
+            },
+            {
+                "id": "a24756b3-3e9c-43ec-ba49-d1bafbbb244d",
+                "name": "Danny",
+                "email": "Danny@testemail.com",
+                "roles": [
+                    "ReadOnly"
+                ]
+            }
+        ],
+        "buyer": [
+            {
+                "id": "d38c685c-4395-42db-a0eb-84a1619e24ab",
+                "name": "David Barker",
+                "email": "david.barker@rise-x.io",
+                "roles": [
+                    "Buyer"
+                ]
+            }
+        ],
+        "supplier": [
+            {
+                "id": "98204e7b-91f1-503d-adcd-fa9dfdc484f7",
+                "name": "Kael",
+                "email": "kael@franmarine.com.au",
+                "roles": [
+                    "Supplier"
+                ]
+            }
+        ]
+    },
+    "delivery": {
+        "foulingReference": {
+            "FR0": {
+                "Type": "Soft",
+                "FR": 0,
+                "Description": "A clean, foul-free surface; red and/or black AF paint or bare metal surface."
+            },
+            "FR10": {
+                "Type": "Soft",
+                "FR": 10,
+                "Description": "Light shades of red and green (incipient slime). Bare metal and painted surfaces are visible beneath the fouling."
+            },
+            "FR20": {
+                "Type": "Soft",
+                "FR": 20,
+                "Description": "Slime as dark green patches with yellow or brown coloured areas (advanced slime). Bare metal and painted surfaces may be obscured by the fouling."
+            },
+            "FR30": {
+                "Type": "Soft",
+                "FR": 30,
+                "Description": "Grass filaments up to 3 inches (76 mm) in length, projections up to 1⁄4 inch (6.4 mm) in height; or flat network of filaments, green, yellow, or brown in color, or soft non calcareous fouling such as sea cucumbers, sea grapes, or sea squirts projecting up to 1⁄4 inch (6.4 mm) in height. The fouling cannot be easily wiped off by hand."
+            },
+            "FR40": {
+                "Type": "Hard",
+                "FR": 40,
+                "Description": "Calcareous fouling in the form of tube worms less than 1⁄4 inch (6.4 mm) in diameter or height."
+            },
+            "FR50": {
+                "Type": "Hard",
+                "FR": 50,
+                "Description": "Calcareous fouling in the form of barnacles, less than 1⁄4 inch (6.4 mm) in diameter or height."
+            },
+            "FR60": {
+                "Type": "Hard",
+                "FR": 60,
+                "Description": "Combination of tubeworms and barnacles less than 1⁄4 inch (6.4mm) in diameter or height."
+            },
+            "FR70": {
+                "Type": "Hard",
+                "FR": 70,
+                "Description": "Combination of tubeworms and barnacles greater than 1⁄4 inch (6.4 mm) in diameter or height."
+            },
+            "FR80": {
+                "Type": "Hard",
+                "FR": 80,
+                "Description": "Tubeworms closely packed together and growing upright away from surface. Barnacles growing one on top of another, 1⁄4 inch (6.4 mm) or less in height. Calcareous shells appear clean or white in color."
+            },
+            "FR90": {
+                "Type": "Hard",
+                "FR": 90,
+                "Description": "Dense growth of tubeworms with barnacles, 1⁄4 inch (6.4 mm) or greater in height. Calcareous shells brown in color (oysters and mussels); or with slime or grass overlay."
+            },
+            "FR100": {
+                "Type": "Hard",
+                "FR": 100,
+                "Description": "All forms of fouling present, soft and hard, particularly soft sedentary animals without calcareous covering (tunicates) growing over various forms of hard growth."
+            }
+        },
+        "pdrReference": {
+            "PDR10": {
+                "PDR": 10,
+                "Description": "Anti-Foul (AF) Paint intact."
+            },
+            "PDR20": {
+                "PDR": 20,
+                "Description": "AF paint missing from edges, corners, seams, welds rivet or bolt heads to expose anti corrosion (AC) paint. (undercoat)"
+            },
+            "PDR30": {
+                "PDR": 30,
+                "Description": "AF paint missing from slightly curved or flat areas to expose underlying AC paint; An AF paint with visible brush swirl marks within the outermost layer – not extending into underlying layers of paint."
+            },
+            "PDR40": {
+                "PDR": 40,
+                "Description": "AF paint missing from intact blisters to expose AC paint or an AF coating with visible brush swirl marks exposing the next underlying layer of AF or AC paint."
+            },
+            "PDR50": {
+                "PDR": 50,
+                "Description": "AF blisters ruptured to expose intact AC paint."
+            },
+            "PDR60": {
+                "PDR": 60,
+                "Description": "AF/AC paint missing or peeling to expose steel substrate with corrosion present."
+            },
+            "PDR70": {
+                "PDR": 70,
+                "Description": "AF/AC paint removed from edges, corners, seams, welds rivet or bolt heads to expose steel substrate with corrosion present."
+            },
+            "PDR80": {
+                "PDR": 80,
+                "Description": "Ruptured AF/AC blisters on slightly curved or flat surfaces with corrosion or corrosion stains present."
+            },
+            "PDR90": {
+                "PDR": 90,
+                "Description": "Area corrosion of steel substrate with no AF/AC paint cover due to peeling or abrasion damage."
+            },
+            "PDR100": {
+                "PDR": 100,
+                "Description": "Area corrosion showing visible surface evidence of pitting, scaling, and roughening of steel substrate."
+            }
+        },
+        "window": {
+            "from": "2022-01-13T04:00:00+00:00",
+            "to": "2022-01-13T04:00:00+00:00"
+        }
+    },
+    "vessel": {
+        "data": {
+            "name": "Hull 811",
+            "flag": "",
+            "length": "58.1m",
+            "beam": "",
+            "callSign": "",
+            "description": "<p></p>\n",
+            "shipType": "",
+            "class": "Cape",
+            "draughtForward": "2m",
+            "draughtMidships": "2m",
+            "draughtAft": "2m",
+            "displayName": "Hull 811"
+        },
+        "id": "23c05711-9c49-40c1-9212-bfbe299ab231",
+        "displayName": "Hull 811",
+        "imageUrl": null,
+        "dataId": "00000000-0000-0000-0000-000000000000",
+        "revision": 0,
+        "version": 0,
+        "dianaDataType": "Thing",
+        "attachments": null,
+        "entityType": "Vessel",
+        "jsonName": "HULL811",
+        "originId": "00000000-0000-0000-0000-000000000000",
+        "companyId": "f93c2b84-8bdd-5ac8-b541-ce7e2734132e"
+    },
+    "report": {
+        "overview": "<p style=\"text-align:justify;\"><span style=\"font-family: Calibri, sans-serif;\">Franmarine Underwater Services (FUS) were engaged by Austal to carry-out an In-water hull clean (IWHC), Propeller Polish and Bow Thruster Clean on Hull 811.</span>&nbsp;</p>\n<ul>\n<li><span style=\"font-family: Calibri, sans-serif;\">All in-water maintenance work was conducted by qualified divers trained in underwater inspection and cleaning techniques and in accordance with client requirements and time schedules.</span>&nbsp;</li>\n<li style=\"text-align:justify;\"><span style=\"font-family: Calibri, sans-serif;\">The hull clean was carried out using a combination of soft rubber squeegees and hard plastic scrapers. </span>&nbsp;</li>\n<li style=\"text-align:justify;\"><span style=\"font-family: Calibri, sans-serif;\">The propellers were hydraulically cleaned to Ruberts Scale A/B+ on all surfaces of each blade. </span>&nbsp;</li>\n<li>&nbsp;<span style=\"color: rgb(255,255,255);font-size: 11pt;font-family: Calibri, sans-serif;\">The bow thruster propeller was cleaned with the use of a 6000psi water blaster due to lack of direct access to the propeller through the tunnel grates.</span>&nbsp;</li>\n<li style=\"text-align:justify;\">&nbsp;<span style=\"font-family: Calibri, sans-serif;\">All work was then documented using HD stills photography.</span>&nbsp;</li>\n</ul>\n<p style=\"text-align:justify;\"><span style=\"font-family: Calibri, sans-serif;\">Diving operations were conducted from the Austal land backed wharf using a 4 person dive team in accordance with AS/NZS 2299.1:2015. </span>&nbsp;</p>\n<p><span style=\"font-family: Calibri, sans-serif;\">Documents used to assist the project:</span>&nbsp;</p>\n<ul>\n<li><span style=\"font-family: Calibri, sans-serif;\">AS/NZS</span><br><span style=\"font-family: Calibri, sans-serif;\">     2299.1:2015</span>&nbsp;</li>\n<li><span style=\"font-family: Calibri, sans-serif;\">FRANMARINE</span><br><span style=\"font-family: Calibri, sans-serif;\">     Operations Manual</span>&nbsp;</li>\n<li><span style=\"font-family: Calibri, sans-serif;\">Client information on the day.</span>&nbsp;</li>\n</ul>\n",
+        "findings": "<p style=\"text-align:justify;\"></p>\n<p style=\"text-align:left;\"><span style=\"color: rgb(255,255,255);background-color: rgba(152,152,159,0.04);font-size: 16px;font-family: Symbol;\">·</span> <span style=\"color: rgb(255,255,255);background-color: rgba(152,152,159,0.04);font-size: 16px;font-family: Noto Sans KR;\">All underwater hull surfaces and appendages were cleaned to remove all marine fouling without causing any damage to the coating system. A combination of soft rubber squeegees and harder scrapers (for propeller shafts) were used.</span>&nbsp;</p>\n<p><span style=\"color: rgb(255,255,255);background-color: rgba(152,152,159,0.04);font-size: 16px;font-family: Symbol;\">·</span> <span style=\"color: rgb(255,255,255);background-color: rgba(152,152,159,0.04);font-size: 16px;font-family: Noto Sans KR;\">Prior to the clean biofouling was reported as predominately soft growth in the form of weed/slime and sponge consistent with FR-20. Hard marine growth in the form of tubeworm and </span><br><span style=\"color: rgb(255,255,255);background-color: rgba(152,152,159,0.04);font-size: 16px;font-family: Noto Sans KR;\"> juvenile barnacles (FR-50) were attached to the niche areas and areas of antifoul coating (AFC) defect. The total coverage of hull plate fouling was approximately 50-60%.</span>&nbsp;</p>\n<p style=\"text-align:left;\"><span style=\"color: rgb(255,255,255);background-color: rgba(152,152,159,0.04);font-size: 16px;font-family: Symbol;\">·</span> <span style=\"color: rgb(255,255,255);background-color: rgba(152,152,159,0.04);font-size: 16px;font-family: Noto Sans KR;\">On completion of the clean the divers confirmed that all underwater hull plate surfaces and appendages were free of marine fouling consistent with FR-0.</span>&nbsp;</p>\n",
+        "jobDetails": "<p style=\"text-align:justify;\">&nbsp;</p>\n"
+    },
+    "sternArrangement": {
+        "sternArrangement2": {
+            "comments": "<ul>\n<li style=\"text-align:justify;\">Port and starboard trim tabs were found to have an FR of 20-40 pre clean</li>\n<li>Wire wool was used to clean metal surfaces on both trim tabs</li>\n</ul>\n",
+            "fr": {
+                "fr0": "100",
+                "fr10": "",
+                "fr20": "",
+                "fr30": "",
+                "fr40": "",
+                "fr50": "",
+                "fr60": "",
+                "fr70": "",
+                "fr80": "",
+                "fr90": "",
+                "fr100": ""
+            },
+            "pdr": "10"
+        }
+    },
+    "propeller": {
+        "propeller": {
+            "comments": "<p><span style=\"font-size: 11pt;font-family: Symbol;\">·</span> P<span style=\"font-size: 11pt;\">ort and starboard side propellers were found to be a five (5) blade fixed pitch type propeller with a FR of 80 pre clean.</span></p>\n<p style=\"text-align:justify;\"><span style=\"font-size: 11pt;font-family: Symbol;\">·</span> <span style=\"font-size: 11pt;\">Hydraulically polishing the propellers achieved a Ruberts Scale A/B+ grade surface finish. It should be noted that there was difficulty accessing the propeller roots with the hydraulic tooling.</span>&nbsp;</p>\n<p style=\"text-align:justify;\"><span style=\"font-size: 11pt;font-family: Symbol;\">·</span> <span style=\"font-size: 11pt;\">Post clean inspection of the propellers revealed no significant signs of damage or visual anomalies. All leading/trailing edges and propeller tips were reported as smooth to touch and in good condition.</span>&nbsp;</p>\n<ul>\n<li>Port and Starboard propeller shafts were found to have an FR of 60 pre clean</li>\n<li>Steel scrapers and wire wool was used to clean propeller shafts and a FR of 0 was acheived.&nbsp;</li>\n</ul>\n",
+            "fouling": {
+                "fr0": "100",
+                "fr10": "",
+                "fr20": "",
+                "fr30": "",
+                "fr40": "",
+                "fr50": "",
+                "fr60": "",
+                "fr70": "",
+                "fr80": "",
+                "fr90": "",
+                "fr100": ""
+            }
+        }
+    },
+    "echoSounder": {
+        "echoSounder": {
+            "fouling": {
+                "fr0": "",
+                "fr10": "",
+                "fr20": "",
+                "fr30": "",
+                "fr40": "",
+                "fr50": "",
+                "fr60": "",
+                "fr70": "",
+                "fr80": "",
+                "fr90": "",
+                "fr100": ""
+            }
+        }
+    },
+    "seaChests": {
+        "seaChest2": {
+            "fouling": {
+                "fr0": "100",
+                "fr10": "",
+                "fr20": "",
+                "fr30": "",
+                "fr40": "",
+                "fr50": "",
+                "fr60": "",
+                "fr70": "",
+                "fr80": "",
+                "fr90": "",
+                "fr100": ""
+            },
+            "pdr": "10"
+        },
+        "seaChest1": {
+            "fouling": {
+                "fr0": "100",
+                "fr10": "",
+                "fr20": "",
+                "fr30": "",
+                "fr40": "",
+                "fr50": "",
+                "fr60": "",
+                "fr70": "",
+                "fr80": "",
+                "fr90": "",
+                "fr100": ""
+            },
+            "pdr": "0",
+            "comments": "<ul>\n<li>All sea chests were found to have an FR of 30 - 50 pre clean.&nbsp;</li>\n<li>All sea chest<span style=\"color: rgb(255,255,255);background-color: rgba(152,152,159,0.04);font-size: 16px;font-family: Noto Sans KR;\"> cleaned to remov ale fouling without causing any damage to the coating system. A combination of soft rubber squeegees and harder scrapers were used.</span>&nbsp;</li>\n<li>All sea chests were found to have a PDR of 10 - 20. trailing edges and&nbsp;</li>\n</ul>\n"
+        },
+        "seaChest3": {
+            "fouling": {
+                "fr0": "100",
+                "fr10": "",
+                "fr20": "",
+                "fr30": "",
+                "fr40": "",
+                "fr50": "",
+                "fr60": "",
+                "fr70": "",
+                "fr80": "",
+                "fr90": "",
+                "fr100": ""
+            },
+            "pdr": "10"
+        },
+        "seaChest4": {
+            "fouling": {
+                "fr0": "100",
+                "fr10": "",
+                "fr20": "",
+                "fr30": "",
+                "fr40": "",
+                "fr50": "",
+                "fr60": "",
+                "fr70": "",
+                "fr80": "",
+                "fr90": "",
+                "fr100": ""
+            },
+            "pdr": "10"
+        }
+    },
+    "rudder": {
+        "rudder": {
+            "fouling": {
+                "fr0": "100",
+                "fr10": "",
+                "fr20": "",
+                "fr30": "",
+                "fr40": "",
+                "fr50": "",
+                "fr60": "",
+                "fr70": "",
+                "fr80": "",
+                "fr90": "",
+                "fr100": ""
+            },
+            "pdr": "",
+            "comments": "<ul>\n<li>Port and Starboard rudders were found to have an FR of 20 pre clean.</li>\n<li>Port and Starboard rudders were found to have a PDR of 10 to 50, with areas of delamaination occouring along weld semes and edges.&nbsp;</li>\n</ul>\n"
+        }
+    },
+    "actualDelivery": {
+        "endDateTime": {
+            "date": "2022-01-13T05:45:03.365Z",
+            "offset": 480,
+            "ticks": "637776495033650000"
+        }
+    },
+    "hullPlating": {
+        "hullPlatingFwdHull": {
+            "fouling": {
+                "fr0": "100",
+                "fr10": "",
+                "fr20": "",
+                "fr30": "",
+                "fr40": "",
+                "fr50": "",
+                "fr60": "",
+                "fr70": "",
+                "fr80": "",
+                "fr90": "",
+                "fr100": ""
+            },
+            "pdr": "10"
+        },
+        "hullPlatingMidships": {
+            "fouling": {
+                "fr0": "100",
+                "fr10": "",
+                "fr20": "",
+                "fr30": "",
+                "fr40": "",
+                "fr50": "",
+                "fr60": "",
+                "fr70": "",
+                "fr80": "",
+                "fr90": "",
+                "fr100": ""
+            },
+            "pdr": "10"
+        },
+        "hullPlatingAftHull": {
+            "fouling": {
+                "fr0": "100",
+                "fr10": "",
+                "fr20": "",
+                "fr30": "",
+                "fr40": "",
+                "fr50": "",
+                "fr60": "",
+                "fr70": "",
+                "fr80": "",
+                "fr90": "",
+                "fr100": ""
+            },
+            "pdr": "10"
+        },
+        "hullPlatingTransom": {
+            "pdr": ""
+        }
+    },
+    "bilgeKeels": {
+        "bilgeKeels": {
+            "comments": "<ul>\n<li style=\"margin-left:1.5em;\"><span style=\"color: rgb(255,255,255);background-color: rgba(152,152,159,0.04);font-size: 16px;font-family: Noto Sans KR;\">Port and starboard bilge keels were found to have an FR of 20 - 30 pre clean. </span></li>\n<li><span style=\"color: rgb(255,255,255);background-color: rgba(152,152,159,0.04);font-size: 16px;font-family: Noto Sans KR;\">Port and starboard</span> bilge keels were<span style=\"color: rgb(255,255,255);background-color: rgba(152,152,159,0.04);font-size: 16px;font-family: Noto Sans KR;\"> cleaned to remove all marine fouling without causing any damage to the coating system. A combination of soft rubber squeegees and harder scrapers were used.</span>&nbsp;</li>\n</ul>\n",
+            "fouling": {
+                "fr0": "0100",
+                "fr10": "",
+                "fr20": "",
+                "fr30": "",
+                "fr40": "",
+                "fr50": "",
+                "fr60": "",
+                "fr70": "",
+                "fr80": "",
+                "fr90": "",
+                "fr100": ""
+            },
+            "pdr": "10"
+        }
+    },
+    "stabiliserFins": {
+        "stabiliserFins": {
+            "comments": "<ul>\n<li style=\"margin-left:1.5em;\"><span style=\"color: rgb(255,255,255);background-color: rgba(152,152,159,0.04);font-size: 16px;font-family: Noto Sans KR;\">Port and starboard stabiliser fins were found to have an FR of 20 - 30 pre clean. </span></li>\n<li><span style=\"color: rgb(255,255,255);background-color: rgba(152,152,159,0.04);font-size: 16px;font-family: Noto Sans KR;\">Port and starboard stabiliser fins were cleaned to remove all marine fouling without causing any damage to the coating system. A combination of soft rubber squeegees and harder scrapers were used.</span>&nbsp;</li>\n</ul>\n",
+            "fouling": {
+                "fr0": "100",
+                "fr10": "",
+                "fr20": "",
+                "fr30": "",
+                "fr40": "",
+                "fr50": "",
+                "fr60": "",
+                "fr70": "",
+                "fr80": "",
+                "fr90": "",
+                "fr100": ""
+            },
+            "pdr": "10"
+        }
+    },
+    "hullAnodes": {
+        "hullAnodes": {
+            "fouling": {
+                "fr0": "",
+                "fr10": "100",
+                "fr20": "",
+                "fr30": "",
+                "fr40": "",
+                "fr50": "",
+                "fr60": "",
+                "fr70": "",
+                "fr80": "",
+                "fr90": "",
+                "fr100": ""
+            },
+            "comments": "<ul>\n<li>All hull anodes were found to have an FR of 30-60 pre clean.</li>\n<li>A stiff scraper was used to clean all anodes.</li>\n</ul>\n"
+        }
+    },
+    "thrusters": {
+        "thrustersGratingsTunnelAssembly": {
+            "comments": "<ul>\n<li style=\"text-align:justify;\"><span style=\"color: black;font-size: 11pt;font-family: Calibri, sans-serif;\">The bow thruster propeller was found to be badly fouled with hard marine fouling in the form of tube worm and marine barnacle. This was consistent with FR-100 at 100% coverage.  </span>&nbsp;</li>\n<li style=\"text-align:justify;\"><span style=\"color: black;font-size: 11pt;font-family: Calibri, sans-serif;\">The bow thruster propeller was cleaned with the use of a 6000psi water blaster due to lack of direct access to the propeller through the tunnelgrates. </span>&nbsp;</li>\n<li style=\"text-align:justify;\"><span style=\"color: black;font-size: 11pt;font-family: Calibri, sans-serif;\">Extreme caution was used during the water blasting process to ensure that contact with any coated surface of the bow thruster tunnel was not made. </span>&nbsp;</li>\n<li style=\"text-align:justify;\"><span style=\"color: black;font-size: 11pt;font-family: Calibri, sans-serif;\">On completion of the clean the divers confirmed that all propeller surfaces were free of marine fouling (FR-0). </span>&nbsp;</li>\n</ul>\n",
+            "fouling": {
+                "fr0": "100",
+                "fr10": "",
+                "fr20": "",
+                "fr30": "",
+                "fr40": "",
+                "fr50": "",
+                "fr60": "",
+                "fr70": "",
+                "fr80": "",
+                "fr90": "",
+                "fr100": ""
+            }
+        }
+    },
+    "ropeGuard": {
+        "ropeGuard": {
+            "comments": "<p>Art look here</p>\n"
+        }
+    },
+    "location": {
+        "id": "38d7427f-1775-58d3-897f-aced41d44f18",
+        "displayName": "Fremantle",
+        "imageUrl": null,
+        "data": {
+            "portNumber": 54520,
+            "portName": "Fremantle",
+            "regionNumber": 53290,
+            "regionName": "AUSTRALIA",
+            "countryCode": "AU",
+            "countryName": "Australia",
+            "latitude": "32°03'00\"S",
+            "longitude": "115°45'00\"E",
+            "publicationNumber": "Sailing Directions Pub. 175 (Enroute) - North West and South Coasts of Australia",
+            "chartNumber": "74582",
+            "navArea": "X",
+            "harborSize": "L",
+            "harborType": "CB",
+            "shelter": "G",
+            "erTide": "N",
+            "erSwell": "N",
+            "erIce": "N",
+            "erOther": "Y",
+            "overheadLimits": "Y",
+            "chDepth": "13",
+            "anDepth": "14",
+            "cpDepth": "13",
+            "otDepth": "9",
+            "tide": 1,
+            "maxVesselLength": null,
+            "maxVesselBeam": null,
+            "maxVesselDraft": null,
+            "goodHoldingGround": "Y",
+            "turningArea": "Y",
+            "firstPortOfEntry": "Y",
+            "usRep": "Y",
+            "ptCompulsory": "Y",
+            "ptAvailable": null,
+            "ptLocalAssist": null,
+            "ptAdvisable": "Y",
+            "tugsSalvage": "U",
+            "tugsAssist": "Y",
+            "qtPratique": "Y",
+            "qtOther": "Y",
+            "cmTelephone": "U",
+            "cmTelegraph": "U",
+            "cmRadio": "Y",
+            "cmRadioTel": "U",
+            "cmAir": "Y",
+            "cmRail": "Y",
+            "loWharves": "Y",
+            "loAnchor": "U",
+            "loMedMoor": "U",
+            "loBeachMoor": "U",
+            "loIceMoor": "U",
+            "medFacilities": "Y",
+            "garbageDisposal": "Y",
+            "degauss": "U",
+            "dirtyBallast": "Y",
+            "crFixed": "Y",
+            "crMobile": "Y",
+            "crFloating": "Y",
+            "lifts100": "Y",
+            "lifts50": "Y",
+            "lifts25": "Y",
+            "lifts0": "Y",
+            "srLongshore": "Y",
+            "srElectrical": "Y",
+            "srSteam": "Y",
+            "srNavigEquip": "Y",
+            "srElectRepair": "Y",
+            "suProvisions": "Y",
+            "suWater": "Y",
+            "suFuel": "Y",
+            "suDiesel": "Y",
+            "suDeck": "Y",
+            "suEngine": "Y",
+            "repairCode": "A",
+            "drydock": "M",
+            "railway": "M",
+            "qtSanitation": "U",
+            "suAviationFuel": "U",
+            "harborUse": "UNK",
+            "ukcMgmtSystem": "U",
+            "portSecurity": "U",
+            "etaMessage": "Y",
+            "searchAndRescue": "U",
+            "tss": "U",
+            "vts": "U",
+            "cht": "U",
+            "globalId": "{C71006AA-73BA-4302-AB33-4709E6102FE1}",
+            "loRoro": "U",
+            "loSolidBulk": "U",
+            "loContainer": "U",
+            "loBreakBulk": "U",
+            "loOilTerm": "U",
+            "loLongTerm": "U",
+            "loOther": "U",
+            "loDangCargo": "U",
+            "loLiquidBulk": "U",
+            "srIceBreaking": "U",
+            "srDiving": "U",
+            "cranesContainer": "U",
+            "unloCode": null,
+            "dnc": "a0454520, coa04k, gen04a, h0454520",
+            "s121WaterBody": "",
+            "s57Enc": null,
+            "s101Enc": "",
+            "dodWaterBody": "Indian Ocean",
+            "alternateName": null,
+            "entranceWidth": null,
+            "lngTerminalDepth": null,
+            "offMaxVesselLength": null,
+            "offMaxVesselBeam": null,
+            "offMaxVesselDraft": null,
+            "ycoord": -32.049999999999955,
+            "xcoord": 115.75000000000011
+        },
+        "dataId": "00000000-0000-0000-0000-000000000000",
+        "revision": 1,
+        "version": 2,
+        "dianaDataType": "Thing",
+        "attachments": null,
+        "entityType": "thing",
+        "jsonName": "FREMANTLE",
+        "originId": "00000000-0000-0000-0000-000000000000",
+        "companyId": "10000000-1000-1000-1000-100000000000",
+        "berth": "Austal"
+    },
+    "products": "Propeller Polish,Hull Clean (In Water)",
+    "scopeOfWork": "<p>Bow thruster clean</p>\n"
+}
