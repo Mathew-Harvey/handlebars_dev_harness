@@ -10,7 +10,6 @@
         }
 
         h1 {
-
             font-size: 28px;
             text-transform: uppercase;
         }
@@ -19,7 +18,6 @@
             font-family: arial, sans-serif;
             border-collapse: collapse;
             width: 100%;
-
         }
 
         .centeredText {
@@ -33,16 +31,35 @@
         }
 
         .centerDivOnPage {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
+            width: 500px;
+            height: 400px;
+            background-color: rgb(68, 0, 255);
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
         }
+
+        .page {
+            position: relative;
+            background-color: white;
+            margin-top: 20px;
+            width: 855px;
+            height: 1200px;
+            box-shadow: 0px 2px 3px rgba(0, 0, 0, .3);
+        }
+        .footerCoverPage {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            padding-bottom: 20px;
+            align-items: center;
         }
 
         td,
         th {
-
             text-align: left;
             border: 1px solid black;
             border: 1px solid black;
@@ -79,93 +96,101 @@
             background-color: #dddddd;
         }
     </style>
-
-
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>Mooring Inspection Report</title>
-    {{#each css}}
-    <link rel="stylesheet" href="/{{this}}">
-    {{/each}}
+
+
 </head>
 
 <body>
-    <header>
-        <table>
-            <tr>
-                <td class="noBorder" style="float:left">FUS LOGO HERE</td>
-                <td class="noBorder" style="float:right">Client LOGO HERE</td>
-            </tr>
-        </table>
-        {{!-- {{{getImages attachments.0.fullUri}}} --}}
+    <div class="page">
+        <div>
+            <table>
+                <tr>
+                    <td class="noBorder" style="float:left">FUS LOGO HERE</td>
+                    <td class="noBorder" style="float:right">Client LOGO HERE</td>
+                </tr>
+            </table>
+            {{!-- {{{getImages attachments.0.fullUri}}} --}}
+        </div>
 
-    </header>
-    <div class="flexFullPageContainerFrontPage">
-    <main> 
+         
         <h1 class="centeredText">Report</h1>
         <h1 class="centeredText">{{{data.vessel.data.name}}}</h1>
         <h2 class="centeredText">{{data.products}}</h2>
         <h3 class="centeredText">{{data.location.data.portName}}&nbsp; Port</h3>
         <h3 class="centeredText">{{data.actualDelivery.endDateTime.date }}</h3>
         <h3 class="centeredText" style="text-transform: uppercase">Confidential</h3>
-        
-            <div class="centerDivOnPage">
-                <img>vessel photo goes here</img>
-            </div>
+
+
+        <div class="centerDivOnPage">
+            <img>vessel photo goes here</img>
         </div>
-        <table>
-            <tr>
-                <td class="noBorder"><img src="./photos/fuslogo2.png"> </img></td>
-                <td class="noBorder smallText">
-                    <p><b>Franmarine Underwater Servies Pty Ltd</b></p>
-                </td>
-                <td class="noBorderTopBottom smallText">
-                    <p>Tel: (08)9437 3900</p>
-                </td>
-                <td class="noBorderTopBottom noBorderRight ">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</td>
-            </tr>
-            <tr>
-                <td class="noBorder">FUS LOGO HERE</td>
-                <td class="noBorder smallText">
-                    <p>13 Possner Way</p>
-                </td>
-                <td class="noBorderTopBottom smallText">
-                    <p>www.franmarine.com.au</p>
-                </td>
-                <td class="noBorderTopBottom noBorderRight">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</td>
-            </tr>
-            <tr>
-                <td class="noBorder">FUS LOGO HERE</td>
-                <td class="noBorder smallText">
-                    <p>Henderson WA 6166</p>
-                </td>
-                <td class="noBorderTopBottom smallText">reception@franmarine.com.au</td>
-                <td class="noBorderTopBottom noBorderRight">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</td>
-            </tr>
-            <tr>
-                <td class="noBorder">FUS LOGO HERE</td>
-                <td class="noBorder smallText">
-                    <p>Australia</p>
-                </td>
-                <td class="noBorderTopBottom smallText">
-                    <p>ABN: 81 059 459</p>
-                </td>
-                <td class="noBorderTopBottom noBorderRight">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</td>
-            </tr>
+        <div class="footerCoverPage">
+            <table>
+                <tr>
+                    <td class="noBorder"><img src="./photos/fuslogo2.png"> </img></td>
+                    <td class="noBorder smallText">
+                        <p><b>Franmarine Underwater Servies Pty Ltd</b></p>
+                    </td>
+                    <td class="noBorderTopBottom smallText">
+                        <p>Tel: (08)9437 3900</p>
+                    </td>
+                    <td class="noBorderTopBottom noBorderRight ">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                    </td>
+                </tr>
+                <tr>
+                    <td class="noBorder">FUS LOGO HERE</td>
+                    <td class="noBorder smallText">
+                        <p>13 Possner Way</p>
+                    </td>
+                    <td class="noBorderTopBottom smallText">
+                        <p>www.franmarine.com.au</p>
+                    </td>
+                    <td class="noBorderTopBottom noBorderRight">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                    </td>
+                </tr>
+                <tr>
+                    <td class="noBorder">FUS LOGO HERE</td>
+                    <td class="noBorder smallText">
+                        <p>Henderson WA 6166</p>
+                    </td>
+                    <td class="noBorderTopBottom smallText">reception@franmarine.com.au</td>
+                    <td class="noBorderTopBottom noBorderRight">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                    </td>
+                </tr>
+                <tr>
+                    <td class="noBorder">FUS LOGO HERE</td>
+                    <td class="noBorder smallText">
+                        <p>Australia</p>
+                    </td>
+                    <td class="noBorderTopBottom smallText">
+                        <p>ABN: 81 059 459</p>
+                    </td>
+                    <td class="noBorderTopBottom noBorderRight">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                    </td>
+                </tr>
 
-        </table>
+            </table>
 
-        <div class="report-container">
-
-
-
-<h1>Contents</h1>
+        </div>
 
 
+    </div>
 
-
-    </main>
-    {{!-- {{> footer}} --}}
+    <div class="page">
+        <div>
+            <table>
+                <tr>
+                    <td class="noBorder" style="float:left">FUS LOGO HERE</td>
+                    <td class="noBorder" style="float:right"></td>
+                </tr>
+            </table>
+            {{!-- {{{getImages attachments.0.fullUri}}} --}}
+        </div>
+        <h1 class="centeredText">Contents</h1>
+    </div>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
