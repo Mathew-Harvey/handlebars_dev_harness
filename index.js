@@ -48,5 +48,9 @@ app.get("/views/", (req, res) => {
 });
 
 app.get('/', (req, res) => {
-    res.render("main", vesselData);
+    res.render("mainClassInspection", vesselData);
+})
+
+app.get('/hull', (req, res) => {
+    res.render("mainHullInspection", vesselData);
 })
