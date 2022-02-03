@@ -6,7 +6,68 @@
     "messages": null,
     "data": {
         "invites": {
-            "supervisor": [],
+            "supervisor": [
+                {
+                    "id": "d673ebf7-5617-4d8a-983e-6cb07bf6aa33",
+                    "name": "Mat Harvey",
+                    "email": "mat.harvey@marinestream.io",
+                    "roles": [
+                        "Supervisor"
+                    ]
+                }
+            ],
+            "inspector": [
+                {
+                    "id": "f0183cf8-7914-53e9-bd8e-f1570b79d2ae",
+                    "name": "Rowan Fenn",
+                    "email": "rowan.fenn@rise-x.io",
+                    "roles": [
+                        "Inspector"
+                    ]
+                }
+            ],
+            "qa": [
+                {
+                    "id": "d38c685c-4395-42db-a0eb-84a1619e24ab",
+                    "name": "David Barker",
+                    "email": "david.barker@rise-x.io",
+                    "roles": [
+                        "QA"
+                    ]
+                }
+            ],
+            "approver": [
+                {
+                    "id": "976d7ea2-eb09-51e1-b748-c8f1bf45220f",
+                    "name": "Mat Harvey",
+                    "email": "mat.harvey@rise-x.io",
+                    "roles": [
+                        "Supervisor",
+                        "Inspector",
+                        "QA",
+                        "Approver",
+                        "ReadOnly"
+                    ]
+                }
+            ],
+            "divers": [
+                {
+                    "id": "4dbba6c0-94e2-4121-a49d-6d833898e5a0",
+                    "name": "Fox Smith",
+                    "email": "Fox_Smith@testemail.com",
+                    "roles": [
+                        "ReadOnly"
+                    ]
+                },
+                {
+                    "id": "a24756b3-3e9c-43ec-ba49-d1bafbbb244d",
+                    "name": "Danny",
+                    "email": "Danny@testemail.com",
+                    "roles": [
+                        "ReadOnly"
+                    ]
+                }
+            ],
             "buyer": [
                 {
                     "id": "d38c685c-4395-42db-a0eb-84a1619e24ab",
@@ -27,15 +88,6 @@
                     ]
                 }
             ]
-        },
-        "finance": {
-            "currencyCode": "AUD",
-            "taxCode": "GST",
-            "sections": [],
-            "grandTotal": 0,
-            "grandTotalTax": 0,
-            "grandTotalInclusive": 0,
-            "grandTotalDiscount": 0
         },
         "delivery": {
             "foulingReference": {
@@ -144,7 +196,7 @@
         },
         "vessel": {
             "data": {
-                "name": "<p>Hull 811</p>",
+                "name": "Hull 811",
                 "flag": "",
                 "length": "58.1m",
                 "beam": "",
@@ -171,8 +223,8 @@
             "companyId": "f93c2b84-8bdd-5ac8-b541-ce7e2734132e"
         },
         "report": {
-            "overview": "<p style=\"text-align:justify;\"><span style=\"font-family: Calibri, sans-serif;\">Franmarine Underwater Services (FUS) were engaged by Austal to carry-out an In-water hull clean (IWHC), Propeller Polish and Bow Thruster Clean on Hull 811.</span>&nbsp;</p>\n<ul>\n<li style=\"text-align:justify;\"><span style=\"font-family: Calibri, sans-serif;\">All in-water maintenance work was conducted by qualified divers trained in under water inspection and cleaning techniques and in accordance with client requirements and time schedules.</span>&nbsp;</li>\n<li style=\"text-align:justify;\"><span style=\"font-family: Calibri, sans-serif;\">The hull clean was carried out using a combination of soft rubber squeegees and hard plastic scrapers. </span>&nbsp;</li>\n<li style=\"text-align:justify;\"><span style=\"font-family: Calibri, sans-serif;\">The propellers were hydraulically cleaned to Ruberts Scale A/B+ on all surfaces of each blade. </span>&nbsp;</li>\n<li style=\"text-align:justify;\">&nbsp;<span style=\"color: black;font-size: 11pt;font-family: Calibri, sans-serif;\">The bowthruster propeller was cleaned with the use of a 6000psi water blaster due to lack of direct access to the propeller through the tunnel grates. </span>&nbsp;</li>\n<li style=\"text-align:justify;\">&nbsp;<span style=\"font-family: Calibri, sans-serif;\">All work was then documented using HD stills photography.</span>&nbsp;</li>\n</ul>\n<p style=\"text-align:justify;\"><span style=\"font-family: Calibri, sans-serif;\">Diving operations were conducted from the Austal land backed wharf using a 4 person dive team in accordance with AS/NZS 2299.1:2015. </span>&nbsp;</p>\n<p><span style=\"font-family: Calibri, sans-serif;\">Documents used to assist the project:</span>&nbsp;</p>\n<ul>\n<li><span style=\"font-family: Calibri, sans-serif;\">AS/NZS</span><br><span style=\"font-family: Calibri, sans-serif;\">     2299.1:2015</span>&nbsp;</li>\n<li><span style=\"font-family: Calibri, sans-serif;\">FRANMARINE</span><br><span style=\"font-family: Calibri, sans-serif;\">     Operations Manual</span>&nbsp;</li>\n<li><span style=\"font-family: Calibri, sans-serif;\">Client information on the day.</span>&nbsp;</li>\n</ul>\n",
-            "findings": "<p style=\"text-align:justify;\"></p>\n<p style=\"text-align:left;\"><span style=\"color: rgb(255,255,255);background-color: rgba(152,152,159,0.04);font-size: 16px;font-family: Symbol;\">·</span> <span style=\"color: rgb(255,255,255);background-color: rgba(152,152,159,0.04);font-size: 16px;font-family: Noto Sans KR;\">All underwater hull surfaces and appendages were cleaned to remove all marine fouling without causing any damage to the coating system. A combination of soft rubber squeegees and harder scrapers (for propeller shafts) were used.</span>&nbsp;</p>\n<p style=\"text-align:left;\"><span style=\"color: rgb(255,255,255);background-color: rgba(152,152,159,0.04);font-size: 16px;font-family: Symbol;\">·</span> <span style=\"color: rgb(255,255,255);background-color: rgba(152,152,159,0.04);font-size: 16px;font-family: Noto Sans KR;\">Prior to the clean biofouling was reported as predominately soft growth in the form of weed/slime and sponge consistent with FR-20. Hard marine growth in the form of tube worm and </span><br><span style=\"color: rgb(255,255,255);background-color: rgba(152,152,159,0.04);font-size: 16px;font-family: Noto Sans KR;\"> juvenile barnacles (FR-50) were attached to the niche areas and areas of antifoul coating (AFC) defect. The total coverage of hull plate fouling was approximately 50-60%.</span>&nbsp;</p>\n<p style=\"text-align:left;\"><span style=\"color: rgb(255,255,255);background-color: rgba(152,152,159,0.04);font-size: 16px;font-family: Symbol;\">·</span> <span style=\"color: rgb(255,255,255);background-color: rgba(152,152,159,0.04);font-size: 16px;font-family: Noto Sans KR;\">On completion of the clean the divers confirmed that all underwater hull plate surfaces and appendages were free of marine fouling consistent with FR-0.</span>&nbsp;</p>\n",
+            "overview": "<p style=\"text-align:justify;\"><span style=\"font-family: Calibri, sans-serif;\">Franmarine Underwater Services (FUS) were engaged by Austal to carry-out an In-water hull clean (IWHC), Propeller Polish and Bow Thruster Clean on Hull 811.</span>&nbsp;</p>\n<ul>\n<li><span style=\"font-family: Calibri, sans-serif;\">All in-water maintenance work was conducted by qualified divers trained in underwater inspection and cleaning techniques and in accordance with client requirements and time schedules.</span>&nbsp;</li>\n<li style=\"text-align:justify;\"><span style=\"font-family: Calibri, sans-serif;\">The hull clean was carried out using a combination of soft rubber squeegees and hard plastic scrapers. </span>&nbsp;</li>\n<li style=\"text-align:justify;\"><span style=\"font-family: Calibri, sans-serif;\">The propellers were hydraulically cleaned to Ruberts Scale A/B+ on all surfaces of each blade. </span>&nbsp;</li>\n<li>&nbsp;<span style=\"color: rgb(255,255,255);font-size: 11pt;font-family: Calibri, sans-serif;\">The bow thruster propeller was cleaned with the use of a 6000psi water blaster due to lack of direct access to the propeller through the tunnel grates.</span>&nbsp;</li>\n<li style=\"text-align:justify;\">&nbsp;<span style=\"font-family: Calibri, sans-serif;\">All work was then documented using HD stills photography.</span>&nbsp;</li>\n</ul>\n<p style=\"text-align:justify;\"><span style=\"font-family: Calibri, sans-serif;\">Diving operations were conducted from the Austal land backed wharf using a 4 person dive team in accordance with AS/NZS 2299.1:2015. </span>&nbsp;</p>\n<p><span style=\"font-family: Calibri, sans-serif;\">Documents used to assist the project:</span>&nbsp;</p>\n<ul>\n<li><span style=\"font-family: Calibri, sans-serif;\">AS/NZS</span><br><span style=\"font-family: Calibri, sans-serif;\">     2299.1:2015</span>&nbsp;</li>\n<li><span style=\"font-family: Calibri, sans-serif;\">FRANMARINE</span><br><span style=\"font-family: Calibri, sans-serif;\">     Operations Manual</span>&nbsp;</li>\n<li><span style=\"font-family: Calibri, sans-serif;\">Client information on the day.</span>&nbsp;</li>\n</ul>\n",
+            "findings": "<p style=\"text-align:justify;\"></p>\n<p style=\"text-align:left;\"><span style=\"color: rgb(255,255,255);background-color: rgba(152,152,159,0.04);font-size: 16px;font-family: Symbol;\">·</span> <span style=\"color: rgb(255,255,255);background-color: rgba(152,152,159,0.04);font-size: 16px;font-family: Noto Sans KR;\">All underwater hull surfaces and appendages were cleaned to remove all marine fouling without causing any damage to the coating system. A combination of soft rubber squeegees and harder scrapers (for propeller shafts) were used.</span>&nbsp;</p>\n<p><span style=\"color: rgb(255,255,255);background-color: rgba(152,152,159,0.04);font-size: 16px;font-family: Symbol;\">·</span> <span style=\"color: rgb(255,255,255);background-color: rgba(152,152,159,0.04);font-size: 16px;font-family: Noto Sans KR;\">Prior to the clean biofouling was reported as predominately soft growth in the form of weed/slime and sponge consistent with FR-20. Hard marine growth in the form of tubeworm and </span><br><span style=\"color: rgb(255,255,255);background-color: rgba(152,152,159,0.04);font-size: 16px;font-family: Noto Sans KR;\"> juvenile barnacles (FR-50) were attached to the niche areas and areas of antifoul coating (AFC) defect. The total coverage of hull plate fouling was approximately 50-60%.</span>&nbsp;</p>\n<p style=\"text-align:left;\"><span style=\"color: rgb(255,255,255);background-color: rgba(152,152,159,0.04);font-size: 16px;font-family: Symbol;\">·</span> <span style=\"color: rgb(255,255,255);background-color: rgba(152,152,159,0.04);font-size: 16px;font-family: Noto Sans KR;\">On completion of the clean the divers confirmed that all underwater hull plate surfaces and appendages were free of marine fouling consistent with FR-0.</span>&nbsp;</p>\n",
             "jobDetails": "<p style=\"text-align:justify;\">&nbsp;</p>\n"
         },
         "sternArrangement": {
@@ -317,9 +369,9 @@
         },
         "actualDelivery": {
             "endDateTime": {
-                "date": "2022-01-10T08:00:01.101Z",
+                "date": "2022-01-13T05:45:03.365Z",
                 "offset": 480,
-                "ticks": "637773984011010000"
+                "ticks": "637776495033650000"
             }
         },
         "hullPlating": {
@@ -447,6 +499,11 @@
                     "fr90": "",
                     "fr100": ""
                 }
+            }
+        },
+        "ropeGuard": {
+            "ropeGuard": {
+                "comments": "<p>Art look here</p>\n"
             }
         },
         "location": {
@@ -613,7 +670,7 @@
                                     "userImageUrl": null,
                                     "eventDateTimeUtc": "2022-01-07T03:14:08.7343057+00:00",
                                     "latModifiedUtc": "2022-01-07T03:14:08.7343057+00:00",
-                                    "durationDays": 20.213406237516203,
+                                    "durationDays": 27.13260834891088,
                                     "userAccount": null,
                                     "status": "Skipped",
                                     "dataVersion": {
@@ -658,7 +715,7 @@
                             "userImageUrl": null,
                             "eventDateTimeUtc": "2022-01-07T03:14:08.5278068+00:00",
                             "latModifiedUtc": "2022-01-07T03:14:08.5278068+00:00",
-                            "durationDays": 20.21340862802199,
+                            "durationDays": 27.132610739430554,
                             "userAccount": null,
                             "status": "Skipped",
                             "dataVersion": {
@@ -684,10 +741,10 @@
                         "tags": null,
                         "components": [
                             {
-                                "id": "fc8a48e7-e921-41aa-b2e5-0d0d4fdf19e5",
+                                "id": "a65bcdcb-2734-44d6-917a-0a78091b1f89",
                                 "components": [
                                     {
-                                        "id": "c857388e-6123-4aff-8200-7d88bdc92da6",
+                                        "id": "9f273cd5-a620-49ab-a61e-e32b71aed283",
                                         "components": [],
                                         "name": "Buyer",
                                         "component": "user-invitation",
@@ -716,14 +773,14 @@
                                             "unitOfMeasure": "",
                                             "multiSelect": "single"
                                         },
-                                        "parentId": "fc8a48e7-e921-41aa-b2e5-0d0d4fdf19e5",
+                                        "parentId": "a65bcdcb-2734-44d6-917a-0a78091b1f89",
                                         "width": null,
                                         "required": false,
                                         "showAtStep": "*",
                                         "label": null
                                     },
                                     {
-                                        "id": "1d613c27-6963-44f2-96b8-0cef906e9d23",
+                                        "id": "6b1b9ea8-11cc-4f0f-8637-892fb85fef62",
                                         "components": [],
                                         "name": "Vessel",
                                         "component": "search-vessel",
@@ -751,14 +808,14 @@
                                             "unitOfMeasure": "",
                                             "multiSelect": "single"
                                         },
-                                        "parentId": "fc8a48e7-e921-41aa-b2e5-0d0d4fdf19e5",
+                                        "parentId": "a65bcdcb-2734-44d6-917a-0a78091b1f89",
                                         "width": null,
                                         "required": false,
                                         "showAtStep": "*",
                                         "label": null
                                     },
                                     {
-                                        "id": "cfcbcc7e-7f6c-45ad-a6bd-2389a8b4bfd1",
+                                        "id": "58d52b6a-1d78-4294-bd8e-db4e7e1a5953",
                                         "components": [],
                                         "name": "Destination Port",
                                         "component": "search-things",
@@ -773,7 +830,7 @@
                                             "title": "Destination Port",
                                             "showTitle": false,
                                             "copyData": true,
-                                            "required": true,
+                                            "required": false,
                                             "showInReport": true,
                                             "configurable": false,
                                             "alwaysShow": false,
@@ -787,16 +844,16 @@
                                             "multiSelect": "single",
                                             "searchBy": "displayName"
                                         },
-                                        "parentId": "fc8a48e7-e921-41aa-b2e5-0d0d4fdf19e5",
+                                        "parentId": "a65bcdcb-2734-44d6-917a-0a78091b1f89",
                                         "width": null,
                                         "required": false,
                                         "showAtStep": "*",
                                         "label": null
                                     },
                                     {
-                                        "id": "1ac98ac3-7ddb-4fba-bb12-8f8cc901ae76",
+                                        "id": "8d54eb39-0c4f-4c5c-8525-1de695055ac6",
                                         "components": [],
-                                        "name": "Berth",
+                                        "name": "Berth sadfasdf",
                                         "component": "input-text",
                                         "defaultValue": "",
                                         "dataPath": "$.location.berth",
@@ -806,7 +863,7 @@
                                         "cloneData": true,
                                         "dataPathEditable": false,
                                         "properties": {
-                                            "title": "Berth",
+                                            "title": "Berth sadfasdf",
                                             "showTitle": false,
                                             "copyData": true,
                                             "required": false,
@@ -820,14 +877,14 @@
                                             "unitOfMeasure": "",
                                             "multiSelect": "single"
                                         },
-                                        "parentId": "fc8a48e7-e921-41aa-b2e5-0d0d4fdf19e5",
+                                        "parentId": "a65bcdcb-2734-44d6-917a-0a78091b1f89",
                                         "width": null,
                                         "required": false,
                                         "showAtStep": "*",
                                         "label": null
                                     },
                                     {
-                                        "id": "518a554b-b0cf-49b5-a3f8-eb15082546b3",
+                                        "id": "e4c74ce6-b506-4b52-a5c6-0738c8ec7c80",
                                         "components": [],
                                         "name": "Delivery Window",
                                         "component": "date-window",
@@ -835,13 +892,13 @@
                                         "dataPath": "$.delivery.window",
                                         "dataSource": "Work",
                                         "resource": "Data",
-                                        "copyData": true,
+                                        "copyData": false,
                                         "cloneData": true,
                                         "dataPathEditable": false,
                                         "properties": {
                                             "title": "Delivery Window",
                                             "showTitle": false,
-                                            "copyData": true,
+                                            "copyData": false,
                                             "required": true,
                                             "showInReport": true,
                                             "configurable": false,
@@ -852,17 +909,17 @@
                                             "minValue": "",
                                             "unitOfMeasure": "",
                                             "multiSelect": "single",
-                                            "dateAllowedDaysBefore": "-14",
-                                            "dateAllowedDaysAfter": "-1"
+                                            "dateAllowedDaysBefore": "365",
+                                            "dateAllowedDaysAfter": "3"
                                         },
-                                        "parentId": "fc8a48e7-e921-41aa-b2e5-0d0d4fdf19e5",
+                                        "parentId": "a65bcdcb-2734-44d6-917a-0a78091b1f89",
                                         "width": null,
                                         "required": false,
                                         "showAtStep": "*",
                                         "label": null
                                     },
                                     {
-                                        "id": "76e07b5c-4219-48b6-b1e9-8b14a46dfabc",
+                                        "id": "5dbb483a-2353-48f4-b27b-7e205c488e24",
                                         "components": [],
                                         "name": "Order ID",
                                         "component": "input-text",
@@ -888,14 +945,14 @@
                                             "unitOfMeasure": "",
                                             "multiSelect": "single"
                                         },
-                                        "parentId": "fc8a48e7-e921-41aa-b2e5-0d0d4fdf19e5",
+                                        "parentId": "a65bcdcb-2734-44d6-917a-0a78091b1f89",
                                         "width": null,
                                         "required": false,
                                         "showAtStep": "*",
                                         "label": null
                                     },
                                     {
-                                        "id": "cefeee19-ec01-442c-87bc-69cd2d718c3c",
+                                        "id": "8bcb4512-3735-4203-bb74-205ae620a3dd",
                                         "components": [],
                                         "name": "Supplier",
                                         "component": "user-invitation",
@@ -924,14 +981,14 @@
                                             "unitOfMeasure": "",
                                             "multiSelect": "single"
                                         },
-                                        "parentId": "fc8a48e7-e921-41aa-b2e5-0d0d4fdf19e5",
+                                        "parentId": "a65bcdcb-2734-44d6-917a-0a78091b1f89",
                                         "width": null,
                                         "required": false,
                                         "showAtStep": "*",
                                         "label": null
                                     },
                                     {
-                                        "id": "520d2c59-ba77-4d66-86eb-3f49b58d831c",
+                                        "id": "e6db51a9-16bd-4377-91ae-f77d127f8332",
                                         "components": [],
                                         "name": "Services",
                                         "component": "product-selection",
@@ -968,14 +1025,14 @@
                                             "multiSelect": "multi",
                                             "updateDataPath": "$.finance"
                                         },
-                                        "parentId": "fc8a48e7-e921-41aa-b2e5-0d0d4fdf19e5",
+                                        "parentId": "a65bcdcb-2734-44d6-917a-0a78091b1f89",
                                         "width": null,
                                         "required": false,
                                         "showAtStep": "*",
                                         "label": null
                                     },
                                     {
-                                        "id": "36b43190-4ce1-4926-b09e-71bcc837ab1e",
+                                        "id": "da6bfa07-7090-42a5-9588-b0050780eaa9",
                                         "components": [],
                                         "name": "Additional Detail",
                                         "component": "richtext-input",
@@ -1000,7 +1057,7 @@
                                             "unitOfMeasure": "",
                                             "multiSelect": "single"
                                         },
-                                        "parentId": "fc8a48e7-e921-41aa-b2e5-0d0d4fdf19e5",
+                                        "parentId": "a65bcdcb-2734-44d6-917a-0a78091b1f89",
                                         "width": null,
                                         "required": false,
                                         "showAtStep": "*",
@@ -1070,7 +1127,7 @@
                                     "userImageUrl": null,
                                     "eventDateTimeUtc": "2022-01-07T03:14:09.3105864+00:00",
                                     "latModifiedUtc": "2022-01-07T03:14:09.3105864+00:00",
-                                    "durationDays": 20.213399569983796,
+                                    "durationDays": 27.132601681172453,
                                     "userAccount": null,
                                     "status": "Skipped",
                                     "dataVersion": {
@@ -1099,16 +1156,7 @@
                                 "FlowOwner": "FlowOwner",
                                 "Buyer": "Buyer"
                             },
-                            "userPermissions": [
-                                "submitquote/submitquote",
-                                "Read",
-                                "Update",
-                                "Edit",
-                                "Delegate",
-                                null,
-                                "Supplier",
-                                "submitquote/declinerfq"
-                            ],
+                            "userPermissions": [],
                             "printContext": null
                         },
                         {
@@ -1127,7 +1175,7 @@
                                     "userImageUrl": null,
                                     "eventDateTimeUtc": "2022-01-07T03:14:09.5918404+00:00",
                                     "latModifiedUtc": "2022-01-07T03:14:09.5918404+00:00",
-                                    "durationDays": 20.213396318793983,
+                                    "durationDays": 27.132598426215278,
                                     "userAccount": null,
                                     "status": "Skipped",
                                     "dataVersion": {
@@ -1156,9 +1204,7 @@
                                 "FlowOwner": "FlowOwner",
                                 "Supplier": "Supplier"
                             },
-                            "userPermissions": [
-                                "Read"
-                            ],
+                            "userPermissions": [],
                             "printContext": null
                         }
                     ],
@@ -1171,7 +1217,7 @@
                             "userImageUrl": null,
                             "eventDateTimeUtc": "2022-01-07T03:14:09.0919751+00:00",
                             "latModifiedUtc": "2022-01-07T03:14:09.0919751+00:00",
-                            "durationDays": 20.213402104708333,
+                            "durationDays": 27.132604211899306,
                             "userAccount": null,
                             "status": "Skipped",
                             "dataVersion": {
@@ -1197,10 +1243,10 @@
                         "tags": null,
                         "components": [
                             {
-                                "id": "ae9393bd-45fe-456b-ae5d-fd666d8bedcf",
+                                "id": "5b82c37a-0654-4da7-8e61-2c1050ce597b",
                                 "components": [
                                     {
-                                        "id": "990f1f9b-9568-4d62-afdb-bc28df3cf9bc",
+                                        "id": "e4494f98-fc1f-4192-bc30-5c658e0f7fae",
                                         "components": [],
                                         "name": "Order",
                                         "component": "finance-section",
@@ -1227,14 +1273,14 @@
                                             "unitOfMeasure": "",
                                             "multiSelect": "single"
                                         },
-                                        "parentId": "ae9393bd-45fe-456b-ae5d-fd666d8bedcf",
+                                        "parentId": "5b82c37a-0654-4da7-8e61-2c1050ce597b",
                                         "width": null,
                                         "required": false,
                                         "showAtStep": "*",
                                         "label": null
                                     },
                                     {
-                                        "id": "9165fd09-016e-4e67-9dac-29e4ea0fa2d2",
+                                        "id": "507b77f6-a379-41c0-99a0-20a8be129a09",
                                         "components": [],
                                         "name": "Terms and Conditions",
                                         "component": "richtext-input",
@@ -1259,14 +1305,14 @@
                                             "unitOfMeasure": "",
                                             "multiSelect": "single"
                                         },
-                                        "parentId": "ae9393bd-45fe-456b-ae5d-fd666d8bedcf",
+                                        "parentId": "5b82c37a-0654-4da7-8e61-2c1050ce597b",
                                         "width": null,
                                         "required": false,
                                         "showAtStep": "*",
                                         "label": null
                                     },
                                     {
-                                        "id": "903fe2af-13c2-4d69-853b-1748c5381404",
+                                        "id": "006de1b8-03fd-409f-aeca-57ecc1ab1621",
                                         "components": [],
                                         "name": "Order Valid Until",
                                         "component": "date-picker",
@@ -1293,14 +1339,14 @@
                                             "dateAllowedDaysBefore": "0",
                                             "dateAllowedDaysAfter": "-1"
                                         },
-                                        "parentId": "ae9393bd-45fe-456b-ae5d-fd666d8bedcf",
+                                        "parentId": "5b82c37a-0654-4da7-8e61-2c1050ce597b",
                                         "width": null,
                                         "required": false,
                                         "showAtStep": "*",
                                         "label": null
                                     },
                                     {
-                                        "id": "ae72d0a6-f67b-4891-8347-415a85466d63",
+                                        "id": "a4bf2b52-54bd-40a4-87ae-86885188c60f",
                                         "components": [],
                                         "name": "Shared Attachments",
                                         "component": "attachments",
@@ -1327,7 +1373,7 @@
                                             "size": "small",
                                             "multiSelect": "single"
                                         },
-                                        "parentId": "ae9393bd-45fe-456b-ae5d-fd666d8bedcf",
+                                        "parentId": "5b82c37a-0654-4da7-8e61-2c1050ce597b",
                                         "width": null,
                                         "required": false,
                                         "showAtStep": "*",
@@ -1368,16 +1414,7 @@
                     },
                     "initiatorPartyName": null,
                     "roles": null,
-                    "userPermissions": [
-                        "submitquote/submitquote",
-                        "Read",
-                        "Update",
-                        "Edit",
-                        "Delegate",
-                        null,
-                        "Supplier",
-                        "submitquote/declinerfq"
-                    ],
+                    "userPermissions": [],
                     "printContext": null
                 }
             ],
@@ -1390,7 +1427,7 @@
                     "userImageUrl": null,
                     "eventDateTimeUtc": "2022-01-07T03:14:08.3663665+00:00",
                     "latModifiedUtc": "2022-01-07T03:14:08.3663665+00:00",
-                    "durationDays": 20.21341050932986,
+                    "durationDays": 27.13261262040162,
                     "userAccount": null,
                     "status": "Skipped",
                     "dataVersion": {
@@ -1449,27 +1486,27 @@
                                     "userName": "Mathew Harvey",
                                     "userImageUrl": null,
                                     "eventDateTimeUtc": "2022-01-07T03:14:10.6339367+00:00",
-                                    "latModifiedUtc": "2022-01-07T03:14:10.6339367+00:00",
-                                    "durationDays": 20.213384264679398,
+                                    "latModifiedUtc": "2022-02-02T03:18:57.0817148+00:00",
+                                    "durationDays": 26.003315367802085,
                                     "userAccount": null,
-                                    "status": "InProgress",
+                                    "status": "Complete",
                                     "dataVersion": {
                                         "stepId": "5fb245bc-4fe4-5c16-adf4-30e936f18c13",
                                         "dataId": "00000000-0000-0000-0000-000000000000",
                                         "version": 0,
                                         "hashCode": null
                                     },
-                                    "eventDisplayName": "inspection/resourcing/resourcing/submitresourcing",
-                                    "actionId": "00000000-0000-0000-0000-000000000000",
+                                    "eventDisplayName": "Submit",
+                                    "actionId": "d587fa56-2b66-50b8-84be-b5ae27b3ecb9",
                                     "lastModifiedBy": "feb37bbc-182a-41c0-9695-beb75f9f98ae",
                                     "layoutId": "00000000-0000-0000-0000-000000000000"
                                 }
                             ],
                             "isEndNode": false,
-                            "isActive": true,
-                            "isComplete": false,
+                            "isActive": false,
+                            "isComplete": true,
                             "isNotStarted": false,
-                            "status": "InProgress",
+                            "status": "Complete",
                             "hasSteps": false,
                             "hasActions": false,
                             "layout": null,
@@ -1479,40 +1516,13 @@
                                 "Everyone": "Everyone"
                             },
                             "userPermissions": [
-                                "submitresourcing/submitresourcing",
                                 "Read",
-                                "Update",
-                                "Edit",
-                                "Delegate",
-                                null,
-                                "Supplier"
+                                "Edit"
                             ],
                             "printContext": null
                         }
                     ],
-                    "actions": [
-                        {
-                            "id": "d587fa56-2b66-50b8-84be-b5ae27b3ecb9",
-                            "displayName": "Submit",
-                            "imageUrl": null,
-                            "stepId": "5fb245bc-4fe4-5c16-adf4-30e936f18c13",
-                            "eventName": "submitresourcing/submitresourcing",
-                            "comment": null,
-                            "url": "/api/v2/flow/execute/b98b480b-4c2a-4cb6-b6fe-683e334fd805?eventName=submitresourcing/submitresourcing",
-                            "invitedPartyName": null,
-                            "dataPath": null,
-                            "skipValidation": false,
-                            "activities": null,
-                            "invitedParties": [
-                                {
-                                    "partyName": "Supervisor",
-                                    "dataPath": "$.invites.supervisor"
-                                }
-                            ],
-                            "ccRoles": null,
-                            "actionType": 0
-                        }
-                    ],
+                    "actions": [],
                     "events": [
                         {
                             "eventId": "f86432cc-8b83-49ec-89ea-794ffecc46e1",
@@ -1520,37 +1530,37 @@
                             "userName": "Mathew Harvey",
                             "userImageUrl": null,
                             "eventDateTimeUtc": "2022-01-07T03:14:10.0861214+00:00",
-                            "latModifiedUtc": "2022-01-07T03:14:10.0861214+00:00",
-                            "durationDays": 20.213390605546298,
+                            "latModifiedUtc": "2022-02-02T03:19:00.0649956+00:00",
+                            "durationDays": 26.003356236969907,
                             "userAccount": null,
-                            "status": "InProgress",
+                            "status": "Complete",
                             "dataVersion": {
                                 "stepId": "bc93e05a-7879-50d9-bad0-2204c7103c19",
                                 "dataId": "00000000-0000-0000-0000-000000000000",
                                 "version": 0,
                                 "hashCode": null
                             },
-                            "eventDisplayName": "inspection/resourcing/resourcing",
-                            "actionId": "00000000-0000-0000-0000-000000000000",
+                            "eventDisplayName": "Submit",
+                            "actionId": "d587fa56-2b66-50b8-84be-b5ae27b3ecb9",
                             "lastModifiedBy": "feb37bbc-182a-41c0-9695-beb75f9f98ae",
                             "layoutId": "bcf1d416-4888-5c7c-88df-8a25e8d1c9cb"
                         }
                     ],
                     "isEndNode": false,
-                    "isActive": true,
-                    "isComplete": false,
+                    "isActive": false,
+                    "isComplete": true,
                     "isNotStarted": false,
-                    "status": "InProgress",
+                    "status": "Complete",
                     "hasSteps": true,
-                    "hasActions": true,
+                    "hasActions": false,
                     "layout": {
                         "tags": null,
                         "components": [
                             {
-                                "id": "eadb0ae6-02b9-45c5-ae9a-e80d7308a64d",
+                                "id": "8fcc54ab-b8c8-4e5b-b54a-e53776c28719",
                                 "components": [
                                     {
-                                        "id": "7329391c-c4b7-46e2-bc58-5b61ef0c2130",
+                                        "id": "c6543b3c-6c32-433f-be38-8e8d34da31e3",
                                         "components": [],
                                         "name": "Order ID",
                                         "component": "input-text",
@@ -1576,7 +1586,7 @@
                                             "unitOfMeasure": "",
                                             "multiSelect": "single"
                                         },
-                                        "parentId": "eadb0ae6-02b9-45c5-ae9a-e80d7308a64d",
+                                        "parentId": "8fcc54ab-b8c8-4e5b-b54a-e53776c28719",
                                         "width": null,
                                         "required": false,
                                         "showAtStep": "*",
@@ -1608,10 +1618,10 @@
                                 "label": "Confirm Order"
                             },
                             {
-                                "id": "d512ef94-e0e9-4f29-8a4a-975fa1513913",
+                                "id": "f63e8050-46d8-491c-94dc-a374f28d1734",
                                 "components": [
                                     {
-                                        "id": "1f0e58ab-bc1d-4450-8c96-328dbd42b8d8",
+                                        "id": "954648fc-2602-4548-bd88-9151f2b1dc70",
                                         "components": [],
                                         "name": "Supervisor",
                                         "component": "user-invitation",
@@ -1640,14 +1650,14 @@
                                             "unitOfMeasure": "",
                                             "multiSelect": "single"
                                         },
-                                        "parentId": "d512ef94-e0e9-4f29-8a4a-975fa1513913",
+                                        "parentId": "f63e8050-46d8-491c-94dc-a374f28d1734",
                                         "width": null,
                                         "required": false,
                                         "showAtStep": "*",
                                         "label": null
                                     },
                                     {
-                                        "id": "153a1b2c-204d-4e5b-905e-a638fae25deb",
+                                        "id": "d6518fa0-5cc9-4063-a8d1-46bac9de34fe",
                                         "components": [],
                                         "name": "Inspector",
                                         "component": "user-invitation",
@@ -1676,14 +1686,14 @@
                                             "unitOfMeasure": "",
                                             "multiSelect": "single"
                                         },
-                                        "parentId": "d512ef94-e0e9-4f29-8a4a-975fa1513913",
+                                        "parentId": "f63e8050-46d8-491c-94dc-a374f28d1734",
                                         "width": null,
                                         "required": false,
                                         "showAtStep": "*",
                                         "label": null
                                     },
                                     {
-                                        "id": "0742d24c-6fa3-4bb1-80d2-2d2376926f1e",
+                                        "id": "4463e6e4-8567-4f41-80f8-f13f03c79d00",
                                         "components": [],
                                         "name": "QA",
                                         "component": "user-invitation",
@@ -1712,14 +1722,14 @@
                                             "unitOfMeasure": "",
                                             "multiSelect": "single"
                                         },
-                                        "parentId": "d512ef94-e0e9-4f29-8a4a-975fa1513913",
+                                        "parentId": "f63e8050-46d8-491c-94dc-a374f28d1734",
                                         "width": null,
                                         "required": false,
                                         "showAtStep": "*",
                                         "label": null
                                     },
                                     {
-                                        "id": "b2bfc47f-2b08-4cf1-b188-2bbcc6d34b09",
+                                        "id": "25fad7f0-c7cf-4c2d-a908-40e27ce8dd08",
                                         "components": [],
                                         "name": "Approver",
                                         "component": "user-invitation",
@@ -1752,14 +1762,14 @@
                                             "unitOfMeasure": "",
                                             "multiSelect": "single"
                                         },
-                                        "parentId": "d512ef94-e0e9-4f29-8a4a-975fa1513913",
+                                        "parentId": "f63e8050-46d8-491c-94dc-a374f28d1734",
                                         "width": null,
                                         "required": false,
                                         "showAtStep": "*",
                                         "label": null
                                     },
                                     {
-                                        "id": "c3059101-25d1-4837-aa4f-a4fc6627c76a",
+                                        "id": "739cd7ad-85c3-429f-bb24-9033352be38d",
                                         "components": [],
                                         "name": "Divers",
                                         "component": "user-invitation",
@@ -1788,14 +1798,14 @@
                                             "unitOfMeasure": "",
                                             "multiSelect": "single"
                                         },
-                                        "parentId": "d512ef94-e0e9-4f29-8a4a-975fa1513913",
+                                        "parentId": "f63e8050-46d8-491c-94dc-a374f28d1734",
                                         "width": null,
                                         "required": false,
                                         "showAtStep": "*",
                                         "label": null
                                     },
                                     {
-                                        "id": "0e76feed-a6a8-4987-821e-49fe518aa29b",
+                                        "id": "2bb0a5c4-a655-4893-b748-3f64fbf9ff4b",
                                         "components": [],
                                         "name": "Templates",
                                         "component": "search-templates",
@@ -1818,14 +1828,14 @@
                                             "className": "col-sm-12 col-md-6 col-lg-4",
                                             "multiSelect": "single"
                                         },
-                                        "parentId": "d512ef94-e0e9-4f29-8a4a-975fa1513913",
+                                        "parentId": "f63e8050-46d8-491c-94dc-a374f28d1734",
                                         "width": null,
                                         "required": false,
                                         "showAtStep": "*",
                                         "label": null
                                     },
                                     {
-                                        "id": "69d3b4e5-348c-4836-802d-7b6803c74f35",
+                                        "id": "29384b0d-ebd0-4221-9496-5fe2a232d074",
                                         "components": [],
                                         "name": "Resourcing Attachments",
                                         "component": "attachments",
@@ -1852,7 +1862,7 @@
                                             "size": "huge",
                                             "multiSelect": "single"
                                         },
-                                        "parentId": "d512ef94-e0e9-4f29-8a4a-975fa1513913",
+                                        "parentId": "f63e8050-46d8-491c-94dc-a374f28d1734",
                                         "width": null,
                                         "required": false,
                                         "showAtStep": "*",
@@ -1901,13 +1911,8 @@
                     "initiatorPartyName": null,
                     "roles": null,
                     "userPermissions": [
-                        "submitresourcing/submitresourcing",
                         "Read",
-                        "Update",
-                        "Edit",
-                        "Delegate",
-                        null,
-                        "Supplier"
+                        "Edit"
                     ],
                     "printContext": null
                 }
@@ -1920,27 +1925,27 @@
                     "userName": "Mathew Harvey",
                     "userImageUrl": null,
                     "eventDateTimeUtc": "2022-01-07T03:14:09.878832+00:00",
-                    "latModifiedUtc": "2022-01-07T03:14:09.878832+00:00",
-                    "durationDays": 20.21339300675463,
+                    "latModifiedUtc": "2022-02-02T03:19:02.8835154+00:00",
+                    "durationDays": 26.003391257909723,
                     "userAccount": null,
-                    "status": "InProgress",
+                    "status": "Complete",
                     "dataVersion": {
                         "stepId": "683be325-92be-5218-8c84-7bb2be348fab",
                         "dataId": "00000000-0000-0000-0000-000000000000",
                         "version": 0,
                         "hashCode": null
                     },
-                    "eventDisplayName": "inspection/resourcing",
-                    "actionId": "00000000-0000-0000-0000-000000000000",
+                    "eventDisplayName": "Submit",
+                    "actionId": "d587fa56-2b66-50b8-84be-b5ae27b3ecb9",
                     "lastModifiedBy": "feb37bbc-182a-41c0-9695-beb75f9f98ae",
                     "layoutId": "00000000-0000-0000-0000-000000000000"
                 }
             ],
             "isEndNode": false,
-            "isActive": true,
-            "isComplete": false,
+            "isActive": false,
+            "isComplete": true,
             "isNotStarted": false,
-            "status": "InProgress",
+            "status": "Complete",
             "hasSteps": true,
             "hasActions": false,
             "layout": null,
@@ -1973,12 +1978,34 @@
                             "flowId": "45def046-8d51-5508-b3a9-bcebe1c5af03",
                             "steps": [],
                             "actions": [],
-                            "events": [],
+                            "events": [
+                                {
+                                    "eventId": "6b306294-ecb1-4385-ba9a-1fca9f249579",
+                                    "userId": "d673ebf7-5617-4d8a-983e-6cb07bf6aa33",
+                                    "userName": "Mat Harvey",
+                                    "userImageUrl": null,
+                                    "eventDateTimeUtc": "2022-02-02T03:19:11.6253164+00:00",
+                                    "latModifiedUtc": "2022-02-02T03:19:11.6253164+00:00",
+                                    "durationDays": 1.1291026829652777,
+                                    "userAccount": null,
+                                    "status": "InProgress",
+                                    "dataVersion": {
+                                        "stepId": "35b86426-784b-5035-88fe-01d49611a6af",
+                                        "dataId": "00000000-0000-0000-0000-000000000000",
+                                        "version": 0,
+                                        "hashCode": null
+                                    },
+                                    "eventDisplayName": "Complete Work",
+                                    "actionId": "00000000-0000-0000-0000-000000000000",
+                                    "lastModifiedBy": "feb37bbc-182a-41c0-9695-beb75f9f98ae",
+                                    "layoutId": "00000000-0000-0000-0000-000000000000"
+                                }
+                            ],
                             "isEndNode": false,
-                            "isActive": false,
+                            "isActive": true,
                             "isComplete": false,
-                            "isNotStarted": true,
-                            "status": "New",
+                            "isNotStarted": false,
+                            "status": "InProgress",
                             "hasSteps": false,
                             "hasActions": false,
                             "layout": null,
@@ -1988,8 +2015,13 @@
                                 "Everyone": "Everyone"
                             },
                             "userPermissions": [
+                                "completework/completework",
                                 "Read",
-                                "Edit"
+                                "Update",
+                                "Edit",
+                                "Delegate",
+                                null,
+                                "Supervisor"
                             ],
                             "printContext": null
                         },
@@ -2078,15 +2110,59 @@
                             "printContext": null
                         }
                     ],
-                    "actions": [],
-                    "events": [],
+                    "actions": [
+                        {
+                            "id": "098f75dc-527b-5096-9078-c9193919ebf7",
+                            "displayName": "Complete Work",
+                            "imageUrl": null,
+                            "stepId": "35b86426-784b-5035-88fe-01d49611a6af",
+                            "eventName": "completework/completework",
+                            "comment": null,
+                            "url": "/api/v2/flow/execute/b98b480b-4c2a-4cb6-b6fe-683e334fd805?eventName=completework/completework",
+                            "invitedPartyName": null,
+                            "dataPath": null,
+                            "skipValidation": false,
+                            "activities": null,
+                            "invitedParties": [
+                                {
+                                    "partyName": "QA",
+                                    "dataPath": "$.invites.qa"
+                                }
+                            ],
+                            "ccRoles": null,
+                            "actionType": 0
+                        }
+                    ],
+                    "events": [
+                        {
+                            "eventId": "de4d3d5b-dd03-408c-9df5-a5f9830ec5d8",
+                            "userId": "feb37bbc-182a-41c0-9695-beb75f9f98ae",
+                            "userName": "Mathew Harvey",
+                            "userImageUrl": null,
+                            "eventDateTimeUtc": "2022-02-02T03:19:08.5517569+00:00",
+                            "latModifiedUtc": "2022-02-02T03:19:08.5517569+00:00",
+                            "durationDays": 1.1291382575648148,
+                            "userAccount": null,
+                            "status": "InProgress",
+                            "dataVersion": {
+                                "stepId": "ded64eed-23fc-5a26-878c-276979437132",
+                                "dataId": "00000000-0000-0000-0000-000000000000",
+                                "version": 0,
+                                "hashCode": null
+                            },
+                            "eventDisplayName": "Worklog",
+                            "actionId": "00000000-0000-0000-0000-000000000000",
+                            "lastModifiedBy": "feb37bbc-182a-41c0-9695-beb75f9f98ae",
+                            "layoutId": "68a58d12-0760-5145-9f3a-6af5c682b9c6"
+                        }
+                    ],
                     "isEndNode": false,
-                    "isActive": false,
+                    "isActive": true,
                     "isComplete": false,
-                    "isNotStarted": true,
-                    "status": "New",
+                    "isNotStarted": false,
+                    "status": "InProgress",
                     "hasSteps": true,
-                    "hasActions": false,
+                    "hasActions": true,
                     "layout": {
                         "tags": null,
                         "components": [
@@ -3491,14 +3567,14 @@
                                 "cloneData": true,
                                 "dataPathEditable": false,
                                 "properties": {
-                                    "title": "Rudder",
+                                    "title": "Section 1",
                                     "showTitle": false,
                                     "copyData": false,
                                     "required": false,
                                     "showInReport": true,
                                     "configurable": false,
                                     "alwaysShow": false,
-                                    "label": "Rudder",
+                                    "label": "Section 1",
                                     "className": "col-sm-12 col-md-12 col-lg-12",
                                     "width": "col-12",
                                     "minValue": "",
@@ -3509,7 +3585,7 @@
                                 "parentId": "00000000-0000-0000-0000-000000000000",
                                 "width": null,
                                 "required": false,
-                                "showAtStep": "*",
+                                "showAtStep": null,
                                 "label": null
                             },
                             {
@@ -6320,6 +6396,773 @@
                                 "label": null
                             },
                             {
+                                "id": "8205c172-0d9a-4789-83d2-03a5d0590330",
+                                "components": [
+                                    {
+                                        "id": "adbcffe0-8e4b-44de-a255-4a17e02d767d",
+                                        "components": [
+                                            {
+                                                "id": "f62d577b-0dab-4a2d-9f8a-06b3cc962fa6",
+                                                "components": [],
+                                                "name": "Comments",
+                                                "component": "richtext-input",
+                                                "defaultValue": "",
+                                                "dataPath": "$.seaChests.seaChest.comments",
+                                                "dataSource": "Work",
+                                                "resource": "Data",
+                                                "copyData": false,
+                                                "cloneData": true,
+                                                "dataPathEditable": false,
+                                                "properties": {
+                                                    "title": "Comments",
+                                                    "showTitle": false,
+                                                    "copyData": false,
+                                                    "required": false,
+                                                    "showInReport": true,
+                                                    "configurable": false,
+                                                    "alwaysShow": false,
+                                                    "label": "Comments",
+                                                    "className": "col-sm-12 col-md-6 col-lg-4",
+                                                    "multiSelect": "single"
+                                                },
+                                                "parentId": "adbcffe0-8e4b-44de-a255-4a17e02d767d",
+                                                "width": null,
+                                                "required": false,
+                                                "showAtStep": "*",
+                                                "label": null
+                                            },
+                                            {
+                                                "id": "4a459626-66f6-4d84-a5fe-bb6ace5da6a0",
+                                                "components": [],
+                                                "name": "FR",
+                                                "component": "fouling-card-group",
+                                                "defaultValue": "",
+                                                "dataPath": "$.seaChests.seaChest.fr",
+                                                "dataSource": "Work",
+                                                "resource": "Data",
+                                                "copyData": true,
+                                                "cloneData": true,
+                                                "dataPathEditable": false,
+                                                "properties": {
+                                                    "title": "FR",
+                                                    "showTitle": false,
+                                                    "copyData": true,
+                                                    "required": false,
+                                                    "showInReport": true,
+                                                    "configurable": false,
+                                                    "alwaysShow": false,
+                                                    "label": "FR",
+                                                    "className": "col-sm-12 col-md-6 col-lg-4",
+                                                    "multiSelect": "single",
+                                                    "inputLabel": "Coverage",
+                                                    "symbol": "%",
+                                                    "prefix": "FR",
+                                                    "fr0": "100,100,100,lte",
+                                                    "fr10": "100,100,100,lte",
+                                                    "fr20": "100,100,100,lte",
+                                                    "fr30": "5,0,5,lte",
+                                                    "fr40": "5,0,5,lte",
+                                                    "fr50": "5,0,5,lte",
+                                                    "fr60": "5,0,5,lte",
+                                                    "fr70": "5,0,5,lte",
+                                                    "fr80": "0,0,0,lte",
+                                                    "fr90": "0,0,0,lte",
+                                                    "fr100": "0,0,0,lte"
+                                                },
+                                                "parentId": "adbcffe0-8e4b-44de-a255-4a17e02d767d",
+                                                "width": null,
+                                                "required": false,
+                                                "showAtStep": "*",
+                                                "label": null
+                                            },
+                                            {
+                                                "id": "750d95e3-de37-4ba9-b7c0-b5ac62756d88",
+                                                "components": [],
+                                                "name": "PDR",
+                                                "component": "fouling-card",
+                                                "defaultValue": "",
+                                                "dataPath": "$.seaChests.seaChest.pdr",
+                                                "dataSource": "Work",
+                                                "resource": "Data",
+                                                "copyData": true,
+                                                "cloneData": true,
+                                                "dataPathEditable": false,
+                                                "properties": {
+                                                    "title": "PDR",
+                                                    "showTitle": false,
+                                                    "copyData": true,
+                                                    "required": false,
+                                                    "showInReport": true,
+                                                    "configurable": false,
+                                                    "alwaysShow": false,
+                                                    "label": "PDR",
+                                                    "className": "col-sm-12 col-md-6 col-lg-4",
+                                                    "multiSelect": "single",
+                                                    "inputLabel": "Rating",
+                                                    "symbol": "PDR",
+                                                    "prefix": "PDR",
+                                                    "limitInput": "true",
+                                                    "thresholds": "100, 100, 100",
+                                                    "logic": "lte",
+                                                    "min": "0",
+                                                    "max": "100",
+                                                    "step": "10"
+                                                },
+                                                "parentId": "adbcffe0-8e4b-44de-a255-4a17e02d767d",
+                                                "width": null,
+                                                "required": false,
+                                                "showAtStep": "*",
+                                                "label": null
+                                            },
+                                            {
+                                                "id": "75a51f1a-bedf-4d24-bf5f-da8b03edc3da",
+                                                "components": [],
+                                                "name": "Attachments",
+                                                "component": "attachments",
+                                                "defaultValue": "{}",
+                                                "dataPath": "$.seaChests.seaChest.attachments",
+                                                "dataSource": "Work",
+                                                "resource": "Data",
+                                                "copyData": true,
+                                                "cloneData": true,
+                                                "dataPathEditable": true,
+                                                "properties": {
+                                                    "title": "Attachments",
+                                                    "showTitle": false,
+                                                    "copyData": true,
+                                                    "required": false,
+                                                    "showInReport": true,
+                                                    "configurable": false,
+                                                    "alwaysShow": false,
+                                                    "label": "Attachments",
+                                                    "className": "col-sm-12 col-md-6 col-lg-4",
+                                                    "folder": "seaChests.seaChest11",
+                                                    "width": "col-12",
+                                                    "minValue": "",
+                                                    "unitOfMeasure": "",
+                                                    "size": "large",
+                                                    "multiSelect": "single"
+                                                },
+                                                "parentId": "adbcffe0-8e4b-44de-a255-4a17e02d767d",
+                                                "width": null,
+                                                "required": false,
+                                                "showAtStep": "*",
+                                                "label": null
+                                            }
+                                        ],
+                                        "name": "Sea Chest 1",
+                                        "component": "subsection",
+                                        "defaultValue": "",
+                                        "dataPath": "$.seaChests.seaChest",
+                                        "dataSource": "Work",
+                                        "resource": "Data",
+                                        "copyData": false,
+                                        "cloneData": true,
+                                        "dataPathEditable": false,
+                                        "properties": {
+                                            "title": "mat",
+                                            "showTitle": true,
+                                            "copyData": false,
+                                            "required": false,
+                                            "showInReport": true,
+                                            "configurable": false,
+                                            "alwaysShow": false,
+                                            "label": "mat",
+                                            "className": "col-sm-12 col-md-12 col-lg-12",
+                                            "width": "col-12",
+                                            "minValue": "",
+                                            "unitOfMeasure": "",
+                                            "backgroundColor": "#292E32",
+                                            "multiSelect": "single"
+                                        },
+                                        "parentId": "8205c172-0d9a-4789-83d2-03a5d0590330",
+                                        "width": null,
+                                        "required": false,
+                                        "showAtStep": null,
+                                        "label": null
+                                    },
+                                    {
+                                        "id": "4ffa65ac-dd0b-45e5-9bb5-96fba01fa571",
+                                        "components": [
+                                            {
+                                                "id": "523d3c29-7d47-4159-80d9-a1b893d39116",
+                                                "components": [],
+                                                "name": "Comments",
+                                                "component": "richtext-input",
+                                                "defaultValue": "",
+                                                "dataPath": "$.seaChests.seaChest5.comments",
+                                                "dataSource": "Work",
+                                                "resource": "Data",
+                                                "copyData": false,
+                                                "cloneData": true,
+                                                "dataPathEditable": false,
+                                                "properties": {
+                                                    "title": "Comments",
+                                                    "showTitle": false,
+                                                    "copyData": false,
+                                                    "required": false,
+                                                    "showInReport": true,
+                                                    "configurable": false,
+                                                    "alwaysShow": false,
+                                                    "label": "Comments",
+                                                    "className": "col-sm-12 col-md-6 col-lg-4",
+                                                    "multiSelect": "single"
+                                                },
+                                                "parentId": "4ffa65ac-dd0b-45e5-9bb5-96fba01fa571",
+                                                "width": null,
+                                                "required": false,
+                                                "showAtStep": "*",
+                                                "label": null
+                                            },
+                                            {
+                                                "id": "5c57ee26-0e1c-4efb-8e07-eb68deee5444",
+                                                "components": [],
+                                                "name": "FR",
+                                                "component": "fouling-card-group",
+                                                "defaultValue": "",
+                                                "dataPath": "$.seaChests.seaChest5.fr",
+                                                "dataSource": "Work",
+                                                "resource": "Data",
+                                                "copyData": true,
+                                                "cloneData": true,
+                                                "dataPathEditable": false,
+                                                "properties": {
+                                                    "title": "FR",
+                                                    "showTitle": false,
+                                                    "copyData": true,
+                                                    "required": false,
+                                                    "showInReport": true,
+                                                    "configurable": false,
+                                                    "alwaysShow": false,
+                                                    "label": "FR",
+                                                    "className": "col-sm-12 col-md-6 col-lg-4",
+                                                    "multiSelect": "single",
+                                                    "inputLabel": "Coverage",
+                                                    "symbol": "%",
+                                                    "prefix": "FR",
+                                                    "fr0": "100,100,100,lte",
+                                                    "fr10": "100,100,100,lte",
+                                                    "fr20": "100,100,100,lte",
+                                                    "fr30": "5,0,5,lte",
+                                                    "fr40": "5,0,5,lte",
+                                                    "fr50": "5,0,5,lte",
+                                                    "fr60": "5,0,5,lte",
+                                                    "fr70": "5,0,5,lte",
+                                                    "fr80": "0,0,0,lte",
+                                                    "fr90": "0,0,0,lte",
+                                                    "fr100": "0,0,0,lte"
+                                                },
+                                                "parentId": "4ffa65ac-dd0b-45e5-9bb5-96fba01fa571",
+                                                "width": null,
+                                                "required": false,
+                                                "showAtStep": "*",
+                                                "label": null
+                                            },
+                                            {
+                                                "id": "99fb38f4-2fe5-4c31-944e-abfecb07d332",
+                                                "components": [],
+                                                "name": "PDR",
+                                                "component": "fouling-card",
+                                                "defaultValue": "",
+                                                "dataPath": "$.seaChests.seaChest5.pdr",
+                                                "dataSource": "Work",
+                                                "resource": "Data",
+                                                "copyData": true,
+                                                "cloneData": true,
+                                                "dataPathEditable": false,
+                                                "properties": {
+                                                    "title": "PDR",
+                                                    "showTitle": false,
+                                                    "copyData": true,
+                                                    "required": false,
+                                                    "showInReport": true,
+                                                    "configurable": false,
+                                                    "alwaysShow": false,
+                                                    "label": "PDR",
+                                                    "className": "col-sm-12 col-md-6 col-lg-4",
+                                                    "multiSelect": "single",
+                                                    "inputLabel": "Rating",
+                                                    "symbol": "PDR",
+                                                    "prefix": "PDR",
+                                                    "limitInput": "true",
+                                                    "thresholds": "100, 100, 100",
+                                                    "logic": "lte",
+                                                    "min": "0",
+                                                    "max": "100",
+                                                    "step": "10"
+                                                },
+                                                "parentId": "4ffa65ac-dd0b-45e5-9bb5-96fba01fa571",
+                                                "width": null,
+                                                "required": false,
+                                                "showAtStep": "*",
+                                                "label": null
+                                            },
+                                            {
+                                                "id": "2ab17896-6905-4e32-8f4e-0b8beadaaa36",
+                                                "components": [],
+                                                "name": "Attachments",
+                                                "component": "attachments",
+                                                "defaultValue": "{}",
+                                                "dataPath": "$.seaChests.seaChest5.attachments",
+                                                "dataSource": "Work",
+                                                "resource": "Data",
+                                                "copyData": true,
+                                                "cloneData": true,
+                                                "dataPathEditable": true,
+                                                "properties": {
+                                                    "title": "Attachments",
+                                                    "showTitle": false,
+                                                    "copyData": true,
+                                                    "required": false,
+                                                    "showInReport": true,
+                                                    "configurable": false,
+                                                    "alwaysShow": false,
+                                                    "label": "Attachments",
+                                                    "className": "col-sm-12 col-md-6 col-lg-4",
+                                                    "folder": "seaChests.seaChest21",
+                                                    "width": "col-12",
+                                                    "minValue": "",
+                                                    "unitOfMeasure": "",
+                                                    "size": "large",
+                                                    "multiSelect": "single"
+                                                },
+                                                "parentId": "4ffa65ac-dd0b-45e5-9bb5-96fba01fa571",
+                                                "width": null,
+                                                "required": false,
+                                                "showAtStep": "*",
+                                                "label": null
+                                            }
+                                        ],
+                                        "name": "Sea Chest 5",
+                                        "component": "subsection",
+                                        "defaultValue": "",
+                                        "dataPath": "$.seaChests.seaChest5",
+                                        "dataSource": "Work",
+                                        "resource": "Data",
+                                        "copyData": false,
+                                        "cloneData": true,
+                                        "dataPathEditable": false,
+                                        "properties": {
+                                            "title": "Sea Chest 5",
+                                            "showTitle": true,
+                                            "copyData": false,
+                                            "required": false,
+                                            "showInReport": true,
+                                            "configurable": false,
+                                            "alwaysShow": false,
+                                            "label": "Sea Chest 5",
+                                            "className": "col-sm-12 col-md-12 col-lg-12",
+                                            "width": "col-12",
+                                            "minValue": "",
+                                            "unitOfMeasure": "",
+                                            "backgroundColor": "#292E32",
+                                            "multiSelect": "single"
+                                        },
+                                        "parentId": "8205c172-0d9a-4789-83d2-03a5d0590330",
+                                        "width": null,
+                                        "required": false,
+                                        "showAtStep": "*",
+                                        "label": null
+                                    },
+                                    {
+                                        "id": "b62eb1f7-180c-4887-b780-1c3ad4103964",
+                                        "components": [
+                                            {
+                                                "id": "c0cda8a7-1410-4c1c-be6f-c32b963fe84b",
+                                                "components": [],
+                                                "name": "Comments",
+                                                "component": "richtext-input",
+                                                "defaultValue": "",
+                                                "dataPath": "$.seaChests.seaChest6.comments",
+                                                "dataSource": "Work",
+                                                "resource": "Data",
+                                                "copyData": false,
+                                                "cloneData": true,
+                                                "dataPathEditable": false,
+                                                "properties": {
+                                                    "title": "Comments",
+                                                    "showTitle": false,
+                                                    "copyData": false,
+                                                    "required": false,
+                                                    "showInReport": true,
+                                                    "configurable": false,
+                                                    "alwaysShow": false,
+                                                    "label": "Comments",
+                                                    "className": "col-sm-12 col-md-6 col-lg-4",
+                                                    "multiSelect": "single"
+                                                },
+                                                "parentId": "b62eb1f7-180c-4887-b780-1c3ad4103964",
+                                                "width": null,
+                                                "required": false,
+                                                "showAtStep": "*",
+                                                "label": null
+                                            },
+                                            {
+                                                "id": "4a0a72d6-fc8d-4739-b142-fdfd3601c786",
+                                                "components": [],
+                                                "name": "FR",
+                                                "component": "fouling-card-group",
+                                                "defaultValue": "",
+                                                "dataPath": "$.seaChests.seaChest6.fr",
+                                                "dataSource": "Work",
+                                                "resource": "Data",
+                                                "copyData": true,
+                                                "cloneData": true,
+                                                "dataPathEditable": false,
+                                                "properties": {
+                                                    "title": "FR",
+                                                    "showTitle": false,
+                                                    "copyData": true,
+                                                    "required": false,
+                                                    "showInReport": true,
+                                                    "configurable": false,
+                                                    "alwaysShow": false,
+                                                    "label": "FR",
+                                                    "className": "col-sm-12 col-md-6 col-lg-4",
+                                                    "multiSelect": "single",
+                                                    "inputLabel": "Coverage",
+                                                    "symbol": "%",
+                                                    "prefix": "FR",
+                                                    "fr0": "100,100,100,lte",
+                                                    "fr10": "100,100,100,lte",
+                                                    "fr20": "100,100,100,lte",
+                                                    "fr30": "5,0,5,lte",
+                                                    "fr40": "5,0,5,lte",
+                                                    "fr50": "5,0,5,lte",
+                                                    "fr60": "5,0,5,lte",
+                                                    "fr70": "5,0,5,lte",
+                                                    "fr80": "0,0,0,lte",
+                                                    "fr90": "0,0,0,lte",
+                                                    "fr100": "0,0,0,lte"
+                                                },
+                                                "parentId": "b62eb1f7-180c-4887-b780-1c3ad4103964",
+                                                "width": null,
+                                                "required": false,
+                                                "showAtStep": "*",
+                                                "label": null
+                                            },
+                                            {
+                                                "id": "0b4085a1-691d-4313-9278-380e838b7cef",
+                                                "components": [],
+                                                "name": "PDR",
+                                                "component": "fouling-card",
+                                                "defaultValue": "",
+                                                "dataPath": "$.seaChests.seaChest6.pdr",
+                                                "dataSource": "Work",
+                                                "resource": "Data",
+                                                "copyData": true,
+                                                "cloneData": true,
+                                                "dataPathEditable": false,
+                                                "properties": {
+                                                    "title": "PDR",
+                                                    "showTitle": false,
+                                                    "copyData": true,
+                                                    "required": false,
+                                                    "showInReport": true,
+                                                    "configurable": false,
+                                                    "alwaysShow": false,
+                                                    "label": "PDR",
+                                                    "className": "col-sm-12 col-md-6 col-lg-4",
+                                                    "multiSelect": "single",
+                                                    "inputLabel": "Rating",
+                                                    "symbol": "PDR",
+                                                    "prefix": "PDR",
+                                                    "limitInput": "true",
+                                                    "thresholds": "100, 100, 100",
+                                                    "logic": "lte",
+                                                    "min": "0",
+                                                    "max": "100",
+                                                    "step": "10"
+                                                },
+                                                "parentId": "b62eb1f7-180c-4887-b780-1c3ad4103964",
+                                                "width": null,
+                                                "required": false,
+                                                "showAtStep": "*",
+                                                "label": null
+                                            },
+                                            {
+                                                "id": "d7148a2e-2b8e-4c92-a18c-83ecc874dce9",
+                                                "components": [],
+                                                "name": "Attachments",
+                                                "component": "attachments",
+                                                "defaultValue": "{}",
+                                                "dataPath": "$.seaChests.seaChest6.attachments",
+                                                "dataSource": "Work",
+                                                "resource": "Data",
+                                                "copyData": true,
+                                                "cloneData": true,
+                                                "dataPathEditable": true,
+                                                "properties": {
+                                                    "title": "Attachments",
+                                                    "showTitle": false,
+                                                    "copyData": true,
+                                                    "required": false,
+                                                    "showInReport": true,
+                                                    "configurable": false,
+                                                    "alwaysShow": false,
+                                                    "label": "Attachments",
+                                                    "className": "col-sm-12 col-md-6 col-lg-4",
+                                                    "folder": "seaChests.seaChest31",
+                                                    "width": "col-12",
+                                                    "minValue": "",
+                                                    "unitOfMeasure": "",
+                                                    "size": "large",
+                                                    "multiSelect": "single"
+                                                },
+                                                "parentId": "b62eb1f7-180c-4887-b780-1c3ad4103964",
+                                                "width": null,
+                                                "required": false,
+                                                "showAtStep": "*",
+                                                "label": null
+                                            }
+                                        ],
+                                        "name": "Sea Chest 6",
+                                        "component": "subsection",
+                                        "defaultValue": "",
+                                        "dataPath": "$.seaChests.seaChest6",
+                                        "dataSource": "Work",
+                                        "resource": "Data",
+                                        "copyData": false,
+                                        "cloneData": true,
+                                        "dataPathEditable": false,
+                                        "properties": {
+                                            "title": "Sea Chest 6",
+                                            "showTitle": true,
+                                            "copyData": false,
+                                            "required": false,
+                                            "showInReport": true,
+                                            "configurable": false,
+                                            "alwaysShow": false,
+                                            "label": "Sea Chest 6",
+                                            "className": "col-sm-12 col-md-12 col-lg-12",
+                                            "width": "col-12",
+                                            "minValue": "",
+                                            "unitOfMeasure": "",
+                                            "backgroundColor": "#292E32",
+                                            "multiSelect": "single"
+                                        },
+                                        "parentId": "8205c172-0d9a-4789-83d2-03a5d0590330",
+                                        "width": null,
+                                        "required": false,
+                                        "showAtStep": "*",
+                                        "label": null
+                                    },
+                                    {
+                                        "id": "240c0cad-ce2b-4aa3-b4be-62bd599466ea",
+                                        "components": [
+                                            {
+                                                "id": "511e886a-df07-4adf-9f4a-962eb0280592",
+                                                "components": [],
+                                                "name": "Comments",
+                                                "component": "richtext-input",
+                                                "defaultValue": "",
+                                                "dataPath": "$.seaChests.seaChest7.comments",
+                                                "dataSource": "Work",
+                                                "resource": "Data",
+                                                "copyData": false,
+                                                "cloneData": true,
+                                                "dataPathEditable": false,
+                                                "properties": {
+                                                    "title": "Comments",
+                                                    "showTitle": false,
+                                                    "copyData": false,
+                                                    "required": false,
+                                                    "showInReport": true,
+                                                    "configurable": false,
+                                                    "alwaysShow": false,
+                                                    "label": "Comments",
+                                                    "className": "col-sm-12 col-md-6 col-lg-4",
+                                                    "multiSelect": "single"
+                                                },
+                                                "parentId": "240c0cad-ce2b-4aa3-b4be-62bd599466ea",
+                                                "width": null,
+                                                "required": false,
+                                                "showAtStep": "*",
+                                                "label": null
+                                            },
+                                            {
+                                                "id": "b03007b5-048c-441c-b7b5-74390644430e",
+                                                "components": [],
+                                                "name": "FR",
+                                                "component": "fouling-card-group",
+                                                "defaultValue": "",
+                                                "dataPath": "$.seaChests.seaChest7.fr",
+                                                "dataSource": "Work",
+                                                "resource": "Data",
+                                                "copyData": true,
+                                                "cloneData": true,
+                                                "dataPathEditable": false,
+                                                "properties": {
+                                                    "title": "FR",
+                                                    "showTitle": false,
+                                                    "copyData": true,
+                                                    "required": false,
+                                                    "showInReport": true,
+                                                    "configurable": false,
+                                                    "alwaysShow": false,
+                                                    "label": "FR",
+                                                    "className": "col-sm-12 col-md-6 col-lg-4",
+                                                    "multiSelect": "single",
+                                                    "inputLabel": "Coverage",
+                                                    "symbol": "%",
+                                                    "prefix": "FR",
+                                                    "fr0": "100,100,100,lte",
+                                                    "fr10": "100,100,100,lte",
+                                                    "fr20": "100,100,100,lte",
+                                                    "fr30": "5,0,5,lte",
+                                                    "fr40": "5,0,5,lte",
+                                                    "fr50": "5,0,5,lte",
+                                                    "fr60": "5,0,5,lte",
+                                                    "fr70": "5,0,5,lte",
+                                                    "fr80": "0,0,0,lte",
+                                                    "fr90": "0,0,0,lte",
+                                                    "fr100": "0,0,0,lte"
+                                                },
+                                                "parentId": "240c0cad-ce2b-4aa3-b4be-62bd599466ea",
+                                                "width": null,
+                                                "required": false,
+                                                "showAtStep": "*",
+                                                "label": null
+                                            },
+                                            {
+                                                "id": "fbc6ed21-9567-48c4-9723-018dbe4e026b",
+                                                "components": [],
+                                                "name": "PDR",
+                                                "component": "fouling-card",
+                                                "defaultValue": "",
+                                                "dataPath": "$.seaChests.seaChest7.pdr",
+                                                "dataSource": "Work",
+                                                "resource": "Data",
+                                                "copyData": true,
+                                                "cloneData": true,
+                                                "dataPathEditable": false,
+                                                "properties": {
+                                                    "title": "PDR",
+                                                    "showTitle": false,
+                                                    "copyData": true,
+                                                    "required": false,
+                                                    "showInReport": true,
+                                                    "configurable": false,
+                                                    "alwaysShow": false,
+                                                    "label": "PDR",
+                                                    "className": "col-sm-12 col-md-6 col-lg-4",
+                                                    "multiSelect": "single",
+                                                    "inputLabel": "Rating",
+                                                    "symbol": "PDR",
+                                                    "prefix": "PDR",
+                                                    "limitInput": "true",
+                                                    "thresholds": "100, 100, 100",
+                                                    "logic": "lte",
+                                                    "min": "0",
+                                                    "max": "100",
+                                                    "step": "10"
+                                                },
+                                                "parentId": "240c0cad-ce2b-4aa3-b4be-62bd599466ea",
+                                                "width": null,
+                                                "required": false,
+                                                "showAtStep": "*",
+                                                "label": null
+                                            },
+                                            {
+                                                "id": "d590fd25-1ed0-4f81-aebc-425b988c914a",
+                                                "components": [],
+                                                "name": "Attachments",
+                                                "component": "attachments",
+                                                "defaultValue": "{}",
+                                                "dataPath": "$.seaChests.seaChest7.attachments",
+                                                "dataSource": "Work",
+                                                "resource": "Data",
+                                                "copyData": true,
+                                                "cloneData": true,
+                                                "dataPathEditable": true,
+                                                "properties": {
+                                                    "title": "Attachments",
+                                                    "showTitle": false,
+                                                    "copyData": true,
+                                                    "required": false,
+                                                    "showInReport": true,
+                                                    "configurable": false,
+                                                    "alwaysShow": false,
+                                                    "label": "Attachments",
+                                                    "className": "col-sm-12 col-md-6 col-lg-4",
+                                                    "folder": "seaChests.seaChest41",
+                                                    "width": "col-12",
+                                                    "minValue": "",
+                                                    "unitOfMeasure": "",
+                                                    "size": "large",
+                                                    "multiSelect": "single"
+                                                },
+                                                "parentId": "240c0cad-ce2b-4aa3-b4be-62bd599466ea",
+                                                "width": null,
+                                                "required": false,
+                                                "showAtStep": "*",
+                                                "label": null
+                                            }
+                                        ],
+                                        "name": "Sea Chest 7",
+                                        "component": "subsection",
+                                        "defaultValue": "",
+                                        "dataPath": "$.seaChests.seaChest7",
+                                        "dataSource": "Work",
+                                        "resource": "Data",
+                                        "copyData": false,
+                                        "cloneData": true,
+                                        "dataPathEditable": false,
+                                        "properties": {
+                                            "title": "Sea Chest 7",
+                                            "showTitle": true,
+                                            "copyData": false,
+                                            "required": false,
+                                            "showInReport": true,
+                                            "configurable": false,
+                                            "alwaysShow": false,
+                                            "label": "Sea Chest 7",
+                                            "className": "col-sm-12 col-md-12 col-lg-12",
+                                            "width": "col-12",
+                                            "minValue": "",
+                                            "unitOfMeasure": "",
+                                            "backgroundColor": "#292E32",
+                                            "multiSelect": "single"
+                                        },
+                                        "parentId": "8205c172-0d9a-4789-83d2-03a5d0590330",
+                                        "width": null,
+                                        "required": false,
+                                        "showAtStep": "*",
+                                        "label": null
+                                    }
+                                ],
+                                "name": "Sea Chests",
+                                "component": "section",
+                                "defaultValue": "",
+                                "dataPath": "$.seaChests",
+                                "dataSource": "Work",
+                                "resource": "Data",
+                                "copyData": false,
+                                "cloneData": true,
+                                "dataPathEditable": false,
+                                "properties": {
+                                    "title": "Mats section",
+                                    "showTitle": false,
+                                    "copyData": false,
+                                    "required": false,
+                                    "showInReport": true,
+                                    "configurable": false,
+                                    "alwaysShow": false,
+                                    "label": "Mats section",
+                                    "className": "col-sm-12 col-md-12 col-lg-12",
+                                    "width": "col-12",
+                                    "minValue": "",
+                                    "unitOfMeasure": "",
+                                    "backgroundColor": "#292E32",
+                                    "multiSelect": "single"
+                                },
+                                "parentId": "00000000-0000-0000-0000-000000000000",
+                                "width": null,
+                                "required": false,
+                                "showAtStep": null,
+                                "label": null
+                            },
+                            {
                                 "id": "67ca99a2-dd0b-4a07-9c7f-d2d81bd09268",
                                 "components": [
                                     {
@@ -8864,27 +9707,54 @@
                         ],
                         "layoutType": 1,
                         "originId": "68a58d12-0760-5145-9f3a-6af5c682b9c6",
-                        "clonedFromId": "4e2c867a-1c9e-4bdd-9072-62b757218e4e",
-                        "id": "4e2c867a-1c9e-4bdd-9072-62b757218e4e",
+                        "clonedFromId": "b7c00734-49a2-4598-bde3-341e32ae9311",
+                        "id": "b7c00734-49a2-4598-bde3-341e32ae9311",
                         "flowId": "45def046-8d51-5508-b3a9-bcebe1c5af03",
                         "permissions": []
                     },
                     "initiatorPartyName": null,
                     "roles": null,
                     "userPermissions": [
+                        "completework/completework",
                         "Read",
-                        "Edit"
+                        "Update",
+                        "Edit",
+                        "Delegate",
+                        null,
+                        "Supervisor"
                     ],
                     "printContext": null
                 }
             ],
             "actions": [],
-            "events": [],
+            "events": [
+                {
+                    "eventId": "5fb72113-64b2-4573-98a8-fc0e6b9dc586",
+                    "userId": "feb37bbc-182a-41c0-9695-beb75f9f98ae",
+                    "userName": "Mathew Harvey",
+                    "userImageUrl": null,
+                    "eventDateTimeUtc": "2022-02-02T03:19:05.7272281+00:00",
+                    "latModifiedUtc": "2022-02-02T03:19:05.7272281+00:00",
+                    "durationDays": 1.1291710462962963,
+                    "userAccount": null,
+                    "status": "InProgress",
+                    "dataVersion": {
+                        "stepId": "b6e18fe2-afee-5c1a-a1d3-efd196ac842e",
+                        "dataId": "00000000-0000-0000-0000-000000000000",
+                        "version": 0,
+                        "hashCode": null
+                    },
+                    "eventDisplayName": "Delivery",
+                    "actionId": "00000000-0000-0000-0000-000000000000",
+                    "lastModifiedBy": "feb37bbc-182a-41c0-9695-beb75f9f98ae",
+                    "layoutId": "00000000-0000-0000-0000-000000000000"
+                }
+            ],
             "isEndNode": false,
-            "isActive": false,
+            "isActive": true,
             "isComplete": false,
-            "isNotStarted": true,
-            "status": "New",
+            "isNotStarted": false,
+            "status": "InProgress",
             "hasSteps": true,
             "hasActions": false,
             "layout": null,
@@ -8932,15 +9802,7 @@
                                 "FlowOwner": "FlowOwner",
                                 "Buyer": "Buyer"
                             },
-                            "userPermissions": [
-                                "submitinvoice/submitinvoice",
-                                "Read",
-                                "Update",
-                                "Edit",
-                                "Delegate",
-                                null,
-                                "Supplier"
-                            ],
+                            "userPermissions": [],
                             "printContext": null
                         },
                         {
@@ -8966,9 +9828,7 @@
                                 "FlowOwner": "FlowOwner",
                                 "Supplier": "Supplier"
                             },
-                            "userPermissions": [
-                                "Read"
-                            ],
+                            "userPermissions": [],
                             "printContext": null
                         },
                         {
@@ -8994,15 +9854,7 @@
                                 "FlowOwner": "FlowOwner",
                                 "Buyer": "Buyer"
                             },
-                            "userPermissions": [
-                                "paidinvoice/invoicepaid",
-                                "Read",
-                                "Update",
-                                "Edit",
-                                "Delegate",
-                                null,
-                                "Supplier"
-                            ],
+                            "userPermissions": [],
                             "printContext": null
                         },
                         {
@@ -9028,9 +9880,7 @@
                                 "FlowOwner": "FlowOwner",
                                 "Supplier": "Supplier"
                             },
-                            "userPermissions": [
-                                "Read"
-                            ],
+                            "userPermissions": [],
                             "printContext": null
                         }
                     ],
@@ -9047,10 +9897,10 @@
                         "tags": null,
                         "components": [
                             {
-                                "id": "7a981a49-ba5c-4bf7-867b-3426b0934baf",
+                                "id": "a1d2dae5-dcb2-47de-b652-e9973a0cf433",
                                 "components": [
                                     {
-                                        "id": "4756ee7e-546a-4761-be38-4c16816cfebb",
+                                        "id": "0aa3a7eb-6829-487d-b0c5-4a951c487194",
                                         "components": [],
                                         "name": "Actual Date",
                                         "component": "date-picker",
@@ -9077,14 +9927,14 @@
                                             "multiSelect": "single",
                                             "readOnly": true
                                         },
-                                        "parentId": "7a981a49-ba5c-4bf7-867b-3426b0934baf",
+                                        "parentId": "a1d2dae5-dcb2-47de-b652-e9973a0cf433",
                                         "width": null,
                                         "required": false,
                                         "showAtStep": "*",
                                         "label": null
                                     },
                                     {
-                                        "id": "e14bf5fb-f744-4783-bed8-b9ec97e948f7",
+                                        "id": "22523b16-2132-4f63-b368-531c52c48631",
                                         "components": [],
                                         "name": "Invoice ID",
                                         "component": "input-text",
@@ -9110,14 +9960,14 @@
                                             "unitOfMeasure": "",
                                             "multiSelect": "single"
                                         },
-                                        "parentId": "7a981a49-ba5c-4bf7-867b-3426b0934baf",
+                                        "parentId": "a1d2dae5-dcb2-47de-b652-e9973a0cf433",
                                         "width": null,
                                         "required": false,
                                         "showAtStep": "*",
                                         "label": null
                                     },
                                     {
-                                        "id": "0a9950c1-d5b0-4875-bc6b-d162adaa3500",
+                                        "id": "0490b49d-12f7-4dc8-8097-57fea60561dc",
                                         "components": [],
                                         "name": "Services",
                                         "component": "product-selection",
@@ -9153,7 +10003,7 @@
                                             "unitOfMeasure": "",
                                             "multiSelect": "multi"
                                         },
-                                        "parentId": "7a981a49-ba5c-4bf7-867b-3426b0934baf",
+                                        "parentId": "a1d2dae5-dcb2-47de-b652-e9973a0cf433",
                                         "width": null,
                                         "required": false,
                                         "showAtStep": "*",
@@ -9185,10 +10035,10 @@
                                 "label": "Invoice"
                             },
                             {
-                                "id": "54491c9e-f72c-4b58-8dca-7e4f657111ab",
+                                "id": "c895059c-a173-4cf0-bcb1-22488817bf5e",
                                 "components": [
                                     {
-                                        "id": "e4e7c063-792f-4ab5-a02f-77a8be9e9ef0",
+                                        "id": "a1ec648b-4783-4ae3-a4fd-c6d5f8bdce58",
                                         "components": [],
                                         "name": "Reference Number",
                                         "component": "input-text",
@@ -9214,14 +10064,14 @@
                                             "multiSelect": "single",
                                             "readOnly": true
                                         },
-                                        "parentId": "54491c9e-f72c-4b58-8dca-7e4f657111ab",
+                                        "parentId": "c895059c-a173-4cf0-bcb1-22488817bf5e",
                                         "width": null,
                                         "required": false,
                                         "showAtStep": "*",
                                         "label": null
                                     },
                                     {
-                                        "id": "cbd19bd3-6749-4685-bbc8-6aedfb15292b",
+                                        "id": "8c7ea2ed-fab2-4637-9be6-38a23da45cf2",
                                         "components": [],
                                         "name": "Order",
                                         "component": "finance-section",
@@ -9248,14 +10098,14 @@
                                             "unitOfMeasure": "",
                                             "multiSelect": "single"
                                         },
-                                        "parentId": "54491c9e-f72c-4b58-8dca-7e4f657111ab",
+                                        "parentId": "c895059c-a173-4cf0-bcb1-22488817bf5e",
                                         "width": null,
                                         "required": false,
                                         "showAtStep": "*",
                                         "label": null
                                     },
                                     {
-                                        "id": "cd0ec152-92d5-45b3-8dac-17e0a6d44ed2",
+                                        "id": "6fac5591-f23b-4414-bb2b-296c7d4d4446",
                                         "components": [],
                                         "name": "Attachments",
                                         "component": "attachments",
@@ -9279,7 +10129,7 @@
                                             "size": "small",
                                             "multiSelect": "single"
                                         },
-                                        "parentId": "54491c9e-f72c-4b58-8dca-7e4f657111ab",
+                                        "parentId": "c895059c-a173-4cf0-bcb1-22488817bf5e",
                                         "width": null,
                                         "required": false,
                                         "showAtStep": "*",
@@ -9327,16 +10177,7 @@
                     },
                     "initiatorPartyName": null,
                     "roles": null,
-                    "userPermissions": [
-                        "submitinvoice/submitinvoice",
-                        "Read",
-                        "Update",
-                        "Edit",
-                        "Delegate",
-                        null,
-                        "Supplier",
-                        "paidinvoice/invoicepaid"
-                    ],
+                    "userPermissions": [],
                     "printContext": null
                 }
             ],
@@ -9358,41 +10199,9 @@
             "printContext": null
         }
     ],
-    "activeStepId": "683be325-92be-5218-8c84-7bb2be348fab",
-    "activeStepName": "inspection/resourcing",
+    "activeStepId": "b6e18fe2-afee-5c1a-a1d3-efd196ac842e",
+    "activeStepName": "inspection/delivery",
     "attachments": [
-        {
-            "id": "8f1eb76b-2c63-5337-9b56-6dcc61a24760",
-            "attachmentId": "8f1eb76b-2c63-5337-9b56-6dcc61a24760",
-            "fileType": ".png",
-            "title": "2",
-            "unsafeOriginalFileName": "2.png",
-            "attachmentVersion": 1,
-            "path": "ReportCover",
-            "fullUri": "/api/v2/attachments/f93c2b84-8bdd-5ac8-b541-ce7e2734132e/work/2022/01_jan/b98b480b-4c2a-4cb6-b6fe-683e334fd805/reportcover/8f1eb76b-2c63-5337-9b56-6dcc61a24760_2-v0.png",
-            "thumbUri": "/api/v2/attachments/f93c2b84-8bdd-5ac8-b541-ce7e2734132e/work/2022/01_jan/b98b480b-4c2a-4cb6-b6fe-683e334fd805/reportcover/thumbnails/8f1eb76b-2c63-5337-9b56-6dcc61a24760_2-v0.png",
-            "attachmentType": "image/png",
-            "verification": null,
-            "expiry": "0001-01-01T00:00:00+00:00",
-            "createdDate": "0001-01-01T00:00:00+00:00",
-            "createdBy": "00000000-0000-0000-0000-000000000000"
-        },
-        {
-            "id": "403cb981-bf9a-5c50-b74f-93f9a8d614a3",
-            "attachmentId": "403cb981-bf9a-5c50-b74f-93f9a8d614a3",
-            "fileType": ".png",
-            "title": "3",
-            "unsafeOriginalFileName": "3.png",
-            "attachmentVersion": 1,
-            "path": "ReportCover",
-            "fullUri": "/api/v2/attachments/f93c2b84-8bdd-5ac8-b541-ce7e2734132e/work/2022/01_jan/b98b480b-4c2a-4cb6-b6fe-683e334fd805/reportcover/403cb981-bf9a-5c50-b74f-93f9a8d614a3_3-v0.png",
-            "thumbUri": "/api/v2/attachments/f93c2b84-8bdd-5ac8-b541-ce7e2734132e/work/2022/01_jan/b98b480b-4c2a-4cb6-b6fe-683e334fd805/reportcover/thumbnails/403cb981-bf9a-5c50-b74f-93f9a8d614a3_3-v0.png",
-            "attachmentType": "image/png",
-            "verification": null,
-            "expiry": "0001-01-01T00:00:00+00:00",
-            "createdDate": "0001-01-01T00:00:00+00:00",
-            "createdBy": "00000000-0000-0000-0000-000000000000"
-        },
         {
             "id": "73dbe38c-ea83-5214-96c5-540078a3e1ff",
             "attachmentId": "73dbe38c-ea83-5214-96c5-540078a3e1ff",
@@ -12672,6 +13481,38 @@
             "expiry": "0001-01-01T00:00:00+00:00",
             "createdDate": "0001-01-01T00:00:00+00:00",
             "createdBy": "00000000-0000-0000-0000-000000000000"
+        },
+        {
+            "id": "0995f63a-0121-5089-a5aa-a4932b21b9b2",
+            "attachmentId": "0995f63a-0121-5089-a5aa-a4932b21b9b2",
+            "fileType": ".jpg",
+            "title": "austal hull 811",
+            "unsafeOriginalFileName": "Screenshot 2022-01-27 171049.jpg",
+            "attachmentVersion": 1,
+            "path": "ReportCover",
+            "fullUri": "/api/v2/attachments/f93c2b84-8bdd-5ac8-b541-ce7e2734132e/work/2022/01_jan/b98b480b-4c2a-4cb6-b6fe-683e334fd805/reportcover/0995f63a-0121-5089-a5aa-a4932b21b9b2_screenshot-2022-01-27-171049-v0.jpg",
+            "thumbUri": "/api/v2/attachments/f93c2b84-8bdd-5ac8-b541-ce7e2734132e/work/2022/01_jan/b98b480b-4c2a-4cb6-b6fe-683e334fd805/reportcover/thumbnails/0995f63a-0121-5089-a5aa-a4932b21b9b2_screenshot-2022-01-27-171049-v0.jpg",
+            "attachmentType": "image/jpeg",
+            "verification": null,
+            "expiry": "0001-01-01T00:00:00+00:00",
+            "createdDate": "0001-01-01T00:00:00+00:00",
+            "createdBy": "00000000-0000-0000-0000-000000000000"
+        },
+        {
+            "id": "03d67918-6201-54b2-9757-ad560988da49",
+            "attachmentId": "03d67918-6201-54b2-9757-ad560988da49",
+            "fileType": ".jpg",
+            "title": "Rudder.Rudder-18",
+            "unsafeOriginalFileName": "rudder.rudder-18.jpg",
+            "attachmentVersion": 1,
+            "path": "rudder.rudder",
+            "fullUri": "/api/v2/attachments/f93c2b84-8bdd-5ac8-b541-ce7e2734132e/work/2022/02_feb/b98b480b-4c2a-4cb6-b6fe-683e334fd805/rudder.rudder/03d67918-6201-54b2-9757-ad560988da49_rudder.rudder-18-v1.jpg",
+            "thumbUri": "/api/v2/attachments/f93c2b84-8bdd-5ac8-b541-ce7e2734132e/work/2022/02_feb/b98b480b-4c2a-4cb6-b6fe-683e334fd805/rudder.rudder/thumbnails/03d67918-6201-54b2-9757-ad560988da49_rudder.rudder-18-v1.jpg",
+            "attachmentType": "image/jpeg",
+            "verification": null,
+            "expiry": "9999-12-31T23:59:59.999+00:00",
+            "createdDate": "2022-02-02T05:43:29.866+00:00",
+            "createdBy": "d673ebf7-5617-4d8a-983e-6cb07bf6aa33"
         }
     ],
     "users": {
@@ -12873,6 +13714,25 @@
                 "expiry": "2022-01-25T05:42:57.8878476+00:00",
                 "isGuestUser": true,
                 "imageUrl": null
+            },
+            {
+                "id": "d673ebf7-5617-4d8a-983e-6cb07bf6aa33",
+                "email": "mat.harvey@marinestream.io",
+                "name": "Mat Harvey",
+                "displayName": "Mat Harvey",
+                "roles": [
+                    "Supervisor",
+                    "Everyone"
+                ],
+                "link": "https://diana-api-test.rise-x.com/api/v1/identity/d673ebf7-5617-4d8a-983e-6cb07bf6aa33?workItemId=b98b480b-4c2a-4cb6-b6fe-683e334fd805",
+                "companyName": "MARINESTREAM",
+                "companyAddress": null,
+                "companyNumber": null,
+                "companyId": "0d865f0c-a370-5799-8224-0dde4b8dc645",
+                "companyUri": "/api/v1/Company/0d865f0c-a370-5799-8224-0dde4b8dc645",
+                "expiry": "9999-12-31T23:59:59.9999999+00:00",
+                "isGuestUser": false,
+                "imageUrl": null
             }
         ],
         "Supplier": [
@@ -12936,14 +13796,35 @@
                 "isGuestUser": true,
                 "imageUrl": null
             }
+        ],
+        "Supervisor": [
+            {
+                "id": "d673ebf7-5617-4d8a-983e-6cb07bf6aa33",
+                "email": "mat.harvey@marinestream.io",
+                "name": "Mat Harvey",
+                "displayName": "Mat Harvey",
+                "roles": [
+                    "Supervisor",
+                    "Everyone"
+                ],
+                "link": "https://diana-api-test.rise-x.com/api/v1/identity/d673ebf7-5617-4d8a-983e-6cb07bf6aa33?workItemId=b98b480b-4c2a-4cb6-b6fe-683e334fd805",
+                "companyName": "MARINESTREAM",
+                "companyAddress": null,
+                "companyNumber": null,
+                "companyId": "0d865f0c-a370-5799-8224-0dde4b8dc645",
+                "companyUri": "/api/v1/Company/0d865f0c-a370-5799-8224-0dde4b8dc645",
+                "expiry": "9999-12-31T23:59:59.9999999+00:00",
+                "isGuestUser": false,
+                "imageUrl": null
+            }
         ]
     },
     "company": {
-        "displayName": "RISE",
-        "id": "f93c2b84-8bdd-5ac8-b541-ce7e2734132e",
+        "displayName": "MARINESTREAM",
+        "id": "0d865f0c-a370-5799-8224-0dde4b8dc645",
         "dianaDataType": "Company",
         "resourceType": "Company",
-        "link": "https://diana-api-test.rise-x.com/api/v1/company/f93c2b84-8bdd-5ac8-b541-ce7e2734132e",
+        "link": "https://diana-api-test.rise-x.com/api/v1/company/0d865f0c-a370-5799-8224-0dde4b8dc645",
         "view": "https://diana-api-test.rise-x.com/",
         "relationship": "Company"
     },
@@ -13005,10 +13886,10 @@
         }
     },
     "createdBy": {
-        "id": "feb37bbc-182a-41c0-9695-beb75f9f98ae",
-        "email": "mat.harvey@rise-x.io",
-        "name": "Mathew Harvey",
-        "displayName": "Mathew Harvey",
+        "id": "d673ebf7-5617-4d8a-983e-6cb07bf6aa33",
+        "email": "mat.harvey@marinestream.io",
+        "name": "Mat Harvey",
+        "displayName": "Mat Harvey",
         "roles": [],
         "link": null,
         "companyName": null,
@@ -13021,24 +13902,7 @@
         "imageUrl": null
     },
     "createdDate": "2022-01-07T03:14:07.8249408+00:00",
-    "activeLocks": [
-        {
-            "displayName": "Mathew Harvey",
-            "userId": "feb37bbc-182a-41c0-9695-beb75f9f98ae",
-            "utcTime": "2022-01-27T08:21:25.5055787+00:00",
-            "componentId": "fc8a48e7-e921-41aa-b2e5-0d0d4fdf19e5",
-            "workItemId": "b98b480b-4c2a-4cb6-b6fe-683e334fd805",
-            "flowOriginId": "42533e34-7ddc-4a90-b197-ddb6a6bfb9ad"
-        },
-        {
-            "displayName": "Mathew Harvey",
-            "userId": "feb37bbc-182a-41c0-9695-beb75f9f98ae",
-            "utcTime": "2022-01-27T08:21:25.2646194+00:00",
-            "componentId": "f1d78eed-c694-4e1c-b6ee-b85317476829",
-            "workItemId": "b98b480b-4c2a-4cb6-b6fe-683e334fd805",
-            "flowOriginId": "42533e34-7ddc-4a90-b197-ddb6a6bfb9ad"
-        }
-    ],
+    "activeLocks": [],
     "chains": {
         "complete": {
             "chainName": "complete",
@@ -13048,12 +13912,12 @@
                     "workType": "marinestream/vessel/biofouling",
                     "color": "primary",
                     "icon": "",
-                    "stateName": "Submit",
+                    "stateName": "Complete Work",
                     "userAccount": "feb37bbc-182a-41c0-9695-beb75f9f98ae",
                     "userId": "00000000-0000-0000-0000-000000000000",
                     "userName": null,
                     "roleName": "*",
-                    "dateTimeIso": "2022-01-11T05:45:48.113+00:00",
+                    "dateTimeIso": "2022-02-02T03:19:11.625+00:00",
                     "eventIndex": 0
                 }
             ]
@@ -13061,6 +13925,19 @@
         "currentState": {
             "chainName": "currentState",
             "events": [
+                {
+                    "displayName": "Complete Work",
+                    "workType": null,
+                    "color": "danger",
+                    "icon": null,
+                    "stateName": "Complete Work",
+                    "userAccount": "Mathew Harvey",
+                    "userId": "feb37bbc-182a-41c0-9695-beb75f9f98ae",
+                    "userName": null,
+                    "roleName": "*",
+                    "dateTimeIso": "2022-02-02T03:19:11.625+00:00",
+                    "eventIndex": 0
+                },
                 {
                     "displayName": "Submit",
                     "workType": null,
@@ -13071,20 +13948,7 @@
                     "userId": "feb37bbc-182a-41c0-9695-beb75f9f98ae",
                     "userName": null,
                     "roleName": "*",
-                    "dateTimeIso": "2022-01-07T03:14:10.633+00:00",
-                    "eventIndex": 0
-                },
-                {
-                    "displayName": "Skipped Accept Quote",
-                    "workType": null,
-                    "color": "secondary",
-                    "icon": null,
-                    "stateName": "Accept Quote",
-                    "userAccount": "Mathew Harvey",
-                    "userId": "feb37bbc-182a-41c0-9695-beb75f9f98ae",
-                    "userName": null,
-                    "roleName": "*",
-                    "dateTimeIso": "2022-01-07T03:14:09.591+00:00",
+                    "dateTimeIso": "2022-02-02T03:18:57.081+00:00",
                     "eventIndex": 0
                 }
             ]
@@ -13200,37 +14064,37 @@
         }
     ],
     "date": "2022-01-13T04:00:00+00:00",
-    "canDelete": true,
+    "canDelete": false,
     "actions": [
         {
             "workId": "b98b480b-4c2a-4cb6-b6fe-683e334fd805",
             "flowId": "45def046-8d51-5508-b3a9-bcebe1c5af03",
             "flowOriginId": "42533e34-7ddc-4a90-b197-ddb6a6bfb9ad",
-            "stepDisplayName": "Submit",
-            "stepName": "inspection/resourcing/resourcing/submitresourcing",
+            "stepDisplayName": "Complete Work",
+            "stepName": "inspection/delivery/delivery/completework",
             "events": [
                 {
-                    "id": "d587fa56-2b66-50b8-84be-b5ae27b3ecb9",
-                    "eventName": "submitresourcing/submitresourcing",
-                    "name": "inspection/resourcing/resourcing/submitresourcing/submitresourcing/v1",
-                    "displayName": "Submit",
-                    "submitUri": "https://diana-api-test.rise-x.com/api/v2/flow/execute/b98b480b-4c2a-4cb6-b6fe-683e334fd805?eventName=submitresourcing/submitresourcing",
+                    "id": "098f75dc-527b-5096-9078-c9193919ebf7",
+                    "eventName": "completework/completework",
+                    "name": "inspection/delivery/delivery/completework/completework/v1",
+                    "displayName": "Complete Work",
+                    "submitUri": "https://diana-api-test.rise-x.com/api/v2/flow/execute/b98b480b-4c2a-4cb6-b6fe-683e334fd805?eventName=completework/completework",
                     "synchronousSubmitUri": null
                 }
             ],
             "workCode": "RSX-2022-001",
             "canExecute": true,
             "roles": [
-                "Supervisor"
+                "QA"
             ],
             "invitation": {
                 "invites": [
                     {
-                        "id": "feb37bbc-182a-41c0-9695-beb75f9f98ae",
-                        "name": "Mathew Harvey",
-                        "email": "mat.harvey@rise-x.io",
+                        "id": "d38c685c-4395-42db-a0eb-84a1619e24ab",
+                        "name": "David Barker",
+                        "email": "david.barker@rise-x.io",
                         "roles": [
-                            "Supervisor"
+                            "QA"
                         ],
                         "removeAllAccess": false,
                         "removeRoles": null,
@@ -13241,7 +14105,7 @@
                 "edit": false,
                 "subject": null
             },
-            "stepId": "5fb245bc-4fe4-5c16-adf4-30e936f18c13"
+            "stepId": "35b86426-784b-5035-88fe-01d49611a6af"
         }
     ],
     "relationships": null
