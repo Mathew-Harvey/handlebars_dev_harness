@@ -7,10 +7,10 @@
     ],
     "verbose": true,
     "execMap": {
-      "js": "node --harmony"
+      "js": "node"
     },
     "events": {
-      "restart": "osascript -e 'display notification \"App restarted due to:\n'$FILENAME'\" with title \"nodemon\"'"
+      "restart": "'display notification \"App restarted due to:\n'$FILENAME'\" with title \"nodemon\"'"
     },
     "watch": [
       "test/fixtures/",
@@ -18,7 +18,8 @@
       "test/samples/",
       "views/",
       "views/layouts/",
-      "views/partials/"
+      "views/partials/",
+      "dianaDataEnrich.js"
     ],
     "env": {
       "NODE_ENV": "development"

@@ -4,7 +4,15 @@
 <head>
 
 
-    <style>
+    {{!-- <style>
+        html,
+        body {
+            height: 297mm;
+            width: 210mm;
+
+
+        }
+
         * {
             font-family: Arial, Helvetica, sans-serif;
         }
@@ -45,9 +53,9 @@
         .page {
             position: relative;
             background-color: white;
-            margin-top: 20px;
-            width: 855px;
-            height: 1200px;
+
+            width: 210mm;
+            height: 297mm;
             box-shadow: 0px 2px 3px rgba(0, 0, 0, .3);
         }
 
@@ -85,6 +93,22 @@
             border-right: none !important;
         }
 
+        .paddingLeft {
+            padding-left: 10px;
+        }
+
+        .paddingLeftBlankCell {
+            padding-left: 5rem;
+        }
+
+        .addMargins {
+            margin-top: 2.25cm !important;
+            margin-bottom: 2.25cm !important;
+            margin-left: 2.25cm !important;
+            margin-right: 2.25cm !important;
+        }
+
+
         #toc_container {
 
 
@@ -105,7 +129,7 @@
         .smallText {
             font-size: 12px;
         }
-    </style>
+    </style> --}}
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>Mooring Inspection Report</title>
@@ -140,42 +164,43 @@
         <div class="footerCoverPage">
             <table>
                 <tr>
-                    <td class="noBorder"><img src="./photos/fuslogo2.png"> </img></td>
+                    <td class="noBorder paddingLeftBlankCell"><img src="./photos/fuslogo2.png"> </img></td>
                     <td class="noBorder smallText">
                         <p><b>Franmarine Underwater Servies Pty Ltd</b></p>
                     </td>
-                    <td class="noBorderTopBottom smallText">
+                    <td class="noBorderTopBottom smallText paddingLeft">
                         <p>Tel: (08)9437 3900</p>
                     </td>
                     <td class="noBorderTopBottom noBorderRight ">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
                     </td>
                 </tr>
                 <tr>
-                    <td class="noBorder">FUS LOGO HERE</td>
+                    <td class="noBorder paddingLeftBlankCell">FUS LOGO HERE</td>
                     <td class="noBorder smallText">
                         <p>13 Possner Way</p>
                     </td>
-                    <td class="noBorderTopBottom smallText">
+                    <td class="noBorderTopBottom smallText paddingLeft">
                         <p>www.franmarine.com.au</p>
                     </td>
-                    <td class="noBorderTopBottom noBorderRight">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                    <td class="noBorderTopBottom noBorderRight ">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
                     </td>
                 </tr>
                 <tr>
-                    <td class="noBorder">FUS LOGO HERE</td>
+                    <td class="noBorder paddingLeftBlankCell">FUS LOGO HERE</td>
                     <td class="noBorder smallText">
                         <p>Henderson WA 6166</p>
                     </td>
-                    <td class="noBorderTopBottom smallText">reception@franmarine.com.au</td>
-                    <td class="noBorderTopBottom noBorderRight">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                    <td class="noBorderTopBottom smallText paddingLeft">reception@franmarine.com.au</td>
+                    <td class="noBorderTopBottom noBorderRight paddingLeftBlankCell">
+                        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
                     </td>
                 </tr>
                 <tr>
-                    <td class="noBorder">FUS LOGO HERE</td>
+                    <td class="noBorder paddingLeftBlankCell">FUS LOGO HERE</td>
                     <td class="noBorder smallText">
                         <p>Australia</p>
                     </td>
-                    <td class="noBorderTopBottom smallText">
+                    <td class="noBorderTopBottom smallText paddingLeft">
                         <p>ABN: 81 059 459</p>
                     </td>
                     <td class="noBorderTopBottom noBorderRight">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
@@ -209,7 +234,8 @@
                 <li><a href="#Reference_Tables">4 Reference Tables</a>
                     <ul>
                         <li><a href="#Fouling_Ratings(FR)_Scale">4.1 Fouling Ratings (FR) Scale</a></li>
-                        <li><a href="#Paint_Deterioration_Rating(PDR)_Scale">4.2 Paint Deterioration Rating (PDR) Scale</a></li>
+                        <li><a href="#Paint_Deterioration_Rating(PDR)_Scale">4.2 Paint Deterioration Rating (PDR)
+                                Scale</a></li>
                     </ul>
                 </li>
                 <li><a href="#Observations_&_Findings">5 Observations and Findings</a>
@@ -310,11 +336,546 @@
 
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
-    <script src='/index.js'></script>
+
+    <div class="page">
+        <h1 class="heading1 addMargins"> 1. Project Particulars </h1>
+
+        <table class="addMargins">
+            <tr>
+                <td>Diving Contractor</td>
+                <td>Franmarine Underwater Services</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Project:</td>
+                <td>BV Class In-Water Survey</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Vessel:</td>
+                <td>MV Dareen</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Client:</td>
+                <td>Arabaust Exports</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Client Rep:</td>
+                <td>Shanta Jonnett</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Date:</td>
+                <td>19th July 2021</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Job Location</td>
+                <td>Fremantle Port, Western Australia</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Project Manager</td>
+                <td>Blake Miller</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Diver Team Members</td>
+                <td>Supervisor</td>
+                <td>Dan Tilfer</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>Divers</td>
+                <td>Alex Edwards</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td>Fox Autagavia</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td>Nick May</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="page">
+        <h1 class="heading1"> 2. Vessel Particulars </h1>
+
+        <table>
+            <tr>
+                <td>Ship's Name</td>
+                <td>MV Dareen</td>
+            </tr>
+            <tr>
+                <td>Flag</td>
+                <td>Panama</td>
+            </tr>
+            <tr>
+                <td>Gross Tonnage</td>
+                <td>12959 tonnes</td>
+            </tr>
+            <tr>
+                <td>Pennant</td>
+                <td>FFH151</td>
+            </tr>
+            <tr>
+                <td>Length</td>
+                <td>140m</td>
+            </tr>
+            <tr>
+                <td>Beam</td>
+                <td>20m</td>
+            </tr>
+            <tr>
+                <td>Ship Type</td>
+                <td>Livestock Carrier</td>
+            </tr>
+            <tr>
+                <td>Call Sign</td>
+                <td>3FYL8</td>
+            </tr>
+            <tr>
+                <td>Commissioned</td>
+                <td>1994</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>Forward</td>
+            </tr>
+            <tr>
+                <td>Vessel Draft</td>
+                <td>Midships</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>Aft</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="page">
+        <h1 class="heading1"> 3. Overview </h1>
+
+        <p>{{{data.report.overview}}}</p>
 
 
+    </div>
 
+    <div class="page">
+        <h1 class="heading1"> 4. Reference Tables </h1>
+
+        <p>The below tables are referenced throughout the report to formally standardise both biofouling and anti-
+            fouling condition ratings referred to herein.</p>
+        <h1 class="heading2"> 4.1 Fouling Ratings (FR) Scale </h1>
+
+        <table>
+            <tr>
+                <th>Type</th>
+                <th>Fouling Rating (FR)</th>
+                <th>Description</th>
+            </tr>
+            <tr>
+                <td>Soft</td>
+                <td>0</td>
+                <td>A clean, foul-free surface; red and/or black AF paint or bare metal
+                    surface.</td>
+            </tr>
+            <tr>
+                <td>Soft</td>
+                <td>10 tonnes</td>
+                <td>Light shades of red and green (incipient slime). Bare metal and
+                    painted surfaces are visible beneath the fouling.</td>
+            </tr>
+            <tr>
+                <td>Soft</td>
+                <td>20</td>
+                <td>Slime as dark green patches with yellow or brown colored areas
+                    (advanced slime). Bare metal and painted surfaces may be obscured
+                    by the fouling.
+                </td>
+            </tr>
+            <tr>
+                <td>Soft</td>
+                <td>30</td>
+                <td>Grass filaments up to 3 inches (76 mm) in length, projections up to
+                    ¼ inch (6.4 mm) in height; or flat network of filaments, green,
+                    yellow, or brown in color, or soft non calcareous fouling such as sea
+                    cucumbers, sea grapes, or sea squirts projecting up to ¼ inch (6.4
+                    mm) in height. The fouling cannot be easily wiped off by hand.</td>
+            </tr>
+            <tr>
+                <td>Hard</td>
+                <td>40</td>
+                <td>Calcareous fouling in the form of tube worms less than ¼ inch (6.4
+                    mm) in diameter or height.</td>
+            </tr>
+            <tr>
+                <td>Hard</td>
+                <td>50</td>
+                <td>Calcareous fouling in the form of barnacles, less than ¼ inch (6.4
+                    mm) in diameter or height.</td>
+            </tr>
+            <tr>
+                <td>Hard</td>
+                <td>60</td>
+                <td>Combination of tubeworms and barnacles less than ¼ inch (6.4mm)
+                    in diameter or height</td>
+            </tr>
+            <tr>
+                <td>Hard</td>
+                <td>70</td>
+                <td>Combination of tubeworms and barnacles greater than ¼ inch (6.4
+                    mm) in diameter or height.</td>
+            </tr>
+            <tr>
+                <td>Hard</td>
+                <td>80</td>
+                <td>Tubeworms tightly packed together and growing upright away from
+                    surface. Barnacles growing one on top of another, ¼ inch (6.4 mm)
+                    or less in height. Calcareous shells appear clean or white in color</td>
+            </tr>
+            <tr>
+                <td>Hard</td>
+                <td>90</td>
+                <td>Dense growth of tubeworms with barnacles, ¼ inch (6.4 mm) or
+                    greater in height; Calcareous shells brown in color (oysters and
+                    mussels); or with slime or grass overlay.</td>
+            </tr>
+            <tr>
+                <td>Composite</td>
+                <td>100</td>
+                <td> All forms of fouling present, Soft and Hard, particularly soft
+                    sedentary animals without calcareous covering (tunicates) growing
+                    over various forms of hard growth.</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="page">
+        <h1 class="heading2"> 4.2 Paint Deterioration Rating (PDR) Scale </h1>
+
+        <table>
+            <tr>
+                <th>Rating</th>
+                <th>Description</th>
+            </tr>
+            <tr>
+                <td>PDR-10</td>
+                <td>Anti-Foul (AF) Paint intact.
+                </td>
+            </tr>
+            <tr>
+                <td>PDR-20</td>
+                <td>AF paint missing from edges, corners, seams, welds rivet or bolt heads to expose anti
+                    corrosion (AC) paint. (undercoat)
+                </td>
+            </tr>
+            <tr>
+                <td>PDR-30</td>
+                <td>AF paint missing from slightly curved or flat areas to expose underlying AC paint; An
+                    AF paint with visible brush swirl marks within the outermost layer – not extending into
+                    underlying layers of paint.
+                </td>
+            </tr>
+            <tr>
+                <td>PDR-40</td>
+                <td>AF paint missing from intact blisters to expose AC paint or an AF coating with visible
+                    brush swirl marks exposing the next underlying layer of AF or AC paint.
+                </td>
+            </tr>
+            <tr>
+                <td>PDR-50</td>
+                <td> AF blisters ruptured to expose intact AC paint.</td>
+            </tr>
+            <tr>
+                <td>PDR-60</td>
+                <td>AF/AC paint missing or peeling to expose steel substrate with corrosion present.</td>
+            </tr>
+            <tr>
+                <td>PDR-70</td>
+                <td>AF/AC paint removed from edges, corners, seams, welds rivet or bolt heads to expose
+                    steel substrate with corrosion present.</td>
+            </tr>
+            <tr>
+                <td>PDR-80</td>
+                <td>Ruptured AF/AC blisters on slightly curved or flat surfaces with corrosion or corrosion
+                    stains present.</td>
+            </tr>
+            <tr>
+                <td>PDR-90</td>
+                <td>Area corrosion of steel substrate with no AF/AC paint cover due to peeling or abrasion
+                    damage.</td>
+            </tr>
+            <tr>
+                <td>PDR-100</td>
+                <td>Area corrosion showing visible surface evidence of pitting, scaling, and roughening of
+                    steel substrate.</td>
+            </tr>
+        </table>
+    </div>
+
+
+<h1>LOOK HERE NEW</h1>
+{{!-- sections --}}
+{{#each data.sections}}
+    {{#if (eq context "worklog")}}
+        <h1>{{increment @index}} {{title}}</h1>
+        {{!-- subsections --}}
+            {{#each sections}}
+                <h2>{{increment @../index}}.{{increment @index}} {{title}}</h2>
+                <p>{{{comments}}}</p>
+            {{/each}}
+        <p>{{{comments}}}</p>
+    {{/if}}
+{{/each}}
+
+<h1>NEW SECTION SHOULD BE ABOVE</h1>
+
+    <div class="page">
+        <h1 class="heading1"> 5 Observations and Findings</h1>
+        <h1 class="heading2"> 5.1 Vessel Above Waterline </h1>
+        INSERT 4 x photos of topside vessel
+    </div>
+
+    <div class="page">
+        <h1 class="heading2"> 5.2 Transom </h1>
+        <p>{{{data.hullPlating.hullPlatingTransom.comments}}}</p>
+        <img>INSERT 4 x photos of transom</img>
+    </div>
+
+    <div class="page">
+        <h1 class="heading2"> 5.3 Port Rudder </h1>
+        <h1 class="heading3"> 5.3.1 Trailing Edge </h1>
+        <p>{{{data.hullPlating.hullPlatingTransom.comments}}}</p>
+        <img>INSERT 4 x photos of trailing edge</img>
+    </div>
+
+    <div class="page">
+        <h1 class="heading3"> 5.3.2 Leading Edge </h1>
+        <p>{{{data.hullPlating.hullPlatingTransom.comments}}}</p>
+        <img>INSERT 4 x photos of leading edge</img>
+    </div>
+
+    <div class="page">
+        <h1 class="heading3"> 5.3.3 Rudder Base Plate </h1>
+        <p>{{{data.hullPlating.hullPlatingTransom.comments}}}</p>
+        <img>INSERT 4 x photos of rudder base plate</img>
+    </div>
+
+    <div class="page">
+        <h1 class="heading3"> 5.3.4 Rudder Side Plates </h1>
+        <p>{{{data.hullPlating.hullPlatingTransom.comments}}}</p>
+        <img>INSERT 4 x photos of rudder side plates</img>
+    </div>
+
+    <div class="page">
+        <h1 class="heading3"> 5.3.5 Rudder Horn </h1>
+        <p>{{{data.hullPlating.hullPlatingTransom.comments}}}</p>
+        <img>INSERT 4 x photos of rudder horn</img>
+    </div>
+
+    <div class="page">
+        <h1 class="heading3"> 5.3.6 Rudder Jumping Clearance </h1>
+        <p>{{{data.hullPlating.hullPlatingTransom.comments}}}</p>
+        <img>INSERT 4 x photos of rudder jumping clearance</img>
+    </div>
+
+    <div class="page">
+        <h1 class="heading3"> 5.3.7 Pintle Bearing Clearance </h1>
+        <p>{{{data.hullPlating.hullPlatingTransom.comments}}}</p>
+        <img>INSERT 4 x photos of pintle bearing clearances</img>
+    </div>
+
+    <div class="page">
+        <h1 class="heading2"> 5.4 Starboard Rudder </h1>
+        <h1 class="heading3"> 5.4.1 Trailing Edge </h1>
+        <p>{{{data.hullPlating.hullPlatingTransom.comments}}}</p>
+        <img>INSERT 4 x photos of trailing edge</img>
+    </div>
+
+    <div class="page">
+        <h1 class="heading3"> 5.4.2 Leading Edge </h1>
+        <p>{{{data.hullPlating.hullPlatingTransom.comments}}}</p>
+        <img>INSERT 4 x photos of leading edge</img>
+    </div>
+
+    <div class="page">
+        <h1 class="heading3"> 5.4.3 Rudder Base Plate </h1>
+        <p>{{{data.hullPlating.hullPlatingTransom.comments}}}</p>
+        <img>INSERT 4 x photos of rudder base plate</img>
+    </div>
+
+    <div class="page">
+        <h1 class="heading3"> 5.4.4 Rudder Side Plates </h1>
+        <p>{{{data.hullPlating.hullPlatingTransom.comments}}}</p>
+        <img>INSERT 4 x photos of rudder side plates</img>
+    </div>
+
+    <div class="page">
+        <h1 class="heading3"> 5.4.5 Rudder Horn </h1>
+        <p>{{{data.hullPlating.hullPlatingTransom.comments}}}</p>
+        <img>INSERT 4 x photos of rudder horn</img>
+    </div>
+
+    <div class="page">
+        <h1 class="heading3"> 5.4.6 Rudder Jumping Clearance </h1>
+        <p>{{{data.hullPlating.hullPlatingTransom.comments}}}</p>
+        <img>INSERT 4 x photos of rudder jumping clearance</img>
+    </div>
+
+    <div class="page">
+        <h1 class="heading3"> 5.4.7 Pintle Bearing Clearance </h1>
+        <p>{{{data.hullPlating.hullPlatingTransom.comments}}}</p>
+        <img>INSERT 4 x photos of pintle bearing clearances</img>
+    </div>
+
+    <div class="page">
+        <h1 class="heading2"> 5.5 Port Propeller</h1>
+        <p>{{{data.hullPlating.hullPlatingTransom.comments}}}</p>
+        <img>INSERT 4 x photos of pintle bearing clearances</img>
+    </div>
+
+    <div class="page">
+        <h1 class="heading3"> 5.5.1 12 o'clock blade </h1>
+        <p>{{{data.hullPlating.hullPlatingTransom.comments}}}</p>
+        <img>INSERT Photos</img>
+    </div>
+
+    <div class="page">
+        <h1 class="heading3"> 5.5.2 3 o'clock blade </h1>
+        <p>{{{data.hullPlating.hullPlatingTransom.comments}}}</p>
+        <img>INSERT Photos</img>
+    </div>
+
+    <div class="page">
+        <h1 class="heading3"> 5.5.3 6 o'clock blade </h1>
+        <p>{{{data.hullPlating.hullPlatingTransom.comments}}}</p>
+        <img>INSERT Photos</img>
+    </div>
+
+    <div class="page">
+        <h1 class="heading3"> 5.5.4 9 o'clock blade </h1>
+        <p>{{{data.hullPlating.hullPlatingTransom.comments}}}</p>
+        <img>INSERT Photos</img>
+    </div>
+
+    <div class="page">
+        <h1 class="heading3"> 5.5.5 Port Propeller Boss</h1>
+        <p>{{{data.hullPlating.hullPlatingTransom.comments}}}</p>
+        <img>INSERT Photos</img>
+    </div>
+
+    <div class="page">
+        <h1 class="heading2"> 5.6 Starboard Propeller</h1>
+        <p>{{{data.hullPlating.hullPlatingTransom.comments}}}</p>
+        <img>INSERT 4 x photos of pintle bearing clearances</img>
+    </div>
+
+    <div class="page">
+        <h1 class="heading3"> 5.6.1 12 o'clock blade </h1>
+        <p>{{{data.hullPlating.hullPlatingTransom.comments}}}</p>
+        <img>INSERT Photos</img>
+    </div>
+
+    <div class="page">
+        <h1 class="heading3"> 5.6.2 3 o'clock blade </h1>
+        <p>{{{data.hullPlating.hullPlatingTransom.comments}}}</p>
+        <img>INSERT Photos</img>
+    </div>
+
+    <div class="page">
+        <h1 class="heading3"> 5.6.3 6 o'clock blade </h1>
+        <p>{{{data.hullPlating.hullPlatingTransom.comments}}}</p>
+        <img>INSERT Photos</img>
+    </div>
+
+    <div class="page">
+        <h1 class="heading3"> 5.6.4 9 o'clock blade </h1>
+        <p>{{{data.hullPlating.hullPlatingTransom.comments}}}</p>
+        <img>INSERT Photos</img>
+    </div>
+
+    <div class="page">
+        <h1 class="heading3"> 5.6.5 Starboard Propeller Boss</h1>
+        <p>{{{data.hullPlating.hullPlatingTransom.comments}}}</p>
+        <img>INSERT Photos</img>
+    </div>
+
+    <div class="page">
+        <h1 class="heading2"> 5.7 Rope Guards</h1>
+        <h1 class="heading3"> 5.7.1 Port Rope Guards</h1>
+        <p>{{{data.hullPlating.hullPlatingTransom.comments}}}</p>
+        <img>INSERT Photos</img>
+    </div>
+
+    <div class="page">
+        <h1 class="heading3"> 5.7.2 Starboard Rope Guards</h1>
+        <p>{{{data.hullPlating.hullPlatingTransom.comments}}}</p>
+        <img>INSERT Photos</img>
+    </div>
+
+    <div class="page">
+        <h1 class="heading2"> 5.8 Shaft Brackets</h1>
+        <h1 class="heading3"> 5.8.1 Port Side Shaft Brackets</h1>
+        <p>{{{data.hullPlating.hullPlatingTransom.comments}}}</p>
+        <img>INSERT Photos</img>
+    </div>
+
+    <div class="page">
+        <h1 class="heading3"> 5.8.2 Starboard Side Shaft Brackets</h1>
+        <p>{{{data.hullPlating.hullPlatingTransom.comments}}}</p>
+        <img>INSERT Photos</img>
+    </div>
+
+    <div class="page">
+        <h1 class="heading2"> 5.9 Shaft Wear Down Readings</h1>
+        <p>{{{data.hullPlating.hullPlatingTransom.comments}}}</p>
+        <img>INSERT Photos</img>
+    </div>
+
+    <div class="page">
+        <h1 class="heading2"> 5.10 Skeg</h1>
+        <p>{{{data.hullPlating.hullPlatingTransom.comments}}}</p>
+        <img>INSERT Photos</img>
+    </div>
+
+    <div class="page">
+        <h1 class="heading2"> 5.11 Seachests</h1>
+        <p>{{{data.hullPlating.hullPlatingTransom.comments}}}</p>
+        <img>INSERT Photos</img>
+    </div>
+
+    <div class="page">
+        <h1 class="heading3"> 5.11.1 Starboard Aft Seachest</h1>
+        <p>{{{data.hullPlating.hullPlatingTransom.comments}}}</p>
+        <img>INSERT Photos</img>
+    </div>
+
+    <div class="page">
+        <h1 class="heading3"> 5.11.2 Port Fwd Seachest</h1>
+        <p>{{{data.hullPlating.hullPlatingTransom.comments}}}</p>
+        <img>INSERT Photos</img>
+    </div>
+
+    <div class="page">
+        <h1 class="heading3"> 5.12 Bilge Keels</h1>
+        <p>{{{data.hullPlating.hullPlatingTransom.comments}}}</p>
+        <img>INSERT Photos</img>
+    </div>
 
 </body>
+
+
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+<script src='/index.js'></script>

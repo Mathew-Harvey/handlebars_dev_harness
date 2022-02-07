@@ -4,14 +4,16 @@ const bodyParser = require("body-parser");
 const exphbs = require("express-handlebars");
 const vesselData = require('./vesselData.json')
 
+const diana = require('./dianaDataEnrich.js');
+
 app.use(express.static(__dirname + "/public"));
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }));
 
-//Handlebars settings
+//Handlebars settings 
 app.set("view engine", "hbs");
 app.engine("hbs", exphbs({
-    extname: "hbs",
+    extname: "hbs", 
     defaultLayout: "index",
 
     helpers: {
@@ -23,8 +25,14 @@ app.engine("hbs", exphbs({
         todaysDate: function () {
             let nowDate = moment().format("dddd DD MMMM YYYY")
             return nowDate  
+        },
+        increment: function (index) {
+            return index + 1;
+        },
+        eq: function (value1, value2) {
+            return (value1 === value2);
         }
-        
+
         // THIS HELPER IS FOR DIANA INTEGRATION
         // Handlebars.registerHelper("getImages", function (path, options) {
         //     const attachments = currentWork.attachments.filter((x) => x.path === path);
@@ -48,9 +56,25 @@ app.get("/views/", (req, res) => {
 });
 
 app.get('/', (req, res) => {
-    res.render("mainClassInspection", vesselData);
+    console.log("outputing result");
+    
+    const data = diana.enrichData(vesselData);
+
+    data.data.sections.map(section => {
+        console.log({ ...section })
+    });
+
+    res.render("mainClassInspection", data);
 })
 
 app.get('/hull', (req, res) => {
-    res.render("mainHullInspection", vesselData);
+    const data = diana.enrichData(vesselData);
+
+    console.log("outputing result");
+    
+    dianaWork.data.sections.map(section => {
+        console.log({ ...section })
+    });
+
+    res.render("mainHullInspection", data);
 })
