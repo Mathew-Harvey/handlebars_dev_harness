@@ -18,7 +18,8 @@
       "test/samples/",
       "views/",
       "views/layouts/",
-      "views/partials/"
+      "views/partials/",
+      "dianaDataEnrich.js"
     ],
     "env": {
       "NODE_ENV": "development"
