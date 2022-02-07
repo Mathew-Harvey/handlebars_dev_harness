@@ -77,3 +77,15 @@ app.get('/hull', (req, res) => {
 
     res.render("mainHullInspection", data);
 })
+
+app.get('/', (req, res) => {
+    console.log("outputing result");
+    
+    const data = diana.enrichData(vesselData);
+
+    data.data.sections.map(section => {
+        console.log({ ...section })
+    });
+
+    res.render("biofoulingReport", data);
+})

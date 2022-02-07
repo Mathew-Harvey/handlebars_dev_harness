@@ -1,0 +1,97 @@
+*{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#header{
+    width:960px;
+    height:120px
+}
+#footer{
+    height:60px;
+    background:#fff;
+    clear:both;
+    font-size:smaller 
+}
+
+h1 {
+
+    font-size: 28px;
+    text-transform: uppercase;
+    text-align:center
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    
+}
+
+.centeredText {
+    text-align: center !important;
+}
+
+.flexFullPageContainerFrontPage {
+    display: flex;
+    flex-direction: column;
+    min-height: 80vh
+}
+
+.centerDivOnPage {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+ .page {
+    position: relative;
+    background-color: white;
+    margin-top: 20px;
+    width: 855px;
+    height: 1200px;
+    box-shadow: 0px 2px 3px rgba(0, 0, 0, .3);
+}
+
+td{
+    border:1px solid black;
+    height:15px
+}
+th {
+
+    text-align: left;
+    border: 1px solid black;
+    border: 1px solid black;
+    background-color: darkblue;
+    height:15px;
+    line-height: 50%
+}
+
+.noBorder {
+    border: none !important;
+}
+
+.noBorderTopBottom {
+    border-top: none !important;
+    border-bottom: none !important;
+}
+
+.noBorderSides {
+    border-left: none !important;
+    border-right: none !important;
+}
+
+.noBorderRight {
+    border-right: none !important;
+}
+
+.smallText {
+    font-size: 12px;
+}
+
+.signatureBox {
+    padding-bottom: 70px;
+}
+
+#grey {
+    background-color: #dddddd;
+}
