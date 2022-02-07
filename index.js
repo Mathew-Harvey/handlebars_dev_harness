@@ -24,25 +24,24 @@ app.engine("hbs", exphbs({
         },
         todaysDate: function () {
             let nowDate = moment().format("dddd DD MMMM YYYY")
-            return nowDate  
+            return nowDate
         },
         increment: function (index) {
             return index + 1;
         },
         eq: function (value1, value2) {
             return (value1 === value2);
+        },
+        getImages: function (path, attachments, options) {
+            // console.log({attachments, options});
+            const links = attachments?.filter((x) => x.path === path);
+            return links?.map((attachment) => {
+                return options.fn(attachment);
+            });
         }
-
-        // THIS HELPER IS FOR DIANA INTEGRATION
-        // Handlebars.registerHelper("getImages", function (path, options) {
-        //     const attachments = currentWork.attachments.filter((x) => x.path === path);
-        //     return attachments.map((attachment) => {
-        //     return options.fn(attachment);
-        //     });
-        //     });
     }
-
-}));
+})); 
+        
 const port = 8900;
 app.listen(port);
 console.log(`Server is running on Port: ${port}`)

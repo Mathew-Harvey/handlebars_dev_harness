@@ -625,13 +625,20 @@
 {{!-- sections --}}
 {{#each data.sections}}
     {{#if (eq context "worklog")}}
-        <h1>{{increment @index}} {{title}}</h1>
-        {{!-- subsections --}}
-            {{#each sections}}
-                <h2>{{increment @../index}}.{{increment @index}} {{title}}</h2>
-                <p>{{{comments}}}</p>
-            {{/each}}
-        <p>{{{comments}}}</p>
+        {{#if sections.[0]}}
+            <h1>{{increment @index}} {{title}}</h1>
+            {{!-- subsections --}}
+                {{#each sections}}
+                    <h2>{{increment @../index}}.{{increment @index}} {{title}}</h2>
+                    <p>{{{comments}}}</p>
+                    <div>Attachments {{attachmentFolder}}</div>
+                    {{#getImages attachmentFolder ../../attachments}}
+                        <img height="200px" width="auto" src="{{thumbUri}}" alt="{{title}}"/>
+                        <p>{{title}}</p>
+                    {{/getImages}}
+                {{/each}}
+            <p>{{{comments}}}</p>
+        {{/if}}
     {{/if}}
 {{/each}}
 

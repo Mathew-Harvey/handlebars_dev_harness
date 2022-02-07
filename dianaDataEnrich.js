@@ -76,19 +76,30 @@ function getSubSection(dianaWork, section, components)
             const value = jsonPath.query(dianaWork.data, path); // vessel data query
             console.log("Found Sub Section " + component.name, {value});
 
+            var child = {
+                title: component.properties?.title ?? component.label ?? component.name,
+                type: "subsection",
+                context: component.context,
+            };
+
             if (value !== undefined && value.length > 0) {
-
-                var child = {
-                    title: component.properties?.title ?? component.label ?? component.name,
-                    type: "subsection",
-                    context: component.context,
-                    ...value[0]
-                };
-
-                console.log("Created Sub Section", { child });
-
-                section.sections.push(child);
+                child = {...child, ...value[0]}
             }
+
+            console.log("Created Sub Section", { child });
+
+            if (component.components !== undefined && component.components.length > 0) {
+                const attachments = component.components.find(component =>
+                    component.component == "attachments"
+                );
+
+                console.log("attachments", attachments);
+
+                if (attachments) {
+                    child.attachmentFolder = attachments.properties.folder;
+                }
+            }
+            section.sections.push(child);            
         }
     });
 }
