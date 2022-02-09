@@ -3,45 +3,45 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>Biofouling Inspection</title>
-<link rel="stylesheet" href="../main.css"/>    
+<link rel="stylesheet" type="text/css" href="/assets/main.css"/>    
 
 </head>
 <body>
-    <div class="page">
-        <div>
-            <table>
-                <tr>
-                    <td class="noBorder" style="float:left">FUS LOGO HERE</td>
-                    <td class="noBorder" style="float:right">Client LOGO HERE</td>
-                </tr>
-            </table>
-            {{!-- {{{getImages attachments.0.fullUri}}} --}}
-        </div>
-    </div>
-   <div class="centeredText">
+   
+   <div class="page">
+       <table>
+            <tr>
+                <td class="noBorder" style="float:left">FUS LOGO HERE</td>
+                <td class="noBorder" style="float:right">Client LOGO HERE</td>
+            </tr>
+        </table>
+        
        <h1>Report</h1><p></p>
        <h2>{{data.vessel.displayName}}</h2><p></p>
        <h2>Biofouling Inspection</h2>
-   </div>
-   <div class="centerDivOnPage">
+       {{!-- {{{getImages attachments.0.fullUri}}} --}}
+        <img src="./photos/ship.png" class="center"/>
+  
        {{!-- Load vessel picture here from stream/json or cdn --}}
        {{!-- {{{getImages attachments.0.fullUri}}} --}}
-       <h4>Pacific Basin</h4>
+       <h2>Pacific Basin</h2>
        <p/>
-       {{createdDate}} {{!-- add date formating here--}}
+       <h3 >{{todaysDate }}   </h3> {{!-- add date formating here--}}
+       
    </div>
    <div class="page">
        {{!-- TOC --}}
+       Table of Contents is here
    </div>
    <div class="page">
-       <h2>1 PROJECT PARTICULARS</h2>
+       <h4>1. PROJECT PARTICULARS</h4>
        <div class="table">
            <table>
                <tr>
                    <th colspan="3"></th>                   
                 </tr>
                   <td><b>PROJECT:</b></td>
-                  <td cols="2">Biofouling Inspection</td>{{!-- is this dynamic--}}
+                  <td colspan="2">Biofouling Inspection</td>{{!-- is this dynamic--}}
                 <tr>
                   <td ><b>VESSEL DETAILS:</b></td>
                   <td><b>Vessel:</b></td>
@@ -113,7 +113,7 @@
        </div>
    </div>
    <div class="page">
-       <h2>2 METHODOLOGY</h2>
+       <h4>2. METHODOLOGY</h4>
        
        Franmarine Underwater Services Pty Ltd have been appointed by the client Pacific Basin to conduct a 
        Biofouling Inspection in accordance with New Zealand Ministry for Primary Industries (NZMPI) Craft Risk 
@@ -128,14 +128,14 @@
        <p/>
        Documents used to assist the project:
 
-       • AS/NZS 2299.1:2015
-       • Franmarine Operations Manual
-       • NZ MPI Craft Risk Management Standard
-       • Underwater Inspection Handbook
-       • Chief Engineers information on the day
+       • AS/NZS 2299.1:2015 <p/>
+       • Franmarine Operations Manual<p/>
+       • NZ MPI Craft Risk Management Standard<p/>
+       • Underwater Inspection Handbook<p/>
+       • Chief Engineers information on the day<p/>
    </div>
    <div class="page">
-       <h2>3 REFERENCE TABLES</h2>
+       <h4>3. REFERENCE TABLES</h4>
        <p/>
        The below tables are referenced throughout the report to formally standardise both biofouling and anti-fouling 
        condition ratings referred to herein.
@@ -197,7 +197,7 @@
        </table>
    </div>
    <div class="page">
-        <h3>3.1 PAINT DETERIORATION RATING (PDR) SCALE</h3>
+        <h4>3.1 PAINT DETERIORATION RATING (PDR) SCALE</h4>
        <p/>
        <table>
            <th>TYPE</th>
@@ -268,80 +268,80 @@
        </table>
    </div>
    <div class="page">
-        <h2>4 OBSERVATIONS AND FINDINGS</h2>
+        <h4>4. OBSERVATIONS AND FINDINGS</h4>
         <p/>
-        <h3>4.1 RUDDER</h3>
+        <h4>4.1 RUDDER</h4>
         <p/>
-        • The rudder was observed to be free from marine fouling, consistent with FR-0.
+        • The rudder was observed to be free from marine fouling, consistent with FR-0.<p/>
         • The antifoul coating (AFC) was observed to be in good condition with only minor wear and 
-            superficial damage to edges and seams, consistent with PDR-20.
+            superficial damage to edges and seams, consistent with PDR-20.<p/>
         {{!-- loop thru images for rudder section here 
            two image/s per row
         --}}
    </div>
    <div class="page">
-       <h3>4.2 PROPELLER</h3>
+       <h4>4.2 PROPELLER</h4>
        <p/>
        • The propeller and propeller boss were observed to have 5% coverage of incipient slime consistent 
-         with FR-10.
-       • No AFC was on the propeller or propeller boss.
+         with FR-10.<p/>
+       • No AFC was on the propeller or propeller boss.<p/>
        <p/>
        {{!-- loop thru images for propeller section here 
            two image/s per row
         --}}
    </div>
    <div class="page">
-       <h3>4.3 ROPE GUARD</h3>
+       <h4>4.3 ROPE GUARD</h4>
        <p/>
        • The rope guard was observed to be free from marine fouling both internally and externally, consistent
-         with FR-0.
+         with FR-0.<p/>
        • The antifoul coating (AFC) was observed to be in good condition with only minor wear and superficial 
-         damage to edges and seams, consistent with PDR-20. 
+         damage to edges and seams, consistent with PDR-20. <p/>
        <p/>
        {{!-- loop thru images for rope guard section here 
            two image/s per row
         --}}
    </div>
    <div class="page">
-       <h3>4.4 TRANSOM PLATING</h3>
+       <h4>4.4 TRANSOM PLATING</h4>
        <p/>
-       • The transom plating was observed to be free from marine fouling, consistent with FR-0.
+       • The transom plating was observed to be free from marine fouling, consistent with FR-0.<p/>
        • The antifoul coating (AFC) was observed to be in good condition with only minor wear and superficial damage 
-         to edges and seams, consistent with PDR-20.
+         to edges and seams, consistent with PDR-20.<p/>
        <p/>
        {{!-- loop thru images for transom plating section here 
            two image/s per row
         --}}
    </div>
    <div class="page">
-       <h3>4.5 STERN ARRANGEMENT</h3>
+       <h4>4.5 STERN ARRANGEMENT</h4>
        <p/>
-       • The stern arrangement was observed to be free from marine fouling, consistent with FR-0.
+       • The stern arrangement was observed to be free from marine fouling, consistent with FR-0.<p/>
        • The antifoul coating (AFC) was observed to be in good condition with only minor wear and superficial damage to 
-          edges and seams, consistent with PDR-20. 
+          edges and seams, consistent with PDR-20. <p/>
        <p/>
        {{!-- loop thru images for stern arrangement section here 
            two image/s per row
         --}}
    </div>
    <div class="page">
-       <h3>4.6 BILGE KEELS</h3>
+       <h4>4.6 BILGE KEELS</h4>
        <p/>
-       • All bilge keels were observed to have approx. 2% coverage of incipient slime consistent with FR-10.
+       • All bilge keels were observed to have approx. 2% coverage of incipient slime consistent with FR-10.<p/>
        • The antifoul coating (AFC) was observed to be in good condition with only minor wear and superficial damage to 
-         edges and seams. PDR-20. 
+         edges and seams. PDR-20. <p/>
        <p/>
        {{!-- loop thru images for bilge keels section here 
            two image/s per row
         --}}
    </div>
    <div class="page">
-       <h3>4.7 SEACHESTS</h3>
+       <h4>4.7 SEACHESTS</h4>
        <p/>
        • Three (3) sets of sea chests were observed on the vessel. The Port and STBD main sea chests and the emergency 
-         sea chest.
+         sea chest. <p/>
        • All three (3) sea chest grates were observed to be in similar condition with incipient slime covering approx. 
-         2% of the grates, consistent with FR-10.
+         2% of the grates, consistent with FR-10. <p/>
        • Typically, each sea chest grate was subject to minimal anti-foul coating (AFC) defects. The sea chest grates 
          AFC ranged between PDR-10 and PDR-20. 
        <p/>
@@ -350,21 +350,21 @@
         --}}
    </div>
    <div class="page">
-       <h3>4.8 OVERBOARD DISCHARGES</h3>
+       <h4>4.8 OVERBOARD DISCHARGES</h4>
        <p/>
        • The OBD's that were located were observed to be in similar condition with 2-5% coverage of incipient slime, 
-          consistent with FR-10.
+          consistent with FR-10.<p/>
        • Typically, the antifoul coating (AFC) on and surrounding the OBD was in good condition, subject to minor 
-       coating defects only, consistent with PDR-20. 
+       coating defects only, consistent with PDR-20. <p/>
        <p/>
        {{!-- loop thru images for overboard discharges section here 
            two image/s per row
         --}}
    </div>
    <div class="page">
-       <h3>4.9 TRANSDUCER</h3>
+       <h4>4.9 TRANSDUCER</h4>
        <p/>
-       • Both the Echo Sounder (ES) and Speed Log (SL) were observed to be free from marine fouling consistent with FR-0.
+       • Both the Echo Sounder (ES) and Speed Log (SL) were observed to be free from marine fouling consistent with FR-0.<p/>
        • The surrounding antifoul coating (AFC) was observed to be in good condition, consistent with PDR-10.
  
        <p/>
@@ -373,9 +373,9 @@
         --}}
    </div>
    <div class="page">
-       <h3>4.10 BOW PLATE</h3>
+       <h4>4.10 BOW PLATE</h4>
        <p/>
-       • The bow plate was observed to be free from marine fouling and consistent with FR-0.
+       • The bow plate was observed to be free from marine fouling and consistent with FR-0.<p/>
        • The antifoul coating (AFC) was observed to be in average condition with anchor drag marks and superficial damage
           to edges and seams. PDR-10 to 50. 
  
@@ -385,9 +385,9 @@
         --}}
    </div>
    <div class="page">
-       <h3>4.11 DRAFT MARKS</h3>
+       <h4>4.11 DRAFT MARKS</h4>
        <p/>
-       • All draft marks were observed in similar condition and were free from marine fouling consistent with FR-0.
+       • All draft marks were observed in similar condition and were free from marine fouling consistent with FR-0.<p/>
        • The antifoul coating (AFC) was observed to be in good condition, consistent with PDR-10. 
  
        <p/>
@@ -396,9 +396,9 @@
         --}}
    </div>
    <div class="page">
-       <h3>4.12 HULL PLATING AREAS</h3>
+       <h4>4.12 HULL PLATING AREAS</h4>
        <p/>
-       <h2>4.12.1 HULL PHOTOGRAPHIC IMAGE LOCATION GUIDE</h2>
+       <h4>4.12.1 HULL PHOTOGRAPHIC IMAGE LOCATION GUIDE</h4>
        <p/>
        • The below diagram is used to assist with reference to location of the hull photographic images in 
           section 4.2 HULL PLATING AREAS.   
@@ -408,9 +408,9 @@
         --}}
    </div>
    <div class="page">      
-       <h2>4.12.2 FORWARD HULL PLATE</h2>
+       <h4>4.12.2 FORWARD HULL PLATE</h4>
        <p/>
-       • The forward hull plate was observed to be free from marine fouling and consistent with FR-0.
+       • The forward hull plate was observed to be free from marine fouling and consistent with FR-0.<p/>
        • The antifoul coating (AFC) was observed to be in good condition with only minor wear and 
          superficial damage to edges and seams. PDR-20. No visible corrosion was present at the time of 
          inspection.   
@@ -420,9 +420,9 @@
         --}}
    </div>
    <div class="page">      
-       <h2>4.12.3 MIDSHIFTS HULL PLATE</h2>
+       <h4>4.12.3 MIDSHIFTS HULL PLATE</h4>
        <p/>
-       • The midships hull plate was observed to be free from marine fouling and consistent with FR-0.
+       • The midships hull plate was observed to be free from marine fouling and consistent with FR-0.<p/>
        • The antifoul coating (AFC) was observed to be in good condition with only minor wear and 
          superficial damage to edges and seams. PDR-20. No visible corrosion was present at the time of 
          inspection.   
@@ -432,9 +432,9 @@
         --}}
    </div>
    <div class="page">      
-       <h2>4.12.4 AFT HULL PLATE</h2>
+       <h4>4.12.4 AFT HULL PLATE</h4>
        <p/>
-       • The aft hull plate was observed to be free from marine fouling and consistent with FR-0.
+       • The aft hull plate was observed to be free from marine fouling and consistent with FR-0.<p/>
        • The antifoul coating (AFC) was observed to be in good condition with only minor wear and 
          superficial damage to edges and seams. PDR-20. No visible corrosion was present at the time of 
          inspection.  
@@ -444,12 +444,12 @@
         --}}
    </div>
     <div class="page">      
-       <h2>5. REPORT SUMMARY</h2>
+       <h4>5. REPORT SUMMARY</h4>
        <p/>
        {{!- the summary below should be dynamic????-}}
        1. Niche Areas; Overall, the Niche areas of the vessel were observed to be less than 1% covered in soft 
-          slime, consistent with FR-10. No calcareous growth was observed during the inspection.
-       2. Hull Plate; The hull plating was free from hard marine growth, consistent with FR-0.
+          slime, consistent with FR-10. No calcareous growth was observed during the inspection.<p/>
+       2. Hull Plate; The hull plating was free from hard marine growth, consistent with FR-0.<p/>
        3. AFC Condition; The AFC condition was found to be in overall good condition and relatively intact with 
           only minor blemishes observed, consistent with PDR-10-30 
        <p/>

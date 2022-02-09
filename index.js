@@ -6,7 +6,7 @@ const vesselData = require('./vesselData.json')
 
 const diana = require('./dianaDataEnrich.js');
 
-app.use(express.static(__dirname + "/public"));
+app.use(express.static(__dirname + "/views"));
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -19,8 +19,8 @@ app.engine("hbs", exphbs({
     helpers: {
         formatDateTime: function (dateTime, dateTimeFormat) {
             let currentTime = moment(dateTime);
-            let timeFixed = currentTime.local().format(dateTimeFormat)
-            return timeFixed
+            let timeFixed = currentTime.local().format(dateTimeFormat);
+            return timeFixed;
         },
         todaysDate: function () {
             let nowDate = moment().format("dddd DD MMMM YYYY")
@@ -78,7 +78,7 @@ app.get('/hull', (req, res) => {
     res.render("mainHullInspection", data);
 })
 
-app.get('/', (req, res) => {
+app.get('/biofouling', (req, res) => {
     console.log("outputing result");
     
     const data = diana.enrichData(vesselData);
