@@ -174,7 +174,7 @@ section{
   @page{
       size:A4;
       margin: 11mm 17mm 17mm 17mm;
-      @bottom-left{
+      @bottom-right{
         content:counter(page) ' of ' counter(pages);
       }
   }
