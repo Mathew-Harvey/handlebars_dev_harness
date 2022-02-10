@@ -3,6 +3,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>Biofouling Inspection</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
 <link rel="stylesheet" type="text/css" href="/assets/main.css"/>    
 
 </head>
@@ -20,13 +21,13 @@
        <h2>{{data.vessel.displayName}}</h2><p></p>
        <h2>Biofouling Inspection</h2>
        {{!-- {{{getImages attachments.0.fullUri}}} --}}
-        <img src="./photos/ship.png" class="center"/>
+        <img src="./photos/ship.png" class="center" style="width:70%"/>
   
        {{!-- Load vessel picture here from stream/json or cdn --}}
        {{!-- {{{getImages attachments.0.fullUri}}} --}}
        <h2>Pacific Basin</h2>
        <p/>
-       <h3 >{{todaysDate }}   </h3> {{!-- add date formating here--}}
+       <h3 >{{createdDate }}   </h3> {{!-- add date formating here--}}
        
    </div>
    <div class="page">
@@ -35,8 +36,8 @@
    </div>
    <div class="page">
        <h4>1. PROJECT PARTICULARS</h4>
-       <div class="table">
-           <table>
+       <div >
+           <table class="table">
                <tr>
                    <th colspan="3"></th>                   
                 </tr>
@@ -140,10 +141,10 @@
        The below tables are referenced throughout the report to formally standardise both biofouling and anti-fouling 
        condition ratings referred to herein.
        <p/>
-        <h3>3.1 PAINT DETERIORATION RATING (PDR) SCALE</h3>
+        <h5>3.1 PAINT DETERIORATION RATING (PDR) SCALE</h5>
        <p/>
        <table class="table">
-           <th>RATING</th>
+           <th style="width:80px">RATING</th>
            <th>DESCRIPTION</th>
            <tr>
                <td><b>PDR-10</b></td>
@@ -199,10 +200,10 @@
    <div class="page">
         <h4>3.1 PAINT DETERIORATION RATING (PDR) SCALE</h4>
        <p/>
-       <table>
-           <th>TYPE</th>
-           <th>FOULING RATING (FR)</th>
-           <th>DESCRIPTION</th>
+       <table class="table">
+           <th style=" text-align:center">TYPE</th>
+           <th style="width:140px; height:60px; text-align:center">FOULING RATING <p/>(FR)</th>
+           <th style="text-align:center">DESCRIPTION</th>
            <tr>
                <td>Soft</td>
                <td>0</td>
@@ -286,9 +287,34 @@
          with FR-10.<p/>
        • No AFC was on the propeller or propeller boss.<p/>
        <p/>
-       {{!-- loop thru images for propeller section here 
-           two image/s per row
-        --}}
+       {{!-- table td below should be replace with images --}}
+       <table class="table">
+
+           <tr>
+               <td style="width:150px;height:150x;border:1px solid rgb(253, 251, 251);background-color:blue; align:center"></td>
+               <td style="width:150px;height:150px;border:1px solid rgb(253, 251, 251);background-color:rgb(174, 174, 187); align:center"></div></td>
+           </tr>
+           <tr>
+               <td style="width:150px;height:150x;border:1px solid rgb(253, 251, 251);background-color:blue; align:center"></td>
+               <td style="width:150px;height:150px;border:1px solid rgb(253, 251, 251);background-color:rgb(174, 174, 187); align:center"></div></td>
+           </tr>
+           <tr>
+               <td style="width:150px;height:150x;border:1px solid rgb(253, 251, 251);background-color:blue; align:center"></td>
+               <td style="width:150px;height:150px;border:1px solid rgb(253, 251, 251);background-color:rgb(174, 174, 187); align:center"></div></td>
+           </tr>
+           <tr>
+               <td style="width:150px;height:150x;border:1px solid rgb(253, 251, 251);background-color:blue; align:center"></td>
+               <td style="width:150px;height:150px;border:1px solid rgb(253, 251, 251);background-color:rgb(174, 174, 187); align:center"></div></td>
+           </tr>
+           <tr>
+               <td style="width:150px;height:150x;border:1px solid rgb(253, 251, 251);background-color:blue; align:center"></td>
+               <td style="width:150px;height:150px;border:1px solid rgb(253, 251, 251);background-color:rgb(174, 174, 187); align:center"></div></td>
+           </tr>
+           <tr>
+               <td style="width:150px;height:150x;border:1px solid rgb(253, 251, 251);background-color:blue; align:center"></td>
+               <td style="width:150px;height:150px;border:1px solid rgb(253, 251, 251);background-color:rgb(174, 174, 187); align:center"></div></td>
+           </tr>
+       </table>
    </div>
    <div class="page">
        <h4>4.3 ROPE GUARD</h4>
@@ -447,25 +473,108 @@
        <h4>5. REPORT SUMMARY</h4>
        <p/>
        {{!- the summary below should be dynamic????-}}
-       1. Niche Areas; Overall, the Niche areas of the vessel were observed to be less than 1% covered in soft 
+       1. <b>Niche Areas</b>; Overall, the Niche areas of the vessel were observed to be less than 1% covered in soft 
           slime, consistent with FR-10. No calcareous growth was observed during the inspection.<p/>
-       2. Hull Plate; The hull plating was free from hard marine growth, consistent with FR-0.<p/>
-       3. AFC Condition; The AFC condition was found to be in overall good condition and relatively intact with 
+       2. <b>Hull Plate</b>; The hull plating was free from hard marine growth, consistent with FR-0.<p/>
+       3. <b>AFC Condition</b>
+       ; The AFC condition was found to be in overall good condition and relatively intact with 
           only minor blemishes observed, consistent with PDR-10-30 
-       <p/>
+       <p/<><p/><p/>
        
-       Please note that additional still photographs may be provided upon client request
-
-       <b> <i> Thank you for the opportunity to provide our services.</i></b>
-       <b> <i> If we can be of any future assistance, please do not hesitate to contact us at any time.</i></b>
-
-       <p/>
-       <p/>
        
+       <div class="centeredText" >
+           Please note that additional still photographs may be provided upon client request.<p/>
 
+          <b><i> Thank you for the opportunity to provide our services.</i></b><p/>
+          <b><i> If we can be of any future assistance, please do not hesitate to contact us at any time.</i></b>
+           <p/><p/><p/><p/><p/><p/><p/><p/>
+          <h2 style="color:black">END OF REPORT</h2>
+       </div>
    </div>
-   <div class="centeredText">
-       <h2>END OF REPORT</h2>
+   <div class="page">
+       <table class="table">
+           <th colspan="4" style="">Document Staus</th>
+           <tr>
+               <td><b>Revision 1</b></td>
+               <td><b>Doument Owner:<p/></b>Adam Falconer-West</td>
+               <td colspan="2"><b>Document Number:</b><p/>F11281</td>
+           </tr>
+           <tr>
+               <td style="background-color:rgb(206, 200, 200)"><b>Action</b></td>
+               <td colspan="2" style="background-color:rgb(206, 200, 200)"><b>Name and Position</b></td>
+               <td style="background-color:rgb(206, 200, 200)"><b>Date</b></td>
+           </tr>
+           <tr>
+               <td>Reviewed By:</td>
+               <td>Belinda Sealey</td>
+               <td>Administration Office</td>
+               <td>21/12/2021</td>
+           </tr>
+           <tr>
+               <td>Prepared By:</td>
+               <td>Danile Teller</td>
+               <td>Diving Superintendent</td>
+               <td>21/12/2021</td>
+           </tr>
+           <tr>
+               <td>Approved By:</td>
+               <td>Blake Miller</td>
+               <td>Operation Manager</td>
+               <td>21/12/2021</td>
+           </tr>
+       </table>
+       <p/>
+       <table class="table">
+           <th colspan="6">Document Amendment Record</th>
+           <tr>
+               <td style="background-color:rgb(206, 200, 200)"><b>Rev</b></td>
+               <td style="background-color:rgb(206, 200, 200)"><b>Description</b></td>
+               <td style="background-color:rgb(206, 200, 200)"><b>Author</b></td>
+               <td style="background-color:rgb(206, 200, 200)"><b>Date</b></td>
+               <td style="background-color:rgb(206, 200, 200)"><b>Approved By</b></td>
+               <td style="background-color:rgb(206, 200, 200)"><b>Date</b></td>
+           </tr>
+           <tr>
+             <td></td>
+             <td></td>
+             <td></td>
+             <td></td>
+             <td></td>
+             <td></td>
+            </tr>
+           <tr>
+             <td></td>
+             <td></td>
+             <td></td>
+             <td></td>
+             <td></td>
+             <td></td>
+           </tr>
+       </table>
+       <p/>
+       <table class="table">
+           <th style="text-align:center">Copyright Notice</th>
+           <tr>
+               <td>
+                  <b>Franmarine Underwater Services Pty Ltd (FUS)</b> is the sole owner of the intellectual property contained in any 
+                  documentation bearing its name. All materials, including internet pages, document and online graphics, audio 
+                  and video, are protected by copyright law. <p/>
+                  Apart from any fair dealing for the purpose of private study, research, criticism or review as permitted under 
+                  the provisions of the <b>Copyright Act 1968</b>, no part of this document may be reproduced, transmitted in any 
+                  form or re-used for any commercial purposes whatsoever without the prior written permission of <b>FUS</b>.<p/>
+                  This document represents the status of the topic at the date shown and is subject to change without notice. 
+                  The latest version of this document is available from Document Control.<p/>
+                  <b>©2021 FUS. All Rights Reserved</b>. 
+               </td>
+           </tr>
+       </table>
+       <div class="fixed-footer">
+       <div class="container">
+           F11278- Pacific Basin MV Bunun Ace- BFI BFI
+       </div>
+       
    </div>
+   </div>
+   
 </body>
 </html>
