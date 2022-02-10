@@ -2,6 +2,17 @@
     font-family: Arial, Helvetica, sans-serif;
     font-size: small;
 }
+html {
+    background: gray;
+    display: block;
+}
+body{
+    max-width: 50em;
+    margin: 0 auto;
+    background: white;
+    padding: 2em;
+  
+}
 
 #header{
     width:960px;
@@ -19,35 +30,36 @@ h1 {
     font-size: 28px;
     text-transform: uppercase;
     text-align:center;
-    color:rgb(5, 79, 153)
+    color:#1e73be
 }
 h2 {
 
     font-size: 22px;
     text-transform: uppercase;
     text-align:center;
-    color:rgb(5, 79, 153)
+    color:#1e73be
 }
 h3 {
 
     font-size: 20px;
     text-transform: uppercase;
     text-align:center;
-    color:rgb(5, 79, 153)
+    color:#1e73be
 }
 h4 {
 
     font-size: 18px;
     text-transform: uppercase;
     text-align:left;
-    color:rgb(5, 79, 153)
+    color:#1e73be;
+    page-break-before: always;
 }
 h5 {
 
     font-size: 16px;
     text-transform: uppercase;
     text-align:left;
-    color:rgb(5, 79, 153)
+    color:#1e73be
 }
 table {
     font-family: arial, sans-serif;
@@ -73,14 +85,6 @@ table {
     left: 50%;
     transform: translate(-50%, -50%);
 }
- .page {
-    position: relative;
-    background-color: white;
-    margin-top: 20px;
-    width: 855px;
-    height: 1290px;
-    box-shadow: 0px 2px 3px rgba(0, 0, 0, .3);
-}
 tr{
     border:none;
     height:15px
@@ -93,7 +97,7 @@ th {
 
     text-align: left;
     border: 1px solid black;    
-    background-color: rgb(5, 5, 134);
+    background-color: #1e73be;
     color:#fff;
     height:25px;
     line-height: 50%
@@ -132,29 +136,35 @@ th {
     display:block;
     margin-left: auto;
     margin-right:auto;
-    width:100%
+    width:80%
 }
-.fixed-header, .fixed-footer{
-    width:90%;
-    position:fixed;
-    background:none;
-    margin-left:auto;
-    margin-right:auto;    
-}
-.fixed-footer{
-    bottol:0;
-}
-.fixed-header{
-    top:0;
-}
-@page{
-    size: A4;
-    margin:11mm 17mm 17mm 17mm;
-}
-.content-block{
-    page-break-inside: calc();
-}
-.container{
-    width:90%;
-    margin: 0 auto;
+@media screen {
+    div.divHeader {
+      display:show
+    }
+  }
+  @media print {
+    div.divHeader {
+      position: fixed;
+      Top: 0;
+    }
+  }
+  @media screen {
+    div.divFooter {
+      display: show;
+    }
+  }
+  @media print {
+    div.divFooter {
+      position: fixed;
+      bottom: 0;
+    }
+    @page{
+        margin-top:30px;
+        margin-bottom: 30px;
+    }
+    
+  }
+  section{
+    page-break-inside: avoid;
 }
