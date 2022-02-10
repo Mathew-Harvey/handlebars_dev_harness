@@ -10,7 +10,6 @@ body{
     margin: 0 auto;
     background: white;
     padding: 2em;
-  
 }
 
 #header{
@@ -129,7 +128,7 @@ th {
     margin-right:auto;
     width:80%
 }
-.section{
+section{
     page-break-inside: avoid;
 }
 @media screen {
@@ -153,4 +152,7 @@ th {
       position: fixed;
       bottom: 0;
     }
+  }
+  @page {
+      size: A4;
   }
