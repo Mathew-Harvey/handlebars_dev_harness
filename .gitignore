@@ -1,1 +1,4 @@
 node_modules
+/.vs/handlebars_dev_harness/config/applicationhost.config
+/.vs/ProjectSettings.json
+/.vs/slnx.sqlite
