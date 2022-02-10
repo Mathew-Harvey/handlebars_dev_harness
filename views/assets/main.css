@@ -1,6 +1,17 @@
 *{
     font-family: Arial, Helvetica, sans-serif;
 }
+html {
+    background: gray;
+    display: block;
+}
+body{
+    max-width: 50em;
+    margin: 0 auto;
+    background: white;
+    padding: 2em;
+  
+}
 
 #header{
     width:960px;
@@ -64,14 +75,7 @@ table {
     left: 50%;
     transform: translate(-50%, -50%);
 }
- .page {
-    position: relative;
-    background-color: white;
-    margin-top: 20px;
-    width: 855px;
-    height: 1200px;
-    box-shadow: 0px 2px 3px rgba(0, 0, 0, .3);
-}
+
 tr{
     border:none;
     height:15px
@@ -124,3 +128,25 @@ th {
     margin-right:auto;
     width:80%
 }
+@media screen {
+    div.divHeader {
+      display:show
+    }
+  }
+  @media print {
+    div.divHeader {
+      position: fixed;
+      Top: 0;
+    }
+  }
+  @media screen {
+    div.divFooter {
+      display: show;
+    }
+  }
+  @media print {
+    div.divFooter {
+      position: fixed;
+      bottom: 0;
+    }
+  }

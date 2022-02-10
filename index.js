@@ -3,6 +3,7 @@ const app = express();
 const bodyParser = require("body-parser");
 const exphbs = require("express-handlebars");
 const vesselData = require('./vesselData.json')
+const moment = require("moment")
 
 const diana = require('./dianaDataEnrich.js');
 

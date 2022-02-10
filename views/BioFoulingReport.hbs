@@ -1,51 +1,58 @@
 <html>
-<head><meta http-equiv=Content-Type content="text/html; charset=UTF-8">
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Biofouling Inspection</title>
-<link rel="stylesheet" type="text/css" href="/assets/main.css"/>    
+
+<head>
+    <meta http-equiv=Content-Type content="text/html; charset=UTF-8">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Biofouling Inspection</title>
+    <link rel="stylesheet" type="text/css" href="/assets/main.css" />
 
 </head>
+
 <body>
-   
-   <div class="page">
-       <table>
-            <tr>
-                <td class="noBorder" style="float:left">FUS LOGO HERE</td>
-                <td class="noBorder" style="float:right">Client LOGO HERE</td>
-            </tr>
-        </table>
-        
-       <h1>Report</h1><p></p>
-       <h2>{{data.vessel.displayName}}</h2><p></p>
-       <h2>Biofouling Inspection</h2>
-       {{!-- {{{getImages attachments.0.fullUri}}} --}}
-        <img src="./photos/ship.png" class="center"/>
-  
-       {{!-- Load vessel picture here from stream/json or cdn --}}
-       {{!-- {{{getImages attachments.0.fullUri}}} --}}
-       <h2>Pacific Basin</h2>
-       <p/>
-       <h3 >{{todaysDate }}   </h3> {{!-- add date formating here--}}
-       
-   </div>
-   <div class="page">
-       {{!-- TOC --}}
-       Table of Contents is here
-   </div>
-   <div class="page">
-       <h4>1. PROJECT PARTICULARS</h4>
-       <div class="table">
-           <table>
-               <tr>
-                   <th colspan="3"></th>                   
-                </tr>
-                  <td><b>PROJECT:</b></td>
-                  <td colspan="2">Biofouling Inspection</td>{{!-- is this dynamic--}}
+
+    <div class="page">
+        <div class="divHeader">
+            <table>
                 <tr>
-                  <td ><b>VESSEL DETAILS:</b></td>
-                  <td><b>Vessel:</b></td>
-                  <td>{{data.vessel.displayName}}</td>
+                    <td class="noBorder" style="float:left">FUS LOGO HERE</td>
+                    <td class="noBorder" style="float:right">Client LOGO HERE</td>
+                </tr>
+            </table>
+        </div>
+
+        <h1>Report</h1>
+        <p></p>
+        <h2>{{data.vessel.displayName}}</h2>
+        <p></p>
+        <h2>Biofouling Inspection</h2>
+        {{!-- {{{getImages attachments.0.fullUri}}} --}}
+        <img src="./photos/ship.png" class="center" />
+
+        {{!-- Load vessel picture here from stream/json or cdn --}}
+        {{!-- {{{getImages attachments.0.fullUri}}} --}}
+        <h2>Pacific Basin</h2>
+        <p />
+        <h3>{{todaysDate }} </h3> {{!-- add date formating here--}}
+
+    </div>
+    <div class="page">
+        {{!-- TOC --}}
+        Table of Contents is here
+    </div>
+    <div class="page">
+        <h4>1. PROJECT PARTICULARS</h4>
+        <div class="table">
+            <table>
+                <tr>
+                    <th colspan="3"></th>
+                </tr>
+                <td><b>PROJECT:</b></td>
+                <td colspan="2">Biofouling Inspection</td>{{!-- is this dynamic--}}
+                <tr>
+                    <td><b>VESSEL DETAILS:</b></td>
+                    <td><b>Vessel:</b></td>
+                    <td>{{data.vessel.displayName}}</td>
                 </tr>
                 <tr>
                     <td></td>
@@ -58,41 +65,41 @@
                     <td>179.97m</td> {{!--replace data from json--}}
                 </tr>
                 <tr>
-                    <td></td> 
+                    <td></td>
                     <td><b>IMO:</b></td>
                     <td>9628570</td> {{!--replace data from json--}}
                 </tr>
                 <tr>
                     <td><b>DATE OF INSPECTION:</b></td>
                     <td colspan="2">17th of December</td>{{!--replace data from json with date formatting--}}
-                    
+
                 </tr>
-                 <tr>
+                <tr>
                     <td><b>VISIBILITY:</b></td>
                     <td colspan="2">Ten (10) Meters</td>{{!--replace data from json --}}
-                    
+
                 </tr>
                 <tr>
                     <td><b>CLIENT:</b></td>
                     <td colspan="2">Pacific Basin</td>{{!--replace data from json --}}
-                     
+
                 </tr>
                 <tr>
                     <td><b>CLIENT REP:</b></td>
                     <td colspan="2">Vallis Lam</td>
-                     
+
                 </tr>
-                 <tr>
+                <tr>
                     <td><b>JOB LOCATION:</b></td>
-                    <td colspan="2">ORAN - Fremantle Port</td>{{!--replace data from json --}}                     
+                    <td colspan="2">ORAN - Fremantle Port</td>{{!--replace data from json --}}
                 <tr>
                     <td></td>
-                    <td colspan="2">WESTERN AUSTRALIA</td>{{!--replace data from json --}} 
+                    <td colspan="2">WESTERN AUSTRALIA</td>{{!--replace data from json --}}
                 </tr>
                 <tr>
-                    <td ><b>DIVE TEAM:</b></td>
+                    <td><b>DIVE TEAM:</b></td>
                     <td>Supervisor:</td>
-                    <td>Brent Dyhberg</td>{{!--replace data from json --}} 
+                    <td>Brent Dyhberg</td>{{!--replace data from json --}}
                 </tr>
                 <tr>
                     <td></td>
@@ -109,363 +116,403 @@
                     <td> </td>
                     <td>Hamish Brown</td>
                 </tr>
-           </table>
-       </div>
-   </div>
-   <div class="page">
-       <h4>2. METHODOLOGY</h4>
-       
-       Franmarine Underwater Services Pty Ltd have been appointed by the client Pacific Basin to conduct a 
-       Biofouling Inspection in accordance with New Zealand Ministry for Primary Industries (NZMPI) Craft Risk 
-       Management Standard (CRMS) for biofouling on vessels arriving New Zealand on the vessel MV Bunun Ace. 
-       <p/>
-       The inspection work was conducted by qualified divers trained in under water inspection techniques and in 
-       accordance with client requirements and time schedules. All work was documented using CCTV and HD still 
-       photography.
-       <p/>
-       Diving operations were conducted from DSV Integrity III using a 4-person dive team in accordance with AS/NZS 
-       2299.1:2015.
-       <p/>
-       Documents used to assist the project:
+            </table>
+        </div>
+    </div>
+    <div class="page">
+        <h4>2. METHODOLOGY</h4>
 
-       • AS/NZS 2299.1:2015 <p/>
-       • Franmarine Operations Manual<p/>
-       • NZ MPI Craft Risk Management Standard<p/>
-       • Underwater Inspection Handbook<p/>
-       • Chief Engineers information on the day<p/>
-   </div>
-   <div class="page">
-       <h4>3. REFERENCE TABLES</h4>
-       <p/>
-       The below tables are referenced throughout the report to formally standardise both biofouling and anti-fouling 
-       condition ratings referred to herein.
-       <p/>
+        Franmarine Underwater Services Pty Ltd have been appointed by the client Pacific Basin to conduct a
+        Biofouling Inspection in accordance with New Zealand Ministry for Primary Industries (NZMPI) Craft Risk
+        Management Standard (CRMS) for biofouling on vessels arriving New Zealand on the vessel MV Bunun Ace.
+        <p />
+        The inspection work was conducted by qualified divers trained in under water inspection techniques and in
+        accordance with client requirements and time schedules. All work was documented using CCTV and HD still
+        photography.
+        <p />
+        Diving operations were conducted from DSV Integrity III using a 4-person dive team in accordance with AS/NZS
+        2299.1:2015.
+        <p />
+        Documents used to assist the project:
+
+        • AS/NZS 2299.1:2015
+        <p />
+        • Franmarine Operations Manual
+        <p />
+        • NZ MPI Craft Risk Management Standard
+        <p />
+        • Underwater Inspection Handbook
+        <p />
+        • Chief Engineers information on the day
+        <p />
+    </div>
+    <div class="page">
+        <h4>3. REFERENCE TABLES</h4>
+        <p />
+        The below tables are referenced throughout the report to formally standardise both biofouling and anti-fouling
+        condition ratings referred to herein.
+        <p />
         <h3>3.1 PAINT DETERIORATION RATING (PDR) SCALE</h3>
-       <p/>
-       <table class="table">
-           <th>RATING</th>
-           <th>DESCRIPTION</th>
-           <tr>
-               <td><b>PDR-10</b></td>
-               <td>Anti-Foul (AF) Paint intact.</td>
-           </tr>
-           <tr>
-               <td><b>PDR-20</b></td>
-               <td>AF paint missing from edges, corners, seams, welds rivet or bolt heads to expose anti corrosion (AC) 
-                   paint (undercoat).
+        <p />
+        <table class="table">
+            <th>RATING</th>
+            <th>DESCRIPTION</th>
+            <tr>
+                <td><b>PDR-10</b></td>
+                <td>Anti-Foul (AF) Paint intact.</td>
+            </tr>
+            <tr>
+                <td><b>PDR-20</b></td>
+                <td>AF paint missing from edges, corners, seams, welds rivet or bolt heads to expose anti corrosion (AC)
+                    paint (undercoat).
                 </td>
-           </tr>
-           <tr>
-               <td><b>PDR-30</b></td>
-               <td>AF paint missing from slightly curved or flat areas to expose underlying AC paint; An AF paint with 
-                   visible brush swirl marks within the outermost layer – not extending into underlying layers of paint.
+            </tr>
+            <tr>
+                <td><b>PDR-30</b></td>
+                <td>AF paint missing from slightly curved or flat areas to expose underlying AC paint; An AF paint with
+                    visible brush swirl marks within the outermost layer – not extending into underlying layers of
+                    paint.
                 </td>
-           </tr>
-           <tr>
-               <td><b>PDR-40</b></td>
-               <td>AF paint missing from intact blisters to expose AC paint or an AF coating with visible brush swirl 
-                   marks exposing the next underlying layer of AF or AC paint.
-               </td>
-           </tr>
-           <tr>
-               <td><b>PDR-50</b></td>
-               <td>AF blisters ruptured to expose intact AC paint.</td>
-           </tr>
-           <tr>
-               <td><b>PDR-60</b></td>
-               <td>AF/AC paint missing or peeling to expose steel substrate with corrosion present.
-               </td>
-           </tr>
-           <tr>
-               <td><b>PDR-70</b></td>
-               <td>AF/AC paint removed from edges, corners, seams, welds rivet or bolt heads to expose steel substrate 
-                   with corrosion present.
-               </td>
-           </tr>
-           <tr>
-               <td><b>PDR-80</b></td>
-               <td>Ruptured AF/AC blisters on slightly curved or flat surfaces with corrosion or corrosion stains present.</td>
-           </tr>
-           <tr>
-               <td><b>PDR-90</b></td>
-               <td>Area corrosion of steel substrate with no AF/AC paint cover due to peeling or abrasion damage.</td>
-           </tr>
-           <tr>
-               <td><b>PDR-100</b></td>
-               <td>Area corrosion showing visible surface evidence of pitting, scaling, and roughening of steel substrate.</td>
-           </tr>
-       </table>
-   </div>
-   <div class="page">
+            </tr>
+            <tr>
+                <td><b>PDR-40</b></td>
+                <td>AF paint missing from intact blisters to expose AC paint or an AF coating with visible brush swirl
+                    marks exposing the next underlying layer of AF or AC paint.
+                </td>
+            </tr>
+            <tr>
+                <td><b>PDR-50</b></td>
+                <td>AF blisters ruptured to expose intact AC paint.</td>
+            </tr>
+            <tr>
+                <td><b>PDR-60</b></td>
+                <td>AF/AC paint missing or peeling to expose steel substrate with corrosion present.
+                </td>
+            </tr>
+            <tr>
+                <td><b>PDR-70</b></td>
+                <td>AF/AC paint removed from edges, corners, seams, welds rivet or bolt heads to expose steel substrate
+                    with corrosion present.
+                </td>
+            </tr>
+            <tr>
+                <td><b>PDR-80</b></td>
+                <td>Ruptured AF/AC blisters on slightly curved or flat surfaces with corrosion or corrosion stains
+                    present.</td>
+            </tr>
+            <tr>
+                <td><b>PDR-90</b></td>
+                <td>Area corrosion of steel substrate with no AF/AC paint cover due to peeling or abrasion damage.</td>
+            </tr>
+            <tr>
+                <td><b>PDR-100</b></td>
+                <td>Area corrosion showing visible surface evidence of pitting, scaling, and roughening of steel
+                    substrate.</td>
+            </tr>
+        </table>
+    </div>
+    <div class="page">
         <h4>3.1 PAINT DETERIORATION RATING (PDR) SCALE</h4>
-       <p/>
-       <table>
-           <th>TYPE</th>
-           <th>FOULING RATING (FR)</th>
-           <th>DESCRIPTION</th>
-           <tr>
-               <td>Soft</td>
-               <td>0</td>
-               <td>A clean, foul-free surface; red and/or black AF paint or bare metal surface.</td>
-           </tr>
-           <tr>
-               <td>Soft</td>
-               <td>10</td>
-               <td>Light shades of red and green (incipient slime). Bare metal and painted surfaces are visible beneath the fouling.</td>
-           </tr>
-           <tr>
-               <td>Soft</td>
-               <td>20</td>
-               <td>Slime as dark green patches with yellow or brown colored areas (advanced slime). Bare metal and painted surfaces
+        <p />
+        <table>
+            <th>TYPE</th>
+            <th>FOULING RATING (FR)</th>
+            <th>DESCRIPTION</th>
+            <tr>
+                <td>Soft</td>
+                <td>0</td>
+                <td>A clean, foul-free surface; red and/or black AF paint or bare metal surface.</td>
+            </tr>
+            <tr>
+                <td>Soft</td>
+                <td>10</td>
+                <td>Light shades of red and green (incipient slime). Bare metal and painted surfaces are visible beneath
+                    the fouling.</td>
+            </tr>
+            <tr>
+                <td>Soft</td>
+                <td>20</td>
+                <td>Slime as dark green patches with yellow or brown colored areas (advanced slime). Bare metal and
+                    painted surfaces
                     may be obscured by the fouling.</td>
-           </tr>
-           <tr>
-               <td>Soft</td>
-               <td>30</td>
-               <td>Grass filaments up to 3 inches (76 mm) in length, projections up to ¼ inch (6.4 mm) in height; or flat network of 
-                   filaments, green, yellow, or brown in color, or soft non calcareous fouling such as sea cucumbers, sea grapes, or 
-                   sea squirts projecting up to ¼ inch (6.4 mm) in height. The fouling cannot be easily wiped off by hand.</td>
-           </tr>
-           <tr>
-               <td>Hard</td>
-               <td>40</td>
-               <td>Calcareous fouling in the form of tube worms less than ¼ inch (6.4 mm) in diameter or height.</td>
-           </tr>
-           <tr>
-               <td>Hard</td>
-               <td>50</td>
-               <td>Calcareous fouling in the form of barnacles, less than ¼ inch (6.4 mm) in diameter or height.</td>
-           </tr>
-           <tr>
-               <td>Hard</td>
-               <td>60</td>
-               <td>Combination of tubeworms and barnacles less than ¼ inch (6.4mm) in diameter or height.</td>
-           </tr>
-           <tr>
-               <td>Hard</td>
-               <td>70</td>
-               <td>Combination of tubeworms and barnacles greater than ¼ inch (6.4 mm) in diameter or height.</td>
-           </tr>
-           <tr>
-               <td>Hard</td>
-               <td>80</td>
-               <td>Tubeworms closely packed together and growing upright away from surface. Barnacles growing 
-                   one on top of another, ¼ inch (6.4 mm) or less in height. Calcareous shells appear clean or 
-                   white in color.</td>
-           </tr>
-           <tr>
-               <td>Hard</td>
-               <td>90</td>
-               <td>Dense growth of tubeworms with barnacles, ¼ inch (6.4 mm) or greater in height. Calcareous 
-                   shells brown in color (oysters and mussels); or with slime or grass overlay.</td>
-           </tr>
-           <tr>
-               <td>Composite</td>
-               <td>100</td>
-               <td>All forms of fouling present, soft and hard, particularly soft sedentary animals without 
-                   calcareous covering (tunicates) growing over various forms of hard growth.</td>
-           </tr>
-       </table>
-   </div>
-   <div class="page">
+            </tr>
+            <tr>
+                <td>Soft</td>
+                <td>30</td>
+                <td>Grass filaments up to 3 inches (76 mm) in length, projections up to ¼ inch (6.4 mm) in height; or
+                    flat network of
+                    filaments, green, yellow, or brown in color, or soft non calcareous fouling such as sea cucumbers,
+                    sea grapes, or
+                    sea squirts projecting up to ¼ inch (6.4 mm) in height. The fouling cannot be easily wiped off by
+                    hand.</td>
+            </tr>
+            <tr>
+                <td>Hard</td>
+                <td>40</td>
+                <td>Calcareous fouling in the form of tube worms less than ¼ inch (6.4 mm) in diameter or height.</td>
+            </tr>
+            <tr>
+                <td>Hard</td>
+                <td>50</td>
+                <td>Calcareous fouling in the form of barnacles, less than ¼ inch (6.4 mm) in diameter or height.</td>
+            </tr>
+            <tr>
+                <td>Hard</td>
+                <td>60</td>
+                <td>Combination of tubeworms and barnacles less than ¼ inch (6.4mm) in diameter or height.</td>
+            </tr>
+            <tr>
+                <td>Hard</td>
+                <td>70</td>
+                <td>Combination of tubeworms and barnacles greater than ¼ inch (6.4 mm) in diameter or height.</td>
+            </tr>
+            <tr>
+                <td>Hard</td>
+                <td>80</td>
+                <td>Tubeworms closely packed together and growing upright away from surface. Barnacles growing
+                    one on top of another, ¼ inch (6.4 mm) or less in height. Calcareous shells appear clean or
+                    white in color.</td>
+            </tr>
+            <tr>
+                <td>Hard</td>
+                <td>90</td>
+                <td>Dense growth of tubeworms with barnacles, ¼ inch (6.4 mm) or greater in height. Calcareous
+                    shells brown in color (oysters and mussels); or with slime or grass overlay.</td>
+            </tr>
+            <tr>
+                <td>Composite</td>
+                <td>100</td>
+                <td>All forms of fouling present, soft and hard, particularly soft sedentary animals without
+                    calcareous covering (tunicates) growing over various forms of hard growth.</td>
+            </tr>
+        </table>
+    </div>
+    <div class="page">
         <h4>4. OBSERVATIONS AND FINDINGS</h4>
-        <p/>
+        <p />
         <h4>4.1 RUDDER</h4>
-        <p/>
-        • The rudder was observed to be free from marine fouling, consistent with FR-0.<p/>
-        • The antifoul coating (AFC) was observed to be in good condition with only minor wear and 
-            superficial damage to edges and seams, consistent with PDR-20.<p/>
-        {{!-- loop thru images for rudder section here 
-           two image/s per row
+        <p />
+        • The rudder was observed to be free from marine fouling, consistent with FR-0.
+        <p />
+        • The antifoul coating (AFC) was observed to be in good condition with only minor wear and
+        superficial damage to edges and seams, consistent with PDR-20.
+        <p />
+        {{!-- loop thru images for rudder section here
+        two image/s per row
         --}}
-   </div>
-   <div class="page">
-       <h4>4.2 PROPELLER</h4>
-       <p/>
-       • The propeller and propeller boss were observed to have 5% coverage of incipient slime consistent 
-         with FR-10.<p/>
-       • No AFC was on the propeller or propeller boss.<p/>
-       <p/>
-       {{!-- loop thru images for propeller section here 
-           two image/s per row
+    </div>
+    <div class="page">
+        <h4>4.2 PROPELLER</h4>
+        <p />
+        • The propeller and propeller boss were observed to have 5% coverage of incipient slime consistent
+        with FR-10.
+        <p />
+        • No AFC was on the propeller or propeller boss.
+        <p />
+        <p />
+        {{!-- loop thru images for propeller section here
+        two image/s per row
         --}}
-   </div>
-   <div class="page">
-       <h4>4.3 ROPE GUARD</h4>
-       <p/>
-       • The rope guard was observed to be free from marine fouling both internally and externally, consistent
-         with FR-0.<p/>
-       • The antifoul coating (AFC) was observed to be in good condition with only minor wear and superficial 
-         damage to edges and seams, consistent with PDR-20. <p/>
-       <p/>
-       {{!-- loop thru images for rope guard section here 
-           two image/s per row
+    </div>
+    <div class="page">
+        <h4>4.3 ROPE GUARD</h4>
+        <p />
+        • The rope guard was observed to be free from marine fouling both internally and externally, consistent
+        with FR-0.
+        <p />
+        • The antifoul coating (AFC) was observed to be in good condition with only minor wear and superficial
+        damage to edges and seams, consistent with PDR-20.
+        <p />
+        <p />
+        {{!-- loop thru images for rope guard section here
+        two image/s per row
         --}}
-   </div>
-   <div class="page">
-       <h4>4.4 TRANSOM PLATING</h4>
-       <p/>
-       • The transom plating was observed to be free from marine fouling, consistent with FR-0.<p/>
-       • The antifoul coating (AFC) was observed to be in good condition with only minor wear and superficial damage 
-         to edges and seams, consistent with PDR-20.<p/>
-       <p/>
-       {{!-- loop thru images for transom plating section here 
-           two image/s per row
+    </div>
+    <div class="page">
+        <h4>4.4 TRANSOM PLATING</h4>
+        <p />
+        • The transom plating was observed to be free from marine fouling, consistent with FR-0.
+        <p />
+        • The antifoul coating (AFC) was observed to be in good condition with only minor wear and superficial damage
+        to edges and seams, consistent with PDR-20.
+        <p />
+        <p />
+        {{!-- loop thru images for transom plating section here
+        two image/s per row
         --}}
-   </div>
-   <div class="page">
-       <h4>4.5 STERN ARRANGEMENT</h4>
-       <p/>
-       • The stern arrangement was observed to be free from marine fouling, consistent with FR-0.<p/>
-       • The antifoul coating (AFC) was observed to be in good condition with only minor wear and superficial damage to 
-          edges and seams, consistent with PDR-20. <p/>
-       <p/>
-       {{!-- loop thru images for stern arrangement section here 
-           two image/s per row
+    </div>
+    <div class="page">
+        <h4>4.5 STERN ARRANGEMENT</h4>
+        <p />
+        • The stern arrangement was observed to be free from marine fouling, consistent with FR-0.
+        <p />
+        • The antifoul coating (AFC) was observed to be in good condition with only minor wear and superficial damage to
+        edges and seams, consistent with PDR-20.
+        <p />
+        <p />
+        {{!-- loop thru images for stern arrangement section here
+        two image/s per row
         --}}
-   </div>
-   <div class="page">
-       <h4>4.6 BILGE KEELS</h4>
-       <p/>
-       • All bilge keels were observed to have approx. 2% coverage of incipient slime consistent with FR-10.<p/>
-       • The antifoul coating (AFC) was observed to be in good condition with only minor wear and superficial damage to 
-         edges and seams. PDR-20. <p/>
-       <p/>
-       {{!-- loop thru images for bilge keels section here 
-           two image/s per row
+    </div>
+    <div class="page">
+        <h4>4.6 BILGE KEELS</h4>
+        <p />
+        • All bilge keels were observed to have approx. 2% coverage of incipient slime consistent with FR-10.
+        <p />
+        • The antifoul coating (AFC) was observed to be in good condition with only minor wear and superficial damage to
+        edges and seams. PDR-20.
+        <p />
+        <p />
+        {{!-- loop thru images for bilge keels section here
+        two image/s per row
         --}}
-   </div>
-   <div class="page">
-       <h4>4.7 SEACHESTS</h4>
-       <p/>
-       • Three (3) sets of sea chests were observed on the vessel. The Port and STBD main sea chests and the emergency 
-         sea chest. <p/>
-       • All three (3) sea chest grates were observed to be in similar condition with incipient slime covering approx. 
-         2% of the grates, consistent with FR-10. <p/>
-       • Typically, each sea chest grate was subject to minimal anti-foul coating (AFC) defects. The sea chest grates 
-         AFC ranged between PDR-10 and PDR-20. 
-       <p/>
-       {{!-- loop thru images for sea chest section here 
-           two image/s per row
+    </div>
+    <div class="page">
+        <h4>4.7 SEACHESTS</h4>
+        <p />
+        • Three (3) sets of sea chests were observed on the vessel. The Port and STBD main sea chests and the emergency
+        sea chest.
+        <p />
+        • All three (3) sea chest grates were observed to be in similar condition with incipient slime covering approx.
+        2% of the grates, consistent with FR-10.
+        <p />
+        • Typically, each sea chest grate was subject to minimal anti-foul coating (AFC) defects. The sea chest grates
+        AFC ranged between PDR-10 and PDR-20.
+        <p />
+        {{!-- loop thru images for sea chest section here
+        two image/s per row
         --}}
-   </div>
-   <div class="page">
-       <h4>4.8 OVERBOARD DISCHARGES</h4>
-       <p/>
-       • The OBD's that were located were observed to be in similar condition with 2-5% coverage of incipient slime, 
-          consistent with FR-10.<p/>
-       • Typically, the antifoul coating (AFC) on and surrounding the OBD was in good condition, subject to minor 
-       coating defects only, consistent with PDR-20. <p/>
-       <p/>
-       {{!-- loop thru images for overboard discharges section here 
-           two image/s per row
+    </div>
+    <div class="page">
+        <h4>4.8 OVERBOARD DISCHARGES</h4>
+        <p />
+        • The OBD's that were located were observed to be in similar condition with 2-5% coverage of incipient slime,
+        consistent with FR-10.
+        <p />
+        • Typically, the antifoul coating (AFC) on and surrounding the OBD was in good condition, subject to minor
+        coating defects only, consistent with PDR-20.
+        <p />
+        <p />
+        {{!-- loop thru images for overboard discharges section here
+        two image/s per row
         --}}
-   </div>
-   <div class="page">
-       <h4>4.9 TRANSDUCER</h4>
-       <p/>
-       • Both the Echo Sounder (ES) and Speed Log (SL) were observed to be free from marine fouling consistent with FR-0.<p/>
-       • The surrounding antifoul coating (AFC) was observed to be in good condition, consistent with PDR-10.
- 
-       <p/>
-       {{!-- loop thru images for transducer section here 
-           two image/s per row
-        --}}
-   </div>
-   <div class="page">
-       <h4>4.10 BOW PLATE</h4>
-       <p/>
-       • The bow plate was observed to be free from marine fouling and consistent with FR-0.<p/>
-       • The antifoul coating (AFC) was observed to be in average condition with anchor drag marks and superficial damage
-          to edges and seams. PDR-10 to 50. 
- 
-       <p/>
-       {{!-- loop thru images for bow plate section here 
-           two image/s per row
-        --}}
-   </div>
-   <div class="page">
-       <h4>4.11 DRAFT MARKS</h4>
-       <p/>
-       • All draft marks were observed in similar condition and were free from marine fouling consistent with FR-0.<p/>
-       • The antifoul coating (AFC) was observed to be in good condition, consistent with PDR-10. 
- 
-       <p/>
-       {{!-- loop thru images for draft marks section here 
-           two image/s per row
-        --}}
-   </div>
-   <div class="page">
-       <h4>4.12 HULL PLATING AREAS</h4>
-       <p/>
-       <h4>4.12.1 HULL PHOTOGRAPHIC IMAGE LOCATION GUIDE</h4>
-       <p/>
-       • The below diagram is used to assist with reference to location of the hull photographic images in 
-          section 4.2 HULL PLATING AREAS.   
-       <p/>
-       {{!-- loop thru images for hull plating areas section here 
-           two image/s per row
-        --}}
-   </div>
-   <div class="page">      
-       <h4>4.12.2 FORWARD HULL PLATE</h4>
-       <p/>
-       • The forward hull plate was observed to be free from marine fouling and consistent with FR-0.<p/>
-       • The antifoul coating (AFC) was observed to be in good condition with only minor wear and 
-         superficial damage to edges and seams. PDR-20. No visible corrosion was present at the time of 
-         inspection.   
-       <p/>
-       {{!-- loop thru images for forward hull plate areas section here 
-           two image/s per row
-        --}}
-   </div>
-   <div class="page">      
-       <h4>4.12.3 MIDSHIFTS HULL PLATE</h4>
-       <p/>
-       • The midships hull plate was observed to be free from marine fouling and consistent with FR-0.<p/>
-       • The antifoul coating (AFC) was observed to be in good condition with only minor wear and 
-         superficial damage to edges and seams. PDR-20. No visible corrosion was present at the time of 
-         inspection.   
-       <p/>
-       {{!-- loop thru images for midshifts hull plate areas section here 
-           two image/s per row
-        --}}
-   </div>
-   <div class="page">      
-       <h4>4.12.4 AFT HULL PLATE</h4>
-       <p/>
-       • The aft hull plate was observed to be free from marine fouling and consistent with FR-0.<p/>
-       • The antifoul coating (AFC) was observed to be in good condition with only minor wear and 
-         superficial damage to edges and seams. PDR-20. No visible corrosion was present at the time of 
-         inspection.  
-       <p/>
-       {{!-- loop thru images for aft hull plate areas section here 
-           two image/s per row
-        --}}
-   </div>
-    <div class="page">      
-       <h4>5. REPORT SUMMARY</h4>
-       <p/>
-       {{!- the summary below should be dynamic????-}}
-       1. Niche Areas; Overall, the Niche areas of the vessel were observed to be less than 1% covered in soft 
-          slime, consistent with FR-10. No calcareous growth was observed during the inspection.<p/>
-       2. Hull Plate; The hull plating was free from hard marine growth, consistent with FR-0.<p/>
-       3. AFC Condition; The AFC condition was found to be in overall good condition and relatively intact with 
-          only minor blemishes observed, consistent with PDR-10-30 
-       <p/>
-       
-       Please note that additional still photographs may be provided upon client request
+    </div>
+    <div class="page">
+        <h4>4.9 TRANSDUCER</h4>
+        <p />
+        • Both the Echo Sounder (ES) and Speed Log (SL) were observed to be free from marine fouling consistent with
+        FR-0.
+        <p />
+        • The surrounding antifoul coating (AFC) was observed to be in good condition, consistent with PDR-10.
 
-       <b> <i> Thank you for the opportunity to provide our services.</i></b>
-       <b> <i> If we can be of any future assistance, please do not hesitate to contact us at any time.</i></b>
+        <p />
+        {{!-- loop thru images for transducer section here
+        two image/s per row
+        --}}
+    </div>
+    <div class="page">
+        <h4>4.10 BOW PLATE</h4>
+        <p />
+        • The bow plate was observed to be free from marine fouling and consistent with FR-0.
+        <p />
+        • The antifoul coating (AFC) was observed to be in average condition with anchor drag marks and superficial
+        damage
+        to edges and seams. PDR-10 to 50.
 
-       <p/>
-       <p/>
-       
+        <p />
+        {{!-- loop thru images for bow plate section here
+        two image/s per row
+        --}}
+    </div>
+    <div class="page">
+        <h4>4.11 DRAFT MARKS</h4>
+        <p />
+        • All draft marks were observed in similar condition and were free from marine fouling consistent with FR-0.
+        <p />
+        • The antifoul coating (AFC) was observed to be in good condition, consistent with PDR-10.
 
-   </div>
-   <div class="centeredText">
-       <h2>END OF REPORT</h2>
-   </div>
+        <p />
+        {{!-- loop thru images for draft marks section here
+        two image/s per row
+        --}}
+    </div>
+    <div class="page">
+        <h4>4.12 HULL PLATING AREAS</h4>
+        <p />
+        <h4>4.12.1 HULL PHOTOGRAPHIC IMAGE LOCATION GUIDE</h4>
+        <p />
+        • The below diagram is used to assist with reference to location of the hull photographic images in
+        section 4.2 HULL PLATING AREAS.
+        <p />
+        {{!-- loop thru images for hull plating areas section here
+        two image/s per row
+        --}}
+    </div>
+    <div class="page">
+        <h4>4.12.2 FORWARD HULL PLATE</h4>
+        <p />
+        • The forward hull plate was observed to be free from marine fouling and consistent with FR-0.
+        <p />
+        • The antifoul coating (AFC) was observed to be in good condition with only minor wear and
+        superficial damage to edges and seams. PDR-20. No visible corrosion was present at the time of
+        inspection.
+        <p />
+        {{!-- loop thru images for forward hull plate areas section here
+        two image/s per row
+        --}}
+    </div>
+    <div class="page">
+        <h4>4.12.3 MIDSHIFTS HULL PLATE</h4>
+        <p />
+        • The midships hull plate was observed to be free from marine fouling and consistent with FR-0.
+        <p />
+        • The antifoul coating (AFC) was observed to be in good condition with only minor wear and
+        superficial damage to edges and seams. PDR-20. No visible corrosion was present at the time of
+        inspection.
+        <p />
+        {{!-- loop thru images for midshifts hull plate areas section here
+        two image/s per row
+        --}}
+    </div>
+    <div class="page">
+        <h4>4.12.4 AFT HULL PLATE</h4>
+        <p />
+        • The aft hull plate was observed to be free from marine fouling and consistent with FR-0.
+        <p />
+        • The antifoul coating (AFC) was observed to be in good condition with only minor wear and
+        superficial damage to edges and seams. PDR-20. No visible corrosion was present at the time of
+        inspection.
+        <p />
+        {{!-- loop thru images for aft hull plate areas section here
+        two image/s per row
+        --}}
+    </div>
+    <div class="page">
+        <h4>5. REPORT SUMMARY</h4>
+        <p />
+        {{!- the summary below should be dynamic????-}}
+        1. Niche Areas; Overall, the Niche areas of the vessel were observed to be less than 1% covered in soft
+        slime, consistent with FR-10. No calcareous growth was observed during the inspection.
+        <p />
+        2. Hull Plate; The hull plating was free from hard marine growth, consistent with FR-0.
+        <p />
+        3. AFC Condition; The AFC condition was found to be in overall good condition and relatively intact with
+        only minor blemishes observed, consistent with PDR-10-30
+        <p />
+
+        Please note that additional still photographs may be provided upon client request
+
+        <b> <i> Thank you for the opportunity to provide our services.</i></b>
+        <b> <i> If we can be of any future assistance, please do not hesitate to contact us at any time.</i></b>
+
+        <p />
+        <p />
+
+
+    </div>
+    <div class="centeredText">
+        <h2>END OF REPORT</h2>
+    </div>
 </body>
+
 </html>
