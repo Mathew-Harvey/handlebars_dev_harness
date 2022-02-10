@@ -157,8 +157,28 @@ section{
     }
   }
   @media print {
-    div.divFooter {
+    Footer {
       position: fixed;
       bottom: 0;
     }
+    .content-block,p{
+        page-break-inside:avoid;
+    }
+    
   }
+  footer{
+      font-size: smaller;
+      color:black;
+      text-align:left;
+  }
+  @page{
+      size:A4;
+      margin: 11mm 17mm 17mm 17mm;
+      @bottom-left{
+        content:counter(page) ' of ' counter(pages);
+      }
+  }
+  #pageFooter{
+      display: table-footer-group;
+  }
+ 
