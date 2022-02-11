@@ -7,20 +7,34 @@
     <title>Biofouling Inspection</title>
     <link rel="stylesheet" type="text/css" href="/assets/main.css" />
 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+<script src='/index.js'></script>
+
 </head>
 
 <body>
     
     <div class="section">
-        <div class="divHeader">
+       
             <table >
+                <thead>
                 <tr>
-                    <td class="noBorder" style="float:left" />logo</td>
-                    <td class="noBorder" style="float:right">logo</td>
+                    <td class="noBorder" style="float:left" />
+                     <div class="divHeader">
+                          logo
+                     </div>
+                    </td>
+                    <td class="noBorder" style="float:right">
+                        <div class="divHeader">
+                             logo
+                     </div>
+                    </td>
                 </tr>
+                </thead>
             </table>
             <p/>
-        </div>
+       
         <h1>Report</h1>
         <p></p>
         <h2>{{data.vessel.displayName}}</h2>
@@ -38,7 +52,7 @@
     </div>
     <div class="page">
         {{!-- TOC --}}
-        Table of Contents is here
+        <h4>Table of Contents is here</h4>        
     </div>
     <div class="page">
         <h4>1. PROJECT PARTICULARS</h4>
@@ -215,9 +229,9 @@
         <h4>3.1 PAINT DETERIORATION RATING (PDR) SCALE</h4>
         <p />
         <table>
-            <th>TYPE</th>
-            <th>FOULING RATING (FR)</th>
-            <th>DESCRIPTION</th>
+            <th style="height:70px">TYPE</th>
+            <th style="height:70px">FOULING <p/>RATING <p/>(FR)</th>
+            <th style="height:70px">DESCRIPTION</th>
             <tr>
                 <td>Soft</td>
                 <td>0</td>
@@ -287,206 +301,24 @@
             </tr>
         </table>
     </div>
-    <div class="page">
-        <h4>4. OBSERVATIONS AND FINDINGS</h4>
-        <p />
-        <h4>4.1 RUDDER</h4>
-        <p />
-        • The rudder was observed to be free from marine fouling, consistent with FR-0.
-        <p />
-        • The antifoul coating (AFC) was observed to be in good condition with only minor wear and
-        superficial damage to edges and seams, consistent with PDR-20.
-        <p />
-        {{!-- loop thru images for rudder section here
-        two image/s per row
-        --}}
-    </div>
-    <div class="page">
-        <h4>4.2 PROPELLER</h4>
-        <p />
-        • The propeller and propeller boss were observed to have 5% coverage of incipient slime consistent
-        with FR-10.
-        <p />
-        • No AFC was on the propeller or propeller boss.
-        <p />
-        <p />
-        {{!-- loop thru images for propeller section here
-        two image/s per row
-        --}}
-    </div>
-    <div class="page">
-        <h4>4.3 ROPE GUARD</h4>
-        <p />
-        • The rope guard was observed to be free from marine fouling both internally and externally, consistent
-        with FR-0.
-        <p />
-        • The antifoul coating (AFC) was observed to be in good condition with only minor wear and superficial
-        damage to edges and seams, consistent with PDR-20.
-        <p />
-        <p />
-        {{!-- loop thru images for rope guard section here
-        two image/s per row
-        --}}
-    </div>
-    <div class="page">
-        <h4>4.4 TRANSOM PLATING</h4>
-        <p />
-        • The transom plating was observed to be free from marine fouling, consistent with FR-0.
-        <p />
-        • The antifoul coating (AFC) was observed to be in good condition with only minor wear and superficial damage
-        to edges and seams, consistent with PDR-20.
-        <p />
-        <p />
-        {{!-- loop thru images for transom plating section here
-        two image/s per row
-        --}}
-    </div>
-    <div class="page">
-        <h4>4.5 STERN ARRANGEMENT</h4>
-        <p />
-        • The stern arrangement was observed to be free from marine fouling, consistent with FR-0.
-        <p />
-        • The antifoul coating (AFC) was observed to be in good condition with only minor wear and superficial damage to
-        edges and seams, consistent with PDR-20.
-        <p />
-        <p />
-        {{!-- loop thru images for stern arrangement section here
-        two image/s per row
-        --}}
-    </div>
-    <div class="page">
-        <h4>4.6 BILGE KEELS</h4>
-        <p />
-        • All bilge keels were observed to have approx. 2% coverage of incipient slime consistent with FR-10.
-        <p />
-        • The antifoul coating (AFC) was observed to be in good condition with only minor wear and superficial damage to
-        edges and seams. PDR-20.
-        <p />
-        <p />
-        {{!-- loop thru images for bilge keels section here
-        two image/s per row
-        --}}
-    </div>
-    <div class="page">
-        <h4>4.7 SEACHESTS</h4>
-        <p />
-        • Three (3) sets of sea chests were observed on the vessel. The Port and STBD main sea chests and the emergency
-        sea chest.
-        <p />
-        • All three (3) sea chest grates were observed to be in similar condition with incipient slime covering approx.
-        2% of the grates, consistent with FR-10.
-        <p />
-        • Typically, each sea chest grate was subject to minimal anti-foul coating (AFC) defects. The sea chest grates
-        AFC ranged between PDR-10 and PDR-20.
-        <p />
-        {{!-- loop thru images for sea chest section here
-        two image/s per row
-        --}}
-    </div>
-    <div class="page">
-        <h4>4.8 OVERBOARD DISCHARGES</h4>
-        <p />
-        • The OBD's that were located were observed to be in similar condition with 2-5% coverage of incipient slime,
-        consistent with FR-10.
-        <p />
-        • Typically, the antifoul coating (AFC) on and surrounding the OBD was in good condition, subject to minor
-        coating defects only, consistent with PDR-20.
-        <p />
-        <p />
-        {{!-- loop thru images for overboard discharges section here
-        two image/s per row
-        --}}
-    </div>
-    <div class="page">
-        <h4>4.9 TRANSDUCER</h4>
-        <p />
-        • Both the Echo Sounder (ES) and Speed Log (SL) were observed to be free from marine fouling consistent with
-        FR-0.
-        <p />
-        • The surrounding antifoul coating (AFC) was observed to be in good condition, consistent with PDR-10.
-
-        <p />
-        {{!-- loop thru images for transducer section here
-        two image/s per row
-        --}}
-    </div>
-    <div class="page">
-        <h4>4.10 BOW PLATE</h4>
-        <p />
-        • The bow plate was observed to be free from marine fouling and consistent with FR-0.
-        <p />
-        • The antifoul coating (AFC) was observed to be in average condition with anchor drag marks and superficial
-        damage
-        to edges and seams. PDR-10 to 50.
-
-        <p />
-        {{!-- loop thru images for bow plate section here
-        two image/s per row
-        --}}
-    </div>
-    <div class="page">
-        <h4>4.11 DRAFT MARKS</h4>
-        <p />
-        • All draft marks were observed in similar condition and were free from marine fouling consistent with FR-0.
-        <p />
-        • The antifoul coating (AFC) was observed to be in good condition, consistent with PDR-10.
-
-        <p />
-        {{!-- loop thru images for draft marks section here
-        two image/s per row
-        --}}
-    </div>
-    <div class="page">
-        <h4>4.12 HULL PLATING AREAS</h4>
-        <p />
-        <h4>4.12.1 HULL PHOTOGRAPHIC IMAGE LOCATION GUIDE</h4>
-        <p />
-        • The below diagram is used to assist with reference to location of the hull photographic images in
-        section 4.2 HULL PLATING AREAS.
-        <p />
-        {{!-- loop thru images for hull plating areas section here
-        two image/s per row
-        --}}
-    </div>
-    <div class="page">
-        <h4>4.12.2 FORWARD HULL PLATE</h4>
-        <p />
-        • The forward hull plate was observed to be free from marine fouling and consistent with FR-0.
-        <p />
-        • The antifoul coating (AFC) was observed to be in good condition with only minor wear and
-        superficial damage to edges and seams. PDR-20. No visible corrosion was present at the time of
-        inspection.
-        <p />
-        {{!-- loop thru images for forward hull plate areas section here
-        two image/s per row
-        --}}
-    </div>
-    <div class="page">
-        <h4>4.12.3 MIDSHIFTS HULL PLATE</h4>
-        <p />
-        • The midships hull plate was observed to be free from marine fouling and consistent with FR-0.
-        <p />
-        • The antifoul coating (AFC) was observed to be in good condition with only minor wear and
-        superficial damage to edges and seams. PDR-20. No visible corrosion was present at the time of
-        inspection.
-        <p />
-        {{!-- loop thru images for midshifts hull plate areas section here
-        two image/s per row
-        --}}
-    </div>
-    <div class="page">
-        <h4>4.12.4 AFT HULL PLATE</h4>
-        <p />
-        • The aft hull plate was observed to be free from marine fouling and consistent with FR-0.
-        <p />
-        • The antifoul coating (AFC) was observed to be in good condition with only minor wear and
-        superficial damage to edges and seams. PDR-20. No visible corrosion was present at the time of
-        inspection.
-        <p />
-        {{!-- loop thru images for aft hull plate areas section here
-        two image/s per row
-        --}}
-    </div>
+    {{#each data.sections}}
+        {{#if (eq context "worklog")}}
+            {{#if sections.[0]}}
+            <h4>{{increment @index}} {{title}}</h1>
+            {{!-- subsections --}}
+                {{#each sections}}
+                    <h5>{{increment @../index}}.{{increment @index}} {{title}}</h5>
+                    <p>{{{comments}}}</p>
+                    <div>Attachments {{attachmentFolder}}</div>
+                    {{#getImages attachmentFolder ../../attachments}}
+                        <img height="200px" width="auto" src="{{thumbUri}}" alt="{{title}}"/>
+                        <p>{{title}}</p>
+                    {{/getImages}}
+                {{/each}}
+            <p>{{{comments}}}</p>
+            {{/if}}
+        {{/if}}
+    {{/each}}
     <div class="page">
         <h4>5. REPORT SUMMARY</h4>
         <p />
