@@ -52,7 +52,22 @@
     </div>
     <div class="page">
         {{!-- TOC --}}
-        <h4>Table of Contents is here</h4>        
+        
+        <h4>Table of Contents </h4>    
+        {{#each data.sections}}
+        {{#if (eq context "worklog")}}
+            {{#if sections.[0]}}
+            <h5>{{increment @index }} {{title}}</h5>
+            {{!-- subsections --}}
+                {{#each sections}}
+                   <a id="{{increment @../index}}.{{increment @index}} {{title}}" href="#{{increment @../index}}.{{increment @index}} {{title}}"> 
+                        <h6>{{increment @../index}}.{{increment @index}} {{title}}</h6>
+                  </a>              
+                {{/each}}
+            
+            {{/if}}
+        {{/if}}
+    {{/each}}    
     </div>
     <div class="page">
         <h4>1. PROJECT PARTICULARS</h4>
@@ -166,7 +181,7 @@
         The below tables are referenced throughout the report to formally standardise both biofouling and anti-fouling
         condition ratings referred to herein.
         <p />
-        <h3>3.1 PAINT DETERIORATION RATING (PDR) SCALE</h3>
+        <h5>3.1 PAINT DETERIORATION RATING (PDR) SCALE</h5>
         <p />
         <table class="table">
             <th>RATING</th>
@@ -226,79 +241,20 @@
         </table>
     </div>
     <div class="page">
-        <h4>3.1 PAINT DETERIORATION RATING (PDR) SCALE</h4>
+        <h5>3.1 PAINT DETERIORATION RATING (PDR) SCALE</h5>
         <p />
         <table>
             <th style="height:70px">TYPE</th>
             <th style="height:70px">FOULING <p/>RATING <p/>(FR)</th>
             <th style="height:70px">DESCRIPTION</th>
-            <tr>
-                <td>Soft</td>
-                <td>0</td>
-                <td>A clean, foul-free surface; red and/or black AF paint or bare metal surface.</td>
-            </tr>
-            <tr>
-                <td>Soft</td>
-                <td>10</td>
-                <td>Light shades of red and green (incipient slime). Bare metal and painted surfaces are visible beneath
-                    the fouling.</td>
-            </tr>
-            <tr>
-                <td>Soft</td>
-                <td>20</td>
-                <td>Slime as dark green patches with yellow or brown colored areas (advanced slime). Bare metal and
-                    painted surfaces
-                    may be obscured by the fouling.</td>
-            </tr>
-            <tr>
-                <td>Soft</td>
-                <td>30</td>
-                <td>Grass filaments up to 3 inches (76 mm) in length, projections up to ¼ inch (6.4 mm) in height; or
-                    flat network of
-                    filaments, green, yellow, or brown in color, or soft non calcareous fouling such as sea cucumbers,
-                    sea grapes, or
-                    sea squirts projecting up to ¼ inch (6.4 mm) in height. The fouling cannot be easily wiped off by
-                    hand.</td>
-            </tr>
-            <tr>
-                <td>Hard</td>
-                <td>40</td>
-                <td>Calcareous fouling in the form of tube worms less than ¼ inch (6.4 mm) in diameter or height.</td>
-            </tr>
-            <tr>
-                <td>Hard</td>
-                <td>50</td>
-                <td>Calcareous fouling in the form of barnacles, less than ¼ inch (6.4 mm) in diameter or height.</td>
-            </tr>
-            <tr>
-                <td>Hard</td>
-                <td>60</td>
-                <td>Combination of tubeworms and barnacles less than ¼ inch (6.4mm) in diameter or height.</td>
-            </tr>
-            <tr>
-                <td>Hard</td>
-                <td>70</td>
-                <td>Combination of tubeworms and barnacles greater than ¼ inch (6.4 mm) in diameter or height.</td>
-            </tr>
-            <tr>
-                <td>Hard</td>
-                <td>80</td>
-                <td>Tubeworms closely packed together and growing upright away from surface. Barnacles growing
-                    one on top of another, ¼ inch (6.4 mm) or less in height. Calcareous shells appear clean or
-                    white in color.</td>
-            </tr>
-            <tr>
-                <td>Hard</td>
-                <td>90</td>
-                <td>Dense growth of tubeworms with barnacles, ¼ inch (6.4 mm) or greater in height. Calcareous
-                    shells brown in color (oysters and mussels); or with slime or grass overlay.</td>
-            </tr>
-            <tr>
-                <td>Composite</td>
-                <td>100</td>
-                <td>All forms of fouling present, soft and hard, particularly soft sedentary animals without
-                    calcareous covering (tunicates) growing over various forms of hard growth.</td>
-            </tr>
+            {{#each data.delivery.foulingReference}}
+               <tr>
+                   <td>{{Type}}</td>
+                   <td>{{FR}}</td>
+                   <td>{{Description}}</td>
+               </tr>
+            {{/each}}
+            
         </table>
     </div>
     {{#each data.sections}}
@@ -307,36 +263,26 @@
             <h4>{{increment @index}} {{title}}</h1>
             {{!-- subsections --}}
                 {{#each sections}}
-                    <h5>{{increment @../index}}.{{increment @index}} {{title}}</h5>
+                    <a href="#{{increment @../index}}.{{increment @index}} {{title}}"><h5>{{increment @../index}}.{{increment @index}} {{title}}</h5></a>
                     <p>{{{comments}}}</p>
                     <div>Attachments {{attachmentFolder}}</div>
-                    {{#getImages attachmentFolder ../../attachments}}
-                        <img height="200px" width="auto" src="{{thumbUri}}" alt="{{title}}"/>
-                        <p>{{title}}</p>
-                    {{/getImages}}
+                    <div class="row">
+                        <div class="column">
+                            {{#getImages attachmentFolder ../../attachments}}                       
+                                <img  src="{{thumbUri}}"/>
+                                {{!-- <p><h6>{{title}}</h6></p> --}}
+                            {{/getImages}}
+                        </div>
+                    </div>
                 {{/each}}
             <p>{{{comments}}}</p>
             {{/if}}
         {{/if}}
     {{/each}}
     <div class="page">
-        <h4>5. REPORT SUMMARY</h4>
+        <h4>REPORT SUMMARY</h4>
         <p />
-        {{!- the summary below should be dynamic????-}}
-        1. Niche Areas; Overall, the Niche areas of the vessel were observed to be less than 1% covered in soft
-        slime, consistent with FR-10. No calcareous growth was observed during the inspection.
-        <p />
-        2. Hull Plate; The hull plating was free from hard marine growth, consistent with FR-0.
-        <p />
-        3. AFC Condition; The AFC condition was found to be in overall good condition and relatively intact with
-        only minor blemishes observed, consistent with PDR-10-30
-        <p />
-
-        Please note that additional still photographs may be provided upon client request
-
-        <b> <i> Thank you for the opportunity to provide our services.</i></b>
-        <b> <i> If we can be of any future assistance, please do not hesitate to contact us at any time.</i></b>
-
+        {{{data.report.findings}}}
         <p />
         <p />
 

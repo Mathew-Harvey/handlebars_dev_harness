@@ -28,8 +28,10 @@ app.engine("hbs", exphbs({
             return nowDate
         },
         increment: function (index) {
-            return index + 1;
+             
+            return index  + 1;
         },
+        
         eq: function (value1, value2) {
             return (value1 === value2);
         },

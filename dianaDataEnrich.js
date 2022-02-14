@@ -110,7 +110,7 @@ function enrichData(dianaWork) {
     getSectionData(dianaWork, dianaWork.steps, sectionData);
 
     dianaWork.data.sections = sectionData;
-
+    
     return dianaWork;
     //
     // {{#each data.sections}}
