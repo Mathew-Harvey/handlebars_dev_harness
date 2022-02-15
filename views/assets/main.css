@@ -72,8 +72,7 @@ table {
     font-family: arial, sans-serif;
     border-collapse: collapse;
     width: 100%;
-    page-break-inside: avoid;
-    
+    page-break-inside: avoid; 
 }
 
 .centeredText {
@@ -225,4 +224,30 @@ section{
       width: 250px;
       margin-top: 8px;
       vertical-align: middle;
+  }
+  ul.a{
+    list-style-type: none;
+    font-size: 12px;   
+    list-style-position: outside;
+    margin-top: auto;
+    margin-bottom: auto;
+    
+  }
+  ul.b{
+    list-style-type: none;
+    font-size: 10px;
+    padding: 75px;    
+    list-style-position: inside;
+    margin-top: auto;
+    margin-bottom: auto;
+  }
+  li{
+      margin-top: 10px;
+     
+  }
+  li:first-child{
+      margin-top: 0;
+  }
+  a,a:visited,a:hover,a:active{
+      color:black;
   }

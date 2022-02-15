@@ -27,11 +27,17 @@ app.engine("hbs", exphbs({
             let nowDate = moment().format("dddd DD MMMM YYYY")
             return nowDate
         },
-        increment: function (index) {
-             
-            return index  + 1;
+        increment: function (index) 
+        {    
+            return index+ 1;
         },
-        
+        getSectionValue: function()
+        {            
+            // document.getElementById('section').value;
+            var getvalue= $("#section").val();
+            sectionCtr=getvalue+1;
+            return sectionCtr;
+        },
         eq: function (value1, value2) {
             return (value1 === value2);
         },

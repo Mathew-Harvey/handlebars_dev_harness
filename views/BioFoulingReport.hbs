@@ -8,9 +8,9 @@
     <link rel="stylesheet" type="text/css" href="/assets/main.css" />
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
-<script src='/index.js'></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+    <script src='/index.js'></script>
+    
 </head>
 
 <body>
@@ -51,23 +51,35 @@
 
     </div>
     <div class="page">
-        {{!-- TOC --}}
         
-        <h4>Table of Contents </h4>    
+        <h4>Table of Contents </h4>
+        <table >   
         {{#each data.sections}}
-        {{#if (eq context "worklog")}}
-            {{#if sections.[0]}}
-            <h5>{{increment @index }} {{title}}</h5>
-            {{!-- subsections --}}
-                {{#each sections}}
-                   <a id="{{increment @../index}}.{{increment @index}} {{title}}" href="#{{increment @../index}}.{{increment @index}} {{title}}"> 
-                        <h6>{{increment @../index}}.{{increment @index}} {{title}}</h6>
-                  </a>              
-                {{/each}}
-            
+            {{#if (eq context "worklog")}}
+                {{#if sections.[0]}}
+                    <tr>
+                     <td  colspan="2" style="border:none;font-size:14px;text-transform: uppercase;"> 
+                        {{increment @index}} {{title}}
+                    </td>  
+                    <td style="border:none"></td>
+                    </tr>
+                    {{!-- subsections --}}
+                    {{#each sections}}
+                    <tr>
+                     <td style="width:20px;border:none"></td>
+                     <td style="border:none;font-size:12px;text-transform: uppercase;height:30px">
+                         <a href="#{{increment @../index}}.{{increment @index}} {{title}}" > 
+                        {{increment @../index}}.{{increment @index}} {{title}}
+                        </a>    
+                       
+                      </td>  
+                      <td style="text-align: left;width:30px;border:none;font-size:12px;height:30px"></td>
+                      </tr>
+                    {{/each}}            
+                {{/if}}
             {{/if}}
-        {{/if}}
-    {{/each}}    
+        {{/each}}    
+        </table> 
     </div>
     <div class="page">
         <h4>1. PROJECT PARTICULARS</h4>
@@ -257,13 +269,14 @@
             
         </table>
     </div>
+    
     {{#each data.sections}}
         {{#if (eq context "worklog")}}
             {{#if sections.[0]}}
-            <h4>{{increment @index}} {{title}}</h1>
+            <h4>{{increment @index}} {{title}}</h1>            
             {{!-- subsections --}}
                 {{#each sections}}
-                    <a href="#{{increment @../index}}.{{increment @index}} {{title}}"><h5>{{increment @../index}}.{{increment @index}} {{title}}</h5></a>
+                    <a id="{{increment @../index}}.{{increment @index}} {{title}}"><h5>{{increment @../index}}.{{increment @index}} {{title}}</h5></a>
                     <p>{{{comments}}}</p>
                     <div>Attachments {{attachmentFolder}}</div>
                     <div class="row">
@@ -279,6 +292,7 @@
             {{/if}}
         {{/if}}
     {{/each}}
+    
     <div class="page">
         <h4>REPORT SUMMARY</h4>
         <p />
@@ -294,6 +308,10 @@
     <footer>
         F11278- Pacific Basin MV Bunun Ace- BFI
     </footer>
+    <form>
+    <input type="hidden" id="section" name="section" value="0">
+    </form>
 </body>
+
 
 </html>
