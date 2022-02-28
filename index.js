@@ -27,9 +27,26 @@ app.engine("hbs", exphbs({
             let nowDate = moment().format("dddd DD MMMM YYYY")
             return nowDate
         },
-        increment: function (index) 
-        {    
-            return index+ 1;
+        increased: function (index) 
+        {   
+            var diff=0;
+            // need to formulate a more dynamic computation
+            // what if the index is greater than 20
+            
+            if(index >10) diff=10;
+            // 4 here is the fixed section in the report which include 
+            // Project Particular, Methodology and Reference Tables
+            // since the last section is 3 make sure that the next value is 1 higher than the last thus (return value+1 )
+            if(index<10) diff=(index-4);
+            
+            if((index-diff)<0) return 4;                     
+            else return (index-diff)+ 1;
+        },
+        addOne: function(index)
+        {
+            //this function is to get the index of an array
+            //subsection
+            return index+1;
         },
         getSectionValue: function()
         {            
@@ -47,6 +64,25 @@ app.engine("hbs", exphbs({
             return links?.map((attachment) => {
                 return options.fn(attachment);
             });
+        },
+        
+        loadImage: function(fullUri)
+        {
+            const image = getImageUrl(fullUri) ?? fullUri;
+            return `<img src='${image}' width='180' height='136'/>`;
+        },
+        getImageUrl: function(fullUri)
+        {
+            const image = getImageUrl(fullUri) ?? fullUri;
+            return image;
+        },
+        hasValue: function (value){
+            
+                if (value === undefined || value === "<p></p>\n" || value === "") {
+                  return false;
+                } else {
+                  return true;
+                }
         }
     }
 })); 
@@ -97,4 +133,15 @@ app.get('/biofouling', (req, res) => {
     });
 
     res.render("biofoulingReport", data);
+})
+app.get('/classSurvey', (req, res) => {
+    console.log("outputing result");
+    
+    const data = diana.enrichData(vesselData);
+
+    data.data.sections.map(section => {
+        console.log({ ...section })
+    });
+
+    res.render("classSurvey", data);
 })

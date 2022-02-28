@@ -75,7 +75,8 @@ function getSubSection(dianaWork, section, components)
             
             const value = jsonPath.query(dianaWork.data, path); // vessel data query
             console.log("Found Sub Section " + component.name, {value});
-
+           if (value.length>0)
+           {
             var child = {
                 title: component.properties?.title ?? component.label ?? component.name,
                 type: "subsection",
@@ -99,7 +100,8 @@ function getSubSection(dianaWork, section, components)
                     child.attachmentFolder = attachments.properties.folder;
                 }
             }
-            section.sections.push(child);            
+            section.sections.push(child);      
+            }      
         }
     });
 }
