@@ -252,6 +252,7 @@ section{
                 {{/each}}
             </div >
             <div class="page">
+                &nbsp;
                 <h4>Table of Contents </h4>
                     <table class="table">   
                          <tr>
@@ -262,29 +263,35 @@ section{
                         </tr>
                         <tr>
                             <td  colspan="2" style="border:none;font-size:14px;text-transform: uppercase;"> 
-                                2 Methodology
+                                2 Vessel Particulars
                             </td>  
                             <td style="border:none"></td>
                         </tr>
                         <tr>
                             <td  colspan="2" style="border:none;font-size:14px;text-transform: uppercase;"> 
-                                3 Reference Tables
+                                3 Overview
                             </td>  
                             <td style="border:none"></td>
                         </tr>   
                         <tr>
-                            <td style="width:20px;border:none"></td>
-                            <td style="border:none;font-size:12px;text-transform: uppercase;height:30px">
-                                3.1 Reference Tables
+                            <td colspan="2" style="width:20px;border:none;font-size:14px;text-transform: uppercase">4 Reference Tables</td>
+                            <td style="border:none;font-size:12px;text-transform: uppercase;height:30px">                                
                             </td>  
                                 <td style="text-align: left;width:30px;border:none;font-size:12px;height:30px"></td>
-                        </tr> 
+                        </tr>
+                         <tr>
+                            <td colspan="2" style="width:20px;border:none;font-size:14px;text-transform: uppercase">5 Observing and Findings</td>
+                            <td style="border:none;font-size:12px;text-transform: uppercase;height:30px">                                
+                            </td>  
+                                <td style="text-align: left;width:30px;border:none;font-size:12px;height:30px"></td>
+                        </tr>                                   
                         {{#each data.sections}}
                             {{#if (eq context "worklog")}}
                                 {{#if sections.[0]}}                   
                                 <tr>
                                     <td  colspan="2" style="border:none;font-size:14px;text-transform: uppercase;"> 
-                                        {{increased @index}} {{title}}
+                                        {{increased @index 5}} {{title}}
+                                        
                                     </td>  
                                     <td style="border:none"></td>
                                  </tr>                   
@@ -292,8 +299,8 @@ section{
                                     <tr>
                                         <td style="width:20px;border:none"></td>
                                         <td style="border:none;font-size:12px;text-transform: uppercase;height:30px">
-                                            <a href="#{{increased @../index}}.{{addOne @index}} {{title}}" > 
-                                                {{increased @../index}}.{{addOne @index}} {{title}}</a>                           
+                                            <a href="#{{increased @../index 5}}.{{addOne @index}} {{title}}" > 
+                                                {{increased @../index 5}}.{{addOne @index}} {{title}}</a>                           
                                         </td>  
                                         <td style="text-align: left;width:30px;border:none;font-size:12px;height:30px"></td>
                                     </tr>
@@ -305,10 +312,11 @@ section{
                     </table>
             </div>
             <div class="page">
+                &nbsp;
                 <h4>1. PROJECT PARTICULARS</h4>
-                <p></p>
+                &nbsp;
                 <table style="border:1px solid; width:100%; position:center;">
-                    <tr style="border:1px solid">
+                    <tr style="border:1px solid;height:25px;">
                         <td style="background-color: #1e73be;color:white">Diving Contractor:</td>
                         <td colspan="2">Franmarine Underwater Services Pty Ltd</td>
                     </tr>
@@ -366,10 +374,39 @@ section{
                     </tr>
                 </table>
             </div>
+            <div class="page">
+                <h4>4.1 FOULING RATING (FR) SCALE</h4>
+                    <p />
+                    <table style="width=100%">
+                        <th style="height:70px;background-color: #1e73be; border:1px solid;width:7%;height:30px">TYPE</th>
+                        <th style="height:70px;background-color: #1e73be; border:1px solid;width:10%;height:30px">FOULING <p/>RATING <p/>(FR)</th>
+                        <th style="height:70px;background-color: #1e73be; border:1px solid; width:80%;height:30px">DESCRIPTION</th>
+                        {{#each data.delivery.foulingReference}}
+                            <tr>
+                                <td style="border:1px solid">{{Type}}</td>
+                                <td style="border:1px solid">{{FR}}</td>
+                                <td style="border:1px solid">{{Description}}</td>
+                            </tr>
+                        {{/each}}            
+                    </table>
+            </div>
+            <div class="page">
+                    <h4>4.2 PAINT DETORIORATION RATING (PDR) SCALE</h4>
+                    <p/>
+                    <table style="width:100%">
+                        <th style="background-color: #1e73be;height:30px; border:1px solid">RATING</th>
+                        <th style="background-color: #1e73be;height:30px; border:1px solid">DESCRIPTION</th>
+                        {{#each data.delivery.pdrReference}}
+                            <tr>
+                                <td style="width:70px; text-align:center;; border:1px solid"><b>PDR-{{PDR}}</b></td>                   
+                                <td style="border:1px solid">{{Description}}</td>
+                            </tr>
+                        {{/each}}
+                    </table>
+                </div>
         </td>
       </tr>
     </tbody>
-
     <tfoot style="width:90%">
       <tr>
         <td style="width:90%">

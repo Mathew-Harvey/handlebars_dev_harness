@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+        * {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        h1 {
+            text-align: left;
+            font-size: 1.1em;
+            text-transform: uppercase;
+        }
+
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+            margin-bottom: 2px;
+        }
+
+        td,
+        th,
+        table,
+        p,
+            {
+            font-size: 0.6;
+            padding: 6px;
+            margin: 6px;
+        }
+
+        td,
+        th {
+
+            text-align: left;
+            padding: 2px;
+            border: 1px solid black;
+        }
+
+        tr {
+            height: 12px
+        }
+
+        .noBorder {
+            border: none !important;
+            padding-top: 50px;
+            padding-bottom: 50px;
+
+        }
+
+        #grey {
+            background-color: #dddddd;
+        }
+    </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Mooring Repair Materials List</title>
+    {{#each css}}
+    <link rel="stylesheet" href="/{{this}}">
+    {{/each}}
+</head>
+
+<body>
+    <header>
+        <img src="https://cdn.marinestream.io/templates/logos/FranMarine_logo_2000x600px.png" alt="Franmarine Logo"
+            width="300">
+    </header>
+    <main>
+        <h1>Mooring ID</h1>
+        <div class="report-container">
+            <p>{{{data.mooring.displayName}}}</p>
+        </div>
+        <h1>Previous Inspection Date (date list was generated)</h1>
+        <div class="report-container">
+            <p>{{formatDateTime data.inspection.inspectionDate.date "dddd DD MMMM YYYY"}}</p>
+        </div>
+        <h1>General Observations</h1>
+        <div class="report-container">
+            <p>{{{data.generalObservation}}}</p>
+        </div>
+        <h1>Mooring Repair Materials List</h1>
+        <div class="report-container">
+            <p>{{{data.repairMaterials}}}</p>
+        </div>
+
+    </main>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+    <script src='/index.js'></script>
+
+</body>
