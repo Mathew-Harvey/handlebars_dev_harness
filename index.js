@@ -2,9 +2,9 @@ const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
 const exphbs = require("express-handlebars");
-const vesselData = require('./vesselData.json')
-const moment = require("moment")
-
+const vesselData = require('./vesselData.json');
+const mooringData =  require ('./mooringData.json');
+const moment = require("moment");
 const diana = require('./dianaDataEnrich.js');
 
 app.use(express.static(__dirname + "/views"));
@@ -16,9 +16,6 @@ app.set("view engine", "hbs");
 app.engine("hbs", exphbs({
     extname: "hbs",
     defaultLayout: "index",
-
-    
-
     helpers: {
         formatDateTime: function (dateTime, dateTimeFormat) {
             let currentTime = moment(dateTime);
@@ -128,7 +125,7 @@ app.get('/biofouling', (req, res) => {
 app.get('/dotmooring', (req, res) => {
     console.log("outputing result");
 
-    const data = diana.enrichData(vesselData);
+    const data = diana.enrichData(mooringData);
 
     data.data.sections.map(section => {
         console.log({ ...section })
