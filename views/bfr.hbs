@@ -184,8 +184,14 @@ h6{
    body {margin: 0;}
 }
 section{
-    page-break-inside: avoid;}
- 
+    page-break-inside: avoid;
+}
+.center{
+    display:block;
+    margin-left: auto;
+    margin-right:auto;
+    width:80%
+} 
 </style>
 </head>
 
@@ -196,7 +202,6 @@ section{
 	  <tr>
 	     <td><img src="https://cdn.marinestream.io/templates/logos/FranMarine_logo_2000x600px.png" alt="Franmarine Logo" style="width:300px; float:left"></td>
          <td><img src="" alt="client logo" style="width:300px; float:right"/></td>
-	     
 	  </tr>
 	</table>
   </div>
@@ -228,7 +233,6 @@ section{
                 <h2>Biofouling Inspection</h2>
                 {{#each attachments}}
                     {{#if (eq path 'ReportCover')}}
-                            {{!-- <img src="{{getImageUri fullUri}}" alt="ship logo" class="center" /> --}}
                             {{!-- <img src="{{getImageUri fullUri}}" alt="ship logo" class="center" /> --}}
                     {{/if}}
                 {{/each}}
@@ -270,16 +274,16 @@ section{
                                 {{#if sections.[0]}}                   
                                 <tr>
                                     <td  colspan="2" style="border:none;font-size:14px;text-transform: uppercase;"> 
-                                        {{increased @index 3}} {{title}}
+                                        {{increased @index}} {{title}}
                                     </td>  
                                     <td style="border:none"></td>
                                  </tr>                   
-                                {{#each sections}} 
+                                {{#each sections}}
                                     <tr>
                                         <td style="width:20px;border:none"></td>
                                         <td style="border:none;font-size:12px;text-transform: uppercase;height:30px">
-                                            <a href="#{{increased @../index 3}}.{{addOne @index}} {{title}}" > 
-                                                {{increased @../index 3}}.{{addOne @index}} {{title}}</a>                           
+                                            <a href="#{{increased @../index}}.{{addOne @index}} {{title}}" > 
+                                                {{increased @../index}}.{{addOne @index}} {{title}}</a>                           
                                         </td>  
                                         <td style="text-align: left;width:30px;border:none;font-size:12px;height:30px"></td>
                                     </tr>
@@ -406,17 +410,16 @@ section{
                             <p></p> <p></p><p></p><p></p><p></p>
                             <h4>{{increased @index}} {{title}}</h1> 
                             {{#each sections}}
-                                <a id="{{increased @../index 4}}.{{addOne @index}} {{title}}"><h5>{{increased @../index 4}}.{{addOne @index}} {{title}}</h5></a>
+                                <a id="{{increased @../index}}.{{addOne @index}} {{title}}"><h5>{{increased @../index}}.{{addOne @index}} {{title}}</h5></a>
                                 <div>
-                                    {{increased @../index 4}}.{{addOne @index}}.1 Comments {{{comments}}}
+                                    {{increased @../index}}.{{addOne @index}}.1 Comments {{{comments}}}
                                 </div>   
                                 <div>
-                                        {{increased @../index 4}}.{{addOne @index}}.2 Inspector Comments {{{inspectorComments}}}
+                                        {{increased @../index}}.{{addOne @index}}.2 Inspector Comments {{{inspectorComments}}}
                                 </div>                     
                                 <div  class="row">
                                     <div class="column">
                                         {{#getImages attachmentFolder ../../attachments}}                       
-                                                {{!-- <img  src="{{getImageUri fullUri}}" title="{{title}}" />   --}}
                                                 {{!-- <img  src="{{getImageUri fullUri}}" title="{{title}}" />   --}}
                                         {{/getImages}}
                                     </div>
