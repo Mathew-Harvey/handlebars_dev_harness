@@ -166,17 +166,6 @@ app.get('/biofouling', (req, res) => {
 
     res.render("BioFoulingReport", data);
 })
-app.get('/dotmooring', (req, res) => {
-    console.log("outputing result");
-
-    const data = diana.enrichData(mooringData);
-
-    data.data.sections.map(section => {
-        console.log({ ...section })
-    });
-
-    res.render("dotMooringReport", data);
-})
 app.get('/classSurvey', (req, res) => {
     console.log("outputing result");
     
@@ -187,4 +176,37 @@ app.get('/classSurvey', (req, res) => {
     });
 
     res.render("classSurvey", data);
+})
+app.get('/dotmooring', (req, res) => {
+    console.log("outputing result");
+
+    const data = diana.enrichData(mooringData);
+
+    data.data.sections.map(section => {
+        console.log({ ...section })
+    });
+
+    res.render("dotMooringReport_v5", data);
+})
+app.get('/mooring', (req, res) => {
+    console.log("outputing result");
+
+    const data = diana.enrichData(mooringData);
+
+    data.data.sections.map(section => {
+        console.log({ ...section })
+    });
+
+    res.render("mooringReport_v8", data);
+})
+app.get('/repairmooring', (req, res) => {
+    console.log("outputing result");
+
+    const data = diana.enrichData(mooringData);
+
+    data.data.sections.map(section => {
+        console.log({ ...section })
+    });
+
+    res.render("mooringrepair_v5", data);
 })
