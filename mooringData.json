@@ -456,7 +456,7 @@
                 "generalObservation": "<p>asdfasdfsd</p>\n"
             }
         },
-        "generalObservation": "<p>Mats test general observationsMats test general observationsMats test general observationsMats test general observationsMats test general observationsMats test general observationsMats test general observationsMats test general observationsMats test general observationsMats test general observationsMats test general observationsMats test general observations</p>\n",
+        "generalObservation": "<p>Mats test general observations</p>\n",
         "repairMaterials": "<p>this is alist of materials that are required</p>\n",
         "mooring": {
             "id": "3670d5a6-2bf2-47c8-96bb-8210d8891a6e",
@@ -484,7 +484,7 @@
             },
             "safeAndFit": [],
             "unsafe": [
-                "Unsafe"
+                "Not Safe"
             ],
             "environmentallyFriendly": [
                 "Confirm"
@@ -532,7 +532,7 @@
                                     "userImageUrl": null,
                                     "eventDateTimeUtc": "2022-03-02T05:20:37.6767913+00:00",
                                     "latModifiedUtc": "2022-03-02T05:20:37.6767913+00:00",
-                                    "durationDays": 0.8717971691284723,
+                                    "durationDays": 0.9942442704247685,
                                     "userAccount": null,
                                     "status": "Skipped",
                                     "dataVersion": {
@@ -582,7 +582,7 @@
                                     "userImageUrl": null,
                                     "eventDateTimeUtc": "2022-03-02T05:20:38.1617379+00:00",
                                     "latModifiedUtc": "2022-03-02T05:20:38.1617379+00:00",
-                                    "durationDays": 0.871791556787037,
+                                    "durationDays": 0.9942386581377315,
                                     "userAccount": null,
                                     "status": "Skipped",
                                     "dataVersion": {
@@ -626,7 +626,7 @@
                             "userImageUrl": null,
                             "eventDateTimeUtc": "2022-03-02T05:20:37.4373273+00:00",
                             "latModifiedUtc": "2022-03-02T05:20:37.4373273+00:00",
-                            "durationDays": 0.8717999413854167,
+                            "durationDays": 0.9942470427546296,
                             "userAccount": null,
                             "status": "Skipped",
                             "dataVersion": {
@@ -909,7 +909,7 @@
                     "userImageUrl": null,
                     "eventDateTimeUtc": "2022-03-02T05:20:37.2615959+00:00",
                     "latModifiedUtc": "2022-03-02T05:20:37.2615959+00:00",
-                    "durationDays": 0.8718019766527778,
+                    "durationDays": 0.9942490786967593,
                     "userAccount": null,
                     "status": "Skipped",
                     "dataVersion": {
@@ -969,7 +969,7 @@
                                     "userImageUrl": null,
                                     "eventDateTimeUtc": "2022-03-02T05:20:40.0194116+00:00",
                                     "latModifiedUtc": "2022-03-02T05:20:40.0194116+00:00",
-                                    "durationDays": 0.8717700577719908,
+                                    "durationDays": 0.9942171598483797,
                                     "userAccount": null,
                                     "status": "InProgress",
                                     "dataVersion": {
@@ -1041,7 +1041,7 @@
                             "userImageUrl": null,
                             "eventDateTimeUtc": "2022-03-02T05:20:38.7537404+00:00",
                             "latModifiedUtc": "2022-03-02T05:20:38.7537404+00:00",
-                            "durationDays": 0.8717847070763889,
+                            "durationDays": 0.9942318097951389,
                             "userAccount": null,
                             "status": "InProgress",
                             "dataVersion": {
@@ -8466,7 +8466,257 @@
                     "status": "New",
                     "hasSteps": true,
                     "hasActions": false,
-                    "layout": null,
+                    "layout": {
+                        "tags": null,
+                        "components": [
+                            {
+                                "id": "489bd59a-fde9-4d0b-a821-3d8d10a0cebb",
+                                "components": [
+                                    {
+                                        "id": "d9c1bcae-bafb-486c-ac22-68edd72171e5",
+                                        "components": [],
+                                        "name": "Mooring is Safe and Fit for Purpose",
+                                        "component": "product-selection",
+                                        "defaultValue": "",
+                                        "dataPath": "$.confirmation.safeAndFit",
+                                        "dataSource": "Work",
+                                        "resource": "Data",
+                                        "copyData": true,
+                                        "cloneData": true,
+                                        "dataPathEditable": false,
+                                        "properties": {
+                                            "title": "Mooring is Safe and Fit for Purpose",
+                                            "showTitle": false,
+                                            "copyData": true,
+                                            "required": false,
+                                            "showInReport": true,
+                                            "configurable": false,
+                                            "alwaysShow": false,
+                                            "className": "col-sm-12 col-md-6 col-lg-4",
+                                            "width": "col-12",
+                                            "minValue": "",
+                                            "unitOfMeasure": "",
+                                            "options": "Confirm",
+                                            "multiSelect": "single"
+                                        },
+                                        "parentId": "489bd59a-fde9-4d0b-a821-3d8d10a0cebb",
+                                        "width": null,
+                                        "required": false,
+                                        "showAtStep": "*",
+                                        "label": null,
+                                        "context": null
+                                    },
+                                    {
+                                        "id": "fd0c2f6e-7749-4e30-b4a4-3d9a32c692f8",
+                                        "components": [],
+                                        "name": "Mooring is NOT Safe or Fit for Purpose",
+                                        "component": "product-selection",
+                                        "defaultValue": "",
+                                        "dataPath": "$.confirmation.unsafe",
+                                        "dataSource": "Work",
+                                        "resource": "Data",
+                                        "copyData": true,
+                                        "cloneData": true,
+                                        "dataPathEditable": false,
+                                        "properties": {
+                                            "title": "Mooring is NOT Safe or Fit for Purpose",
+                                            "showTitle": false,
+                                            "copyData": true,
+                                            "required": false,
+                                            "showInReport": true,
+                                            "configurable": false,
+                                            "alwaysShow": false,
+                                            "className": "col-sm-12 col-md-6 col-lg-4",
+                                            "width": "col-12",
+                                            "minValue": "",
+                                            "unitOfMeasure": "",
+                                            "options": "Not Safe",
+                                            "multiSelect": "single"
+                                        },
+                                        "parentId": "489bd59a-fde9-4d0b-a821-3d8d10a0cebb",
+                                        "width": null,
+                                        "required": false,
+                                        "showAtStep": "*",
+                                        "label": null,
+                                        "context": null
+                                    },
+                                    {
+                                        "id": "0937b5d7-550a-40ec-b147-4528b52f65d2",
+                                        "components": [],
+                                        "name": "Environmentally Friendly Mooring",
+                                        "component": "product-selection",
+                                        "defaultValue": "",
+                                        "dataPath": "$.confirmation.environmentallyFriendly",
+                                        "dataSource": "Work",
+                                        "resource": "Data",
+                                        "copyData": true,
+                                        "cloneData": true,
+                                        "dataPathEditable": false,
+                                        "properties": {
+                                            "title": "Environmentally Friendly Mooring",
+                                            "showTitle": false,
+                                            "copyData": true,
+                                            "required": false,
+                                            "showInReport": true,
+                                            "configurable": false,
+                                            "alwaysShow": false,
+                                            "className": "col-sm-12 col-md-6 col-lg-4",
+                                            "width": "col-12",
+                                            "minValue": "",
+                                            "unitOfMeasure": "",
+                                            "options": "Confirm",
+                                            "multiSelect": "single"
+                                        },
+                                        "parentId": "489bd59a-fde9-4d0b-a821-3d8d10a0cebb",
+                                        "width": null,
+                                        "required": false,
+                                        "showAtStep": "*",
+                                        "label": null,
+                                        "context": null
+                                    },
+                                    {
+                                        "id": "596196cf-8bac-4549-915c-13cfbc948dff",
+                                        "components": [],
+                                        "name": "Declaration",
+                                        "component": "richtext-input",
+                                        "defaultValue": "I, Adam Falconer-West on behalf of Franmarine Underwater Services Pty Ltd certify that the abovementioned mooring was inspected by our diving team in accordance with Australian Standard AS2299. The information contained in this Report is true and correct and the mooring is SAFE and FIT FOR PURPOSE to hold a vessel up to the maximum vessel length in up to INSERT WIND SPEED HERE knot winds for 12 months from the date of this certification.",
+                                        "dataPath": "$.confirmation.declaration.content",
+                                        "dataSource": "Work",
+                                        "resource": "Data",
+                                        "copyData": false,
+                                        "cloneData": true,
+                                        "dataPathEditable": false,
+                                        "properties": {
+                                            "title": "Declaration",
+                                            "showTitle": false,
+                                            "copyData": false,
+                                            "required": false,
+                                            "showInReport": true,
+                                            "configurable": false,
+                                            "alwaysShow": false,
+                                            "label": "Declaration",
+                                            "className": "col-sm-12 col-md-6 col-lg-4",
+                                            "multiSelect": "single"
+                                        },
+                                        "parentId": "489bd59a-fde9-4d0b-a821-3d8d10a0cebb",
+                                        "width": null,
+                                        "required": false,
+                                        "showAtStep": "*",
+                                        "label": null,
+                                        "context": null
+                                    },
+                                    {
+                                        "id": "c517f727-03fa-4af2-b19d-a23f1da9694e",
+                                        "components": [],
+                                        "name": "Declaration Confirmation",
+                                        "component": "product-selection",
+                                        "defaultValue": "",
+                                        "dataPath": "$.confirmation.declaration.confirmation",
+                                        "dataSource": "Work",
+                                        "resource": "Data",
+                                        "copyData": true,
+                                        "cloneData": true,
+                                        "dataPathEditable": false,
+                                        "properties": {
+                                            "title": "Declaration Confirmation",
+                                            "showTitle": false,
+                                            "copyData": true,
+                                            "required": false,
+                                            "showInReport": true,
+                                            "configurable": false,
+                                            "alwaysShow": false,
+                                            "className": "col-sm-12 col-md-6 col-lg-4",
+                                            "width": "col-12",
+                                            "minValue": "",
+                                            "unitOfMeasure": "",
+                                            "options": "Confirm",
+                                            "multiSelect": "single"
+                                        },
+                                        "parentId": "489bd59a-fde9-4d0b-a821-3d8d10a0cebb",
+                                        "width": null,
+                                        "required": false,
+                                        "showAtStep": "*",
+                                        "label": null,
+                                        "context": null
+                                    },
+                                    {
+                                        "id": "3a03c0f9-92bb-42ac-a4b9-f6ca385ebd14",
+                                        "components": [],
+                                        "name": null,
+                                        "component": "user-invitation",
+                                        "defaultValue": "",
+                                        "dataPath": "$.invites.backOfficeAccounts",
+                                        "dataSource": "Work",
+                                        "resource": "Data",
+                                        "copyData": false,
+                                        "cloneData": true,
+                                        "dataPathEditable": false,
+                                        "properties": {
+                                            "title": "",
+                                            "showTitle": false,
+                                            "copyData": false,
+                                            "required": true,
+                                            "showInReport": true,
+                                            "configurable": false,
+                                            "alwaysShow": false,
+                                            "roles": [
+                                                "BackOfficeAccounts"
+                                            ],
+                                            "label": "Back Office Accounts",
+                                            "className": "col-6",
+                                            "width": "col-6",
+                                            "minValue": "",
+                                            "unitOfMeasure": "",
+                                            "multiSelect": "single"
+                                        },
+                                        "parentId": "489bd59a-fde9-4d0b-a821-3d8d10a0cebb",
+                                        "width": null,
+                                        "required": false,
+                                        "showAtStep": "*",
+                                        "label": null,
+                                        "context": null
+                                    }
+                                ],
+                                "name": "Mooring Confirmation & Declaration",
+                                "component": "section",
+                                "defaultValue": "",
+                                "dataPath": "$.mooringConfirmationDeclaration",
+                                "dataSource": "Work",
+                                "resource": "Data",
+                                "copyData": false,
+                                "cloneData": true,
+                                "dataPathEditable": false,
+                                "properties": {
+                                    "title": "Mooring Confirmation & Declaration",
+                                    "showTitle": false,
+                                    "copyData": false,
+                                    "required": false,
+                                    "showInReport": true,
+                                    "configurable": false,
+                                    "alwaysShow": false,
+                                    "label": "Mooring Confirmation & Declaration",
+                                    "className": "col-sm-12 col-md-12 col-lg-12",
+                                    "width": "col-12",
+                                    "minValue": "",
+                                    "unitOfMeasure": "",
+                                    "backgroundColor": "#292E32",
+                                    "multiSelect": "single"
+                                },
+                                "parentId": "00000000-0000-0000-0000-000000000000",
+                                "width": null,
+                                "required": false,
+                                "showAtStep": "*",
+                                "label": null,
+                                "context": null
+                            }
+                        ],
+                        "layoutType": 1,
+                        "originId": "d6c7266a-d107-50bf-9fbf-df4157961da8",
+                        "clonedFromId": "d6c7266a-d107-50bf-9fbf-df4157961da8",
+                        "id": "d6c7266a-d107-50bf-9fbf-df4157961da8",
+                        "flowId": "298296f0-51bf-50cb-95c3-4ddb3d195dc0",
+                        "permissions": []
+                    },
                     "initiatorPartyName": null,
                     "roles": null,
                     "userPermissions": [
@@ -8485,7 +8735,7 @@
                     "userImageUrl": null,
                     "eventDateTimeUtc": "2022-03-02T05:20:38.3731386+00:00",
                     "latModifiedUtc": "2022-03-02T05:20:38.3731386+00:00",
-                    "durationDays": 0.8717891438680555,
+                    "durationDays": 0.9942362535972222,
                     "userAccount": null,
                     "status": "InProgress",
                     "dataVersion": {
@@ -9236,7 +9486,16 @@
         "imageUrl": null
     },
     "createdDate": "2022-03-02T05:20:36.091909+00:00",
-    "activeLocks": [],
+    "activeLocks": [
+        {
+            "displayName": "Mathew Harvey",
+            "userId": "feb37bbc-182a-41c0-9695-beb75f9f98ae",
+            "utcTime": "2022-03-03T05:12:18.4790578+00:00",
+            "componentId": "d9c1bcae-bafb-486c-ac22-68edd72171e5",
+            "workItemId": "fabe14e9-bcaf-4ece-b584-b3a97db6efef",
+            "flowOriginId": "d7a19b58-1d09-4eec-a9cb-b64f1c491841"
+        }
+    ],
     "chains": {
         "complete": {
             "chainName": "complete",
@@ -9345,7 +9604,7 @@
             "sender": "RepairAgent",
             "receiver": "Client",
             "sections": [],
-            "htmlTemplate": "https://cdn.marinestream.io/templates/dotMooringReport_v5.hbs"
+            "htmlTemplate": "https://cdn.marinestream.io/templates/dotMooringReport_v10.hbs"
         },
         {
             "name": "Repair Materials Report",
@@ -9353,7 +9612,7 @@
             "sender": "RepairAgent",
             "receiver": "Client",
             "sections": [],
-            "htmlTemplate": "https://cdn.marinestream.io/templates/mooringRepair_v5.hbs"
+            "htmlTemplate": "https://cdn.marinestream.io/templates/mooringRepair_v6.hbs"
         }
     ],
     "fields": [
