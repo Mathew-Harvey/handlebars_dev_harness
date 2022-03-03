@@ -8,10 +8,10 @@
         }
 
         body {
-            background: rgb(204, 204, 204);
+            background: rgb(255, 255, 255);
         }
 
-        page[size="A4"] {
+        {{!-- page[size="A4"] {
             background: white;
             width: 21cm;
             height: 29.7cm;
@@ -19,7 +19,7 @@
             margin: 0 auto;
             margin-bottom: 0.5cm;
             box-shadow: 0 0 0.5cm rgba(0, 0, 0, 0.5);
-        }
+        } --}}
 
         @media print {
 
@@ -69,8 +69,12 @@
             margin-bottom: 2px;
             margin: 15px;
             margin-right: 15px;
-            font-size: 0.75em;
-            text-
+            font-size: 1em;
+            page-break-inside: avoid;
+        }
+
+        #noPageBreak {
+            page-break-inside: avoid;
         }
 
         .img {
@@ -164,7 +168,7 @@
 </head>
 
 <body>
-    <page size="A4">
+    {{!-- <page size="A4"> --}}
         <header class="header">
             <img src="https://cdn.marinestream.io/templates/logos/dotMooringReport.png"
                 alt="DoT Mooring Inspection Report " width="794px">
@@ -269,16 +273,16 @@
 
             <p id="centered">Completed applications are to be sent to the attention of the Moorings Team</p>
             <p id="centered"><b id="largeText">By email: <u id="blue">Moorings@transport.wa.gov.au</u></b></p>
-    </page>
-    <page size="A4">
+    {{!-- </page>
+    <page size="A4"> --}}
 
         <h1 id="secondPageHeader">Mooring image</h1>
         <p><b>Click in the area below</b> to add a date stamped photo clearly showing the mooring identifcation number
             and disc</p>
             <div class="img">
         <img src="{{{getImageUri attachments.0.fullUri}}}" width="640"></div>
-
-        <h1>Mooring Components</h1>
+<div id="noPageBreak">
+        <h1  id="secondPageHeader">Mooring Components</h1>
 
         <table>
             <tr>
@@ -287,19 +291,19 @@
                 <td id='grey'><b>Condition&nbsp%</b></td>
                 <td id='grey'><b>Comments</b></td>
             </tr>
-            {{#if (hasValue data.inspectionDetails.pickUpLine.description)}}
+            {{#if (hasValue data.inspectionDetails.bridle.description)}}
             <tr>
                 <td>Pick up Line</td>
-                <td>{{{data.inspectionDetails.pickUpLine.description}}}</td>
-                <td>{{data.inspectionDetails.pickUpLine.currentInspection.value}}</td>
-                <td>{{{data.inspectionDetails.pickUpLine.generalObservation}}}</td>
+                <td>{{{data.inspectionDetails.bridle.description}}}</td>
+                <td>{{data.inspectionDetails.bridle.currentInspection.value}}%</td>
+                <td>{{{data.inspectionDetails.bridle.generalObservation}}}</td>
             </tr>
             {{/if}}
             {{#if (hasValue data.inspectionDetails.surfaceBuoy.description)}}
             <tr>
                 <td>Surface Buoy</td>
                 <td>{{{data.inspectionDetails.surfaceBuoy.description}}}</td>
-                <td>{{data.inspectionDetails.surfaceBuoy.currentInspection.value}}</td>
+                <td>{{data.inspectionDetails.surfaceBuoy.currentInspection.value}}%</td>
                 <td>{{{data.inspectionDetails.surfaceBuoy.generalObservation}}}</td>
             </tr>
             {{/if}}
@@ -307,7 +311,7 @@
             <tr>
                 <td>Riser</td>
                 <td>{{{data.inspectionDetails.riser.description}}}</td>
-                <td>{{data.inspectionDetails.riser.currentInspection.value}}</td>
+                <td>{{data.inspectionDetails.riser.currentInspection.value}}%</td>
                 <td>{{{data.inspectionDetails.riser.generalObservation}}}</td>
             </tr>
             {{/if}}
@@ -315,7 +319,7 @@
             <tr>
                 <td>Pendant Chain</td>
                 <td>{{{data.inspectionDetails.pendantChain.description}}}</td>
-                <td>{{data.inspectionDetails.pendantChain.currentInspection.value}}</td>
+                <td>{{data.inspectionDetails.pendantChain.currentInspection.value}}%</td>
                 <td>{{{data.inspectionDetails.pendantChain.generalObservation}}}</td>
             </tr>
             {{/if}}
@@ -323,7 +327,7 @@
             <tr>
                 <td>Swivel</td>
                 <td>{{{data.inspectionDetails.swivel.description}}}</td>
-                <td>{{data.inspectionDetails.swivel.currentInspection.value}}</td>
+                <td>{{data.inspectionDetails.swivel.currentInspection.value}}%</td>
                 <td>{{{data.inspectionDetails.swivel.generalObservation}}}</td>
             </tr>
             {{/if}}
@@ -331,7 +335,7 @@
             <tr>
                 <td>Ground Chain 1</td>
                 <td>{{{data.inspectionDetails.groundChain1.description}}}</td>
-                <td>{{data.inspectionDetails.groundChain1.currentInspection.value}}</td>
+                <td>{{data.inspectionDetails.groundChain1.currentInspection.value}}%</td>
                 <td>{{{data.inspectionDetails.groundChain1.generalObservation}}}</td>
             </tr>
             {{/if}}
@@ -339,7 +343,7 @@
             <tr>
                 <td>Ground Chain 1 Ext</td>
                 <td>{{{data.inspectionDetails.groundChain11.description}}}</td>
-                <td>{{data.inspectionDetails.groundChain11.currentInspection.value}}</td>
+                <td>{{data.inspectionDetails.groundChain11.currentInspection.value}}%</td>
                 <td>{{{data.inspectionDetails.groundChain11.generalObservation}}}</td>
             </tr>
             {{/if}}
@@ -347,7 +351,7 @@
             <tr>
                 <td>Ground Chain 2</td>
                 <td>{{{data.inspectionDetails.groundChain2.description}}}</td>
-                <td>{{data.inspectionDetails.groundChain2.currentInspection.value}}</td>
+                <td>{{data.inspectionDetails.groundChain2.currentInspection.value}}%</td>
                 <td>{{{data.inspectionDetails.groundChain2.generalObservation}}}</td>
             </tr>
             {{/if}}
@@ -355,7 +359,7 @@
             <tr>
                 <td>Ground Chain 2 Ext</td>
                 <td>{{{data.inspectionDetails.groundChain21.description}}}</td>
-                <td>{{data.inspectionDetails.groundChain121.currentInspection.value}}</td>
+                <td>{{data.inspectionDetails.groundChain121.currentInspection.value}}%</td>
                 <td>{{{data.inspectionDetails.groundChain21.generalObservation}}}</td>
             </tr>
             {{/if}}
@@ -363,7 +367,7 @@
             <tr>
                 <td>Ground Chain 3</td>
                 <td>{{{data.inspectionDetails.groundChain3.description}}}</td>
-                <td>{{data.inspectionDetails.groundChain3.currentInspection.value}}</td>
+                <td>{{data.inspectionDetails.groundChain3.currentInspection.value}}%</td>
                 <td>{{{data.inspectionDetails.groundChain3.generalObservation}}}</td>
             </tr>
             {{/if}}
@@ -371,7 +375,7 @@
             <tr>
                 <td>Ground Chain 3 Ext</td>
                 <td>{{{data.inspectionDetails.groundChain31.description}}}</td>
-                <td>{{data.inspectionDetails.groundChain31.currentInspection.value}}</td>
+                <td>{{data.inspectionDetails.groundChain31.currentInspection.value}}%</td>
                 <td>{{{data.inspectionDetails.groundChain31.generalObservation}}}</td>
             </tr>
             {{/if}}
@@ -380,12 +384,12 @@
             <tr>
                 <td>Anchor 1</td>
                 <td>{{{data.inspectionDetails.anchor1.description}}}</td>
-                <td>{{data.inspectionDetails.anchor1.currentInspection.value}},
+                <td>{{data.inspectionDetails.anchor1.currentInspection.value}}%,
                     &nbsp;{{data.inspectionDetails.anchor1.buried}}</td>
                 <td>{{{data.inspectionDetails.anchor1.generalObservation}}}</td>
             </tr>
             {{/if}}
-
+</div>
 
         </table>
         <table>
@@ -404,5 +408,7 @@
         <script src="https://code.jquery.com/jquery-3.6.0.min.js" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
         <script src='/index.js'></script>
-    </page>
+    {{!-- </page>
+    <page size="A4"></page>
+    <page size="A4"></page> --}}
 </body>
