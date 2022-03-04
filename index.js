@@ -190,7 +190,7 @@ app.get('/mooring', (req, res) => {
         console.log({ ...section })
     });
 
-    res.render("mooringReport_v8", data);
+    res.render("mooringReport_v9", data);
 })
 app.get('/repairmooring', (req, res) => {
     console.log("outputing result");

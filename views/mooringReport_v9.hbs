@@ -121,6 +121,17 @@
                     <td id='grey'><b>Size of Chain (mm)</b></td>
                     <td id='grey'><b>Comments</b></td>
                 </tr>
+                {{#if (hasValue data.inspectionDetails.bridle.description)}}
+                <tr>
+                    <td>Surface Buoy</td>
+                    <td>{{{data.inspectionDetails.bridle.description}}}</td>
+                    <td>{{{data.inspectionDetails.bridle.previousInspection}}}</td>
+                    <td>{{data.inspectionDetails.bridle.currentInspection.label}},
+                        &nbsp;{{data.inspectionDetails.bridle.buried}}</td>
+                    <td>{{data.inspectionDetails.bridle.sizeOfChain}}</td>
+                    <td>{{{data.inspectionDetails.bridle.generalObservation}}}</td>
+                </tr>
+                {{/if}}
                 {{#if (hasValue data.inspectionDetails.surfaceBuoy.description)}}
                 <tr>
                     <td>Surface Buoy</td>
@@ -153,19 +164,7 @@
                     <td> - </td>
                     <td> {{{data.inspectionDetails.superTenderCertified.generalObservation}}}</td>
                 </tr>
-                {{/if}}
-               
-                {{#if (hasValue data.inspectionDetails.pickUpLine.description)}}
-                <tr>
-                    <td>Pick up Line</td>
-                    <td>{{{data.inspectionDetails.pickUpLine.description}}}</td>
-                    <td>{{{data.inspectionDetails.pickUpLine.previousInspection}}}</td>
-                    <td>{{data.inspectionDetails.pickUpLine.currentInspection.label}},
-                        &nbsp;{{data.inspectionDetails.pickUpLine.buried}}</td>
-                    <td> - </td>
-                    <td>{{{data.inspectionDetails.pickUpLine.generalObservation}}}</td>
-                </tr>
-                {{/if}}
+                {{/if}}               
                 {{#if (hasValue data.inspectionDetails.pimpleFloats.description)}}
                 <tr>
                     <td>Pimple Floats</td>
