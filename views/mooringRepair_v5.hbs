@@ -6,11 +6,42 @@
         * {
             font-family: Arial, Helvetica, sans-serif;
         }
+        body {
+            background: rgb(233, 233, 233);
+        }
 
+        page[size="A4"] {
+            background: white;
+            width: 21cm;
+            height: 29.7cm;
+            display: block;
+            margin: 0 auto;
+            margin-bottom: 0.5cm;
+            box-shadow: 0 0 0.5cm rgba(0, 0, 0, 0.5);
+        }
+
+        @media print {
+
+            body,
+            page[size="A4"] {
+                margin: 0;
+                box-shadow: 0;
+            }
+        }
         h1 {
             text-align: left;
             font-size: 1.1em;
             text-transform: uppercase;
+            margin: 15px
+        }
+        h2 {
+            text-transform: uppercase;
+            font-size: 0.75em;
+            margin: 15px
+        }
+         p {
+            font-size: 0.75em;
+            margin: 15px
         }
 
         table {
@@ -62,24 +93,26 @@
 </head>
 
 <body>
+    <page size="A4">
     <header>
         <img src="https://cdn.marinestream.io/templates/logos/FranMarine_logo_2000x600px.png" alt="Franmarine Logo"
             width="300">
     </header>
     <main>
-        <h1>Mooring ID</h1>
+        <h1>Repair materials list for {{{data.mooring.displayName}}}</h1>
+        <h2>Mooring ID</h2>
         <div class="report-container">
             <p>{{{data.mooring.displayName}}}</p>
         </div>
-        <h1>Previous Inspection Date (date list was generated)</h1>
+        <h2>Previous Inspection Date (date list was generated)</h2>
         <div class="report-container">
             <p>{{formatDateTime data.inspection.inspectionDate.date "dddd DD MMMM YYYY"}}</p>
         </div>
-        <h1>General Observations</h1>
+        <h2>General Observations</h2>
         <div class="report-container">
             <p>{{{data.generalObservation}}}</p>
         </div>
-        <h1>Mooring Repair Materials List</h1>
+        <h2><b>Mooring Repair Materials List</b></h2>
         <div class="report-container">
             <p>{{{data.repairMaterials}}}</p>
         </div>
@@ -89,5 +122,5 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
     <script src='/index.js'></script>
-
+</page>
 </body>

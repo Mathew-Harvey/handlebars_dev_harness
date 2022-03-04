@@ -100,6 +100,13 @@ app.engine("hbs", exphbs({
             const image = getImageUrl(fullUri) ?? fullUri;
             return image;
         },
+        getImageUri: function (fullUri) {
+            const image = "image place holder";
+            return image;
+          },
+       increment: function (value) {
+            return (value ?? 0) + 1;
+          },
         hasValue: function (value){
             
                 if (value === undefined || value === "<p></p>\n" || value === "") {
