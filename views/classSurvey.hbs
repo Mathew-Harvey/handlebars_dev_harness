@@ -251,7 +251,7 @@ section{
                     {{/if}}
                 {{/each}}
             </div >
-            <div class="page">
+            <div class="page" id="toc">
                 &nbsp;
                 <h4>Table of Contents </h4>
                     <table class="table">   
@@ -280,18 +280,18 @@ section{
                                 <td style="text-align: left;width:30px;border:none;font-size:12px;height:30px"></td>
                         </tr>
                          <tr>
-                            <td colspan="2" style="width:20px;border:none;font-size:14px;text-transform: uppercase">5 Observing and Findings</td>
+                            <td colspan="2" style="width:20px;border:none;font-size:14px;text-transform: uppercase">5 Observation &amp Findings</td>
                             <td style="border:none;font-size:12px;text-transform: uppercase;height:30px">                                
                             </td>  
                                 <td style="text-align: left;width:30px;border:none;font-size:12px;height:30px"></td>
-                        </tr>                                   
+                        </tr>    
+                                     
                         {{#each data.sections}}
                             {{#if (eq context "worklog")}}
                                 {{#if sections.[0]}}                   
                                 <tr>
                                     <td  colspan="2" style="border:none;font-size:14px;text-transform: uppercase;"> 
-                                        {{increased @index 5}} {{title}}
-                                        
+                                         {{increased @index 4}}.{{addOne @index}} {{title}}                                        
                                     </td>  
                                     <td style="border:none"></td>
                                  </tr>                   
@@ -299,8 +299,8 @@ section{
                                     <tr>
                                         <td style="width:20px;border:none"></td>
                                         <td style="border:none;font-size:12px;text-transform: uppercase;height:30px">
-                                            <a href="#{{increased @../index 5}}.{{addOne @index}} {{title}}" > 
-                                                {{increased @../index 5}}.{{addOne @index}} {{title}}</a>                           
+                                            <a href="#{{increased @../index 4}}.{{addOne @index}} {{title}}" > 
+                                                {{increased @../index 4}}.{{addOne @index}} {{title}}</a>                           
                                         </td>  
                                         <td style="text-align: left;width:30px;border:none;font-size:12px;height:30px"></td>
                                     </tr>
@@ -309,7 +309,9 @@ section{
                                 {{/if}}
                             {{/if}}
                         {{/each}}    
+                        
                     </table>
+                   
             </div>
             <div class="page">
                 &nbsp;
@@ -375,6 +377,16 @@ section{
                 </table>
             </div>
             <div class="page">
+                 &nbsp;
+                <h4>2. VESSEL PARTICULARS</h4>
+            </div>
+            <div class="page">
+                 &nbsp;
+                <h4>3 OVERVIEW</h4>
+            </div>
+            <div class="page">
+                 &nbsp;
+                <h4>4 REFERENCE TABLES</h4>
                 <h4>4.1 FOULING RATING (FR) SCALE</h4>
                     <p />
                     <table style="width=100%">
@@ -384,7 +396,7 @@ section{
                         {{#each data.delivery.foulingReference}}
                             <tr>
                                 <td style="border:1px solid">{{Type}}</td>
-                                <td style="border:1px solid">{{FR}}</td>
+                                <td style="border:1px solid;text-align:center;">{{FR}}</td>
                                 <td style="border:1px solid">{{Description}}</td>
                             </tr>
                         {{/each}}            
@@ -403,7 +415,146 @@ section{
                             </tr>
                         {{/each}}
                     </table>
+            </div>
+            
+                    <h4>5 OBSERVATION &amp FINDINGS</h4>
+                    {{#each data.sections}}
+                    {{#if (eq context "worklog")}}
+                        {{#if sections.[0]}}
+						<div class="page">
+                            <p></p> <p></p><p></p><p></p><p></p>
+                            <h4>{{increased @index 4}} {{title}}</h1> 
+                            {{#each sections}}
+                                <a id="{{increased @../index 4}}.{{addOne @index}} {{title}}"><h5>{{increased @../index 4}}.{{addOne @index}} {{title}}</h5></a>
+                                <div>
+                                    {{increased @../index 4}}.{{addOne @index}}.1 Comments {{{comments}}}
+                                </div>   
+                                <div>
+                                        {{increased @../index 4}}.{{addOne @index}}.2 Inspector Comments {{{inspectorComments}}}
+                                </div>                     
+                                <div  class="row">
+                                    <div class="column">
+                                        {{#getImages attachmentFolder ../../attachments}}                       
+                                                 {{!-- <img  src="{{getImageUri fullUri}}" title="{{title}}" />   --}}
+                                        {{/getImages}}
+                                    </div>
+                                </div>
+                            {{/each}}
+                            <p>{{{comments}}}</p>
+						</div>	
+                        {{/if}}
+					{{/if}}
+                {{/each}}
+                <duv class="page">
+                     <h4>6 SUMMARY</h4>
+                      Summary here
+
+                      &nbsp;
+                    
+                    <div class="centeredText" >
+                        <b><i>Please note that additional CCTV and HD still photographs may be provided upon client request. </i></b>                 
+                    </div> 
+                    <div class="centeredText" >                
+                        <b><i>Thank you for the opportunity to provide our services.</i></b>                    
+                    </div> 
+                    <div class="centeredText" >                
+                        <b><i>If we can be of any future assistance, please do not hesitate to contact us at any time.</i></b>
+                    </div>
+                   
                 </div>
+                <div class="centeredText">
+                    <h2>END OF REPORT</h2>
+                </div>
+                <div class="page">
+                    <div>
+                    <table style="width:100%; font-size: small;">
+                        <tr>
+                            <td colspan="4" style="background-color: #7a7e81;border:1px solid; height:20px"><b>Document Status</b></td>
+                        </tr>
+                        <tr>
+                            <td style="border:1px solid"><b>Revision 2</b></td>
+                            <td colspan="2" style="border:1px solid"><b>Document Owner:</b></td>
+                            <td style="border:1px solid"><b>Document Number:</b></td>
+                        </tr>
+                        <tr>
+                            <td style="background-color:lightgrey;border:1px solid; height:20px"><b>Action</b></td>
+                            <td colspan="2" style="background-color:lightgrey;border:1px solid"><b>Name and Position</b></td>
+                            <td style="background-color:lightgrey;border:1px solid"><b>Date</b></td>
+                        </tr>
+                        <tr>
+                            <td style="border:1px solid">Reviewed By</td>
+                            <td style="border:1px solid"></td>
+                            <td style="border:1px solid"></td>
+                            <td style="border:1px solid"></td>
+                        </tr>
+                        <tr>
+                            <td style="border:1px solid">Prepared By</td>
+                            <td style="border:1px solid"></td>
+                            <td style="border:1px solid"></td>
+                            <td style="border:1px solid"></td>
+                        </tr>
+                        <tr>
+                            <td style="border:1px solid">Approved By</td>
+                            <td style="border:1px solid"></td>
+                            <td style="border:1px solid"></td>
+                            <td style="border:1px solid"></td>
+                        </tr>
+                    </table>
+                    &nbsp;
+                    <table style="width:100%;font-size:small;">
+                        <tr>
+                            <td colspan="6" style="background-color: #7a7e81;border:1px solid; height:30px">Document Amend Record</td>
+                        </tr>
+                        <tr>
+                            <td style="background-color: lightgrey;border:1px solid">Rev</td>
+                            <td style="background-color: lightgrey;border:1px solid">Description</td>
+                            <td style="background-color: lightgrey;border:1px solid">Author</td>
+                            <td style="background-color: lightgrey;border:1px solid">Date</td>
+                            <td style="background-color: lightgrey;border:1px solid">Approved By</td>
+                            <td style="background-color: lightgrey;border:1px solid">Date</td>
+                        </tr>
+                        <tr style="height: 20px;">
+                            <td style="border:1px solid;"></td>
+                            <td style="border:1px solid;"></td>
+                            <td style="border:1px solid;"></td>
+                            <td style="border:1px solid;"></td>
+                            <td style="border:1px solid;"></td>
+                            <td style="border:1px solid;"></td>
+                        </tr>
+                        <tr style="height: 20px;">
+                            <td style="border:1px solid;"></td>
+                            <td style="border:1px solid;"></td>
+                            <td style="border:1px solid;"></td>
+                            <td style="border:1px solid;"></td>
+                            <td style="border:1px solid;"></td>
+                            <td style="border:1px solid;"></td>
+                        </tr>
+                    </table>
+                </div>
+                &nbsp;
+                <div>
+                    <table style="width:100%">
+                        <tr style="border:1px solid">
+                            <td colspan="4" style="background-color: #7a7e81; text-align:center;color:rgb(7, 7, 7);height:30px;"><b>Copyright Notice</b></td>
+                        </tr>
+                        <tr style="border:1px solid">
+                            <td style="border:1px solid">
+                                <p/>
+                                <b>Franmarine Underwater Services Pty Ltd (FUS)</b> is the sole owner of the intellectual property contained in any 
+                                   documentation bearing its name. All materials, including internet pages, document and online graphics, audio 
+                                   and video, are protected by copyright law.<p/>
+                                   Apart from any fair dealing for the purpose of private study, research, criticism or review as permitted under 
+                                   the provisions of the <b>Copyright Act 1968</b>, no part of this document may be reproduced, transmitted in any 
+                                   form or re-used for any commercial purposes whatsoever without the prior written permission of FUS.
+                                   This document represents the status of the topic at the date shown and is subject to change without notice. 
+                                   The latest version of this document is available from Document Control.
+                                  <b>©2021 FUS. All Rights Reserved.</b>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                </div>    
+            
         </td>
       </tr>
     </tbody>

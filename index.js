@@ -6,7 +6,7 @@ const vesselData = require('./vesselData.json')
 const moment = require("moment")
 
 const diana = require('./dianaDataEnrich.js');
-
+const _toc = require("./toc.js");
 app.use(express.static(__dirname + "/views"));
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -31,44 +31,7 @@ app.engine("hbs", exphbs({
         },
         increased: function (index,lastIndex) 
         {   
-            var diff=0;
-            var remainder=0;
-            var wholeNum=0;
-            var nextIndex=0;
-            // need to formulate a more dynamic computation
-            // what if the index is greater than 20
-            console.log('index ' + index);
-            if(index >10)
-            { 
-                remainder= index % 10;
-                wholeNum= (index-remainder)/10;
-                console.log('remainder ' + remainder + ' wholeNum ' + wholeNum);
-                if(remainder>0) 
-                {
-                    diff = index-(wholeNum * 10);
-                }
-               else {diff=0;}
-            }
-            else
-            {
-                diff=(index-lastIndex);
-            }
-            // 3 here is the fixed section in the report which include 
-            // Project Particular, Methodology and Reference Tables
-            // since the last section is 3 make sure that the next value is 1 higher than the last thus (return value+1 )
-            console.log('diff ' + diff);
-            nextIndex=index-(wholeNum*10);
-            if(nextIndex<=(lastIndex+1)) {
-                nextIndex=lastIndex+1;
-                console.log('< next index '+ nextIndex);
-                return nextIndex;
-            }                     
-            else 
-            {
-                nextIndex=(index-(wholeNum*10));
-                console.log('> next index '+ nextIndex);
-                return nextIndex;
-            }
+           return (lastIndex + (index +1));
         },
         addOne: function(index)
         {
@@ -110,6 +73,10 @@ app.engine("hbs", exphbs({
                 } else {
                   return true;
                 }
+        },
+        toc: function(section, level)
+        {
+            return _toc.addSection(section,level);
         },
        
     }
@@ -183,4 +150,15 @@ app.get('/classSurvey', (req, res) => {
     });
 
     res.render("classSurvey", data);
+})
+app.get('/vehicleRecovery', (req, res) => {
+    console.log("outputing result");
+    
+    const data = diana.enrichData(vesselData);
+
+    data.data.sections.map(section => {
+        console.log({ ...section })
+    });
+
+    res.render("vehicleRecoveryReport", data);
 })

@@ -227,8 +227,7 @@ section{
                 <p></p>
                 <h2>Biofouling Inspection</h2>
                 {{#each attachments}}
-                    {{#if (eq path 'ReportCover')}}
-                            {{!-- <img src="{{getImageUri fullUri}}" alt="ship logo" class="center" /> --}}
+                    {{#if (eq path 'ReportCover')}}                            
                             {{!-- <img src="{{getImageUri fullUri}}" alt="ship logo" class="center" /> --}}
                     {{/if}}
                 {{/each}}
@@ -416,9 +415,8 @@ section{
                                 <div  class="row">
                                     <div class="column">
                                         {{#getImages attachmentFolder ../../attachments}}                       
-                                                {{!-- <img  src="{{getImageUri fullUri}}" title="{{title}}" />   --}}
-                                                {{!-- <img  src="{{getImageUri fullUri}}" title="{{title}}" />   --}}
-                                        {{/getImages}}
+                                                {{!-- <img  src="{{getImageUri fullUri}}" title="{{title}}" />              --}}                                    
+                                        {{/getImages}} 
                                     </div>
                                 </div>
                             {{/each}}
@@ -459,6 +457,36 @@ section{
                             <td style="border:1px solid"></td>
                             <td style="border:1px solid"></td>
                             <td style="border:1px solid"></td>
+                        </tr>
+                    </table>
+                     &nbsp;
+                    <table style="width:100%;font-size:small;">
+                        <tr>
+                            <td colspan="6" style="background-color: #7a7e81;border:1px solid; height:30px">Document Amend Record</td>
+                        </tr>
+                        <tr>
+                            <td style="background-color: lightgrey;border:1px solid">Rev</td>
+                            <td style="background-color: lightgrey;border:1px solid">Description</td>
+                            <td style="background-color: lightgrey;border:1px solid">Author</td>
+                            <td style="background-color: lightgrey;border:1px solid">Date</td>
+                            <td style="background-color: lightgrey;border:1px solid">Approved By</td>
+                            <td style="background-color: lightgrey;border:1px solid">Date</td>
+                        </tr>
+                        <tr style="height: 20px;">
+                            <td style="border:1px solid;"></td>
+                            <td style="border:1px solid;"></td>
+                            <td style="border:1px solid;"></td>
+                            <td style="border:1px solid;"></td>
+                            <td style="border:1px solid;"></td>
+                            <td style="border:1px solid;"></td>
+                        </tr>
+                        <tr style="height: 20px;">
+                            <td style="border:1px solid;"></td>
+                            <td style="border:1px solid;"></td>
+                            <td style="border:1px solid;"></td>
+                            <td style="border:1px solid;"></td>
+                            <td style="border:1px solid;"></td>
+                            <td style="border:1px solid;"></td>
                         </tr>
                     </table>
                 </div>

@@ -1,5 +1,6 @@
 
 const jsonPath = require('jsonpath')
+
 // steps []  of steps
 // sectoins [] of sections (results) each call will add to this sections array
 function getSectionData(dianaWork, steps, sections) {
@@ -44,19 +45,20 @@ function getSectionData(dianaWork, steps, sections) {
     
                 if (component.component === "section") {
                     console.log("Found Section " + component.name);
-    
+                    
                     const section = {
                         title: component.properties?.title ?? component.label ?? component.name,
                         type: "section",
                         context: component.context,
                         sections: []
                     };
-                
+                    
                     console.log("Processing sub sections");
                     
                     getSubSection(dianaWork, section, component.components);
-
-                    sections.push({ ...section });
+                    if(section.sections.length>0) {     
+                       sections.push({ ...section });
+                    }
                 }
             })
         }
@@ -68,40 +70,48 @@ function getSubSection(dianaWork, section, components)
 {
     return components?.map((component) => {
         console.log("Processing Component " + component?.name);
-        if (component.component === "subsection") {
+        if (component.component === "subsection") 
+        {
             
             console.log("Found Sub Section " + component.name + " path =" + component.dataPath);
             const path = component.dataPath; // $.rudder.ruddeer
             
             const value = jsonPath.query(dianaWork.data, path); // vessel data query
             console.log("Found Sub Section " + component.name, {value});
-           if (value.length>0)
-           {
-            var child = {
-                title: component.properties?.title ?? component.label ?? component.name,
-                type: "subsection",
-                context: component.context,
-            };
+            
+                console.log("value = " + value);
+                if (value.length>0)
+                {
+                    var child = {
+                        title: component.properties?.title ?? component.label ?? component.name,
+                        type: "subsection",                        
+                        context: component.context,
+                    };
 
-            if (value !== undefined && value.length > 0) {
-                child = {...child, ...value[0]}
-            }
+                    if (value !== undefined && value.length > 0) 
+                    {
+                         child = {...child, ...value[0]}
+                    }
 
-            console.log("Created Sub Section", { child });
+                    console.log("Created Sub Section", { child });
 
-            if (component.components !== undefined && component.components.length > 0) {
-                const attachments = component.components.find(component =>
-                    component.component == "attachments"
-                );
+                    if (component.components !== undefined && component.components.length > 0) {
+                        const attachments = component.components.find(component =>
+                        component.component == "attachments"
+                    );
 
-                console.log("attachments", attachments);
+                    console.log("attachments", attachments);
 
-                if (attachments) {
-                    child.attachmentFolder = attachments.properties.folder;
+                    if (attachments) {
+                        child.attachmentFolder = attachments.properties.folder;
+                    }
                 }
-            }
-            section.sections.push(child);      
-            }      
+                section.sections.push(child); 
+           
+            
+        }     
+            
+                  
         }
     });
 }
