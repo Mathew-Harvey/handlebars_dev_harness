@@ -2,9 +2,9 @@ const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
 const exphbs = require("express-handlebars");
-const vesselData = require('./vesselData.json')
-const moment = require("moment")
-
+const vesselData = require('./vesselData.json');
+const mooringData =  require ('./mooringData.json');
+const moment = require("moment");
 const diana = require('./dianaDataEnrich.js');
 const _toc = require("./toc.js");
 app.use(express.static(__dirname + "/views"));
@@ -16,9 +16,6 @@ app.set("view engine", "hbs");
 app.engine("hbs", exphbs({
     extname: "hbs",
     defaultLayout: "index",
-
-    
-
     helpers: {
         formatDateTime: function (dateTime, dateTimeFormat) {
             let currentTime = moment(dateTime);
@@ -66,6 +63,13 @@ app.engine("hbs", exphbs({
             const image = getImageUrl(fullUri) ?? fullUri;
             return image;
         },
+        getImageUri: function (fullUri) {
+            const image = "image place holder";
+            return image;
+          },
+       increment: function (value) {
+            return (value ?? 0) + 1;
+          },
         hasValue: function (value){
             
                 if (value === undefined || value === "<p></p>\n" || value === "") {
@@ -129,17 +133,6 @@ app.get('/biofouling', (req, res) => {
 
     res.render("BioFoulingReport", data);
 })
-app.get('/dotmooring', (req, res) => {
-    console.log("outputing result");
-
-    const data = diana.enrichData(vesselData);
-
-    data.data.sections.map(section => {
-        console.log({ ...section })
-    });
-
-    res.render("dotMooringReport", data);
-})
 app.get('/classSurvey', (req, res) => {
     console.log("outputing result");
     
@@ -151,14 +144,36 @@ app.get('/classSurvey', (req, res) => {
 
     res.render("classSurvey", data);
 })
-app.get('/vehicleRecovery', (req, res) => {
+app.get('/dotmooring', (req, res) => {
     console.log("outputing result");
-    
-    const data = diana.enrichData(vesselData);
+
+    const data = diana.enrichData(mooringData);
 
     data.data.sections.map(section => {
         console.log({ ...section })
     });
 
-    res.render("vehicleRecoveryReport", data);
+    res.render("dotMooringReport_v5", data);
+})
+app.get('/mooring', (req, res) => {
+    console.log("outputing result");
+
+    const data = diana.enrichData(mooringData);
+
+    data.data.sections.map(section => {
+        console.log({ ...section })
+    });
+
+    res.render("mooringReport_v9", data);
+})
+app.get('/repairmooring', (req, res) => {
+    console.log("outputing result");
+
+    const data = diana.enrichData(mooringData);
+
+    data.data.sections.map(section => {
+        console.log({ ...section })
+    });
+
+    res.render("classSurvey", data);
 })
