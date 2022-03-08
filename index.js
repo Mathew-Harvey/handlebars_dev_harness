@@ -4,6 +4,7 @@ const bodyParser = require("body-parser");
 const exphbs = require("express-handlebars");
 const vesselData = require('./vesselData.json');
 const mooringData =  require ('./mooringData.json');
+const bioFouling = require ('./Biofouling.json');
 const moment = require("moment");
 const diana = require('./dianaDataEnrich.js');
 const _toc = require("./toc.js");
@@ -125,7 +126,7 @@ app.get('/hull', (req, res) => {
 app.get('/biofouling', (req, res) => {
     console.log("outputing result");
 
-    const data = diana.enrichData(vesselData);
+    const data = diana.enrichData(bioFouling);
 
     data.data.sections.map(section => {
         console.log({ ...section })
