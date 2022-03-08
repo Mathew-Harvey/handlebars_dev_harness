@@ -348,17 +348,16 @@
                                     <th colspan="3" style="background-color: #1e73be;border:1px solid;height:30px"></th>
                                 </tr>
                                 <td style="border:1px solid;;height:30px"><b>PROJECT:</b></td>
-                                <td colspan="2" style="border:1px solid;;height:30px">Biofouling Inspection</td>{{!-- is
-                                this dynamic--}}
+                                <td colspan="2" style="border:1px solid;;height:30px">{{data.products}}</td>
                                 <tr>
                                     <td style="border:1px solid;;height:30px"><b>VESSEL DETAILS:</b></td>
                                     <td style="border:1px solid;;height:30px"><b>Vessel:</b></td>
-                                    <td style="border:1px solid;;height:30px">{{data.vessel.displayName}}</td>
+                                    <td style="border:1px solid;;height:30px">{{data.vessel.data.name}}</td>
                                 </tr>
                                 <tr style="border:1px solid;;height:30px">
                                     <td style="border:1px solid;;height:30px"></td>
                                     <td style="border:1px solid;;height:30px"><b>Year Built:</b></td>
-                                    <td style="border:1px solid;;height:30px">2013</td> {{!--replace data from json--}}
+                                    <td style="border:1px solid;;height:30px">{{data.vessel.data.yearBuilt}}</td>
                                 </tr>
                                 <tr style="border:1px solid;">
                                     <td style="border:1px solid;"></td>
@@ -372,52 +371,46 @@
                                 </tr>
                                 <tr style="border:1px solid;">
                                     <td style="border:1px solid;"><b>DATE OF INSPECTION:</b></td>
-                                    <td colspan="2" style="border:1px solid;">{{formatDateTime createdDate "DD MMM
-                                        yyyy"}}</td>{{!--replace data from json with date formatting--}}
-                                </tr>
-                                <tr style="border:1px solid;">
-                                    <td style="border:1px solid;"><b>VISIBILITY:</b></td>
-                                    <td colspan="2" style="border:1px solid;">Ten (10) Meters</td>{{!--replace data from
-                                    json --}}
+                                    <td colspan="2" style="border:1px solid;">{{formatDateTime delivery.window "DD MMM
+                                        yyyy"}}</td>
                                 </tr>
                                 <tr style="border:1px solid;">
                                     <td style="border:1px solid;"><b>CLIENT:</b></td>
-                                    <td colspan="2" style="border:1px solid;">{{data.vessel.data.imo}}</td>{{!--replace
-                                    data from json --}}
+                                    <td colspan="2" style="border:1px solid;">{{users.Supervisor.0.companyName}}</td>
                                 </tr>
                                 <tr style="border:1px solid;">
                                     <td style="border:1px solid;"><b>CLIENT REP:</b></td>
-                                    <td colspan="2" style="border:1px solid;">Vallis Lam</td>
+                                    <td colspan="2" style="border:1px solid;">{{data.invites.buyer.0.name}}</td>
                                 </tr>
                                 <tr style="border:1px solid;">
                                     <td style="border:1px solid;"><b>JOB LOCATION:</b></td>
-                                    <td colspan="2" style="border:1px solid;">{{data.location.displayName}}</td>
+                                    <td colspan="2" style="border:1px solid;">{{data.location.data.portName}}</td>
                                     {{!--replace data from json --}}
-                                <tr>
-                                    <td style="border:1px solid;"></td>
-                                    <td colspan="2" style="border:1px solid;">WESTERN AUSTRALIA</td>{{!--replace data
-                                    from json --}}
-                                </tr>
+
                                 <tr style="border:1px solid;">
                                     <td style="border:1px solid;"><b>DIVE TEAM:</b></td>
                                     <td style="border:1px solid;">Supervisor:</td>
-                                    <td style="border:1px solid;">Brent Dyhberg</td>{{!--replace data from json --}}
+                                    <td style="border:1px solid;">{{data.invites.supervisor.0.name}}</td>{{!--replace data from json --}}
                                 </tr>
                                 <tr style="border:1px solid;">
                                     <td style="border:1px solid;"></td>
                                     <td style="border:1px solid;"> Divers:</td>
-                                    <td style="border:1px solid;">Daniel Telfer</td>
+                                    <td style="border:1px solid;">{{data.invites.divers.0.name}}</td>
                                 </tr>
+                                  {{#if (hasValue data.invites.divers.1.name)}}
                                 <tr style="border:1px solid;">
                                     <td style="border:1px solid;"></td>
                                     <td style="border:1px solid;"> </td>
-                                    <td style="border:1px solid;">Aaron Potterton</td>
+                                    <td style="border:1px solid;">{{data.invites.divers.1.name}}</td>
                                 </tr>
+                                {{/if}}
+                                {{#if (hasValue data.invites.divers.2.name)}}
                                 <tr style="border:1px solid;">
                                     <td style="border:1px solid;"></td>
                                     <td style="border:1px solid;"> </td>
-                                    <td style="border:1px solid;">Hamish Brown</td>
+                                    <td style="border:1px solid;">{{data.invites.divers.2.name}}</td>
                                 </tr>
+                                {{/if}}
                             </table>
                         </div>
                         <div class="page">
@@ -512,31 +505,30 @@
                                     </tr>
                                     <tr>
                                         <td style="background-color:lightgrey;border:1px solid; height:20px">Action</td>
-                                        <td colspan="2" style="background-color:lightgrey;border:1px solid">Name and
-                                            Position</td>
+                                        <td style="background-color:lightgrey;border:1px solid">Name</td>
                                         <td style="background-color:lightgrey;border:1px solid">Date</td>
                                     </tr>
                                     <tr>
                                         <td style="border:1px solid">Reviewed By</td>
-                                        <td style="border:1px solid"></td>
-                                        <td style="border:1px solid"></td>
-                                        <td style="border:1px solid"></td>
+                                        <td style="border:1px solid">{{data.invites.qa.0.name}}</td>
+                                        <td style="border:1px solid">{{todaysDate}}</td>
+                                       
                                     </tr>
                                     <tr>
                                         <td style="border:1px solid">Prepared By</td>
-                                        <td style="border:1px solid"></td>
-                                        <td style="border:1px solid"></td>
-                                        <td style="border:1px solid"></td>
+                                        <td style="border:1px solid">Franmarine Powered by MarineStream</td>
+                                        <td style="border:1px solid">{{todaysDate}}</td>
+                                      
                                     </tr>
                                     <tr>
                                         <td style="border:1px solid">Approved By</td>
-                                        <td style="border:1px solid"></td>
-                                        <td style="border:1px solid"></td>
-                                        <td style="border:1px solid"></td>
+                                        <td style="border:1px solid">{{data.invites.approver.0.name}}</td>
+                                        <td style="border:1px solid">{{todaysDate}}</td>
+                                     
                                     </tr>
                                 </table>
                                 &nbsp;
-                                <table style="width:100%;font-size:small;">
+                                {{!-- <table style="width:100%;font-size:small;">
                                     <tr>
                                         <td colspan="6" style="background-color: #7a7e81;border:1px solid; height:30px">
                                             Document Amend Record</td>
@@ -565,7 +557,7 @@
                                         <td style="border:1px solid;"></td>
                                         <td style="border:1px solid;"></td>
                                     </tr>
-                                </table>
+                                </table> --}}
                             </div>
                             <p />
                             <div>
