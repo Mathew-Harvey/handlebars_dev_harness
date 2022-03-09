@@ -83,7 +83,24 @@ app.engine("hbs", exphbs({
         {
             return _toc.addSection(section,level);
         },
-       
+        commentSection: function(comment, inspectorComment,sectionIndex, subsectionIndex)
+        {
+            var strValue;
+            if(comment.length>0 && inspectorComment.length>0)
+            {
+                strValue = "<div>" +sectionIndex + "." + subsectionIndex + ".1  Comments <p/>"  + comment + "</div>";
+                strValue = strValue + "<div> " + sectionIndex + "." + subsectionIndex + ".2 Inspector Comments <p/>" + inspectorComment + "</div>";
+            }
+            if(comment.length===0 || inspectorComment.length>0)
+            {
+                strValue =  sectionIndex + "." + subsectionIndex + ".1 Inspector Comments <p/>" + inspectorComment;
+            }
+            if(comment.length>0 || inspectorComment.length===0)
+            {
+                strValue =  sectionIndex + "." + subsectionIndex + ".1  Comments <p/>" + comment;
+            }
+            return strValue;
+        }, 
     }
 }));
 
