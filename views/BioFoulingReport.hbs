@@ -254,7 +254,7 @@
         </div>
 
         <div class="page-footer" style="font-size:xx-small">
-            {{data.vessel.data.name}} - {{data.products}} - {{todaysDate}}
+            {{data.vessel.data.name}} - {{data.products}} - {{now}}
         </div>
 
         <table style="width:100%;position:center">
@@ -274,13 +274,11 @@
                         <!--*** CONTENT GOES HERE ***-->
                         <div class="page">
                             <h1>Report</h1>
-                            <p></p>
-                            <h2>{{data.vessel.displayName}}</h2>
-                            <p></p>
+                            &nbsp;
                             <h2>Biofouling Inspection</h2>
                             {{#each attachments}}
                             {{#if (eq path 'ReportCover')}}
-                            {{!-- <img src="{{getImageUri fullUri}}" alt="ship logo" class="center" /> --}}
+                            <img src="{{getImageUri fullUri}}" alt="ship logo" class="center" /> --}}
                             {{/if}}
                             {{/each}}
 
@@ -335,7 +333,6 @@
                                     <td style="text-align: left;width:30px;border:none;font-size:12px;height:30px"></td>
                                 </tr>
                                 {{/each}}
-
                                 {{/if}}
                                 {{/if}}
                                 {{/each}}
@@ -467,16 +464,16 @@
                             <p></p>
                             <p></p>
                             <p></p>
-                            <h4>{{increased @./index 4}} {{title}}</h1>
+                            <h4>{{increased @./index 3}} {{title}}</h1>
                                 {{#each sections}}
-                                <a id="{{increased @../index 4}}.{{addOne @index}} {{title}}">
-                                    <h5>{{increased @../index 4}}.{{addOne @index}} {{title}}</h5>
+                                <a id="{{increased @../index 3}}.{{addOne @index}} {{title}}">
+                                    <h5>{{increased @../index 3}}.{{addOne @index}} {{title}}</h5>
                                 </a>
                                 <div>
-                                    {{increased @../index 4}}.{{addOne @index}}.1 Comments {{{comments}}}
+                                    {{increased @../index 3}}.{{addOne @index}}.1 Comments {{{comments}}}
                                 </div>
                                 <div>
-                                    {{increased @../index 4}}.{{addOne @index}}.2 Inspector Comments
+                                    {{increased @../index 3}}.{{addOne @index}}.2 Inspector Comments
                                     {{{inspectorComments}}}
                                 </div>
                                 <div class="row">
