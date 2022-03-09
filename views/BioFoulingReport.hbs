@@ -86,9 +86,11 @@
 
         .page-footer {
             position: fixed;
+            align-content: center;
             bottom: 0;
             width: 100%;
             border-top: none;
+            margin-bottom: 50px;
             /* for demo */
             background: none;
             /* for demo */
@@ -200,6 +202,10 @@
             grid-auto-flow: column;
         }
 
+        #center {
+            text-align: center;
+        }
+
         @page {
             size: A4;
             margin: 17mm 17mm 17mm 17mm;
@@ -253,8 +259,13 @@
             </table>
         </div>
 
-        <div class="page-footer" style="font-size:xx-small">
-            {{data.vessel.data.name}} - {{data.products}} - {{now}}
+        <div class="page-footer">
+            <tr>
+                <td><img src="https://marinestreamcdncdnau.blob.core.windows.net/templates/logos/fusReportFooter.png"
+                        alt="Franmarine Logo" style="width:700px; float:left"></td>
+                {{!-- <td><img src="" alt="client logo" style="width:300px; float:right" /></td> --}}
+
+            </tr>
         </div>
 
         <table style="width:100%;position:center">
@@ -275,13 +286,14 @@
                         <div class="page">
                             <h1>Report</h1>
                             &nbsp;
+                            <h2>{{data.vessel.displayName}}</h2>
                             <h2>Biofouling Inspection</h2>
                             {{#each attachments}}
                             {{#if (eq path 'ReportCover')}}
                             <img src="{{getImageUri fullUri}}" alt="ship logo" class="center" />
                             {{/if}}
                             {{/each}}
-
+                            <h2>{{createdBy.companyName}}</h2>
                             <h2>{{data.vessel.displayName}}</h2>
                             <p />
                             <h3>{{todaysDate }} </h3>
@@ -310,7 +322,14 @@
                                 <tr>
                                     <td style="width:20px;border:none"></td>
                                     <td style="border:none;font-size:12px;text-transform: uppercase;height:30px">
-                                        3.1 Reference Tables
+                                        3.1 Paint Deterioration Rating (PDR) Scale
+                                    </td>
+                                    <td style="text-align: left;width:30px;border:none;font-size:12px;height:30px"></td>
+                                </tr>
+                                <tr>
+                                    <td style="width:20px;border:none"></td>
+                                    <td style="border:none;font-size:12px;text-transform: uppercase;height:30px">
+                                        3.2 Fouling Rating (FR) Scale
                                     </td>
                                     <td style="text-align: left;width:30px;border:none;font-size:12px;height:30px"></td>
                                 </tr>
@@ -327,8 +346,8 @@
                                 <tr>
                                     <td style="width:20px;border:none"></td>
                                     <td style="border:none;font-size:12px;text-transform: uppercase;height:30px">
-                                        <a href="#{{increased @../index 3}}.{{addOne @index}} {{title}}">
-                                            {{increased @../index 3}}.{{addOne @index}} {{title}}</a>
+                                        <a href="#{{increased @../index 2}}.{{addOne @index}} {{title}}">
+                                            {{increased @../index 2}}.{{addOne @index}} {{title}}</a>
                                     </td>
                                     <td style="text-align: left;width:30px;border:none;font-size:12px;height:30px"></td>
                                 </tr>
@@ -387,14 +406,15 @@
                                 <tr style="border:1px solid;">
                                     <td style="border:1px solid;"><b>DIVE TEAM:</b></td>
                                     <td style="border:1px solid;">Supervisor:</td>
-                                    <td style="border:1px solid;">{{data.invites.supervisor.0.name}}</td>{{!--replace data from json --}}
+                                    <td style="border:1px solid;">{{data.invites.supervisor.0.name}}</td>{{!--replace
+                                    data from json --}}
                                 </tr>
                                 <tr style="border:1px solid;">
                                     <td style="border:1px solid;"></td>
                                     <td style="border:1px solid;"> Divers:</td>
                                     <td style="border:1px solid;">{{data.invites.divers.0.name}}</td>
                                 </tr>
-                                  {{#if (hasValue data.invites.divers.1.name)}}
+                                {{#if (hasValue data.invites.divers.1.name)}}
                                 <tr style="border:1px solid;">
                                     <td style="border:1px solid;"></td>
                                     <td style="border:1px solid;"> </td>
@@ -417,7 +437,10 @@
                         </div>
                         <div class="page">
                             <h4>3. REFERENCE TABLES</h4>
+                            <p>The below tables are referenced throughout the report to formally standardise both
+                                biofouling and antifouling condition ratings referred to herein.</p>
                             <p />
+                            <h4>3.1 PAINT DETERIORATION RATING (PDR) SCALE</h4>
                             <table style="width:100%">
                                 <th style="background-color: #1e73be;height:30px; border:1px solid">RATING</th>
                                 <th style="background-color: #1e73be;height:30px; border:1px solid">DESCRIPTION</th>
@@ -430,7 +453,7 @@
                             </table>
                         </div>
                         <div class="page">
-                            <h4>3.1 PAINT DETERIORATION RATING (PDR) SCALE</h4>
+                            <h4>3.2 FOULING RATINGS (FR) SCALE</h4>
                             <p />
                             <table style="width=100%">
                                 <th
@@ -473,6 +496,153 @@
                                     {{increased @../index 3}}.{{addOne @index}}.1 Comments {{{comments}}}
                                 </div>
                                 <div>
+
+                                    {{#if (hasValue fouling.fr0)}}
+                                    <p>
+                                        The {{title}} was observed to have {{fouling.fr0}}% coverage marine
+                                        fouling consistent with FR0. .
+                                    </p>
+                                    {{/if}}
+                                    {{#if (hasValue pdr.pdr0)}}
+                                    <p>
+                                        The {{title}} was observed to have an antifouling coating coverage consistent
+                                        with PDR0 with a area effected of
+                                        {{pdr.pdr0}}%
+                                    </p>
+
+                                    {{/if}}
+                                    {{#if (hasValue fouling.fr10)}}
+                                    <p>
+                                        The {{title}} was observed to have {{fouling.fr10}}% coverage marine
+                                        fouling consistent with FR10. </p>
+                                    {{/if}}
+                                    {{#if (hasValue pdr.pdr10)}}
+                                    <p>
+                                        The {{title}} was observed to have an antifouling coating coverage consistent
+                                        with PDR10 with a area effected of
+                                        {{pdr.pdr10}}%
+                                    </p>
+                                    {{/if}}
+
+                                    {{#if (hasValue fouling.fr20)}}
+                                    <p>
+                                        The {{title}} was observed to have {{fouling.fr20}}% coverage marine
+                                        fouling consistent with FR20. </p>
+                                    {{/if}}
+                                    {{#if (hasValue pdr.pdr20)}}
+                                    <p>
+                                        The {{title}} was observed to have an antifouling coating coverage consistent
+                                        with PDR20 with a area effected of
+                                        {{pdr.pdr20}}%
+                                    </p>
+                                    {{/if}}
+
+                                    {{#if (hasValue fouling.fr30)}}
+                                    <p>
+                                        The {{title}} was observed to have {{fouling.fr30}}% coverage marine
+                                        fouling consistent with FR30. </p>
+                                    {{/if}}
+                                    {{#if (hasValue pdr.pdr30)}}
+                                    <p>
+                                        The {{title}} was observed to have an antifouling coating coverage consistent
+                                        with PDR30 with a area effected of
+                                        {{pdr.pdr30}}%
+                                    </p>
+                                    {{/if}}
+
+                                    {{#if (hasValue fouling.fr40)}}
+                                    <p>
+                                        The {{title}} was observed to have {{fouling.fr40}}% coverage marine
+                                        fouling consistent with FR40. </p>
+                                    {{/if}}
+                                    {{#if (hasValue pdr.pdr40)}}
+                                    <p>
+                                        The {{title}} was observed to have an antifouling coating coverage consistent
+                                        with PDR40 with a area effected of
+                                        {{pdr.pdr40}}%
+                                    </p>
+                                    {{/if}}
+
+
+                                    {{#if (hasValue fouling.fr50)}}
+                                    <p>
+                                        The {{title}} was observed to have {{fouling.fr50}}% coverage marine
+                                        fouling consistent with FR50. </p>
+                                    {{/if}}
+                                    {{#if (hasValue pdr.pdr50)}}
+                                    <p>
+                                        The {{title}} was observed to have an antifouling coating coverage consistent
+                                        with PDR50 with a area effected of
+                                        {{pdr.pdr50}}%
+                                    </p>
+                                    {{/if}}
+
+                                    {{#if (hasValue fouling.fr60)}}
+                                    <p>
+                                        The {{title}} was observed to have {{fouling.fr60}}% coverage marine
+                                        fouling consistent with FR60. </p>
+                                    {{/if}}
+                                    {{#if (hasValue pdr.pdr60)}}
+                                    <p>
+                                        The {{title}} was observed to have an antifouling coating coverage consistent
+                                        with PDR60 with a area effected of
+                                        {{pdr.pdr60}}%
+                                    </p>
+                                    {{/if}}
+
+                                    {{#if (hasValue fouling.fr70)}}
+                                    <p>
+                                        The {{title}} was observed to have {{fouling.fr70}}% coverage marine
+                                        fouling consistent with FR70. </p>
+                                    {{/if}}
+                                    {{#if (hasValue pdr.pdr70)}}
+                                    <p>
+                                        The {{title}} was observed to have an antifouling coating coverage consistent
+                                        with PDR70 with a area effected of
+                                        {{pdr.pdr70}}%
+                                    </p>
+                                    {{/if}}
+
+                                    {{#if (hasValue fouling.fr80)}}
+                                    <p>
+                                        The {{title}} was observed to have {{fouling.fr80}}% coverage marine
+                                        fouling consistent with FR80. </p>
+                                    {{/if}}
+                                    {{#if (hasValue pdr.pdr80)}}
+                                    <p>
+                                        The {{title}} was observed to have an antifouling coating coverage consistent
+                                        with PDR80 with a area effected of
+                                        {{pdr.pdr80}}%
+                                    </p>
+                                    {{/if}}
+
+                                    {{#if (hasValue fouling.fr90)}}
+                                    <p>
+                                        The {{title}} was observed to have {{fouling.fr90}}% coverage marine
+                                        fouling consistent with FR90. </p>
+                                    {{/if}}
+                                    {{#if (hasValue pdr.pdr90)}}
+                                    <p>
+                                        The {{title}} was observed to have an antifouling coating coverage consistent
+                                        with PDR90 with a area effected of
+                                        {{pdr.pdr90}}%
+                                    </p>
+                                    {{/if}}
+
+                                    {{#if (hasValue fouling.fr100)}}
+                                    <p>
+                                        The {{title}} was observed to have {{fouling.fr100}}% coverage marine
+                                        fouling consistent with FR100. </p>
+                                    {{/if}}
+                                    {{#if (hasValue pdr.pdr100)}}
+                                    <p>
+                                        The {{title}} was observed to have an antifouling coating coverage consistent
+                                        with PDR100 with a area effected of
+                                        {{pdr.pdr100}}%
+                                    </p>
+                                    {{/if}}
+                                </div>
+                                <div>
                                     {{increased @../index 3}}.{{addOne @index}}.2 Inspector Comments
                                     {{{inspectorComments}}}
                                 </div>
@@ -489,7 +659,18 @@
                         {{/if}}
                         {{/if}}
                         {{/each}}
+                        <div>
+                            <h4> Report Summary </h4>
+                            <p> {{{data.report.summary}}}</p>
+                            <div id="center"> Please note that additional still photographs may be provided upon client
+                                request. <br><br><br> &nbsp;
+                                <b><i>Thank you for the opportunity to provide our services. <br><br>
+                                        If we can be of any future assistance, please do not hesitate to contact us at
+                                        any time.</i></b>
+                            </div>
 
+                            {{{inspectorComments}}}
+                        </div>
                         <div class="centeredText">
                             <h2>END OF REPORT</h2>
                         </div>
@@ -509,19 +690,19 @@
                                         <td style="border:1px solid">Reviewed By</td>
                                         <td style="border:1px solid">{{data.invites.qa.0.name}}</td>
                                         <td style="border:1px solid">{{todaysDate}}</td>
-                                       
+
                                     </tr>
                                     <tr>
                                         <td style="border:1px solid">Prepared By</td>
                                         <td style="border:1px solid">Franmarine Powered by MarineStream</td>
                                         <td style="border:1px solid">{{todaysDate}}</td>
-                                      
+
                                     </tr>
                                     <tr>
                                         <td style="border:1px solid">Approved By</td>
                                         <td style="border:1px solid">{{data.invites.approver.0.name}}</td>
                                         <td style="border:1px solid">{{todaysDate}}</td>
-                                     
+
                                     </tr>
                                 </table>
                                 &nbsp;
