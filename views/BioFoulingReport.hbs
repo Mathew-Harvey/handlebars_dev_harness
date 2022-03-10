@@ -3,6 +3,10 @@
 
 <head>
     <style>
+        * {
+            font-family: arial, sans-serif;
+        }
+
         html {
             background: gray;
             display: block;
@@ -10,7 +14,7 @@
 
         body {
             max-width: 50em;
-            margin: 0 auto;
+           
             background: white;
             padding: 2em;
         }
@@ -27,7 +31,6 @@
         }
 
         table {
-            font-family: arial, sans-serif;
             border-collapse: collapse;
             width: 100%;
             height: 100%;
@@ -93,10 +96,8 @@
             width: 100%;
             border-top: none;
             z-index: 1;
-            display: table-footer-group;
+
         }
-
-
 
         .page-footer-cover {
             position: absolute;
@@ -113,10 +114,10 @@
             padding: 0 4px;
         }
 
-        .column {
+        {{!-- .column {
             flex: 50%;
             padding: 0 4px
-        }
+        } --}}
 
         .column img {
             height: 200px;
@@ -171,19 +172,16 @@
 
         .page {
             page-break-after: always;
+            size: A4;
             width: 90%;
-            margin: 10mm 10mm 10mm 10mm;
+            margin: 17mm 17mm 17mm 17mm;
         }
 
         .centeredText {
             text-align: center !important;
         }
 
-        .flexFullPageContainerFrontPage {
-            display: flex;
-            flex-direction: column;
-            min-height: 80vh
-        }
+
 
         #container {
             -mz-column-count: 2;
@@ -213,63 +211,15 @@
             text-align: center;
         }
 
-        @page {
-            size: A4;
-            margin: 17mm 17mm 17mm 17mm;
-            page-break-inside: auto;
-
-
-
-            @media screen {
-                    {
-                    size: A4;
-                    margin: 17mm 17mm 17mm 17mm;
-                }
-            }
-
-            @media print {
-                thead {
-                    display: table-header-group;
-                }
-
-                tfoot {
-                    display: table-footer-group;
-                }
-
-                button {
-                    display: none;
-                }
-
-                body {
-                    margin: 0;
-                }
-            }
-
-            section {
-                page-break-inside: avoid;
-            }
+        section {
+            page-break-inside: avoid;
+        }
     </style>
 </head>
 
 <body>
-    <script type="text/javascript">
-          window.onload = addPageNumbers;
 
-          function addPageNumbers() {
-            var totalPages = Math.ceil(document.body.scrollHeight / 1123);  //842px A4 pageheight for 72dpi, 1123px A4 pageheight for 96dpi, 
-            for (var i = 1; i <= totalPages; i++) {
-              var pageNumberDiv = document.createElement("div");
-              var pageNumber = document.createTextNode("Page " + i );
-              pageNumberDiv.style.position = "absolute";
-              pageNumberDiv.style.top = "calc((" + i + " * (309mm )) - 40px)"; //297mm A4 pageheight; 0,5px unknown needed necessary correction value; additional wanted 40px margin from bottom(own element height included)
-              pageNumberDiv.style.height = "16px";
-              pageNumberDiv.appendChild(pageNumber);
-              document.body.insertBefore(pageNumberDiv, document.getElementById("content"));
-              pageNumberDiv.style.left = "calc(100% - (" + pageNumberDiv.offsetWidth + "px + 20px))";
-            }
-          }
-        </script>
-    <div class="section" >
+    <div class="section">
         <div class="page-header">
             <table class="table">
                 <tr>
@@ -283,8 +233,8 @@
 
         <div class="page-footer-cover">
             <tr>
-                <td><img src="https://marinestreamcdncdnau.blob.core.windows.net/templates/logos/fusReportFooter.png"
-                        alt="Franmarine Logo" style="width:790px; float:left"></td>
+                <td><img src="https://cdn.marinestream.io/templates/logos/fusReportFooter.png"
+                        alt="FUS footer cover page" style="width:790px; float:left"></td>
 
 
             </tr>
@@ -292,7 +242,7 @@
 
 
         <div class="page-footer" style="font-size:xx-small">
-            {{data.vessel.displayName}} - {{createdBy.companyName}} - {{todaysDate}} - Biofouling Inspection
+            {{data.vessel.displayName}} - {{createdBy.companyName}} - {{now}} - Biofouling Inspection
         </div>
 
 
@@ -328,8 +278,13 @@
                             <h3>{{todaysDate}} </h3>
                         </div>
                         <div class="page">
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                            <p></p>
                             <h4>Table of Contents </h4>
-                            <table class="table">
+                            <table class="">
                                 <tr>
                                     <td colspan="2" style="border:none;font-size:14px;text-transform: uppercase;">
                                         1 Project Paticulars
@@ -387,7 +342,13 @@
                             </table>
                         </div>
                         <div class="page">
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                            <p></p>
                             <h4>1. PROJECT PARTICULARS</h4>
+                            <br>
                             <table style="border:1px solid; border-collapse:collapse; width:100%; position:center;">
                                 <tr style="border:1px solid;">
                                     <th colspan="3" style="background-color: #1e73be;border:1px solid;height:30px"></th>
@@ -460,11 +421,21 @@
                             </table>
                         </div>
                         <div class="page">
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                            <p></p>
                             <h4>2. METHODOLOGY</h4>
-
+                            <br>
                             {{{data.report.methodology}}}
                         </div>
                         <div class="page">
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                            <p></p>
                             <h4>3. REFERENCE TABLES</h4>
                             <p>The below tables are referenced throughout the report to formally standardise both
                                 biofouling and antifouling condition ratings referred to herein.</p>
@@ -482,6 +453,11 @@
                             </table>
                         </div>
                         <div class="page">
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                            <p></p>
                             <h4>3.2 FOULING RATINGS (FR) SCALE</h4>
                             <p />
                             <table style="width=100%">
@@ -516,7 +492,7 @@
                             <p></p>
                             <p></p>
                             <p></p>
-                            <h4>{{increased @./index 3}} {{title}}</h1>
+                            <h4>{{increased @./index 3}} {{title}}</h4>
                                 {{#each sections}}
                                 <a id="{{increased @../index 3}}.{{addOne @index}} {{title}}">
                                     <h5>{{increased @../index 3}}.{{addOne @index}} {{title}}</h5>
