@@ -14,7 +14,6 @@
 
         body {
             max-width: 50em;
-           
             background: white;
             padding: 2em;
         }
@@ -32,7 +31,7 @@
 
         table {
             border-collapse: collapse;
-            width: 100%;
+            width: 90%;
             height: 100%;
             page-break-inside: auto;
             position: center;
@@ -114,10 +113,6 @@
             padding: 0 4px;
         }
 
-        {{!-- .column {
-            flex: 50%;
-            padding: 0 4px
-        } --}}
 
         .column img {
             height: 200px;
@@ -173,8 +168,9 @@
         .page {
             page-break-after: always;
             size: A4;
-            width: 90%;
+            width: 85%;
             margin: 17mm 17mm 17mm 17mm;
+ 
         }
 
         .centeredText {
@@ -211,9 +207,41 @@
             text-align: center;
         }
 
-        section {
-            page-break-inside: avoid;
-        }
+        @page {
+            size: A4;
+            margin: 17mm 17mm 17mm 17mm;
+            page-break-inside: auto;
+
+
+
+            @media screen {
+                    {
+                    size: A4;
+                    margin: 17mm 17mm 17mm 17mm;
+                }
+            }
+
+            @media print {
+                thead {
+                    display: table-header-group;
+                }
+
+                tfoot {
+                    display: table-footer-group;
+                }
+
+                button {
+                    display: none;
+                }
+
+                body {
+                    margin: 0;
+                }
+            }
+
+            section {
+                page-break-inside: avoid;
+            }
     </style>
 </head>
 
@@ -225,8 +253,6 @@
                 <tr>
                     <td><img src="https://cdn.marinestream.io/templates/logos/FranMarine_logo_2000x600px.png"
                             alt="Franmarine Logo" style="width:300px; float:left"></td>
-
-
                 </tr>
             </table>
         </div>
@@ -235,14 +261,13 @@
             <tr>
                 <td><img src="https://cdn.marinestream.io/templates/logos/fusReportFooter.png"
                         alt="FUS footer cover page" style="width:790px; float:left"></td>
-
-
             </tr>
         </div>
 
 
         <div class="page-footer" style="font-size:xx-small">
-            {{data.vessel.displayName}} - {{createdBy.companyName}} - {{now}} - Biofouling Inspection
+            {{data.vessel.displayName}} - {{createdBy.companyName}} - {{formatDateTime
+            data.actualDelivery.startDateTime.date "dddd DD MMMM YYYY"}} - Biofouling Inspection
         </div>
 
 
@@ -275,7 +300,7 @@
                             <h2>{{createdBy.companyName}}</h2>
 
                             <p />
-                            <h3>{{todaysDate}} </h3>
+                            <h3>{{formatDateTime data.actualDelivery.startDateTime.date "dddd DD MMMM YYYY"}} </h3>
                         </div>
                         <div class="page">
                             <p></p>
@@ -284,7 +309,7 @@
                             <p></p>
                             <p></p>
                             <h4>Table of Contents </h4>
-                            <table class="">
+                            <table class="table">
                                 <tr>
                                     <td colspan="2" style="border:none;font-size:14px;text-transform: uppercase;">
                                         1 Project Paticulars
@@ -330,8 +355,8 @@
                                 <tr>
                                     <td style="width:20px;border:none"></td>
                                     <td style="border:none;font-size:12px;text-transform: uppercase;height:30px">
-                                        <a href="#{{increased @../index 2}}.{{addOne @index}} {{title}}">
-                                            {{increased @../index 2}}.{{addOne @index}} {{title}}</a>
+                                        <a href="#{{increased @../index 3}}.{{addOne @index}} {{title}}">
+                                            {{increased @../index 3}}.{{addOne @index}} {{title}}</a>
                                     </td>
                                     <td style="text-align: left;width:30px;border:none;font-size:12px;height:30px"></td>
                                 </tr>
@@ -377,8 +402,8 @@
                                 </tr>
                                 <tr style="border:1px solid;">
                                     <td style="border:1px solid;"><b>DATE OF INSPECTION:</b></td>
-                                    <td colspan="2" style="border:1px solid;">{{formatDateTime delivery.window "DD MMM
-                                        yyyy"}}</td>
+                                    <td colspan="2" style="border:1px solid;">{{formatDateTime
+                                        data.actualDelivery.startDateTime.date "dddd DD MMMM YYYY"}}</td>
                                 </tr>
                                 <tr style="border:1px solid;">
                                     <td style="border:1px solid;"><b>CLIENT:</b></td>
@@ -391,13 +416,12 @@
                                 <tr style="border:1px solid;">
                                     <td style="border:1px solid;"><b>JOB LOCATION:</b></td>
                                     <td colspan="2" style="border:1px solid;">{{data.location.data.portName}}</td>
-                                    {{!--replace data from json --}}
+
 
                                 <tr style="border:1px solid;">
                                     <td style="border:1px solid;"><b>DIVE TEAM:</b></td>
                                     <td style="border:1px solid;">Supervisor:</td>
-                                    <td style="border:1px solid;">{{data.invites.supervisor.0.name}}</td>{{!--replace
-                                    data from json --}}
+                                    <td style="border:1px solid;">{{data.invites.supervisor.0.name}}</td>
                                 </tr>
                                 <tr style="border:1px solid;">
                                     <td style="border:1px solid;"></td>
@@ -492,7 +516,7 @@
                             <p></p>
                             <p></p>
                             <p></p>
-                            <h4>{{increased @./index 3}} {{title}}</h4>
+                            <h4>{{increased @./index 3}} {{title}}</h1>
                                 {{#each sections}}
                                 <a id="{{increased @../index 3}}.{{addOne @index}} {{title}}">
                                     <h5>{{increased @../index 3}}.{{addOne @index}} {{title}}</h5>
@@ -648,8 +672,10 @@
                                     {{/if}}
                                 </div>
                                 <div>
+                                    {{#if (hasValue inspectorComments)}}
                                     {{increased @../index 3}}.{{addOne @index}}.2 Inspector Comments
                                     {{{inspectorComments}}}
+                                    {{/if}}
                                 </div>
                                 <div class="row">
                                     <div class="column">
@@ -664,7 +690,12 @@
                         {{/if}}
                         {{/if}}
                         {{/each}}
-                        <div>
+                        <div class="page">
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                            <p></p>
                             <h4> Report Summary </h4>
                             <p> {{{data.report.summary}}}</p>
                             <div id="center"> Please note that additional still photographs may be provided upon client
@@ -675,106 +706,86 @@
                             </div>
 
                             {{{inspectorComments}}}
-                        </div>
-                        <div class="centeredText">
-                            <h2>END OF REPORT</h2>
-                        </div>
-                        <div class="page">
-                            <div>
-                                <table style="width:100%">
-                                    <tr>
-                                        <td colspan="4" style="background-color: #1e73be;border:1px solid; height:30px">
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td style="background-color:lightgrey;border:1px solid; height:20px">Action</td>
-                                        <td style="background-color:lightgrey;border:1px solid">Name</td>
-                                        <td style="background-color:lightgrey;border:1px solid">Date</td>
-                                    </tr>
-                                    <tr>
-                                        <td style="border:1px solid">Reviewed By</td>
-                                        <td style="border:1px solid">{{data.invites.qa.0.name}}</td>
-                                        <td style="border:1px solid">{{todaysDate}}</td>
 
-                                    </tr>
-                                    <tr>
-                                        <td style="border:1px solid">Prepared By</td>
-                                        <td style="border:1px solid">Franmarine Powered by MarineStream</td>
-                                        <td style="border:1px solid">{{todaysDate}}</td>
-
-                                    </tr>
-                                    <tr>
-                                        <td style="border:1px solid">Approved By</td>
-                                        <td style="border:1px solid">{{data.invites.approver.0.name}}</td>
-                                        <td style="border:1px solid">{{todaysDate}}</td>
-
-                                    </tr>
-                                </table>
-                                &nbsp;
-                                {{!-- <table style="width:100%;font-size:small;">
-                                    <tr>
-                                        <td colspan="6" style="background-color: #7a7e81;border:1px solid; height:30px">
-                                            Document Amend Record</td>
-                                    </tr>
-                                    <tr>
-                                        <td style="background-color: lightgrey;border:1px solid">Rev</td>
-                                        <td style="background-color: lightgrey;border:1px solid">Description</td>
-                                        <td style="background-color: lightgrey;border:1px solid">Author</td>
-                                        <td style="background-color: lightgrey;border:1px solid">Date</td>
-                                        <td style="background-color: lightgrey;border:1px solid">Approved By</td>
-                                        <td style="background-color: lightgrey;border:1px solid">Date</td>
-                                    </tr>
-                                    <tr style="height: 20px;">
-                                        <td style="border:1px solid;"></td>
-                                        <td style="border:1px solid;"></td>
-                                        <td style="border:1px solid;"></td>
-                                        <td style="border:1px solid;"></td>
-                                        <td style="border:1px solid;"></td>
-                                        <td style="border:1px solid;"></td>
-                                    </tr>
-                                    <tr style="height: 20px;">
-                                        <td style="border:1px solid;"></td>
-                                        <td style="border:1px solid;"></td>
-                                        <td style="border:1px solid;"></td>
-                                        <td style="border:1px solid;"></td>
-                                        <td style="border:1px solid;"></td>
-                                        <td style="border:1px solid;"></td>
-                                    </tr>
-                                </table> --}}
+                            <div class="centeredText">
+                                <h2>END OF REPORT</h2>
                             </div>
-                            <p />
-                            <div>
-                                <table style="width:100%">
-                                    <tr style="border:1px solid">
-                                        <td colspan="4"
-                                            style="background-color: #1e73be; text-align:center;color:white">Copyright
-                                            Notice</td>
-                                    </tr>
-                                    <tr style="border:1px solid">
-                                        <td style="border:1px solid">
-                                            <p />
-                                            <b>Franmarine Underwater Services Pty Ltd (FUS)</b> is the sole owner of the
-                                            intellectual property contained in any
-                                            documentation bearing its name. All materials, including internet pages,
-                                            document and online graphics, audio
-                                            and video, are protected by copyright law.
-                                            <p />
-                                            Apart from any fair dealing for the purpose of private study, research,
-                                            criticism or review as permitted under
-                                            the provisions of the <b>Copyright Act 1968</b>, no part of this document
-                                            may be reproduced, transmitted in any
-                                            form or re-used for any commercial purposes whatsoever without the prior
-                                            written permission of FUS.
-                                            This document represents the status of the topic at the date shown and is
-                                            subject to change without notice.
-                                            The latest version of this document is available from Document Control.
-                                            <b>©2021 FUS. All Rights Reserved.</b>
-                                        </td>
-                                    </tr>
-                                </table>
+                            <div class="page">
+                                <div>
+                                    <table style="width:100%">
+                                        <tr>
+                                            <td colspan="4"
+                                                style="background-color: #1e73be;border:1px solid; height:30px">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="background-color:lightgrey;border:1px solid; height:20px">Action
+                                            </td>
+                                            <td style="background-color:lightgrey;border:1px solid">Name</td>
+                                            <td style="background-color:lightgrey;border:1px solid">Date</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="border:1px solid">Reviewed By</td>
+                                            <td style="border:1px solid">{{data.invites.qa.0.name}}</td>
+                                            <td style="border:1px solid">{{formatDateTime
+                                                data.actualDelivery.startDateTime.date "dddd DD MMMM YYYY"}}</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td style="border:1px solid">Prepared By</td>
+                                            <td style="border:1px solid">Franmarine Powered by MarineStream</td>
+                                            <td style="border:1px solid">{{formatDateTime
+                                                data.actualDelivery.startDateTime.date "dddd DD MMMM YYYY"}}</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td style="border:1px solid">Approved By</td>
+                                            <td style="border:1px solid">{{data.invites.approver.0.name}}</td>
+                                            <td style="border:1px solid">{{formatDateTime
+                                                data.actualDelivery.startDateTime.date "dddd DD MMMM YYYY"}}</td>
+
+                                        </tr>
+                                    </table>
+                                    &nbsp;
+
+                                </div>
+                                <p />
+                                <div>
+                                    <table style="width:100%">
+                                        <tr style="border:1px solid">
+                                            <td colspan="4"
+                                                style="background-color: #1e73be; text-align:center;color:white">
+                                                Copyright
+                                                Notice</td>
+                                        </tr>
+                                        <tr style="border:1px solid">
+                                            <td style="border:1px solid">
+                                                <p />
+                                                <b>Franmarine Underwater Services Pty Ltd (FUS)</b> is the sole owner of
+                                                the
+                                                intellectual property contained in any
+                                                documentation bearing its name. All materials, including internet pages,
+                                                document and online graphics, audio
+                                                and video, are protected by copyright law.
+                                                <p />
+                                                Apart from any fair dealing for the purpose of private study, research,
+                                                criticism or review as permitted under
+                                                the provisions of the <b>Copyright Act 1968</b>, no part of this
+                                                document
+                                                may be reproduced, transmitted in any
+                                                form or re-used for any commercial purposes whatsoever without the prior
+                                                written permission of FUS.
+                                                This document represents the status of the topic at the date shown and
+                                                is
+                                                subject to change without notice.
+                                                The latest version of this document is available from Document Control.
+                                                <b>©2021 FUS. All Rights Reserved.</b>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
                             </div>
                         </div>
-
 
                     </td>
                 </tr>
