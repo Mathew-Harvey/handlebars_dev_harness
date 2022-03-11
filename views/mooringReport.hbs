@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+        * {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 1.1em;
+            text-transform: uppercase;
+        }
+
+        p {
+            page-break-inside: avoid;
+        }
+
+        .noBreak {
+            page-break-inside: avoid;
+        }
+
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+            margin-bottom: 1px;
+
+        }
+
+        td,
+        th,
+        table,
+        p,
+            {
+            font-size: 0.5;
+            padding: 1px;
+            margin: 1px;
+        }
+
+        td,
+        th {
+
+            text-align: left;
+            padding: 1px;
+            border: 1px solid black;
+        }
+
+        tr,
+        td {
+            height: 10px;
+            page-break-inside: avoid;
+        }
+
+        .noBorder {
+            border: none !important;
+        }
+
+        #grey {
+            background-color: #dddddd;
+        }
+
+        .header,
+        .header-space {
+            height: 100px;
+        }
+
+        .header {
+            position: fixed;
+            top: 0;
+
+        }
+    </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Mooring Inspection Report</title>
+    {{#each css}}
+    <link rel="stylesheet" href="/{{this}}">
+    {{/each}}
+</head>
+
+<body>
+    <table class="noBorder">
+        <thead class="noBorder">
+            <tr class="noBorder">
+                <td class="noBorder">
+                    <div class="header-space">&nbsp;</div>
+                </td>
+            </tr>
+        </thead>
+        <tbody class="noBorder">
+            <tr class="noBorder">
+                <td class="noBorder">
+                    <div class="content">
+                        <header>
+
+                            <img class="header"
+                                src="https://cdn.marinestream.io/templates/logos/FranMarine_logo_2000x600px.png"
+                                alt="Franmarine Logo" width="300">
+                        </header>
+                        <main>
+                            <h1>Mooring Inspection Report</h1>
+                            <div class="report-container">
+                                <table>
+                                    <col style="width:25%">
+                                    <col style="width:25%">
+                                    <col style="width:25%">
+                                    <col style="width:25%">
+                                    <tr>
+                                        <td id='grey'><b>Mooring ID </b></td>
+                                        <td>{{data.mooring.jsonName}}</td>
+                                        <td id='grey'><b>Mooring Control Area</b></td>
+                                        <td>{{data.mooringDetails.mooringControlArea}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td id='grey'><b>Easting</b></td>
+                                        <td>{{data.mooringDetails.easting}}</td>
+                                        <td id='grey'><b>MMD Centre (m)</b></td>
+                                        <td>{{data.mooringDetails.mmdCentre}} m</td>
+                                    </tr>
+                                    <tr>
+                                        <td id='grey'><b>Northing</b></td>
+                                        <td>{{data.mooringDetails.northing}}</td>
+                                        <td id='grey'><b>MMD in MSR (m)</b></td>
+                                        <td>{{data.mooringDetails.mmdMsr}} m</td>
+                                    </tr>
+                                    <tr>
+                                        <td id='grey'><b>Maximum Vessel Length (m)</b></td>
+                                        <td>{{data.mooringDetails.maxVesselLength}} m</td>
+                                        <td id='grey'><b>Tonnage (t)</b></td>
+                                        <td>{{data.mooringDetails.tonnage}} t</td>
+                                    </tr>
+                                    <tr>
+                                        <td id='grey'><b>Maximum Swing Room (m)</b></td>
+                                        <td>{{data.mooringDetails.maxSwingRoom}} m</td>
+                                        <td id='grey'><b>Buoy Swing Radius (m)</b></td>
+                                        <td>{{data.mooringDetails.buoySwingRadius}} m</td>
+                                    </tr>
+                                    <tr>
+                                        <td id='grey'><b>Distance to Nearest Mooring (m)</b></td>
+                                        <td>{{data.mooringDetails.distanceToNearestMooring}} m</td>
+                                        <td id='grey'><b>ID of Nearest Mooring</b></td>
+                                        <td>{{data.mooringDetails.idOfNearestMooring}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td id='grey'><b>Diver</b></td>
+                                        <td>{{data.invites.supervisor.[0].name}}</td>
+                                        <td id='grey'><b>Inspection Date</b></td>
+                                        <td>{{formatDateTime data.inspection.inspectionDate.date "dddd DD MMMM YYYY"}}
+                                        </td>
+                                    </tr>
+
+                                </table>
+
+                                <table>
+                                    <tr>
+                                        <td id='grey'><b>Components</b></td>
+                                        <td id='grey'><b>Description</b></td>
+                                        <td id='grey'><b>Previous Inspection</b></td>
+                                        <td id='grey'><b>Current Inspection</b></td>
+                                        <td id='grey'><b>Size of Chain (mm)</b></td>
+                                        <td id='grey'><b>Comments</b></td>
+                                    </tr>
+                                    {{#if (hasValue data.inspectionDetails.bridle.description)}}
+                                    <tr>
+                                        <td>Bridle</td>
+                                        <td>{{{data.inspectionDetails.bridle.description}}}</td>
+                                        <td>{{{data.inspectionDetails.bridle.previousInspection}}}</td>
+                                        <td>{{data.inspectionDetails.bridle.currentInspection.label}},
+                                            &nbsp;{{data.inspectionDetails.bridle.buried}}</td>
+                                        <td>{{data.inspectionDetails.bridle.sizeOfChain}}</td>
+                                        <td>{{{data.inspectionDetails.bridle.generalObservation}}}</td>
+                                    </tr>
+                                    {{/if}}
+                                    {{#if (hasValue data.inspectionDetails.surfaceBuoy.description)}}
+                                    <tr>
+                                        <td>Surface Buoy</td>
+                                        <td>{{{data.inspectionDetails.surfaceBuoy.description}}}</td>
+                                        <td>{{{data.inspectionDetails.surfaceBuoy.previousInspection}}}</td>
+                                        <td>{{data.inspectionDetails.surfaceBuoy.currentInspection.label}},
+                                            &nbsp;{{data.inspectionDetails.surfaceBuoy.buried}}</td>
+                                        <td>{{data.inspectionDetails.surfaceBuoy.sizeOfChain}}</td>
+                                        <td>{{{data.inspectionDetails.surfaceBuoy.generalObservation}}}</td>
+                                    </tr>
+                                    {{/if}}
+                                    {{#if (hasValue data.inspectionDetails.riser.description)}}
+                                    <tr>
+                                        <td>Riser</td>
+                                        <td>{{{data.inspectionDetails.riser.description}}}</td>
+                                        <td>{{{data.inspectionDetails.riser.previousInspection}}}</td>
+                                        <td>{{data.inspectionDetails.riser.currentInspection.label}},
+                                            &nbsp;{{data.inspectionDetails.riser.buried}}</td>
+                                        <td>{{data.inspectionDetails.riser.sizeOfChain}}</td>
+                                        <td>{{{data.inspectionDetails.riser.generalObservation}}}</td>
+                                    </tr>
+                                    {{/if}}
+                                     {{#if (hasValue data.inspectionDetails.pendantChain.description)}}
+                                    <tr>
+                                        <td>Pendant Chain</td>
+                                        <td>{{{data.inspectionDetails.pendantChain.description}}}</td>
+                                        <td>{{{data.inspectionDetails.pendantChain.previousInspection}}}</td>
+                                        <td>{{data.inspectionDetails.pendantChain.currentInspection.label}},
+                                            &nbsp;{{data.inspectionDetails.pendantChain.buried}}</td>
+                                        <td>{{data.inspectionDetails.pendantChain.sizeOfChain}}</td>
+                                        <td>{{{data.inspectionDetails.pendantChain.generalObservation}}}</td>
+                                    </tr>
+                                    {{/if}}
+                                    {{#if (hasValue data.inspectionDetails.swivel.description)}}
+                                    <tr>
+                                        <td>Swivel</td>
+                                        <td>{{{data.inspectionDetails.swivel.description}}}</td>
+                                        <td>{{{data.inspectionDetails.swivel.previousInspection}}}</td>
+                                        <td>{{data.inspectionDetails.swivel.currentInspection.label}},
+                                            &nbsp;{{data.inspectionDetails.swivel.buried}}</td>
+                                        <td> - </td>
+                                        <td>{{{data.inspectionDetails.swivel.generalObservation}}}</td>
+                                    </tr>
+                                    {{/if}}
+                                    {{#if (hasValue data.inspectionDetails.groundChain1.description)}}
+                                    <tr>
+                                        <td>Ground Chain 1</td>
+                                        <td>{{{data.inspectionDetails.groundChain1.description}}}</td>
+                                        <td>{{{data.inspectionDetails.groundChain1.previousInspection}}}</td>
+                                        <td>{{data.inspectionDetails.groundChain1.currentInspection.label}},
+                                            &nbsp;{{data.inspectionDetails.groundChain1.buried}}</td>
+                                        <td>{{data.inspectionDetails.groundChain1.sizeOfChain}}</td>
+                                        <td>{{{data.inspectionDetails.groundChain1.generalObservation}}}</td>
+                                    </tr>
+                                    {{/if}}
+                                    {{#if (hasValue data.inspectionDetails.shackleToBullring1.description)}}
+                                    <tr>
+                                        <td>Shackle to Bullring 1</td>
+                                        <td>{{{data.inspectionDetails.shackleToBullring1.description}}}</td>
+                                        <td>{{{data.inspectionDetails.shackleToBullring1.previousInspection}}}</td>
+                                        <td>{{data.inspectionDetails.shackleToBullring1.currentInspection.label}},
+                                            &nbsp;{{data.inspectionDetails.shackleToBullring1.buried}}</td>
+                                        <td>{{data.inspectionDetails.shackleToBullring1.sizeOfChain}}</td>
+                                        <td>{{{data.inspectionDetails.shackleToBullring1.generalObservation}}}</td>
+                                    </tr>
+                                    {{/if}}
+                                    {{#if (hasValue data.inspectionDetails.shackleToAnchor1.description)}}
+                                    <tr>
+                                        <td>Shackle to Anchor 1</td>
+                                        <td>{{{data.inspectionDetails.shackleToAnchor1.description}}}</td>
+                                        <td>{{{data.inspectionDetails.shackleToAnchor1.previousInspection}}}</td>
+                                        <td>{{data.inspectionDetails.shackleToAnchor1.currentInspection.label}},
+                                            &nbsp;{{data.inspectionDetails.shackleToAnchor1.buried}}</td>
+                                        <td>{{data.inspectionDetails.shackleToAnchor1.sizeOfChain}}</td>
+                                        <td>{{{data.inspectionDetails.shackleToAnchor1.generalObservation}}}</td>
+                                    </tr>
+                                    {{/if}}
+                                    {{#if (hasValue data.inspectionDetails.anchor1.description)}}
+                                    <tr>
+                                        <td>Anchor 1</td>
+                                        <td>{{{data.inspectionDetails.anchor1.description}}}</td>
+                                        <td>{{{data.inspectionDetails.anchor1.previousInspection}}}</td>
+                                        <td>{{data.inspectionDetails.anchor1.currentInspection.label}},
+                                            &nbsp;{{data.inspectionDetails.anchor1.buried}}</td>
+                                        <td>{{data.inspectionDetails.anchor1.sizeOfChain}}</td>
+                                        <td>{{{data.inspectionDetails.anchor1.generalObservation}}}</td>
+                                    </tr>
+                                    {{/if}}
+                                     {{#if (hasValue data.inspectionDetails.groundChain2.description)}}
+                                    <tr>
+                                        <td>Ground Chain 2</td>
+                                        <td>{{{data.inspectionDetails.groundChain2.description}}}</td>
+                                        <td>{{{data.inspectionDetails.groundChain2.previousInspection}}}</td>
+                                        <td>{{data.inspectionDetails.groundChain2.currentInspection.label}},
+                                            &nbsp;{{data.inspectionDetails.groundChain2.buried}}</td>
+                                        <td>{{data.inspectionDetails.groundChain2.sizeOfChain}}</td>
+                                        <td>{{{data.inspectionDetails.groundChain2.generalObservation}}}</td>
+                                    </tr>
+                                    {{/if}}
+                                    {{#if (hasValue data.inspectionDetails.shackleToBullring2.description)}}
+                                    <tr>
+                                        <td>Shackle to Bullring 2</td>
+                                        <td>{{{data.inspectionDetails.shackleToBullring2.description}}}</td>
+                                        <td>{{{data.inspectionDetails.shackleToBullring2.previousInspection}}}</td>
+                                        <td>{{data.inspectionDetails.shackleToBullring2.currentInspection.label}},
+                                            &nbsp;{{data.inspectionDetails.shackleToBullring2.buried}}</td>
+                                        <td>{{data.inspectionDetails.shackleToBullring2.sizeOfChain}}</td>
+                                        <td>{{{data.inspectionDetails.shackleToBullring2.generalObservation}}}</td>
+                                    </tr>
+                                    {{/if}}
+                                    {{#if (hasValue data.inspectionDetails.shackleToAnchor2.description)}}
+                                    <tr>
+                                        <td>Shackle to Anchor 2</td>
+                                        <td>{{{data.inspectionDetails.shackleToAnchor2.description}}}</td>
+                                        <td>{{{data.inspectionDetails.shackleToAnchor2.previousInspection}}}</td>
+                                        <td>{{data.inspectionDetails.shackleToAnchor2.currentInspection.label}},
+                                            &nbsp;{{data.inspectionDetails.shackleToAnchor2.buried}}</td>
+                                        <td>{{data.inspectionDetails.shackleToAnchor2.sizeOfChain}}</td>
+                                        <td>{{{data.inspectionDetails.shackleToAnchor2.generalObservation}}}</td>
+                                    </tr>
+                                    {{/if}}
+                                    {{#if (hasValue data.inspectionDetails.anchor2.description)}}
+
+                                    <tr>
+                                        <td>Anchor 2</td>
+                                        <td>{{{data.inspectionDetails.anchor2.description}}}</td>
+                                        <td>{{{data.inspectionDetails.anchor2.previousInspection}}}</td>
+                                        <td>{{data.inspectionDetails.anchor2.currentInspection.label}},
+                                            &nbsp;{{data.inspectionDetails.anchor2.buried}}</td>
+                                        <td>{{data.inspectionDetails.anchor2.sizeOfChain}}</td>
+                                        <td>{{{data.inspectionDetails.anchor2.generalObservation}}}</td>
+                                    </tr>
+                                    {{/if}}
+                                     {{#if (hasValue data.inspectionDetails.groundChain3.description)}}
+                                    <tr>
+                                        <td>Ground Chain 3</td>
+                                        <td>{{{data.inspectionDetails.groundChain3.description}}}</td>
+                                        <td>{{{data.inspectionDetails.groundChain3.previousInspection}}}</td>
+                                        <td>{{data.inspectionDetails.groundChain3.currentInspection.label}},
+                                            &nbsp;{{data.inspectionDetails.groundChain3.buried}}</td>
+                                        <td>{{data.inspectionDetails.groundChain3.sizeOfChain}}</td>
+                                        <td>{{{data.inspectionDetails.groundChain3.generalObservation}}}</td>
+                                    </tr>
+                                    {{/if}}
+                                    {{#if (hasValue data.inspectionDetails.shackleToBullring3.description)}}
+                                    <tr>
+                                        <td>Shackle to Bullring 3</td>
+                                        <td>{{{data.inspectionDetails.shackleToBullring3.description}}}</td>
+                                        <td>{{{data.inspectionDetails.shackleToBullring3.previousInspection}}}</td>
+                                        <td>{{data.inspectionDetails.shackleToBullring3.currentInspection.label}},
+                                            &nbsp;{{data.inspectionDetails.shackleToBullring2.buried}}</td>
+                                        <td>{{data.inspectionDetails.shackleToBullring2.sizeOfChain}}</td>
+                                        <td>{{{data.inspectionDetails.shackleToBullring3.generalObservation}}}</td>
+                                    </tr>
+                                    {{/if}}
+                                    {{#if (hasValue data.inspectionDetails.shackleToAnchor3.description)}}
+                                    <tr>
+
+                                        <td>Shackle to Anchor 3</td>
+                                        <td>{{{data.inspectionDetails.shackleToAnchor3.description}}}</td>
+                                        <td>{{{data.inspectionDetails.shackleToAnchor3.previousInspection}}}</td>
+                                        <td>{{data.inspectionDetails.shackleToAnchor3.currentInspection.label}},
+                                            &nbsp;{{data.inspectionDetails.shackleToAnchor3.buried}}</td>
+                                        <td>{{data.inspectionDetails.shackleToAnchor3.sizeOfChain}}</td>
+                                        <td>{{{data.inspectionDetails.shackleToAnchor3.generalObservation}}}</td>
+                                    </tr>
+                                    {{/if}}
+                                    {{#if (hasValue data.inspectionDetails.anchor3.description)}}
+                                    <tr>
+                                        <td>Anchor 3</td>
+                                        <td>{{{data.inspectionDetails.anchor3.description}}}</td>
+                                        <td>{{{data.inspectionDetails.anchor3.previousInspection}}}</td>
+                                        <td>{{data.inspectionDetails.anchor3.currentInspection.label}},
+                                            &nbsp;{{data.inspectionDetails.anchor3.buried}}</td>
+                                        <td>{{data.inspectionDetails.anchor3.sizeOfChain}}</td>
+                                        <td>{{{data.inspectionDetails.anchor3.generalObservation}}}</td>
+                                    </tr>
+                                    {{/if}}
+
+                                    {{#if (hasValue data.inspectionDetails.groundChain31.description)}}
+                                    <tr>
+                                        <td>Ground Chain 3.1</td>
+                                        <td>{{{data.inspectionDetails.groundChain31.description}}}</td>
+                                        <td>{{{data.inspectionDetails.groundChain31.previousInspection}}}</td>
+                                        <td>{{data.inspectionDetails.groundChain31.currentInspection.label}},
+                                            &nbsp;{{data.inspectionDetails.groundChain31.buried}}</td>
+                                        <td>{{data.inspectionDetails.groundChain31.sizeOfChain}}</td>
+                                        <td>{{{data.inspectionDetails.groundChain31.generalObservation}}}</td>
+                                    </tr>
+                                    {{/if}}
+                                    {{#if (hasValue data.inspectionDetails.shackleToAnchor31.description)}}
+                                    <tr>
+
+                                        <td>Shackle to Anchor 3.1</td>
+                                        <td>{{{data.inspectionDetails.shackleToAnchor31.description}}}</td>
+                                        <td>{{{data.inspectionDetails.shackleToAnchor31.previousInspection}}}</td>
+                                        <td>{{data.inspectionDetails.shackleToAnchor31.currentInspection.label}},
+                                            &nbsp;{{data.inspectionDetails.shackleToAnchor31.buried}}</td>
+                                        <td>{{data.inspectionDetails.shackleToAnchor31.sizeOfChain}}</td>
+                                        <td>{{{data.inspectionDetails.shackleToAnchor31.generalObservation}}}</td>
+                                    </tr>
+                                    {{/if}}
+                                    {{#if (hasValue data.inspectionDetails.anchor31.description)}}
+                                    <tr>
+                                        <td>Anchor 3.1</td>
+                                        <td>{{{data.inspectionDetails.anchor31.description}}}</td>
+                                        <td>{{{data.inspectionDetails.anchor31.previousInspection}}}</td>
+                                        <td>{{data.inspectionDetails.anchor31.currentInspection.label}},
+                                            &nbsp;{{data.inspectionDetails.anchor31.buried}}</td>
+                                        <td>{{data.inspectionDetails.anchor31.sizeOfChain}}</td>
+                                        <td>{{{data.inspectionDetails.anchor31.generalObservation}}}</td>
+                                    </tr>
+                                    {{/if}}
+                                    {{#if (hasValue data.inspectionDetails.sfMooringIdLabelling.description)}}
+                                    <tr>
+                                        <td>SF Mooring ID Number and Label</td>
+                                        <td>{{{data.inspectionDetails.sfMooringIdLabelling.description}}}</td>
+                                        <td>{{{data.inspectionDetails.sfMooringIdLabelling.previousInspection}}}</td>
+                                        <td>{{data.inspectionDetails.sfMooringIdLabelling.currentInspection.label}},
+                                            &nbsp;{{data.inspectionDetails.sfMooringIdLabelling.buried}}</td>
+                                        <td>-</td>
+                                        <td> {{{data.inspectionDetails.sfMooringIdLabelling.generalObservation}}} </td>
+                                    </tr>
+                                    {{/if}}
+                                    {{#if (hasValue data.inspectionDetails.superTenderCertified.description)}}
+                                    <tr>
+                                        <td>Super Tender Certified</td>
+                                        <td>{{{data.inspectionDetails.superTenderCertified.description}}}</td>
+                                        <td>{{{data.inspectionDetails.superTenderCertified.previousInspection}}}</td>
+                                        <td>{{data.inspectionDetails.superTenderCertified.currentInspection.label}},
+                                            &nbsp;{{data.inspectionDetails.superTenderCertified.buried}}</td>
+                                        <td> - </td>
+                                        <td> {{{data.inspectionDetails.superTenderCertified.generalObservation}}}</td>
+                                    </tr>
+                                    {{/if}}
+
+                                    {{#if (hasValue data.inspectionDetails.pickUpLine.description)}}
+                                    <tr>
+                                        <td>Pick up Line</td>
+                                        <td>{{{data.inspectionDetails.pickUpLine.description}}}</td>
+                                        <td>{{{data.inspectionDetails.pickUpLine.previousInspection}}}</td>
+                                        <td>{{data.inspectionDetails.pickUpLine.currentInspection.label}},
+                                            &nbsp;{{data.inspectionDetails.pickUpLine.buried}}</td>
+                                        <td> - </td>
+                                        <td>{{{data.inspectionDetails.pickUpLine.generalObservation}}}</td>
+                                    </tr>
+                                    {{/if}}
+                                     {{#if (hasValue data.inspectionDetails.buoyShaft.description)}}
+                                    <tr>
+                                        <td>Buoy Shaft</td>
+                                        <td>{{{data.inspectionDetails.buoyShaft.description}}}</td>
+                                        <td>{{{data.inspectionDetails.buoyShaft.previousInspection}}}</td>
+                                        <td>{{data.inspectionDetails.buoyShaft.currentInspection.label}},
+                                            &nbsp;{{data.inspectionDetails.buoyShaft.buried}}</td>
+                                        <td> - </td>
+                                        <td>{{{data.inspectionDetails.buoyShaft.generalObservation}}}</td>
+                                    </tr>
+                                    {{/if}}
+                                     {{#if (hasValue data.inspectionDetails.subSurfaceFloat.description)}}
+                                    <tr>
+                                        <td>Sub Surface Float</td>
+                                        <td>{{{data.inspectionDetails.subSurfaceFloat.description}}}</td>
+                                        <td>{{{data.inspectionDetails.subSurfaceFloat.previousInspection}}}</td>
+                                        <td>{{data.inspectionDetails.subSurfaceFloat.currentInspection.label}},
+                                            &nbsp;{{data.inspectionDetails.subSurfaceFloat.buried}}</td>
+                                        <td> - </td>
+                                        <td>{{{data.inspectionDetails.subSurfaceFloat.generalObservation}}}</td>
+                                    </tr>
+                                    {{/if}}
+                                    {{#if (hasValue data.inspectionDetails.pimpleFloats.description)}}
+                                    <tr>
+                                        <td>Pimple Floats</td>
+                                        <td>{{{data.inspectionDetails.pimpleFloats.description}}}</td>
+                                        <td>{{{data.inspectionDetails.pimpleFloats.previousInspection}}}</td>
+                                        <td>{{data.inspectionDetails.pimpleFloats.currentInspection.label}},
+                                            &nbsp;{{data.inspectionDetails.pimpleFloats.buried}}</td>
+                                        <td> - </td>
+                                        <td>{{{data.inspectionDetails.pimpleFloats.generalObservation}}}</td>
+                                    </tr>
+                                    {{/if}}
+                                    {{#if (hasValue data.inspectionDetails.shackle1.description)}}
+                                    <tr>
+                                        <td>Shackle 1</td>
+                                        <td>{{{data.inspectionDetails.shackle1.description}}}</td>
+                                        <td>{{{data.inspectionDetails.shackle1.previousInspection}}}</td>
+                                        <td>{{data.inspectionDetails.shackle1.currentInspection.label}},
+                                            &nbsp;{{data.inspectionDetails.shackle1.buried}}</td>
+                                        <td>{{data.inspectionDetails.shackle1.sizeOfChain}}</td>
+                                        <td>{{{data.inspectionDetails.shackle1.generalObservation}}}</td>
+                                    </tr>
+                                    {{/if}}
+                                   
+                                    {{#if (hasValue data.inspectionDetails.shackle2.description)}}
+                                    <tr>
+                                        <td>Shackle 2</td>
+                                        <td>{{{data.inspectionDetails.shackle2.description}}}</td>
+                                        <td>{{{data.inspectionDetails.shackle2.previousInspection}}}</td>
+                                        <td>{{data.inspectionDetails.shackle2.currentInspection.label}},
+                                            &nbsp;{{data.inspectionDetails.shackle2.buried}}</td>
+                                        <td> - </td>
+                                        <td>{{{data.inspectionDetails.shackle2.generalObservation}}}</td>
+                                    </tr>
+                                    {{/if}}
+                                   
+                                    {{#if (hasValue data.inspectionDetails.shackle3.description)}}
+                                    <tr>
+                                        <td>Shackle 3</td>
+                                        <td>{{{data.inspectionDetails.shackle3.description}}}</td>
+                                        <td>{{{data.inspectionDetails.shackle3.previousInspection}}}</td>
+                                        <td>{{data.inspectionDetails.shackle3.currentInspection.label}},
+                                            &nbsp;{{data.inspectionDetails.shackle3.buried}}</td>
+                                        <td> - </td>
+                                        <td>{{{data.inspectionDetails.shackle3.generalObservation}}}</td>
+                                    </tr>
+                                    {{/if}}
+                                   
+                                   
+                                    {{#if (hasValue data.inspectionDetails.shackle4.description)}}
+                                    <tr>
+                                        <td>Shackle 4</td>
+                                        <td>{{{data.inspectionDetails.shackle4.description}}}</td>
+                                        <td>{{{data.inspectionDetails.shackle4.previousInspection}}}</td>
+                                        <td>{{data.inspectionDetails.shackle4.currentInspection.label}},
+                                            &nbsp;{{data.inspectionDetails.shackle4.buried}}</td>
+                                        <td> - </td>
+                                        <td>{{{data.inspectionDetails.shackle4.generalObservation}}}</td>
+                                    </tr>
+                                    {{/if}}
+                                    {{#if (hasValue data.inspectionDetails.bullring.description)}}
+                                    <tr>
+                                        <td>Bullring</td>
+                                        <td>{{{data.inspectionDetails.bullring.description}}}</td>
+                                        <td>{{{data.inspectionDetails.bullring.previousInspection}}}</td>
+                                        <td>{{data.inspectionDetails.bullring.currentInspection.label}},
+                                            &nbsp;{{data.inspectionDetails.bullring.buried}}</td>
+                                        <td> - </td>
+                                        <td>{{{data.inspectionDetails.bullring.generalObservation}}}</td>
+                                    </tr>
+                                    {{/if}}
+
+                                  
+                                    {{#if (hasValue data.inspectionDetails.groundChain11.description)}}
+                                    <tr>
+                                        <td>Ground Chain 1.1</td>
+                                        <td>{{{data.inspectionDetails.groundChain11.description}}}</td>
+                                        <td>{{{data.inspectionDetails.groundChain11.previousInspection}}}</td>
+                                        <td>{{data.inspectionDetails.groundChain11.currentInspection.label}},
+                                            &nbsp;{{data.inspectionDetails.groundChain11.buried}}</td>
+                                        <td>{{data.inspectionDetails.groundChain11.sizeOfChain}}</td>
+                                        <td>{{{data.inspectionDetails.groundChain11.generalObservation}}}</td>
+                                    </tr>
+                                    {{/if}}
+                                    {{#if (hasValue data.inspectionDetails.shackleToAnchor11.description)}}
+                                    <tr>
+                                        <td>Shackle to Anchor 1.1</td>
+                                        <td>{{{data.inspectionDetails.shackleToAnchor11.description}}}</td>
+                                        <td>{{{data.inspectionDetails.shackleToAnchor11.previousInspection}}}</td>
+                                        <td>{{data.inspectionDetails.shackleToAnchor11.currentInspection.label}},
+                                            &nbsp;{{data.inspectionDetails.shackleToAnchor11.buried}}</td>
+                                        <td>{{data.inspectionDetails.shackleToAnchor11.sizeOfChain}}</td>
+                                        <td>{{{data.inspectionDetails.shackleToAnchor11.generalObservation}}}</td>
+                                    </tr>
+                                    {{/if}}
+                                    {{#if (hasValue data.inspectionDetails.anchor11.description)}}
+                                    <tr>
+                                        <td>Anchor 1.1</td>
+                                        <td>{{{data.inspectionDetails.anchor11.description}}}</td>
+                                        <td>{{{data.inspectionDetails.anchor11.previousInspection}}}</td>
+                                        <td>{{data.inspectionDetails.anchor11.currentInspection.label}},
+                                            &nbsp;{{data.inspectionDetails.anchor11.buried}}</td>
+                                        <td>{{data.inspectionDetails.anchor11.sizeOfChain}}</td>
+                                        <td>{{{data.inspectionDetails.anchor11.generalObservation}}}</td>
+                                    </tr>
+                                    {{/if}}
+
+                                   
+                                    {{#if (hasValue data.inspectionDetails.groundChain21.description)}}
+                                    <tr>
+                                        <td>Ground Chain 2.1</td>
+                                        <td>{{{data.inspectionDetails.groundChain21.description}}}</td>
+                                        <td>{{{data.inspectionDetails.groundChain21.previousInspection}}}</td>
+                                        <td>{{data.inspectionDetails.groundChain21.currentInspection.label}},
+                                            &nbsp;{{data.inspectionDetails.groundChain21.buried}}</td>
+                                        <td>{{data.inspectionDetails.groundChain21.sizeOfChain}}</td>
+                                        <td>{{{data.inspectionDetails.groundChain21.generalObservation}}}</td>
+                                    </tr>
+                                    {{/if}}
+                                    {{#if (hasValue data.inspectionDetails.shackleToAnchor21.description)}}
+                                    <tr>
+                                        <td>Shackle to Anchor 2.1</td>
+                                        <td>{{{data.inspectionDetails.shackleToAnchor21.description}}}</td>
+                                        <td>{{{data.inspectionDetails.shackleToAnchor21.previousInspection}}}</td>
+                                        <td>{{data.inspectionDetails.shackleToAnchor21.currentInspection.label}},
+                                            &nbsp;{{data.inspectionDetails.shackleToAnchor21.buried}}</td>
+                                        <td>{{data.inspectionDetails.shackleToAnchor21.sizeOfChain}}</td>
+                                        <td>{{{data.inspectionDetails.shackleToAnchor21.generalObservation}}}</td>
+                                    </tr>
+                                    {{/if}}
+                                    {{#if (hasValue data.inspectionDetails.anchor21.description)}}
+                                    <tr>
+                                        <td>Anchor 2.1</td>
+                                        <td>{{{data.inspectionDetails.anchor21.description}}}</td>
+                                        <td>{{{data.inspectionDetails.anchor21.previousInspection}}}</td>
+                                        <td>{{data.inspectionDetails.anchor21.currentInspection.label}},
+                                            &nbsp;{{data.inspectionDetails.anchor21.buried}}</td>
+                                        <td>{{data.inspectionDetails.anchor21.sizeOfChain}}</td>
+                                        <td>{{{data.inspectionDetails.anchor21.generalObservation}}}</td>
+                                    </tr>
+                                    {{/if}}
+
+                                   
+                                   
+
+                                </table>
+
+                                <table>
+                                    <col style="width:50%">
+                                    <col style="width:50%">
+                                    <tr>
+                                        <td colspan="2" id='grey' style="text-align: center;"><b>KEY TO CONDITION OF
+                                                COMPONENTS</b></td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>0%</b> -- NEW FITTED</td>
+                                        <td><b>30% - 39%</b> -- AVERAGE CONDITION</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>1 - 29%</b> -- GOOD CONDITION</td>
+                                        <td><b>40%</b> -- AND OVER POOR CONDITION</td>
+                                    </tr>
+                                    <tr>
+                                        <td id='grey'><b>MOORING PHOTO</b></td>
+                                        <td id='grey'><b>GENERAL OBSERVATION</b></td>
+                                    </tr>
+                                    <tr>
+                                        <td><img src="{{{getImageUri attachments.0.fullUri}}}" width="320"></td>
+                                        <td>{{{data.generalObservation}}}</td>
+                                    </tr>
+
+                                </table>
+                                <table style="">
+                                    <col style="width:25%">
+                                    <col style="width:25%">
+                                    <col style="width:25%">
+                                    <col style="width:25%">
+                                    <tr>
+                                        <td class="noBorder"><b>MOORING IS SAFE and FIT FOR PURPOSE</b></td>
+                                        <td class="noBorder"><b>{{data.confirmation.safeAndFit}}{{data.confirmation.unsafe}}</b></td>
+                                        <td class="noBorder"><b>ENVIRONMENTALLY FRIENDLY MOORING</b></td>
+                                        <td class="noBorder"><b>{{data.confirmation.environmentallyFriendly}}</b></td>
+                                    </tr>
+ 
+                                </table>
+                                <div class="noBreak">
+                                    <h1 style="text-decoration:underline;">MOORING CONTRACTOR DECLARATION</h1>
+                                    <p>{{{data.confirmation.declaration.content}}}</p>
+                                    <table>
+                                        <col style="width:50%">
+                                        <col style="width:50%">
+                                        <tr>
+                                            <td style="text-decoration:underline;" class="signatureBox"><b>Signed:</b>
+                                                <img src="https://cdn.marinestream.io/templates/e-signatures/AFW_Sig.PNG"
+                                                    alt="Signature" width="300"></td>
+                                            <td class="signatureBox"><b>Date: </b> {{formatDateTime
+                                                data.inspection.inspectionDate.date "dddd DD MMMM YYYY"}}</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                        </main>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+
+    </table>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+    <script src='/index.js'></script>
+
+</body>
