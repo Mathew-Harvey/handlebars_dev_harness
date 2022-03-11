@@ -195,3 +195,25 @@ app.get('/repairmooring', (req, res) => {
 
     res.render("classSurvey", data);
 })
+app.get('/panelinspection', (req, res) => {
+    console.log("outputing result");
+
+    const data = diana.enrichData(vesselData);
+
+    data.data.sections.map(section => {
+        console.log({ ...section })
+    });
+
+    res.render("flankingPanelReport", data);
+})
+app.get('/engineeringreport', (req, res) => {
+    console.log("outputing result");
+
+    const data = diana.enrichData(vesselData);
+
+    data.data.sections.map(section => {
+        console.log({ ...section })
+    });
+
+    res.render("engineeringReport", data);
+})
