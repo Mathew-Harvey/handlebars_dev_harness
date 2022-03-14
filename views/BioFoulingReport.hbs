@@ -2,6 +2,10 @@
 <html>
 
 <head>
+    <meta http-equiv=Content-Type content="text/html; charset=UTF-8">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Class Survey Report</title>
     <style>
         * {
             font-family: arial, sans-serif;
@@ -82,7 +86,6 @@
             text-transform: uppercase;
             text-align: left;
             color: #1e73be;
-            ;
             padding: 25px;
         }
 
@@ -170,7 +173,7 @@
             size: A4;
             width: 85%;
             margin: 17mm 17mm 17mm 17mm;
- 
+
         }
 
         .centeredText {
@@ -242,6 +245,20 @@
             section {
                 page-break-inside: avoid;
             }
+
+            .center {
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+                width: 50%;
+            }
+
+            .centerDivOnPage {
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
     </style>
 </head>
 
@@ -292,6 +309,7 @@
                             &nbsp;
                             <h2>{{data.vessel.displayName}}</h2>
                             <h2>Biofouling Inspection</h2>
+                            <h3>CONFIDENTIAL</h3>
                             {{#each attachments}}
                             {{#if (eq path 'ReportCover')}}
                             <img src="{{getImageUri fullUri}}" alt="ship logo" class="center" />
@@ -383,7 +401,7 @@
                                 <tr>
                                     <td style="border:1px solid;;height:30px"><b>VESSEL DETAILS:</b></td>
                                     <td style="border:1px solid;;height:30px"><b>Vessel:</b></td>
-                                    <td style="border:1px solid;;height:30px">{{data.vessel.data.displayName}}</td>
+                                    <td style="border:1px solid;;height:30px">{{data.vessel.data.name}}</td>
                                 </tr>
                                 <tr style="border:1px solid;;height:30px">
                                     <td style="border:1px solid;;height:30px"></td>
@@ -535,7 +553,7 @@
                                     {{#if (hasValue pdr.pdr0)}}
                                     <p>
                                         The {{title}} was observed to have an antifouling coating coverage consistent
-                                        with PDR0 with a area effected of
+                                        with PDR0 with an area effected of
                                         {{pdr.pdr0}}%
                                     </p>
 
@@ -548,7 +566,7 @@
                                     {{#if (hasValue pdr.pdr10)}}
                                     <p>
                                         The {{title}} was observed to have an antifouling coating coverage consistent
-                                        with PDR10 with a area effected of
+                                        with PDR10 with an area effected of
                                         {{pdr.pdr10}}%
                                     </p>
                                     {{/if}}
@@ -561,7 +579,7 @@
                                     {{#if (hasValue pdr.pdr20)}}
                                     <p>
                                         The {{title}} was observed to have an antifouling coating coverage consistent
-                                        with PDR20 with a area effected of
+                                        with PDR20 with an area effected of
                                         {{pdr.pdr20}}%
                                     </p>
                                     {{/if}}
@@ -574,7 +592,7 @@
                                     {{#if (hasValue pdr.pdr30)}}
                                     <p>
                                         The {{title}} was observed to have an antifouling coating coverage consistent
-                                        with PDR30 with a area effected of
+                                        with PDR30 with an area effected of
                                         {{pdr.pdr30}}%
                                     </p>
                                     {{/if}}
@@ -587,7 +605,7 @@
                                     {{#if (hasValue pdr.pdr40)}}
                                     <p>
                                         The {{title}} was observed to have an antifouling coating coverage consistent
-                                        with PDR40 with a area effected of
+                                        with PDR40 with an area effected of
                                         {{pdr.pdr40}}%
                                     </p>
                                     {{/if}}
@@ -601,7 +619,7 @@
                                     {{#if (hasValue pdr.pdr50)}}
                                     <p>
                                         The {{title}} was observed to have an antifouling coating coverage consistent
-                                        with PDR50 with a area effected of
+                                        with PDR50 with an area effected of
                                         {{pdr.pdr50}}%
                                     </p>
                                     {{/if}}
@@ -614,7 +632,7 @@
                                     {{#if (hasValue pdr.pdr60)}}
                                     <p>
                                         The {{title}} was observed to have an antifouling coating coverage consistent
-                                        with PDR60 with a area effected of
+                                        with PDR60 with an area effected of
                                         {{pdr.pdr60}}%
                                     </p>
                                     {{/if}}
@@ -627,7 +645,7 @@
                                     {{#if (hasValue pdr.pdr70)}}
                                     <p>
                                         The {{title}} was observed to have an antifouling coating coverage consistent
-                                        with PDR70 with a area effected of
+                                        with PDR70 with an area effected of
                                         {{pdr.pdr70}}%
                                     </p>
                                     {{/if}}
@@ -640,7 +658,7 @@
                                     {{#if (hasValue pdr.pdr80)}}
                                     <p>
                                         The {{title}} was observed to have an antifouling coating coverage consistent
-                                        with PDR80 with a area effected of
+                                        with PDR80 with an area effected of
                                         {{pdr.pdr80}}%
                                     </p>
                                     {{/if}}
@@ -653,7 +671,7 @@
                                     {{#if (hasValue pdr.pdr90)}}
                                     <p>
                                         The {{title}} was observed to have an antifouling coating coverage consistent
-                                        with PDR90 with a area effected of
+                                        with PDR90 with an area effected of
                                         {{pdr.pdr90}}%
                                     </p>
                                     {{/if}}
@@ -666,7 +684,7 @@
                                     {{#if (hasValue pdr.pdr100)}}
                                     <p>
                                         The {{title}} was observed to have an antifouling coating coverage consistent
-                                        with PDR100 with a area effected of
+                                        with PDR100 with an area effected of
                                         {{pdr.pdr100}}%
                                     </p>
                                     {{/if}}
