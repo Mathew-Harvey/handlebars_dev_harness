@@ -5,623 +5,877 @@
     <meta http-equiv=Content-Type content="text/html; charset=UTF-8">
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Class Survey Report</title>    
-<style>
-html {
-    background: gray;
-    display: block;
-}
-body{
-    max-width: 50em;
-    margin: 0 auto;
-    background: white;
-    padding: 2em;
-}
-.page-header, .page-header-space {
-  height: 50px;
-}
+    <title>Class Survey Report</title>
+    <style>
+        * {
+            font-family: arial, sans-serif;
+        }
 
-.page-footer, .page-footer-space {
-  height: 50px;
+        html {
+            background: gray;
+            display: block;
+        }
 
-}
-table {
-    font-family: arial, sans-serif;
-    border-collapse: collapse;
-    width: 100%;
-    height: 100%;
-    page-break-inside:auto; 
-    position:center;
-}
-h1 {
+        body {
+            max-width: 50em;
+            background: white;
+            padding: 2em;
+        }
 
-    font-size: 28px;
-    text-transform: uppercase;
-    text-align:center;
-    color:#1e73be
-}
-h2 {
+        .page-header,
+        .page-header-space {
+            height: 100px;
+        }
 
-    font-size: 22px;
-    text-transform: uppercase;
-    text-align:center;
-    color:#1e73be
-}
-h3 {
+        .page-footer,
+        .page-footer-space {
+            height: 50px;
 
-    font-size: 20px;
-    text-transform: uppercase;
-    text-align:center;
-    color:#1e73be
-}
-h4 {
+        }
 
-    font-size: 18px;
-    text-transform: uppercase;
-    text-align:left;
-    color:#1e73be;    
-}
-h5 {
+        table {
+            border-collapse: collapse;
+            width: 90%;
+            height: 100%;
+            page-break-inside: auto;
+            position: center;
+        }
 
-    font-size: 16px;
-    text-transform: uppercase;
-    text-align:left;
-    color:#1e73be;
-}
-h6{
-    font-size: 12px;
-    text-transform: uppercase;
-    text-align:left;
-    color:#1e73be;;
-    padding:25px;
-}
-.page-footer {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  border-top: none; /* for demo */
-  background: none; /* for demo */
-}
-.row{
-      display:flex;
-      flex-wrap: wrap;
-      padding: 0 4px;
-  }
-  .column {
-      flex:50%;
-      padding:0 4px
-  }
-  .column img{
-      height: 200px;
-      width: 250px;
-      margin-top: 8px;
-      vertical-align: middle;
-  }
-  ul.a{
-    list-style-type: none;
-    font-size: 12px;   
-    list-style-position: outside;
-    margin-top: auto;
-    margin-bottom: auto;
-    
-  }
-  ul.b{
-    list-style-type: none;
-    font-size: 10px;
-    padding: 75px;    
-    list-style-position: inside;
-    margin-top: auto;
-    margin-bottom: auto;
-  }
-  li{
-      margin-top: 10px;
-     
-  }
-  li:first-child{
-      margin-top: 0;
-  }
-  a:link{text-decoration:none;}
-  a,a:visited,a:hover,a:active{
-      color:black;
-  }
-.page-header {
-  position: fixed;
-  top: 0mm;
-  width: 100%;
-  border-bottom: none; /* for demo */
-  background: none; /* for demo */
-}
+        h1 {
 
-.page {
-  page-break-after: always;
-  width:90%;
-  margin: 10mm 10mm 10mm 10mm;
-}
-.centeredText {
-    text-align: center !important;
-}
-.flexFullPageContainerFrontPage {
-    display: flex;
-    flex-direction: column;
-    min-height: 80vh
-}
- #container{
-      -mz-column-count:2;
-      -webkit-column-count: 2;
-      column-count: 2;
-      height: 60px;
-      width: 40px;
-  }
-  .block{
-      width:40px;
-      height: 40px;
-      margin:0 0 5px 0;
-  }
-  #grid{
-      height: 100px;
-      display: grid;
-      grid-template-areas: "a a";
-      gap:10px;
-      grid-template: repeat(2, 1fr);
-      grid-auto-columns: 90px;     
-      grid-auto-flow: column;
-  }
-@page {
-      size:A4;
-      margin: 17mm 17mm 17mm 17mm;
-      page-break-inside:auto;
-      @bottom-right{
-        content:counter(page) ' of ' counter(pages);
-}
-@media screen {
-    {
-        size: A4;
-        margin: 17mm 17mm 17mm 17mm;
-    }
-}
-@media print {
-   thead {display: table-header-group;} 
-   tfoot {display: table-footer-group;}
-   
-   button {display: none;}
-   
-   body {margin: 0;}
-}
-section{
-    page-break-inside: avoid;
-}
-.center{
-    display:block;
-    margin-left: auto;
-    margin-right:auto;
-    width:50%;
-} 
-.centerDivOnPage {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-</style>
+            font-size: 28px;
+            text-transform: uppercase;
+            text-align: center;
+            color: #1e73be
+        }
+
+        h2 {
+
+            font-size: 22px;
+            text-transform: uppercase;
+            text-align: center;
+            color: #1e73be
+        }
+
+        h3 {
+
+            font-size: 20px;
+            text-transform: uppercase;
+            text-align: center;
+            color: #1e73be
+        }
+
+        h4 {
+
+            font-size: 18px;
+            text-transform: uppercase;
+            text-align: left;
+            color: #1e73be;
+        }
+
+        h5 {
+
+            font-size: 16px;
+            text-transform: uppercase;
+            text-align: left;
+            color: #1e73be;
+        }
+
+        h6 {
+            font-size: 12px;
+            text-transform: uppercase;
+            text-align: left;
+            color: #1e73be;
+            padding: 25px;
+        }
+
+
+        .page-footer {
+            position: fixed;
+            align-content: center;
+            margin-left: 60px;
+            bottom: 0;
+            width: 100%;
+            border-top: none;
+            z-index: 1;
+
+        }
+
+        .page-footer-cover {
+            position: absolute;
+            align-content: center;
+            bottom: 0;
+            width: 100%;
+            border-top: none;
+            z-index: 2;
+        }
+
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 0 4px;
+        }
+
+
+        .column img {
+            height: 200px;
+            width: 250px;
+            margin-top: 8px;
+            vertical-align: middle;
+        }
+
+        ul.a {
+            list-style-type: none;
+            font-size: 12px;
+            list-style-position: outside;
+            margin-top: auto;
+            margin-bottom: auto;
+
+        }
+
+        ul.b {
+            list-style-type: none;
+            font-size: 10px;
+            padding: 75px;
+            list-style-position: inside;
+            margin-top: auto;
+            margin-bottom: auto;
+        }
+
+        li {
+            margin-top: 10px;
+
+        }
+
+        li:first-child {
+            margin-top: 0;
+        }
+
+        a:link {
+            text-decoration: none;
+        }
+
+        a,
+        a:visited,
+        a:hover,
+        a:active {
+            color: black;
+        }
+
+        .page-header {
+            position: fixed;
+            top: 0mm;
+            width: 100%;
+        }
+
+        .page {
+            page-break-after: always;
+            size: A4;
+            width: 85%;
+            margin: 17mm 17mm 17mm 17mm;
+
+        }
+
+        .centeredText {
+            text-align: center !important;
+        }
+
+
+
+        #container {
+            -mz-column-count: 2;
+            -webkit-column-count: 2;
+            column-count: 2;
+            height: 60px;
+            width: 40px;
+        }
+
+        .block {
+            width: 40px;
+            height: 40px;
+            margin: 0 0 5px 0;
+        }
+
+        #grid {
+            height: 100px;
+            display: grid;
+            grid-template-areas: "a a";
+            gap: 10px;
+            grid-template: repeat(2, 1fr);
+            grid-auto-columns: 90px;
+            grid-auto-flow: column;
+        }
+
+        #center {
+            text-align: center;
+        }
+
+        @page {
+            size: A4;
+            margin: 17mm 17mm 17mm 17mm;
+            page-break-inside: auto;
+
+
+
+            @media screen {
+                    {
+                    size: A4;
+                    margin: 17mm 17mm 17mm 17mm;
+                }
+            }
+
+            @media print {
+                thead {
+                    display: table-header-group;
+                }
+
+                tfoot {
+                    display: table-footer-group;
+                }
+
+                button {
+                    display: none;
+                }
+
+                body {
+                    margin: 0;
+                }
+            }
+
+            section {
+                page-break-inside: avoid;
+            }
+
+            .center {
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+                width: 50%;
+            }
+
+            .centerDivOnPage {
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+    </style>
 </head>
 
 <body>
-  <div class="section">
-  <div class="page-header">
-    <table class="table">
-	  <tr>
-	     <td><img src="https://cdn.marinestream.io/templates/logos/FranMarine_logo_2000x600px.png" alt="Franmarine Logo" style="width:300px; float:left"></td>
-         
-	  </tr>
-	</table>
-  </div>
+    <div class="section">
+        <div class="page-header">
+            <table class="table">
+                <tr>
+                    <td><img src="https://cdn.marinestream.io/templates/logos/FranMarine_logo_2000x600px.png"
+                            alt="Franmarine Logo" style="width:300px; float:left"></td>
 
-  <div class="page-footer" style="height:100px;">
-    <tr>
-        <td><img src="https://cdn.marinestream.io/templates/logos/fusReportFooter.png"
-           alt="FUS footer cover page" style="width:790px; float:left"></td>
-     </tr>
-  </div>
+                </tr>
+            </table>
+        </div>
 
-  <table style="width:100%;position:center">
+        <div class="page-footer-cover">
+            <tr>
+                <td><img src="https://cdn.marinestream.io/templates/logos/fusReportFooter.png"
+                        alt="FUS footer cover page" style="width:790px; float:left"></td>
+            </tr>
+        </div>
+        <div class="page-footer" style="font-size:xx-small">
+            {{data.vessel.displayName}} - {{createdBy.companyName}} - {{formatDateTime
+            data.actualDelivery.startDateTime.date "dddd DD MMMM YYYY"}} - Class Survey Inspection
+        </div>
 
-    <thead style="width:100%">
-      <tr style="width:90%">
-        <td style="width:90%">          
-          <div class="page-header-space"></div>
-        </td>
-      </tr>
-    </thead>
+        <table style="width:100%;position:center">
 
-    <tbody style="width:100%">
-      <tr style="width:90%">
-        <td style="width:100%">           
-            <div class="page" style="width:100%">
-                <h1>Report</h1>                
-                <h2>{{data.vessel.displayName}}</h2>             
-                <h2>BV IN-WATER SURVEY</h2>                
-                <h3>{{formatDateTime data.actualDelivery.startDateTime.date "dddd DD MMMM YYYY"}} </h3>
-                <h3>CONFIDENTIAL </h3> 
-                
-				{{#each attachments}}
-					{{#if (eq path 'ReportCover')}}
-							<center><img src="{{getImageUri fullUri}}" alt="ship logo" /></center>
-				    {{/if}}
-				{{/each}}       
-            </div >
-            <div class="page" id="toc">
-                &nbsp;
-                <h4>Table of Contents </h4>
-                    <table style="width:100%">   
-                         <tr>
-                            <td  colspan="2" style="border:none;font-size:14px;text-transform: uppercase;"> 
-                                1 Project Paticulars
-                            </td>  
-                            <td style="border:none"></td>
-                        </tr>
-                        <tr>
-                            <td  colspan="2" style="border:none;font-size:14px;text-transform: uppercase;"> 
-                                2 Vessel Particulars
-                            </td>  
-                            <td style="border:none"></td>
-                        </tr>
-                        <tr>
-                            <td  colspan="2" style="border:none;font-size:14px;text-transform: uppercase;"> 
-                                3 Overview
-                            </td>  
-                            <td style="border:none"></td>
-                        </tr>   
-                        <tr>
-                            <td colspan="2" style="width:20px;border:none;font-size:14px;text-transform: uppercase">4 Reference Tables</td>
-                            <td style="border:none;font-size:12px;text-transform: uppercase;height:30px">                                
-                            </td>  
-                                <td style="text-align: left;width:30px;border:none;font-size:12px;height:30px"></td>
-                        </tr>
-                         <tr>
-                            <td colspan="2" style="width:20px;border:none;font-size:14px;text-transform: uppercase">5 Observation &amp Findings</td>
-                            <td style="border:none;font-size:12px;text-transform: uppercase;height:30px">                                
-                            </td>  
-                                <td style="text-align: left;width:30px;border:none;font-size:12px;height:30px"></td>
-                        </tr>    
-                                     
-                        {{#each data.sections}}
-                            {{#if (eq context "worklog")}}
-                                {{#if sections.[0]}}                   
-                                <tr>
-                                    <td  colspan="2" style="border:none;font-size:14px;text-transform: uppercase;"> 
-                                         {{increased @index 4}}.{{addOne @index}} {{title}}                                        
-                                    </td>  
-                                    <td style="border:none"></td>
-                                 </tr>                   
-                                {{#each sections}}
-                                    <tr>
-                                        <td style="width:20px;border:none"></td>
-                                        <td style="border:none;font-size:12px;text-transform: uppercase;height:30px">
-                                            <a href="#{{increased @../index 4}}.{{addOne @index}} {{title}}" > 
-                                                {{increased @../index 4}}.{{addOne @index}} {{title}}</a>                           
-                                        </td>  
-                                        <td style="text-align: left;width:30px;border:none;font-size:12px;height:30px"></td>
-                                    </tr>
-                                {{/each}} 
-                               
-                                {{/if}}
+            <thead style="width:100%">
+                <tr style="width:90%">
+                    <td style="width:90%">
+                        <div class="page-header-space"></div>
+                    </td>
+                </tr>
+            </thead>
+
+            <tbody style="width:100%">
+                <tr style="width:90%">
+                    <td style="width:100%">
+                        <div class="page" style="width:100%">
+                            <h1>Report</h1>
+                            <h2>{{data.vessel.displayName}}</h2>
+                            <h2>BV IN-WATER SURVEY</h2>
+                            <h3>{{formatDateTime data.actualDelivery.startDateTime.date "dddd DD MMMM YYYY"}} </h3>
+                            <h3>CONFIDENTIAL</h3>
+
+                            {{#each attachments}}
+                            {{#if (eq path 'ReportCover')}}
+                            <img src="{{getImageUri fullUri}}" alt="ship logo" />
                             {{/if}}
-                        {{/each}}    
-                        
-                    </table>
-                   
-            </div>
-            <div class="page">
-                <br/>
-                <h4>1. PROJECT PARTICULARS</h4>
-                &nbsp;
-                <table style="border:1px solid; width:100%; position:center;">
-                    <tr style="border:1px solid;height:25px;">
-                        <td style="background-color: #1e73be;color:white">Diving Contractor:</td>
-                        <td colspan="2">Franmarine Underwater Services Pty Ltd</td>
-                    </tr>
-                    <tr style="border:1px solid">
-                        <td style="background-color: #1e73be;color:white">Project:</td>
-                        <td colspan="2">BV Class In-Water Survey</td>
-                    </tr>
-                    <tr style="border:1px solid"> 
-                        <td style="background-color: #1e73be;color:white">Vessel:</td>
-                        <td colspan="2">{{data.vessel.displayName}}</td>
-                    </tr>
-                    <tr style="border:1px solid">
-                        <td style="background-color: #1e73be;color:white">Client:</td>
-                        <td colspan="2">{{data.invites.buyer.0.name}}</td>
-                    </tr>
-                    <tr style="border:1px solid">
-                        <td style="background-color: #1e73be;color:white">Client Rep:</td>
-                        <td colspan="2">Client Representative</td>
-                    </tr>
-                    <tr style="border:1px solid">
-                        <td style="background-color: #1e73be;color:white">Date:</td>
-                        <td colspan="2">{{todaysDate }}</td>
-                    </tr>
-                    <tr rowspan="2" >
-                        <td style="background-color: #1e73be;color:white;">Job Location:</td>
-                        <td colspan="2" style="border:1px solid">{{data.location.data.countryName}}</td>
-                    </tr>
-                    <tr >
-                        <td style="background-color: #1e73be;color:white"></td>
-                        <td colspan="2" style="border:1px solid">WESTERN AUSTRALIA</td>
-                    </tr>
-                    <tr style="border:1px solid">
-                        <td style="background-color: #1e73be;color:white">Project Manager:</td>
-                        <td colspan="2">Project Manager here</td>
-                    </tr>
-                    <tr rowspan="4" >
-                            <td style="background-color: #1e73be;color:white">Diving Team:</td>
-                            <td style="border:1px solid;">Supervisor:</td>
-                            <td style="border:1px solid;">{{data.invites.supervisor.0.name}}</td>{{!--replace data from json --}}
-                    </tr>
-                    {{#each data.invites.divers}}
-                      {{#if @first}}
-                        <tr >
-                            <td style="background-color: #1e73be" ></td>
-                            <td style="border:1px solid;"> Divers:</td>
-                            <td style="border:1px solid;">{{name}}</td>
-                        </tr>
-                       {{else}}
-                        <tr >
-                            <td style="background-color: #1e73be"></td>
-                            <td style="border:1px solid;"> </td>
-                            <td style="border:1px solid;">{{name}}</td>
-                        </tr>
-                       
-                        {{/if}}
-                    {{/each}}
-                </table>
-            </div>
-            <div class="page">
-                 <br/>
-                <h4>2. VESSEL PARTICULARS</h4>
-                <table style="border:1px solid; width:100%; position:center;">
-                        <tr>
-                            <td style="width:50%; text-transform:uppercase; background-color: #1e73be;color:white; border:1px solid;">ship's name</td>
-                            <td style="width:50%;border:1px solid;">{{data.vessel.data.name}}</td>
-                        </tr>
-                        <tr>
-                            <td style="width:50%; text-transform:uppercase; background-color: #1e73be;color:white;border:1px solid;">flag</td>
-                            <td style="width:50%;border:1px solid;">{{data.vessel.data.flag}}</td>
-                        </tr>
-                        <tr>
-                            <td style="width:50%; text-transform:uppercase; background-color: #1e73be;color:white;border:1px solid;">gross tonnage</td>
-                            <td style="width:50%;border:1px solid;">{{data.vessel.data.grossTonage}}</td>
-                        </tr>
-                        <tr>
-                            <td style="width:50%; text-transform:uppercase; background-color: #1e73be;color:white;border:1px solid;">pennant</td>
-                            <td style="width:50%;border:1px solid;">{{data.vessel.data.pennant}}</td>
-                        </tr>
-                        <tr>
-                            <td style="width:50%; text-transform:uppercase; background-color: #1e73be;color:white;border:1px solid;">lenght</td>
-                            <td style="width:50%;border:1px solid;">{{data.vessel.data.length}}</td>
-                        </tr>
-                        <tr>
-                            <td style="width:50%; text-transform:uppercase; background-color: #1e73be;color:white;border:1px solid;">beam</td>
-                            <td style="width:50%;border:1px solid;">{{data.vessel.data.beam}}</td>
-                        </tr>
-                        <tr>
-                            <td style="width:50%; text-transform:uppercase; background-color: #1e73be;color:white;border:1px solid;">ship type</td>
-                            <td style="width:50%;border:1px solid;">{{data.vessel.data.shipType}}</td>
-                        </tr>
-                        <tr>
-                            <td style="width:50%; text-transform:uppercase; background-color: #1e73be;color:white;border:1px solid;">call sign</td>
-                            <td style="width:50%;border:1px solid;">{{data.vessel.data.callSign}}</td>
-                        </tr>
-                        <tr>
-                            <td style="width:50%; text-transform:uppercase; background-color: #1e73be;color:white;border:1px solid;">commissioned</td>
-                            <td style="width:50%;border:1px solid;"></td>
-                        </tr>
-                        <tr rowspan="3">
-                            <td style="width:50%; text-transform:uppercase; background-color: #1e73be;color:white;">vessel draft</td>
-                            <td style="width:50%;border:1px solid;"></td>
-                        </tr>
-                        <tr>
-                            <td style="width:50%;text-transform:uppercase; background-color: #1e73be;color:white;"></td>
-                            <td style="width:50%;border:1px solid;height:20px"></td>
-                        </tr>
-                        <tr>
-                            <td style="width:50%; text-transform:uppercase; background-color: #1e73be;color:white;"></td>
-                            <td style="width:50%;border:1px solid;height:20px"></td>
-                        </tr>
-                </table>
-            </div>
-            <div class="page">
-                 <br/>
-                <h4>3 OVERVIEW</h4>
-                {{{data.report.overview}}}
-            </div>
-            <div class="page">
-                 <br/>
-                <h4>4 REFERENCE TABLES</h4>
-                <h4>4.1 FOULING RATING (FR) SCALE</h4>
-                    <p />
-                    <table style="width=100%">
-                        <th style="height:70px;background-color: #1e73be; border:1px solid;width:7%;height:30px">TYPE</th>
-                        <th style="height:70px;background-color: #1e73be; border:1px solid;width:10%;height:30px">FOULING <p/>RATING <p/>(FR)</th>
-                        <th style="height:70px;background-color: #1e73be; border:1px solid; width:80%;height:30px">DESCRIPTION</th>
-                        {{#each data.delivery.foulingReference}}
-                            <tr>
-                                <td style="border:1px solid">{{Type}}</td>
-                                <td style="border:1px solid;text-align:center;">{{FR}}</td>
-                                <td style="border:1px solid">{{Description}}</td>
-                            </tr>
-                        {{/each}}            
-                    </table>
-            </div>
-            <div class="page">
-                    <br/><br/>
-                    <h4>4.2 PAINT DETORIORATION RATING (PDR) SCALE</h4>
-                    <p/>
-                    <table style="width:100%">
-                        <th style="background-color: #1e73be;height:30px; border:1px solid">RATING</th>
-                        <th style="background-color: #1e73be;height:30px; border:1px solid">DESCRIPTION</th>
-                        {{#each data.delivery.pdrReference}}
-                            <tr>
-                                <td style="width:70px; text-align:center;; border:1px solid"><b>PDR-{{PDR}}</b></td>                   
-                                <td style="border:1px solid">{{Description}}</td>
-                            </tr>
-                        {{/each}}
-                    </table>
-            </div>
-                   <br/>
-                    <h4>5 OBSERVATION &amp FINDINGS</h4>
-                    {{#each data.sections}}
-                    {{#if (eq context "worklog")}}
+                            {{/each}}
+                            <h2>{{createdBy.companyName}}</h2>
+                            <p />
+                        </div>
+                        <div class="page" id="toc">
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                            <h4>Table of Contents </h4>
+                            <table style="width:100%">
+                                <tr>
+                                    <td colspan="2" style="border:none;font-size:14px;text-transform: uppercase;">
+                                        1 Project Paticulars
+                                    </td>
+                                    <td style="border:none"></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2" style="border:none;font-size:14px;text-transform: uppercase;">
+                                        2 Vessel Particulars
+                                    </td>
+                                    <td style="border:none"></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2" style="border:none;font-size:14px;text-transform: uppercase;">
+                                        3 Overview
+                                    </td>
+                                    <td style="border:none"></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2"
+                                        style="width:20px;border:none;font-size:14px;text-transform: uppercase">
+                                        4 Reference Tables</td>
+                                    <td style="border:none;font-size:12px;text-transform: uppercase;height:30px">
+                                    </td>
+                                    <td style="text-align: left;width:30px;border:none;font-size:12px;height:30px"></td>
+                                </tr>
+
+
+                                {{#each data.sections}}
+                                {{#if (eq context "worklog")}}
+                                {{#if sections.[0]}}
+                                <tr>
+                                    <td colspan="2" style="border:none;font-size:14px;text-transform: uppercase;">
+                                        {{increased @index 4}} {{title}}
+                                    </td>
+                                    <td style="border:none"></td>
+                                </tr>
+                                {{#each sections}}
+                                <tr>
+                                    <td style="width:20px;border:none"></td>
+                                    <td style="border:none;font-size:12px;text-transform: uppercase;height:30px">
+                                        <a href="#{{increased @../index 4}}.{{addOne @index}} {{title}}">
+                                            {{increased @../index 4}}.{{addOne @index}} {{title}}</a>
+                                    </td>
+                                    <td style="text-align: left;width:30px;border:none;font-size:12px;height:30px"></td>
+                                </tr>
+                                {{/each}}
+
+                                {{/if}}
+                                {{/if}}
+                                {{/each}}
+
+                            </table>
+
+                        </div>
+                        <div class="page">
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                            <h4>1. PROJECT PARTICULARS</h4>
+                            <br>
+                            <table style="border:1px solid; width:100%; position:center;">
+                                <tr style="border:1px solid;height:25px;">
+                                    <td style="background-color: #1e73be;color:white">Diving Contractor:</td>
+                                    <td colspan="2">Franmarine Underwater Services Pty Ltd</td>
+                                </tr>
+                                <tr style="border:1px solid">
+                                    <td style="background-color: #1e73be;color:white">Project:</td>
+                                    <td colspan="2">BV Class In-Water Survey</td>
+                                </tr>
+                                <tr style="border:1px solid">
+                                    <td style="background-color: #1e73be;color:white">Vessel:</td>
+                                    <td colspan="2">{{data.vessel.displayName}}</td>
+                                </tr>
+                                <tr style="border:1px solid">
+                                    <td style="background-color: #1e73be;color:white">Client:</td>
+                                    <td colspan="2">{{data.invites.buyer.0.name}}</td>
+                                </tr>
+                                <tr style="border:1px solid">
+                                    <td style="background-color: #1e73be;color:white">Client Rep:</td>
+                                    <td colspan="2">Client Representative</td>
+                                </tr>
+                                <tr style="border:1px solid">
+                                    <td style="background-color: #1e73be;color:white">Date:</td>
+                                    <td colspan="2">{{todaysDate }}</td>
+                                </tr>
+                                <tr rowspan="2">
+                                    <td style="background-color: #1e73be;color:white;">Job Location:</td>
+                                    <td colspan="2" style="border:1px solid">{{data.location.data.countryName}}</td>
+                                </tr>
+                                <tr>
+                                    <td style="background-color: #1e73be;color:white"></td>
+                                    <td colspan="2" style="border:1px solid">WESTERN AUSTRALIA</td>
+                                </tr>
+                                <tr style="border:1px solid">
+                                    <td style="background-color: #1e73be;color:white">Project Manager:</td>
+                                    <td colspan="2">Project Manager here</td>
+                                </tr>
+                                <tr rowspan="4">
+                                    <td style="background-color: #1e73be;color:white">Diving Team:</td>
+                                    <td style="border:1px solid;">Supervisor:</td>
+                                    <td style="border:1px solid;">{{data.invites.supervisor.0.name}}</td>{{!--replace
+                                    data from json --}}
+                                </tr>
+                                {{#each data.invites.divers}}
+                                {{#if @first}}
+                                <tr>
+                                    <td style="background-color: #1e73be"></td>
+                                    <td style="border:1px solid;"> Divers:</td>
+                                    <td style="border:1px solid;">{{name}}</td>
+                                </tr>
+                                {{else}}
+                                <tr>
+                                    <td style="background-color: #1e73be"></td>
+                                    <td style="border:1px solid;"> </td>
+                                    <td style="border:1px solid;">{{name}}</td>
+                                </tr>
+
+                                {{/if}}
+                                {{/each}}
+                            </table>
+                        </div>
+                        <div class="page">
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                            <h4>2. VESSEL PARTICULARS</h4>
+                            <table style="border:1px solid; width:100%; position:center;">
+                                <tr>
+                                    <td
+                                        style="width:50%; text-transform:uppercase; background-color: #1e73be;color:white; border:1px solid;">
+                                        ship's name</td>
+                                    <td style="width:50%;border:1px solid;">{{data.vessel.data.name}}</td>
+                                </tr>
+                                <tr>
+                                    <td
+                                        style="width:50%; text-transform:uppercase; background-color: #1e73be;color:white;border:1px solid;">
+                                        flag</td>
+                                    <td style="width:50%;border:1px solid;">{{data.vessel.data.flag}}</td>
+                                </tr>
+                                <tr>
+                                    <td
+                                        style="width:50%; text-transform:uppercase; background-color: #1e73be;color:white;border:1px solid;">
+                                        gross tonnage</td>
+                                    <td style="width:50%;border:1px solid;">{{data.vessel.data.grossTonage}}</td>
+                                </tr>
+                                <tr>
+                                    <td
+                                        style="width:50%; text-transform:uppercase; background-color: #1e73be;color:white;border:1px solid;">
+                                        pennant</td>
+                                    <td style="width:50%;border:1px solid;">{{data.vessel.data.pennant}}</td>
+                                </tr>
+                                <tr>
+                                    <td
+                                        style="width:50%; text-transform:uppercase; background-color: #1e73be;color:white;border:1px solid;">
+                                        lenght</td>
+                                    <td style="width:50%;border:1px solid;">{{data.vessel.data.length}}</td>
+                                </tr>
+                                <tr>
+                                    <td
+                                        style="width:50%; text-transform:uppercase; background-color: #1e73be;color:white;border:1px solid;">
+                                        beam</td>
+                                    <td style="width:50%;border:1px solid;">{{data.vessel.data.beam}}</td>
+                                </tr>
+                                <tr>
+                                    <td
+                                        style="width:50%; text-transform:uppercase; background-color: #1e73be;color:white;border:1px solid;">
+                                        ship type</td>
+                                    <td style="width:50%;border:1px solid;">{{data.vessel.data.shipType}}</td>
+                                </tr>
+                                <tr>
+                                    <td
+                                        style="width:50%; text-transform:uppercase; background-color: #1e73be;color:white;border:1px solid;">
+                                        call sign</td>
+                                    <td style="width:50%;border:1px solid;">{{data.vessel.data.callSign}}</td>
+                                </tr>
+                                <tr>
+                                    <td
+                                        style="width:50%; text-transform:uppercase; background-color: #1e73be;color:white;border:1px solid;">
+                                        commissioned</td>
+                                    <td style="width:50%;border:1px solid;"></td>
+                                </tr>
+                                <tr rowspan="3">
+                                    <td
+                                        style="width:50%; text-transform:uppercase; background-color: #1e73be;color:white;">
+                                        vessel draft</td>
+                                    <td style="width:50%;border:1px solid;"></td>
+                                </tr>
+                                <tr>
+                                    <td
+                                        style="width:50%;text-transform:uppercase; background-color: #1e73be;color:white;">
+                                    </td>
+                                    <td style="width:50%;border:1px solid;height:20px"></td>
+                                </tr>
+                                <tr>
+                                    <td
+                                        style="width:50%; text-transform:uppercase; background-color: #1e73be;color:white;">
+                                    </td>
+                                    <td style="width:50%;border:1px solid;height:20px"></td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="page">
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                            <h4>3 OVERVIEW</h4>
+                            {{{data.report.overview}}}
+                        </div>
+                        <div class="page">
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                            <h4>4 REFERENCE TABLES</h4>
+                            <h4>4.1 FOULING RATING (FR) SCALE</h4>
+                            <p />
+                            <table style="width=100%">
+                                <th
+                                    style="height:70px;background-color: #1e73be; border:1px solid;width:7%;height:30px">
+                                    TYPE</th>
+                                <th
+                                    style="height:70px;background-color: #1e73be; border:1px solid;width:10%;height:30px">
+                                    FOULING
+                                    <p />RATING
+                                    <p />(FR)
+                                </th>
+                                <th
+                                    style="height:70px;background-color: #1e73be; border:1px solid; width:80%;height:30px">
+                                    DESCRIPTION</th>
+                                {{#each data.delivery.foulingReference}}
+                                <tr>
+                                    <td style="border:1px solid">{{Type}}</td>
+                                    <td style="border:1px solid;text-align:center;">{{FR}}</td>
+                                    <td style="border:1px solid">{{Description}}</td>
+                                </tr>
+                                {{/each}}
+                            </table>
+                        </div>
+                        <div class="page">
+                            <br /><br />
+                            <h4>4.2 PAINT DETORIORATION RATING (PDR) SCALE</h4>
+                            <p />
+                            <table style="width:100%">
+                                <th style="background-color: #1e73be;height:30px; border:1px solid">RATING</th>
+                                <th style="background-color: #1e73be;height:30px; border:1px solid">DESCRIPTION</th>
+                                {{#each data.delivery.pdrReference}}
+                                <tr>
+                                    <td style="width:70px; text-align:center;; border:1px solid"><b>PDR-{{PDR}}</b></td>
+                                    <td style="border:1px solid">{{Description}}</td>
+                                </tr>
+                                {{/each}}
+                            </table>
+                        </div>
+
+                        {{#each data.sections}}
+                        {{#if (eq context "worklog")}}
                         {{#if sections.[0]}}
-						<div class="page">
-                            
-                            <h4>{{increased @index 4}} {{title}}</h1> 
-                            {{#each sections}}
-                                <br/>
-                                <a id="{{increased @../index 4}}.{{addOne @index}} {{title}}"><h5>{{increased @../index 4}}.{{addOne @index}} {{title}}</h5></a>
+                        <div class="page">
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                            <h4>{{increased @index 4}} {{title}}</h1>
+                                {{#each sections}}
+
+                                <a id="{{increased @../index 4}}.{{addOne @index}} {{title}}">
+                                    <h5>{{increased @../index 4}}.{{addOne @index}} {{title}}</h5>
+                                </a>
                                 <div>
                                     {{increased @../index 4}}.{{addOne @index}}.1 Comments {{{comments}}}
-                                </div>                                   
+                                </div>
                                 <div>
-                                        {{increased @../index 4}}.{{addOne @index}}.2 Inspector Comments {{{inspectorComments}}}
-                                </div> 
-                                <br/>                                               
-                                <div  class="row">
+
+                                    {{#if (hasValue fouling.fr0)}}
+                                    <p>
+                                        The {{title}} was observed to have {{fouling.fr0}}% coverage marine
+                                        fouling consistent with FR0. .
+                                    </p>
+                                    {{/if}}
+                                    {{#if (hasValue pdr.pdr0)}}
+                                    <p>
+                                        The {{title}} was observed to have an antifouling coating coverage consistent
+                                        with PDR0 with an area effected of
+                                        {{pdr.pdr0}}%
+                                    </p>
+
+                                    {{/if}}
+                                    {{#if (hasValue fouling.fr10)}}
+                                    <p>
+                                        The {{title}} was observed to have {{fouling.fr10}}% coverage marine
+                                        fouling consistent with FR10. </p>
+                                    {{/if}}
+                                    {{#if (hasValue pdr.pdr10)}}
+                                    <p>
+                                        The {{title}} was observed to have an antifouling coating coverage consistent
+                                        with PDR10 with an area effected of
+                                        {{pdr.pdr10}}%
+                                    </p>
+                                    {{/if}}
+
+                                    {{#if (hasValue fouling.fr20)}}
+                                    <p>
+                                        The {{title}} was observed to have {{fouling.fr20}}% coverage marine
+                                        fouling consistent with FR20. </p>
+                                    {{/if}}
+                                    {{#if (hasValue pdr.pdr20)}}
+                                    <p>
+                                        The {{title}} was observed to have an antifouling coating coverage consistent
+                                        with PDR20 with an area effected of
+                                        {{pdr.pdr20}}%
+                                    </p>
+                                    {{/if}}
+
+                                    {{#if (hasValue fouling.fr30)}}
+                                    <p>
+                                        The {{title}} was observed to have {{fouling.fr30}}% coverage marine
+                                        fouling consistent with FR30. </p>
+                                    {{/if}}
+                                    {{#if (hasValue pdr.pdr30)}}
+                                    <p>
+                                        The {{title}} was observed to have an antifouling coating coverage consistent
+                                        with PDR30 with an area effected of
+                                        {{pdr.pdr30}}%
+                                    </p>
+                                    {{/if}}
+
+                                    {{#if (hasValue fouling.fr40)}}
+                                    <p>
+                                        The {{title}} was observed to have {{fouling.fr40}}% coverage marine
+                                        fouling consistent with FR40. </p>
+                                    {{/if}}
+                                    {{#if (hasValue pdr.pdr40)}}
+                                    <p>
+                                        The {{title}} was observed to have an antifouling coating coverage consistent
+                                        with PDR40 with an area effected of
+                                        {{pdr.pdr40}}%
+                                    </p>
+                                    {{/if}}
+
+
+                                    {{#if (hasValue fouling.fr50)}}
+                                    <p>
+                                        The {{title}} was observed to have {{fouling.fr50}}% coverage marine
+                                        fouling consistent with FR50. </p>
+                                    {{/if}}
+                                    {{#if (hasValue pdr.pdr50)}}
+                                    <p>
+                                        The {{title}} was observed to have an antifouling coating coverage consistent
+                                        with PDR50 with an area effected of
+                                        {{pdr.pdr50}}%
+                                    </p>
+                                    {{/if}}
+
+                                    {{#if (hasValue fouling.fr60)}}
+                                    <p>
+                                        The {{title}} was observed to have {{fouling.fr60}}% coverage marine
+                                        fouling consistent with FR60. </p>
+                                    {{/if}}
+                                    {{#if (hasValue pdr.pdr60)}}
+                                    <p>
+                                        The {{title}} was observed to have an antifouling coating coverage consistent
+                                        with PDR60 with an area effected of
+                                        {{pdr.pdr60}}%
+                                    </p>
+                                    {{/if}}
+
+                                    {{#if (hasValue fouling.fr70)}}
+                                    <p>
+                                        The {{title}} was observed to have {{fouling.fr70}}% coverage marine
+                                        fouling consistent with FR70. </p>
+                                    {{/if}}
+                                    {{#if (hasValue pdr.pdr70)}}
+                                    <p>
+                                        The {{title}} was observed to have an antifouling coating coverage consistent
+                                        with PDR70 with an area effected of
+                                        {{pdr.pdr70}}%
+                                    </p>
+                                    {{/if}}
+
+                                    {{#if (hasValue fouling.fr80)}}
+                                    <p>
+                                        The {{title}} was observed to have {{fouling.fr80}}% coverage marine
+                                        fouling consistent with FR80. </p>
+                                    {{/if}}
+                                    {{#if (hasValue pdr.pdr80)}}
+                                    <p>
+                                        The {{title}} was observed to have an antifouling coating coverage consistent
+                                        with PDR80 with an area effected of
+                                        {{pdr.pdr80}}%
+                                    </p>
+                                    {{/if}}
+
+                                    {{#if (hasValue fouling.fr90)}}
+                                    <p>
+                                        The {{title}} was observed to have {{fouling.fr90}}% coverage marine
+                                        fouling consistent with FR90. </p>
+                                    {{/if}}
+                                    {{#if (hasValue pdr.pdr90)}}
+                                    <p>
+                                        The {{title}} was observed to have an antifouling coating coverage consistent
+                                        with PDR90 with an area effected of
+                                        {{pdr.pdr90}}%
+                                    </p>
+                                    {{/if}}
+
+                                    {{#if (hasValue fouling.fr100)}}
+                                    <p>
+                                        The {{title}} was observed to have {{fouling.fr100}}% coverage marine
+                                        fouling consistent with FR100. </p>
+                                    {{/if}}
+                                    {{#if (hasValue pdr.pdr100)}}
+                                    <p>
+                                        The {{title}} was observed to have an antifouling coating coverage consistent
+                                        with PDR100 with an area effected of
+                                        {{pdr.pdr100}}%
+                                    </p>
+                                    {{/if}}
+                                </div>
+                                <div>
+                                    {{#if (hasValue inspectorComments)}}
+                                    {{increased @../index 4}}.{{addOne @index}}.2 Inspector Comments
+                                    {{{inspectorComments}}}
+                                    {{/if}}
+                                </div>
+
+                                <div class="row">
                                     <div class="column">
-                                        {{#getImages attachmentFolder ../../attachments}}                       
-                                                 <img  src="{{getImageUri fullUri}}" title="{{title}}" />  
+                                        {{#getImages attachmentFolder ../../attachments}}
+                                        <img src="{{getImageUri fullUri}}" title="{{title}}" />
                                         {{/getImages}}
                                     </div>
                                 </div>
-                            {{/each}}
-                            <p>{{{comments}}}</p>
-						</div>	
+                                {{/each}}
+                                <p>{{{comments}}}</p>
+                        </div>
                         {{/if}}
-					{{/if}}
-                {{/each}}
-                <duv class="page">
-                     <h4>6 REPORT SUMMARY</h4>
-                      {{{data.report.summary}}}
+                        {{/if}}
+                        {{/each}}
+                        <duv class="page">
+                            <h4>REPORT SUMMARY</h4>
+                            {{{data.report.summary}}}
 
-                      &nbsp;
-                    
-                    <div class="centeredText" >
-                        <b><i>Please note that additional CCTV and HD still photographs may be provided upon client request. </i></b>                 
-                    </div> 
-                    <div class="centeredText" >                
-                        <b><i>Thank you for the opportunity to provide our services.</i></b>                    
-                    </div> 
-                    <div class="centeredText" >                
-                        <b><i>If we can be of any future assistance, please do not hesitate to contact us at any time.</i></b>
-                    </div>
-                    <p/>
-                </div>
-                <div class="centeredText">
-                    <h2>END OF REPORT</h2>
-                </div>
-                <div class="page">
-                    <div>
-                    <table style="width:100%; font-size: small;">
-                        <tr>
-                            <td colspan="4" style="background-color: #7a7e81;border:1px solid; height:20px"><b>Document Status</b></td>
-                        </tr>
-                        <tr>
-                            <td style="border:1px solid"><b>Revision 2</b></td>
-                            <td colspan="2" style="border:1px solid"><b>Document Owner:</b></td>
-                            <td style="border:1px solid"><b>Document Number:</b></td>
-                        </tr>
-                        <tr>
-                            <td style="background-color:lightgrey;border:1px solid; height:20px"><b>Action</b></td>
-                            <td colspan="2" style="background-color:lightgrey;border:1px solid"><b>Name and Position</b></td>
-                            <td style="background-color:lightgrey;border:1px solid"><b>Date</b></td>
-                        </tr>
-                        <tr>
-                            <td style="border:1px solid">Reviewed By</td>
-                            <td style="border:1px solid"></td>
-                            <td style="border:1px solid"></td>
-                            <td style="border:1px solid"></td>
-                        </tr>
-                        <tr>
-                            <td style="border:1px solid">Prepared By</td>
-                            <td style="border:1px solid"></td>
-                            <td style="border:1px solid"></td>
-                            <td style="border:1px solid"></td>
-                        </tr>
-                        <tr>
-                            <td style="border:1px solid">Approved By</td>
-                            <td style="border:1px solid"></td>
-                            <td style="border:1px solid"></td>
-                            <td style="border:1px solid"></td>
-                        </tr>
-                    </table>
-                    &nbsp;
-                    <table style="width:100%;font-size:small;">
-                        <tr>
-                            <td colspan="6" style="background-color: #7a7e81;border:1px solid; height:30px">Document Amend Record</td>
-                        </tr>
-                        <tr>
-                            <td style="background-color: lightgrey;border:1px solid">Rev</td>
-                            <td style="background-color: lightgrey;border:1px solid">Description</td>
-                            <td style="background-color: lightgrey;border:1px solid">Author</td>
-                            <td style="background-color: lightgrey;border:1px solid">Date</td>
-                            <td style="background-color: lightgrey;border:1px solid">Approved By</td>
-                            <td style="background-color: lightgrey;border:1px solid">Date</td>
-                        </tr>
-                        <tr style="height: 20px;">
-                            <td style="border:1px solid;"></td>
-                            <td style="border:1px solid;"></td>
-                            <td style="border:1px solid;"></td>
-                            <td style="border:1px solid;"></td>
-                            <td style="border:1px solid;"></td>
-                            <td style="border:1px solid;"></td>
-                        </tr>
-                        <tr style="height: 20px;">
-                            <td style="border:1px solid;"></td>
-                            <td style="border:1px solid;"></td>
-                            <td style="border:1px solid;"></td>
-                            <td style="border:1px solid;"></td>
-                            <td style="border:1px solid;"></td>
-                            <td style="border:1px solid;"></td>
-                        </tr>
-                    </table>
-                </div>
-                &nbsp;
-                <div>
-                    <table style="width:100%">
-                        <tr style="border:1px solid">
-                            <td colspan="4" style="background-color: #7a7e81; text-align:center;color:rgb(7, 7, 7);height:30px;"><b>Copyright Notice</b></td>
-                        </tr>
-                        <tr style="border:1px solid">
-                            <td style="border:1px solid">
-                                <p/>
-                                <b>Franmarine Underwater Services Pty Ltd (FUS)</b> is the sole owner of the intellectual property contained in any 
-                                   documentation bearing its name. All materials, including internet pages, document and online graphics, audio 
-                                   and video, are protected by copyright law.<p/>
-                                   Apart from any fair dealing for the purpose of private study, research, criticism or review as permitted under 
-                                   the provisions of the <b>Copyright Act 1968</b>, no part of this document may be reproduced, transmitted in any 
-                                   form or re-used for any commercial purposes whatsoever without the prior written permission of FUS.
-                                   This document represents the status of the topic at the date shown and is subject to change without notice. 
-                                   The latest version of this document is available from Document Control.
-                                  <b>©2021 FUS. All Rights Reserved.</b>
-                            </td>
-                        </tr>
-                    </table>
-                </div>
-                </div>    
-            
-        </td>
-      </tr>
+                            &nbsp;
+
+                            <div class="centeredText">
+                                <b><i>Please note that additional CCTV and HD still photographs may be provided upon
+                                        client request. </i></b>
+                            </div>
+                            <div class="centeredText">
+                                <b><i>Thank you for the opportunity to provide our services.</i></b>
+                            </div>
+                            <div class="centeredText">
+                                <b><i>If we can be of any future assistance, please do not hesitate to contact us at any
+                                        time.</i></b>
+                            </div>
+                            <p />
+    </div>
+    <div class="centeredText">
+        <h2>END OF REPORT</h2>
+    </div>
+    <div class="page">
+        <div>
+
+            &nbsp;
+            <table style="width:100%">
+                <tr>
+                    <td colspan="4" style="background-color: #1e73be;border:1px solid; height:30px">
+                    </td>
+                </tr>
+                <tr>
+                    <td style="background-color:lightgrey;border:1px solid; height:20px">Action
+                    </td>
+                    <td style="background-color:lightgrey;border:1px solid">Name</td>
+                    <td style="background-color:lightgrey;border:1px solid">Date</td>
+                </tr>
+                <tr>
+                    <td style="border:1px solid">Reviewed By</td>
+                    <td style="border:1px solid">{{data.invites.qa.0.name}}</td>
+                    <td style="border:1px solid">{{formatDateTime
+                        data.actualDelivery.startDateTime.date "dddd DD MMMM YYYY"}}</td>
+
+                </tr>
+                <tr>
+                    <td style="border:1px solid">Prepared By</td>
+                    <td style="border:1px solid">Franmarine Powered by MarineStream</td>
+                    <td style="border:1px solid">{{formatDateTime
+                        data.actualDelivery.startDateTime.date "dddd DD MMMM YYYY"}}</td>
+
+                </tr>
+                <tr>
+                    <td style="border:1px solid">Approved By</td>
+                    <td style="border:1px solid">{{data.invites.approver.0.name}}</td>
+                    <td style="border:1px solid">{{formatDateTime
+                        data.actualDelivery.startDateTime.date "dddd DD MMMM YYYY"}}</td>
+
+                </tr>
+            </table>
+        </div>
+        &nbsp;
+        <div>
+            <table style="width:100%">
+                <tr style="border:1px solid">
+                    <td colspan="4"
+                        style="background-color: #7a7e81; text-align:center;color:rgb(7, 7, 7);height:30px;">
+                        <b>Copyright Notice</b>
+                    </td>
+                </tr>
+                <tr style="border:1px solid">
+                    <td style="border:1px solid">
+                        <p />
+                        <b>Franmarine Underwater Services Pty Ltd (FUS)</b> is the sole owner of the intellectual
+                        property contained in any
+                        documentation bearing its name. All materials, including internet pages, document and online
+                        graphics, audio
+                        and video, are protected by copyright law.
+                        <p />
+                        Apart from any fair dealing for the purpose of private study, research, criticism or review as
+                        permitted under
+                        the provisions of the <b>Copyright Act 1968</b>, no part of this document may be reproduced,
+                        transmitted in any
+                        form or re-used for any commercial purposes whatsoever without the prior written permission of
+                        FUS.
+                        This document represents the status of the topic at the date shown and is subject to change
+                        without notice.
+                        The latest version of this document is available from Document Control.
+                        <b>©2021 FUS. All Rights Reserved.</b>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    </td>
+    </tr>
     </tbody>
     <tfoot style="width:90%">
-      <tr>
-        <td style="width:90%">
-         
-          <div class="page-footer-space"></div>
-        </td>
-      </tr>
+        <tr>
+            <td style="width:90%">
+
+                <div class="page-footer-space"></div>
+            </td>
+        </tr>
     </tfoot>
 
-  </table>
-</div>
+    </table>
+    </div>
 </body>
 
 </html>
