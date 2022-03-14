@@ -93,11 +93,11 @@ app.engine("hbs", exphbs({
         //     }
         //     if(comment.length===0 || inspectorComment.length>0)
         //     {
-        //         strValue =  sectionIndex + "." + subsectionIndex + ".1 Inspector Comments <p/>" + inspectorComment;
+        //         strValue = "<div>" + sectionIndex + "." + subsectionIndex + ".1 Inspector Comments <p/>" + inspectorComment + "</div>";
         //     }
         //     if(comment.length>0 || inspectorComment.length===0)
         //     {
-        //         strValue =  sectionIndex + "." + subsectionIndex + ".1  Comments <p/>" + comment;
+        //         strValue =  "<div>" + sectionIndex + "." + subsectionIndex + ".1  Comments <p/>" + comment + "</div>";
         //     }
         //     return strValue;
         // }, 

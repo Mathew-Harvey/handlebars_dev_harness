@@ -194,7 +194,7 @@ section{
     display:block;
     margin-left: auto;
     margin-right:auto;
-    width:80%
+    width:50%;
 } 
 .centerDivOnPage {
     position: fixed;
@@ -211,13 +211,16 @@ section{
     <table class="table">
 	  <tr>
 	     <td><img src="https://cdn.marinestream.io/templates/logos/FranMarine_logo_2000x600px.png" alt="Franmarine Logo" style="width:300px; float:left"></td>
-         <td><img src="" alt="client logo" style="width:300px; float:right"/></td>
+         
 	  </tr>
 	</table>
   </div>
 
-  <div class="page-footer" style="font-size:xx-small">
-    {{data.vessel.displayName}} - BFI
+  <div class="page-footer" style="height:100px;">
+    <tr>
+        <td><img src="https://cdn.marinestream.io/templates/logos/fusReportFooter.png"
+           alt="FUS footer cover page" style="width:790px; float:left"></td>
+     </tr>
   </div>
 
   <table style="width:100%;position:center">
@@ -232,29 +235,24 @@ section{
 
     <tbody style="width:100%">
       <tr style="width:90%">
-        <td style="width:90%">           
+        <td style="width:100%">           
             <div class="page" style="width:100%">
-                <h1>Report</h1>
-                <p></p>
-                <h2>{{data.vessel.displayName}}</h2>
-                <p></p>
+                <h1>Report</h1>                
+                <h2>{{data.vessel.displayName}}</h2>             
                 <h2>BV IN-WATER SURVEY</h2>                
-                <p />
-                <h2>{{data.vessel.displayName}}</h2>
-                <p />
-                <h3>{{todaysDate }}</h3> 
+                <h3>{{formatDateTime data.actualDelivery.startDateTime.date "dddd DD MMMM YYYY"}} </h3>
                 <h3>CONFIDENTIAL </h3> 
-                <p />
-                {{#each attachments}}
-                    {{#if (eq path 'ReportCover')}}
-                            {{!-- <img src="{{getImageUri fullUri}}" alt="ship logo" class="center" /> --}}
-                    {{/if}}
-                {{/each}}
+                
+				{{#each attachments}}
+					{{#if (eq path 'ReportCover')}}
+							<center><img src="{{getImageUri fullUri}}" alt="ship logo" /></center>
+				    {{/if}}
+				{{/each}}       
             </div >
             <div class="page" id="toc">
                 &nbsp;
                 <h4>Table of Contents </h4>
-                    <table class="table">   
+                    <table style="width:100%">   
                          <tr>
                             <td  colspan="2" style="border:none;font-size:14px;text-transform: uppercase;"> 
                                 1 Project Paticulars
@@ -314,7 +312,7 @@ section{
                    
             </div>
             <div class="page">
-                &nbsp;
+                <br/>
                 <h4>1. PROJECT PARTICULARS</h4>
                 &nbsp;
                 <table style="border:1px solid; width:100%; position:center;">
@@ -332,7 +330,7 @@ section{
                     </tr>
                     <tr style="border:1px solid">
                         <td style="background-color: #1e73be;color:white">Client:</td>
-                        <td colspan="2">Client Name here</td>
+                        <td colspan="2">{{data.invites.buyer.0.name}}</td>
                     </tr>
                     <tr style="border:1px solid">
                         <td style="background-color: #1e73be;color:white">Client Rep:</td>
@@ -344,7 +342,7 @@ section{
                     </tr>
                     <tr rowspan="2" >
                         <td style="background-color: #1e73be;color:white;">Job Location:</td>
-                        <td colspan="2" style="border:1px solid">Job Location here</td>
+                        <td colspan="2" style="border:1px solid">{{data.location.data.countryName}}</td>
                     </tr>
                     <tr >
                         <td style="background-color: #1e73be;color:white"></td>
@@ -357,35 +355,87 @@ section{
                     <tr rowspan="4" >
                             <td style="background-color: #1e73be;color:white">Diving Team:</td>
                             <td style="border:1px solid;">Supervisor:</td>
-                            <td style="border:1px solid;">Brent Dyhberg</td>{{!--replace data from json --}}
+                            <td style="border:1px solid;">{{data.invites.supervisor.0.name}}</td>{{!--replace data from json --}}
                     </tr>
-                    <tr >
+                    {{#each data.invites.divers}}
+                      {{#if @first}}
+                        <tr >
                             <td style="background-color: #1e73be" ></td>
                             <td style="border:1px solid;"> Divers:</td>
-                            <td style="border:1px solid;">Daniel Telfer</td>
-                    </tr>
-                    <tr >
+                            <td style="border:1px solid;">{{name}}</td>
+                        </tr>
+                       {{else}}
+                        <tr >
                             <td style="background-color: #1e73be"></td>
                             <td style="border:1px solid;"> </td>
-                            <td style="border:1px solid;">Aaron Potterton</td>
-                    </tr>
-                    <tr >
-                            <td style="background-color: #1e73be"></td>
-                            <td style="border:1px solid;"> </td>
-                            <td style="border:1px solid;">Hamish Brown</td>
-                    </tr>
+                            <td style="border:1px solid;">{{name}}</td>
+                        </tr>
+                       
+                        {{/if}}
+                    {{/each}}
                 </table>
             </div>
             <div class="page">
-                 &nbsp;
+                 <br/>
                 <h4>2. VESSEL PARTICULARS</h4>
+                <table style="border:1px solid; width:100%; position:center;">
+                        <tr>
+                            <td style="width:50%; text-transform:uppercase; background-color: #1e73be;color:white; border:1px solid;">ship's name</td>
+                            <td style="width:50%;border:1px solid;">{{data.vessel.data.name}}</td>
+                        </tr>
+                        <tr>
+                            <td style="width:50%; text-transform:uppercase; background-color: #1e73be;color:white;border:1px solid;">flag</td>
+                            <td style="width:50%;border:1px solid;">{{data.vessel.data.flag}}</td>
+                        </tr>
+                        <tr>
+                            <td style="width:50%; text-transform:uppercase; background-color: #1e73be;color:white;border:1px solid;">gross tonnage</td>
+                            <td style="width:50%;border:1px solid;">{{data.vessel.data.grossTonage}}</td>
+                        </tr>
+                        <tr>
+                            <td style="width:50%; text-transform:uppercase; background-color: #1e73be;color:white;border:1px solid;">pennant</td>
+                            <td style="width:50%;border:1px solid;">{{data.vessel.data.pennant}}</td>
+                        </tr>
+                        <tr>
+                            <td style="width:50%; text-transform:uppercase; background-color: #1e73be;color:white;border:1px solid;">lenght</td>
+                            <td style="width:50%;border:1px solid;">{{data.vessel.data.length}}</td>
+                        </tr>
+                        <tr>
+                            <td style="width:50%; text-transform:uppercase; background-color: #1e73be;color:white;border:1px solid;">beam</td>
+                            <td style="width:50%;border:1px solid;">{{data.vessel.data.beam}}</td>
+                        </tr>
+                        <tr>
+                            <td style="width:50%; text-transform:uppercase; background-color: #1e73be;color:white;border:1px solid;">ship type</td>
+                            <td style="width:50%;border:1px solid;">{{data.vessel.data.shipType}}</td>
+                        </tr>
+                        <tr>
+                            <td style="width:50%; text-transform:uppercase; background-color: #1e73be;color:white;border:1px solid;">call sign</td>
+                            <td style="width:50%;border:1px solid;">{{data.vessel.data.callSign}}</td>
+                        </tr>
+                        <tr>
+                            <td style="width:50%; text-transform:uppercase; background-color: #1e73be;color:white;border:1px solid;">commissioned</td>
+                            <td style="width:50%;border:1px solid;"></td>
+                        </tr>
+                        <tr rowspan="3">
+                            <td style="width:50%; text-transform:uppercase; background-color: #1e73be;color:white;">vessel draft</td>
+                            <td style="width:50%;border:1px solid;"></td>
+                        </tr>
+                        <tr>
+                            <td style="width:50%;text-transform:uppercase; background-color: #1e73be;color:white;"></td>
+                            <td style="width:50%;border:1px solid;height:20px"></td>
+                        </tr>
+                        <tr>
+                            <td style="width:50%; text-transform:uppercase; background-color: #1e73be;color:white;"></td>
+                            <td style="width:50%;border:1px solid;height:20px"></td>
+                        </tr>
+                </table>
             </div>
             <div class="page">
-                 &nbsp;
+                 <br/>
                 <h4>3 OVERVIEW</h4>
+                {{{data.report.overview}}}
             </div>
             <div class="page">
-                 &nbsp;
+                 <br/>
                 <h4>4 REFERENCE TABLES</h4>
                 <h4>4.1 FOULING RATING (FR) SCALE</h4>
                     <p />
@@ -403,6 +453,7 @@ section{
                     </table>
             </div>
             <div class="page">
+                    <br/><br/>
                     <h4>4.2 PAINT DETORIORATION RATING (PDR) SCALE</h4>
                     <p/>
                     <table style="width:100%">
@@ -416,26 +467,28 @@ section{
                         {{/each}}
                     </table>
             </div>
-            
+                   <br/>
                     <h4>5 OBSERVATION &amp FINDINGS</h4>
                     {{#each data.sections}}
                     {{#if (eq context "worklog")}}
                         {{#if sections.[0]}}
 						<div class="page">
-                            <p></p> <p></p><p></p><p></p><p></p>
+                            
                             <h4>{{increased @index 4}} {{title}}</h1> 
                             {{#each sections}}
+                                <br/>
                                 <a id="{{increased @../index 4}}.{{addOne @index}} {{title}}"><h5>{{increased @../index 4}}.{{addOne @index}} {{title}}</h5></a>
                                 <div>
                                     {{increased @../index 4}}.{{addOne @index}}.1 Comments {{{comments}}}
-                                </div>   
+                                </div>                                   
                                 <div>
                                         {{increased @../index 4}}.{{addOne @index}}.2 Inspector Comments {{{inspectorComments}}}
-                                </div>                     
+                                </div> 
+                                <br/>                                               
                                 <div  class="row">
                                     <div class="column">
                                         {{#getImages attachmentFolder ../../attachments}}                       
-                                                 {{!-- <img  src="{{getImageUri fullUri}}" title="{{title}}" />   --}}
+                                                 <img  src="{{getImageUri fullUri}}" title="{{title}}" />  
                                         {{/getImages}}
                                     </div>
                                 </div>
@@ -446,8 +499,8 @@ section{
 					{{/if}}
                 {{/each}}
                 <duv class="page">
-                     <h4>6 SUMMARY</h4>
-                      Summary here
+                     <h4>6 REPORT SUMMARY</h4>
+                      {{{data.report.summary}}}
 
                       &nbsp;
                     
