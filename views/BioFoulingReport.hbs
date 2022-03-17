@@ -321,8 +321,8 @@
                             <div style="margin-left: auto; margin-right: auto; ">
                             {{#each attachments}}
                             {{#if (eq path 'ReportCover')}}
-                            <img src="./photos/ship.PNG "/>
-                            {{!-- <img src="{{getImageUri fullUri}}" alt="ship logo"  /> --}}
+                            {{!-- <img src="./photos/ship.PNG "/> --}}
+                            <img src="{{getImageUri fullUri}}" alt="ship logo"  />
                             {{/if}}
                             {{/each}}
                             </div>
@@ -710,14 +710,15 @@
                                     {{/if}}
                                 </div>
                                
-                                <div class="row" id="center">
-                                    <div class="column" style="margin-left: auto; margin-right:auto;">
+                                <div class="row" >
+                                    <div class="column" style="margin-left:70px; margin-right:auto;" >
                                         {{#getImages attachmentFolder ../../attachments}}
                                         <img src="{{getImageUri fullUri}}" title="{{title}}" />
                                         {{/getImages}}
-                                    </div>
-                                </div>
-                                {{/each}}
+                                    </div> 
+                                   
+                                </div> {{/each}}
+                               
                                 <p>{{{comments}}}</p>
                         </div>
                         {{/if}}
@@ -731,9 +732,9 @@
                             <p></p>
                             <h4> Report Summary </h4>
                             <p> {{{data.report.summary}}}</p>
-                            <div id="center"> Please note that additional still photographs may be provided upon client
+                            <div style="display: block; margin-left:auto; margin-right: auto"> Please note that additional still photographs may be provided upon client
                                 request. <br><br><br> &nbsp;
-                                <b><i>Thank you for the opportunity to provide our services. <br><br>
+                                <b style="display: block; margin-left:auto; margin-right: auto"><i>Thank you for the opportunity to provide our services. <br><br>
                                         If we can be of any future assistance, please do not hesitate to contact us at
                                         any time.</i></b>
                             </div>
@@ -783,7 +784,7 @@
 
                                 </div>
                                 <p />
-                                <div>
+                                <div style="page-break-inside: avoid">
                                     <table style="width:100%">
                                         <tr style="border:1px solid">
                                             <td colspan="4"
@@ -793,24 +794,22 @@
                                         </tr>
                                         <tr style="border:1px solid">
                                             <td style="border:1px solid">
-                                                <p />
+                                           
                                                 <b>Franmarine Underwater Services Pty Ltd (FUS)</b> is the sole owner of
                                                 the
                                                 intellectual property contained in any
                                                 documentation bearing its name. All materials, including internet pages,
                                                 document and online graphics, audio
                                                 and video, are protected by copyright law.
-                                                <p />
+                                                <br>
+                                                <br>
                                                 Apart from any fair dealing for the purpose of private study, research,
-                                                criticism or review as permitted under
-                                                the provisions of the <b>Copyright Act 1968</b>, no part of this
-                                                document
-                                                may be reproduced, transmitted in any
+                                                criticism or review as permitted under the provisions of the <b>Copyright Act 1968</b>, no part of this
+                                                document may be reproduced, transmitted in any
                                                 form or re-used for any commercial purposes whatsoever without the prior
                                                 written permission of FUS.
                                                 This document represents the status of the topic at the date shown and
-                                                is
-                                                subject to change without notice.
+                                                is subject to change without notice.
                                                 The latest version of this document is available from Document Control.
                                                 <b>©2021 FUS. All Rights Reserved.</b>
                                             </td>
