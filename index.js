@@ -8,6 +8,7 @@ const bioFouling = require ('./Biofouling.json');
 const moment = require("moment");
 const diana = require('./dianaDataEnrich.js');
 const _toc = require("./toc.js");
+
 app.use(express.static(__dirname + "/views"));
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -27,7 +28,7 @@ app.engine("hbs", exphbs({
             let nowDate = moment().format("dddd DD MMMM YYYY")
             return nowDate
         },
-        increased: function (index,lastIndex) 
+        increased: function (index, lastIndex) 
         {   
            return (lastIndex + (index +1));
         },
@@ -68,7 +69,7 @@ app.engine("hbs", exphbs({
             const image = "image place holder";
             return image;
           },
-       increment: function (value) {
+        increment: function (value) {
             return (value ?? 0) + 1;
           },
         hasValue: function (value){
@@ -79,28 +80,6 @@ app.engine("hbs", exphbs({
                   return true;
                 }
         },
-        // toc: function(section, level)
-        // {
-        //     return _toc.addSection(section,level);
-        // },
-        // commentSection: function(comment, inspectorComment,sectionIndex, subsectionIndex)
-        // {
-        //     var strValue;
-        //     if(comment.length>0 && inspectorComment.length>0)
-        //     {
-        //         strValue = "<div>" +sectionIndex + "." + subsectionIndex + ".1  Comments <p/>"  + comment + "</div>";
-        //         strValue = strValue + "<div> " + sectionIndex + "." + subsectionIndex + ".2 Inspector Comments <p/>" + inspectorComment + "</div>";
-        //     }
-        //     if(comment.length===0 || inspectorComment.length>0)
-        //     {
-        //         strValue = "<div>" + sectionIndex + "." + subsectionIndex + ".1 Inspector Comments <p/>" + inspectorComment + "</div>";
-        //     }
-        //     if(comment.length>0 || inspectorComment.length===0)
-        //     {
-        //         strValue =  "<div>" + sectionIndex + "." + subsectionIndex + ".1  Comments <p/>" + comment + "</div>";
-        //     }
-        //     return strValue;
-        // }, 
     }
 }));
 
