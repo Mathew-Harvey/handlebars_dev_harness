@@ -375,12 +375,18 @@
                                     </td>
                                     <td style="text-align: left;width:30px;border:none;font-size:12px;height:30px"></td>
                                 </tr>
+                                <tr>
+                                    <td colspan="2" style="border:none;font-size:14px;text-transform: uppercase;">
+                                        4 General Arrangement
+                                </td>
+                                    <td style="border:none"></td>
+                                </tr>
                                 {{#each data.sections}}
                                 {{#if (eq context "worklog")}}
                                 {{#if sections.[0]}}
                                 <tr>
                                     <td colspan="2" style="border:none;font-size:14px;text-transform: uppercase;">
-                                        {{increased @index 3}} {{title}}
+                                        {{increased @index 4}} {{title}}
                                     </td>
                                     <td style="border:none"></td>
                                 </tr>
@@ -388,8 +394,8 @@
                                 <tr>
                                     <td style="width:20px;border:none"></td>
                                     <td style="border:none;font-size:12px;text-transform: uppercase;height:30px">
-                                        <a href="#{{increased @../index 3}}.{{addOne @index}} {{title}}">
-                                            {{increased @../index 3}}.{{addOne @index}} {{title}}</a>
+                                        <a href="#{{increased @../index 4}}.{{addOne @index}} {{title}}">
+                                            {{increased @../index 4}}.{{addOne @index}} {{title}}</a>
                                     </td>
                                     <td style="text-align: left;width:30px;border:none;font-size:12px;height:30px"></td>
                                 </tr>
@@ -540,6 +546,22 @@
                             </table>
                         </div>
 
+                        <div class="page">
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                            <h4>4. GENERAL ARRANGEMENT</h4>
+                             {{#each attachments}}
+                            {{#if (eq path 'Report')}}
+                            {{!-- <img src="./photos/ship.PNG "/> --}}
+                            <img src="{{getImageUri fullUri}}" alt="General Arrangement"  />
+                            {{/if}}
+                            {{/each}}
+
+                        </div>
+
                         {{#each data.sections}}
                         {{#if (eq context "worklog")}}
                         {{#if sections.[0]}}
@@ -549,13 +571,13 @@
                             <p></p>
                             <p></p>
                             <p></p>
-                            <h4>{{increased @./index 3}} {{title}}</h1>
+                            <h4>{{increased @./index 4}} {{title}}</h1>
                                 {{#each sections}}
-                                <a id="{{increased @../index 3}}.{{addOne @index}} {{title}}">
-                                    <h5>{{increased @../index 3}}.{{addOne @index}} {{title}}</h5>
+                                <a id="{{increased @../index 4}}.{{addOne @index}} {{title}}">
+                                    <h5>{{increased @../index 4}}.{{addOne @index}} {{title}}</h5>
                                 </a>
                                 <div>
-                                    {{increased @../index 3}}.{{addOne @index}}.1 Comments {{{comments}}}
+                                    {{increased @../index 4}}.{{addOne @index}}.1 Comments {{{comments}}}
                                 </div>
                                 <div>
 

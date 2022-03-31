@@ -174,7 +174,8 @@ app.get('/repairmooring', (req, res) => {
 
     res.render("classSurvey", data);
 })
-app.get('/panelinspection', (req, res) => {
+
+app.get('/basic', (req, res) => {
     console.log("outputing result");
 
     const data = diana.enrichData(vesselData);
@@ -183,9 +184,9 @@ app.get('/panelinspection', (req, res) => {
         console.log({ ...section })
     });
 
-    res.render("flankingPanelReport", data);
+    res.render("basicReport", data);
 })
-app.get('/engineeringreport', (req, res) => {
+app.get('/IWHC', (req, res) => {
     console.log("outputing result");
 
     const data = diana.enrichData(vesselData);
@@ -194,5 +195,17 @@ app.get('/engineeringreport', (req, res) => {
         console.log({ ...section })
     });
 
-    res.render("engineeringReport", data);
+    res.render("inWaterHullClean", data);
 })
+app.get('/pre', (req, res) => {
+    console.log("outputing result");
+
+    const data = diana.enrichData(vesselData);
+
+    data.data.sections.map(section => {
+        console.log({ ...section })
+    });
+
+    res.render("prePurchaseInWaterSurvey", data);
+})
+

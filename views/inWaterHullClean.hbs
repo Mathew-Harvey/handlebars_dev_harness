@@ -5,10 +5,10 @@
     <meta http-equiv=Content-Type content="text/html; charset=UTF-8">
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Biofouling Inspection Report</title>
+    <title>In-Water Hull Clean Report</title>
     <style>
         * {
-            font-family: 'Calibri', sans-serif;
+            font-family:  'Calibri', sans-serif;
         }
 
         html {
@@ -206,7 +206,7 @@
             grid-auto-flow: column;
         }
 
-
+ 
 
         @page {
             size: A4;
@@ -264,14 +264,6 @@
                 left: 50%;
                 transform: translate(-50% -50%);
             }
-            #largeImg {
-                max-width: 100%;
-                object-fit: contain;
-            }
-
-            #largeImgDiv {
-                width: 550px
-            }
     </style>
 </head>
 
@@ -289,15 +281,15 @@
 
         <div class="page-footer-cover">
             <tr>
-                <td><img src="https://cdn.marinestream.io/templates/logos/FooterFUS.png" alt="FUS footer cover page"
-                        style="width:790px; float:left"></td>
+                <td><img src="https://cdn.marinestream.io/templates/logos/FooterFUS.png"
+                        alt="FUS footer cover page" style="width:790px; float:left"></td>
             </tr>
         </div>
 
 
         <div class="page-footer" style="font-size:xx-small">
             {{data.vessel.displayName}} - {{createdBy.companyName}} - {{formatDateTime
-            data.actualDelivery.startDateTime.date "dddd DD MMMM YYYY"}} - Biofouling Inspection
+            data.actualDelivery.startDateTime.date "dddd DD MMMM YYYY"}} -In-Water Hull Clean
         </div>
 
 
@@ -321,17 +313,18 @@
                             <h1>Report</h1>
                             &nbsp;
                             <h2>{{data.vessel.displayName}}</h2>
-                            <h2>Biofouling Inspection</h2>
+                            <h2>In-Water Hull Clean</h2>
                             <h3>CONFIDENTIAL</h3>
 
 
 
-                            <div id="largeImgDiv" style="margin-left: auto; margin-right: auto; ">
-                                {{#each attachments}}
-                                {{#if (eq path 'ReportCover')}}
-                                <img src="{{getImageUri fullUri}}" alt="General Arrangement" id="largeImg" />
-                                {{/if}}
-                                {{/each}}
+                            <div style="margin-left: auto; margin-right: auto; ">
+                            {{#each attachments}}
+                            {{#if (eq path 'ReportCover')}}
+                            {{!-- <img src="./photos/ship.PNG "/> --}}
+                            <img src="{{getImageUri fullUri}}" alt="ship logo"  />
+                            {{/if}}
+                            {{/each}}
                             </div>
 
 
@@ -341,7 +334,7 @@
                             <p />
                             <h3>{{formatDateTime data.actualDelivery.startDateTime.date "dddd DD MMMM YYYY"}} </h3>
                         </div>
-
+               
                         <div class="page">
                             <p></p>
                             <p></p>
@@ -385,7 +378,7 @@
                                 <tr>
                                     <td colspan="2" style="border:none;font-size:14px;text-transform: uppercase;">
                                         4 General Arrangement
-                                    </td>
+                                </td>
                                     <td style="border:none"></td>
                                 </tr>
                                 {{#each data.sections}}
@@ -512,10 +505,8 @@
                             <p />
                             <h4>3.1 PAINT DETERIORATION RATING (PDR) SCALE</h4>
                             <table style="width:100%">
-                                <th style="background-color: #365F91;height:30px; border:1px solid; color:white">RATING
-                                </th>
-                                <th style="background-color: #365F91;height:30px; border:1px solid; color:white">
-                                    DESCRIPTION</th>
+                                <th style="background-color: #365F91;height:30px; border:1px solid; color:white">RATING</th>
+                                <th style="background-color: #365F91;height:30px; border:1px solid; color:white">DESCRIPTION</th>
                                 {{#each data.delivery.pdrReference}}
                                 <tr>
                                     <td style="width:70px; text-align:center;; border:1px solid"><b>PDR-{{PDR}}</b></td>
@@ -561,10 +552,10 @@
                             <p></p>
                             <p></p>
                             <h4>4. GENERAL ARRANGEMENT</h4>
-                            {{#each attachments}}
+                             {{#each attachments}}
                             {{#if (eq path 'Report')}}
-                            {{!-- <img src="./photos/ship.PNG " /> --}}
-                            <img src="{{getImageUri fullUri}}" alt="General Arrangement" />
+                            {{!-- <img src="./photos/ship.PNG "/> --}}
+                            <img src="{{getImageUri fullUri}}" alt="General Arrangement"  />
                             {{/if}}
                             {{/each}}
 
@@ -738,16 +729,16 @@
                                     {{{inspectorComments}}}
                                     {{/if}}
                                 </div>
-
-                                <div class="row">
-                                    <div class="column" style="margin-left:70px; margin-right:auto;">
+                               
+                                <div class="row" >
+                                    <div class="column" style="margin-left:70px; margin-right:auto;" >
                                         {{#getImages attachmentFolder ../../attachments}}
                                         <img src="{{getImageUri fullUri}}" title="{{title}}" />
                                         {{/getImages}}
-                                    </div>
-
+                                    </div> 
+                                   
                                 </div> {{/each}}
-
+                               
                                 <p>{{{comments}}}</p>
                         </div>
                         {{/if}}
@@ -761,11 +752,9 @@
                             <p></p>
                             <h4> Report Summary </h4>
                             <p> {{{data.report.summary}}}</p>
-                            <div style="display: block; margin-left:auto; margin-right: auto"> Please note that
-                                additional still photographs may be provided upon client
+                            <div style="display: block; margin-left:auto; margin-right: auto"> Please note that additional still photographs may be provided upon client
                                 request. <br><br><br> &nbsp;
-                                <b style="display: block; margin-left:auto; margin-right: auto"><i>Thank you for the
-                                        opportunity to provide our services. <br><br>
+                                <b style="display: block; margin-left:auto; margin-right: auto"><i>Thank you for the opportunity to provide our services. <br><br>
                                         If we can be of any future assistance, please do not hesitate to contact us at
                                         any time.</i></b>
                             </div>
@@ -825,18 +814,11 @@
                                         </tr>
                                         <tr style="border:1px solid">
                                             <td style="border:1px solid">
-
-                                                <b>Franmarine Underwater Services Pty Ltd (FUS)</b> is the sole owner of
-                                                the
-                                                intellectual property contained in any
-                                                documentation bearing its name. All materials, including internet pages,
-                                                document and online graphics, audio
-                                                and video, are protected by copyright law.
-                                                <br>
+                                           
+                                                <b>Franmarine Underwater Services Pty Ltd (FUS)</b> is the sole owner of the intellectual property contained in any documentation bearing its name. All materials, including internet pages, document and online graphics, audio and video, are protected by copyright law.  <br>
                                                 <br>
                                                 Apart from any fair dealing for the purpose of private study, research,
-                                                criticism or review as permitted under the provisions of the
-                                                <b>Copyright Act 1968</b>, no part of this
+                                                criticism or review as permitted under the provisions of the <b>Copyright Act 1968</b>, no part of this
                                                 document may be reproduced, transmitted in any
                                                 form or re-used for any commercial purposes whatsoever without the prior
                                                 written permission of FUS.

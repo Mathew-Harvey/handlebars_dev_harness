@@ -5,7 +5,7 @@
     <meta http-equiv=Content-Type content="text/html; charset=UTF-8">
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Biofouling Inspection Report</title>
+    <title>Pre-Purchase In-Water Survey Report</title>
     <style>
         * {
             font-family: 'Calibri', sans-serif;
@@ -264,14 +264,6 @@
                 left: 50%;
                 transform: translate(-50% -50%);
             }
-            #largeImg {
-                max-width: 100%;
-                object-fit: contain;
-            }
-
-            #largeImgDiv {
-                width: 550px
-            }
     </style>
 </head>
 
@@ -297,7 +289,7 @@
 
         <div class="page-footer" style="font-size:xx-small">
             {{data.vessel.displayName}} - {{createdBy.companyName}} - {{formatDateTime
-            data.actualDelivery.startDateTime.date "dddd DD MMMM YYYY"}} - Biofouling Inspection
+            data.actualDelivery.startDateTime.date "dddd DD MMMM YYYY"}} - Pre-Purchase In-Water Survey Report
         </div>
 
 
@@ -321,15 +313,16 @@
                             <h1>Report</h1>
                             &nbsp;
                             <h2>{{data.vessel.displayName}}</h2>
-                            <h2>Biofouling Inspection</h2>
+                            <h2>Pre-Purchase In-Water Survey</h2>
                             <h3>CONFIDENTIAL</h3>
 
 
 
-                            <div id="largeImgDiv" style="margin-left: auto; margin-right: auto; ">
+                            <div style="margin-left: auto; margin-right: auto; ">
                                 {{#each attachments}}
                                 {{#if (eq path 'ReportCover')}}
-                                <img src="{{getImageUri fullUri}}" alt="General Arrangement" id="largeImg" />
+                                {{!-- <img src="./photos/ship.PNG " /> --}}
+                                <img src="{{getImageUri fullUri}}" alt="ship logo" />
                                 {{/if}}
                                 {{/each}}
                             </div>
@@ -569,6 +562,7 @@
                             {{/each}}
 
                         </div>
+
                         {{#each data.sections}}
                         {{#if (eq context "worklog")}}
                         {{#if sections.[0]}}
