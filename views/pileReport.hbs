@@ -316,11 +316,13 @@
                             &nbsp;
                             <h2>{{data.vessel.displayName}}</h2>                         
                        
-Delivery Team 
-Supervisor: {{data.invites.seller.0.email}}
-Quality Assurance:{{data.invites.qa.0.email}}
-Divers:{{data.invites.divers_workers.0.name}}, {{data.invites.divers_workers.1.name}}
-Pile Repair Report: {{{data.assetDetails.PileRepairReport}}}
+<b>Delivery Team Supervisor:</b> NAME: {{data.invites.seller.0.email}} {{data.invites.seller.0.email}}
+<br>
+<b>Quality Assurance:</b>{{data.invites.qa.0.email}}
+<br>
+<b>Divers:</b>{{data.invites.divers_workers.0.name}}, {{data.invites.divers_workers.1.name}}
+<br>
+<H1>Pile Repair Report: </H1> {{{data.assetDetails.PileRepairReport}}}
 
 {{steps.1.steps.0.layout.components.1.properties.title}}
 {{#each attachments}}
@@ -332,7 +334,7 @@ Pile Repair Report: {{{data.assetDetails.PileRepairReport}}}
 {{steps.1.steps.0.layout.components.2.properties.title}}
 {{#each attachments}}
 {{#if (eq path 'attachementsTwo')}}
-<img src="{{getImageUri fullUri}}"   />
+<img src="{{getImageUri fullUri}}"/>
 {{/if}}
 {{/each}}
 
