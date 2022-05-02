@@ -8,6 +8,7 @@ const bioFouling = require ('./Biofouling.json');
 const moment = require("moment");
 const diana = require('./dianaDataEnrich.js');
 const _toc = require("./toc.js");
+const piledata = require ('./piledata.json')
 
 app.use(express.static(__dirname + "/views"));
 app.use(bodyParser.json())
@@ -107,16 +108,16 @@ app.get('/', (req, res) => {
     res.render("mainClassInspection", data);
 })
 
-app.get('/hull', (req, res) => {
-    const data = diana.enrichData(vesselData);
+app.get('/pile', (req, res) => {
+    const data = diana.enrichData(piledata);
 
     console.log("outputing result");
 
-    dianaWork.data.sections.map(section => {
+    data.data.sections.map(section => {
         console.log({ ...section })
     });
 
-    res.render("mainHullInspection", data);
+    res.render("pileReport", data);
 })
 
 app.get('/biofouling', (req, res) => {

@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv=Content-Type content="text/html; charset=UTF-8">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>{{data.pile.data.displayName}} Inpsection / Repair Report</title>
+    <style>
+        * {
+            font-family:  'Calibri', sans-serif;
+        }
+
+        html {
+            background: white;
+            display: block;
+        }
+
+        body {
+            max-width: 50em;
+            background: white;
+            padding: 2em;
+        }
+
+        .page-header,
+        .page-header-space {
+            height: 100px;
+        }
+
+        .page-footer,
+        .page-footer-space {
+            height: 50px;
+
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 90%;
+            height: 100%;
+            page-break-inside: auto;
+            position: center;
+        }
+
+        h1 {
+
+            font-size: 28px;
+            text-transform: uppercase;
+            text-align: left;
+            color: #365F91
+        }
+
+        h2 {
+
+            font-size: 22px;
+            text-transform: uppercase;
+            text-align: center;
+            color: #365F91
+        }
+
+        h3 {
+
+            font-size: 20px;
+            text-transform: uppercase;
+            text-align: center;
+            color: #365F91
+        }
+
+        h4 {
+
+            font-size: 18px;
+            text-transform: uppercase;
+            text-align: left;
+            color: #365F91;
+        }
+
+        h5 {
+
+            font-size: 16px;
+            text-transform: uppercase;
+            text-align: left;
+            color: #365F91;
+        }
+
+        h6 {
+            font-size: 12px;
+            text-transform: uppercase;
+            text-align: left;
+            color: #365F91;
+            padding: 25px;
+        }
+
+
+        .page-footer {
+            position: fixed;
+            align-content: center;
+            margin-left: 60px;
+            bottom: 0;
+            width: 100%;
+            border-top: none;
+            z-index: 1;
+
+        }
+
+        .page-footer-cover {
+            position: absolute;
+            align-content: center;
+            bottom: 0;
+            width: 100%;
+            border-top: none;
+            z-index: 2;
+        }
+
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 0 4px;
+        }
+
+
+        .column img {
+            height: 200px;
+            width: 250px;
+            margin-top: 8px;
+            vertical-align: middle;
+        }
+
+        ul.a {
+            list-style-type: none;
+            font-size: 12px;
+            list-style-position: outside;
+            margin-top: auto;
+            margin-bottom: auto;
+
+        }
+
+        ul.b {
+            list-style-type: none;
+            font-size: 10px;
+            padding: 75px;
+            list-style-position: inside;
+            margin-top: auto;
+            margin-bottom: auto;
+        }
+
+        li {
+            margin-top: 10px;
+
+        }
+
+        li:first-child {
+            margin-top: 0;
+        }
+
+        a:link {
+            text-decoration: none;
+        }
+
+        a,
+        a:visited,
+        a:hover,
+        a:active {
+            color: black;
+        }
+
+        .page-header {
+            position: fixed;
+            top: 0mm;
+            width: 100%;
+        }
+
+        .page {
+            page-break-after: always;
+            size: A4;
+            width: 85%;
+            margin: 17mm 17mm 17mm 17mm;
+
+        }
+
+        .centeredText {
+            text-align: center !important;
+        }
+
+
+
+        #container {
+            -mz-column-count: 2;
+            -webkit-column-count: 2;
+            column-count: 2;
+            height: 60px;
+            width: 40px;
+        }
+
+        .block {
+            width: 40px;
+            height: 40px;
+            margin: 0 0 5px 0;
+        }
+
+        #grid {
+            height: 100px;
+            display: grid;
+            grid-template-areas: "a a";
+            gap: 10px;
+            grid-template: repeat(2 1fr);
+            grid-auto-columns: 90px;
+            grid-auto-flow: column;
+        }
+
+ 
+
+        @page {
+            size: A4;
+            margin: 17mm 17mm 17mm 17mm;
+            page-break-inside: auto;
+
+
+
+            @media screen {
+                    {
+                    size: A4;
+                    margin: 17mm 17mm 17mm 17mm;
+                }
+            }
+
+            @media print {
+                thead {
+                    display: table-header-group;
+                }
+
+                tfoot {
+                    display: table-footer-group;
+                }
+
+                button {
+                    display: none;
+                }
+
+                body {
+                    margin: 0;
+                }
+            }
+
+            section {
+                page-break-inside: avoid;
+            }
+
+            .center {
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+                width: 50%;
+            }
+
+            #center {
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+                width: 50%;
+            }
+
+            .centerDivOnPage {
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50% -50%);
+            }
+    </style>
+</head>
+
+<body>
+
+    <div class="section">
+        <div class="page-header">
+            <table class="table">
+                <tr>
+                    <td><img src="https://cdn.marinestream.io/templates/logos/FranMarine_logo_2000x600px.png"
+                            alt="Franmarine Logo" style="width:300px; float:left"></td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="page-footer-cover">
+            <tr>
+                <td><img src="https://cdn.marinestream.io/templates/logos/FooterFUS.png"
+                        alt="FUS footer cover page" style="width:790px; float:left"></td>
+            </tr>
+        </div>
+
+
+        <div class="page-footer" style="font-size:xx-small">
+            {{data.vessel.displayName}} - {{createdBy.companyName}} - {{formatDateTime
+            data.actualDelivery.startDateTime.date "dddd DD MMMM YYYY"}} -Pile Inspection / Repair
+        </div>
+
+
+
+        <table style="width:100%;position:center">
+
+            <thead style="width:100%">
+                <tr style="width:90%">
+                    <td style="width:90%">
+                        <!--place holder for the fixed-position header-->
+                        <div class="page-header-space"></div>
+                    </td>
+                </tr>
+            </thead>
+
+            <tbody style="width:100%">
+                <tr style="width:90%">
+                    <td style="width:90%">
+                        <!--*** CONTENT GOES HERE ***-->
+                        <div class="page">
+                            <h1>{{data.report.title}}</h1>
+                                                    <h2> {{data.pile.data.displayName}} Inpsection / Repair Report</h2>
+                                                    
+                            &nbsp;
+                            <h2>{{data.vessel.displayName}}</h2>                         
+                       
+Delivery Team 
+Supervisor: {{data.invites.seller.0.email}}
+Quality Assurance:{{data.invites.qa.0.email}}
+Divers:{{data.invites.divers_workers.0.name}}, {{data.invites.divers_workers.1.name}}
+Pile Repair Report: {{{data.assetDetails.PileRepairReport}}}
+
+{{steps.1.steps.0.layout.components.1.properties.title}}
+{{#each attachments}}
+{{#if (eq path 'attachementsOne')}}
+<img src="{{getImageUri fullUri}}"   />
+{{/if}}
+{{/each}}
+
+{{steps.1.steps.0.layout.components.2.properties.title}}
+{{#each attachments}}
+{{#if (eq path 'attachementsTwo')}}
+<img src="{{getImageUri fullUri}}"   />
+{{/if}}
+{{/each}}
+
+{{steps.1.steps.0.layout.components.3.properties.title}}
+{{#each attachments}}
+{{#if (eq path 'attachementsThree')}}
+<img src="{{getImageUri fullUri}}"  />
+{{/if}}
+{{/each}}
+
+{{steps.1.steps.0.layout.components.4.properties.title}}
+{{#each attachments}}
+{{#if (eq path 'attachementsFour')}}
+<img src="{{getImageUri fullUri}}"  />
+{{/if}}
+{{/each}}
+
+{{steps.1.steps.0.layout.components.5.properties.title}}
+{{#each attachments}}
+{{#if (eq path 'attachementsFive')}}
+<img src="{{getImageUri fullUri}}"  />
+{{/if}}
+{{/each}}
+
+{{steps.1.steps.0.layout.components.6.properties.title}}
+{{#each attachments}}
+{{#if (eq path 'attachementsSix')}}
+<img src="{{getImageUri fullUri}}"  />
+{{/if}}
+{{/each}}
+
+{{steps.1.steps.0.layout.components.7.properties.title}}
+{{#each attachments}}
+{{#if (eq path 'attachementsSeven')}}
+<img src="{{getImageUri fullUri}}" />
+{{/if}}
+{{/each}}
+
+{{steps.1.steps.0.layout.components.8.properties.title}}
+{{#each attachments}}
+{{#if (eq path 'attachementsEight')}}
+<img src="{{getImageUri fullUri}}"  />
+{{/if}}
+{{/each}}
+
+
+
+
+
+
+
+
+
+                        </div>
+                        <div class="page">
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                            <p></p>
+
+                        </div>
+                        <div class="page">
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                            <p></p>
+
+                        </div>
+                        <div class="page">
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                            <p></p>
+
+                        </div>
+                        <div class="page">
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                            <p></p>
+
+                        </div>
+                        <div class="page">
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                            <p></p>
+
+
+                        </div>
+ 
+                        <div class="page">
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                            <p></p>
+    
+                            <div style="display: block; margin-left:auto; margin-right: auto"> Please note that additional still photographs may be provided upon client
+                                request. <br><br><br> &nbsp;
+                                <b style="display: block; margin-left:auto; margin-right: auto"><i>Thank you for the opportunity to provide our services. <br><br>
+                                        If we can be of any future assistance, please do not hesitate to contact us at
+                                        any time.</i></b>
+                            </div>             
+
+                            <div class="centeredText">
+                                <h2>END OF REPORT</h2>
+                            </div>
+                            <div class="page">
+                                <div>
+                                    <table style="width:100%">
+                                        <tr>
+                                            <td colspan="4"
+                                                style="background-color: #365F91;border:1px solid; height:30px">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="background-color:lightgrey;border:1px solid; height:20px">Action
+                                            </td>
+                                            <td style="background-color:lightgrey;border:1px solid">Name</td>
+                                            <td style="background-color:lightgrey;border:1px solid">Date</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="border:1px solid">Reviewed By</td>
+                                            <td style="border:1px solid">{{data.invites.qa.0.name}}</td>
+                                            <td style="border:1px solid">{{formatDateTime
+                                                data.actualDelivery.startDateTime.date "dddd DD MMMM YYYY"}}</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td style="border:1px solid">Prepared By</td>
+                                            <td style="border:1px solid">Franmarine Powered by MarineStream</td>
+                                            <td style="border:1px solid">{{formatDateTime
+                                                data.actualDelivery.startDateTime.date "dddd DD MMMM YYYY"}}</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td style="border:1px solid">Approved By</td>
+                                            <td style="border:1px solid">{{data.invites.approver.0.name}}</td>
+                                            <td style="border:1px solid">{{formatDateTime
+                                                data.actualDelivery.startDateTime.date "dddd DD MMMM YYYY"}}</td>
+
+                                        </tr>
+                                    </table>
+                                    &nbsp;
+
+                                </div>
+                                <p />
+                                <div style="page-break-inside: avoid">
+                                    <table style="width:100%">
+                                        <tr style="border:1px solid">
+                                            <td colspan="4"
+                                                style="background-color: #365F91; text-align:center;color:white">
+                                                Copyright
+                                                Notice</td>
+                                        </tr>
+                                        <tr style="border:1px solid">
+                                            <td style="border:1px solid">
+                                           
+                                                <b>Franmarine Underwater Services Pty Ltd (FUS)</b> is the sole owner of the intellectual property contained in any documentation bearing its name. All materials, including internet pages, document and online graphics, audio and video, are protected by copyright law.  <br>
+                                                <br>
+                                                Apart from any fair dealing for the purpose of private study, research,
+                                                criticism or review as permitted under the provisions of the <b>Copyright Act 1968</b>, no part of this
+                                                document may be reproduced, transmitted in any
+                                                form or re-used for any commercial purposes whatsoever without the prior
+                                                written permission of FUS.
+                                                This document represents the status of the topic at the date shown and
+                                                is subject to change without notice.
+                                                The latest version of this document is available from Document Control.
+                                                <b>©2021 FUS. All Rights Reserved.</b>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                    </td>
+                </tr>
+            </tbody>
+
+            <tfoot style="width:90%">
+                <tr>
+                    <td style="width:90%">
+                        <!--place holder for the fixed-position footer-->
+                        <div class="page-footer-space"></div>
+                    </td>
+                </tr>
+            </tfoot>
+
+        </table>
+    </div>
+</body>
+
+</html>
