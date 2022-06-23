@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>C# code reverse engineering</title>
 </head>
+
 <body>
-<div><pre><code>
+    <div>
+        <pre><code>
 
 using System;
 using Diana.Core;
@@ -18,71 +21,67 @@ namespace Diana.DatabaseUpgrade
 {
     public class TestFlow_v2 : ICreateFlow_v2
     {
-        public string Name => "{{[0].name}}";
+        public string Name => "{{name}}";
 
-        public string Id => "{{[0]._id}}";
+        public string Id => "{{_id}}";
 
-        public string FlowOriginId => "{{[0].originId}}";
+        public string FlowOriginId => "{{originId}}";
 
-        public int Version => {{[0].resourceVersion}};
+        public int Version => {{resourceVersion}};
 
         public IDianaFlowConfiguration CreateFlow()
         {
             return Diana.Workflow.Common.v2.DianaFlowBuilder_v2.Create(
-                name: "{{[0].name}}",
-                displayName: "{{[0].displayName}}",
-                description: "{{[0].description}}",
-                flowVersion: {{[0].resourceVersion}},
-                id: {{[0]._id}},
-                originId: {{[0].originId}},
-                flowType: "{{[0].flowType}}",
-                entityType: "{{[0].entityType}}",
-                imageUrl: "{{[0].imageUrl}}")
+                name: "{{name}}",
+                displayName: "{{displayName}}",
+                description: "{{description}}",
+                flowVersion: {{resourceVersion}},
+                id: {{_id}},
+                originId: {{originId}},
+                flowType: "{{flowType}}",
+                entityType: "{{entityType}}",
+                imageUrl: "{{imageUrl}}")
             .AddTags("Project:Carbon") // <b>what is this</b>
-            //loop over step
-            {{#each [0].steps }}
+       
+            {{#each steps }}
             .AddStep(
-                id: "7a646d82-4b98-46fc-b9be-4e2a5fd1b385",
-                name: "Registration",
-                displayName: "User Registration",
-                description: "User registration",
-                layout: "Auxos/rise-x/test/workFlow", 
-                flowId: Id,
-                flowOriginId: FlowOriginId)
-                //loop over actions
+                id: "{{_id}}",
+                name: "{{name}}",
+                displayName: "{{displayName}}",
+                description: "{{comments}}",
+                layout: "Auxos/rise-x/test/workFlow",  // <b>What is this</b>
+                flowId: {{flowId}},
+                flowOriginId: {{flowOriginId}})
+             
+                 {{#each actions }}
                 .AddAction(
-                    id: "bc47735a-56c8-4d17-bc13-19b2623326e9",
-                    name: "Submit Registration", // enforce unique in flow.
-                    completedName: "Registration Submitted", // enforce unique in flow.
-                    displayName: "Submit", // can be same as other actions
-                    sendDefaultEmail: false,
-                    executeMode: DianaStepMode.Event,
-                    destinationType: DianaFlowStepDestinationType.Next)
-                    //loop over activity
+                    id: "{{_id}}",
+                    name: "{{name}}",
+                    completedName: "{{displayName}}",
+                    displayName: "{{completedName}}", 
+                    sendDefaultEmail: {{sendDefaultEmail}},
+                    executeMode: DianaStepMode.Event, // <b>what is this</b>
+                    destinationType: {{destination._t}}.{{destination.destinationType}})
+                  
+                     {{#each activities}}
                     .AddActivity(
-                        Diana.Flow.Activity.v2.DianaSmartContractActivityConfiguration.Create((config) =>
+                        new Flow.Common.v2.DianaActivityConfigurationBase()
                         {
-                            config.Enabled = true;
-                            config.BlockchainNetwork = "Diana";
-                        }))
-                    .AddEmailActivity(
-                        subject: "[{$.workCode}] - {$.from.name} has invited you to a new job.",
-                        templateUri: "https://cdn.rise-x.com/diana/templates/email/generic/DianaInviteEmailTemplate_v3.html",
-                        message: "{$.from.name} has shared a '{$.displayName}' work item with you and requires your input.",
-                        buttonText: "Open Work Item")
-//close all loops here
-                .AddAction(
-                    id: "d3f34210-0469-47b8-ad69-b54e1ee66ea6",
-                    // enforce unique in flow.
-                    name: "Terminate",
-                    // enforce unique in flow.
-                    displayName: "Terminate",
-                    completedName: "Terminated Flow",
-                    // can be same as other actions
-                    sendDefaultEmail: false,
-                    executeMode: DianaStepMode.Event,
-                    destinationType: DianaFlowStepDestinationType.Close)
+                            Name = "{{name}}",
+                            DisplayName = "{{displayName}}",
+                            Configuration = JObject.Parse("{{toString properties}}"),
+                            Comments = "{{comments}}",
+                            ContinueOnError = {{continueOnError}},
+                            ExecuteWhen = DianaExecuteWhen.{{executeWhen}}, 
+                            Id = Guid.Parse("{{_id}}"),
+                            ImageUrl = new Uri("{{imageUrl}}", UriKind.Absolute),
+                            NormalisedName = "{{normalisedName}}"
+                        }
 
+                    {{/each}}
+                {{/each}}
+            {{/each}}
+            
                 .Validate()
                 .Build();
         }
@@ -90,6 +89,6 @@ namespace Diana.DatabaseUpgrade
 }
 </code>
 </pre>
-</div>
+    </div>
 
 </body>

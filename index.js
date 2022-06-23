@@ -9,7 +9,8 @@ const moment = require("moment");
 const diana = require('./dianaDataEnrich.js');
 const _toc = require("./toc.js");
 const piledata = require ('./piledata.json')
-const dianaData = require ('./dianaFlowV2.json')
+const dianaData = require ('./dianaFlowV2.json');
+// const { stringify } = require("jsonpath");
 
 app.use(express.static(__dirname + "/views"));
 app.use(bodyParser.json())
@@ -25,6 +26,9 @@ app.engine("hbs", exphbs({
             let currentTime = moment(dateTime);
             let timeFixed = currentTime.local().format(dateTimeFormat);
             return timeFixed;
+        },
+        toString: function(obj) {
+            return JSON.stringify(obj).replaceAll("\"","\\\"");
         },
         todaysDate: function () {
             let nowDate = moment().format("dddd DD MMMM YYYY")
