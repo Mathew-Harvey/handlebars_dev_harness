@@ -9,7 +9,8 @@ const moment = require("moment");
 const diana = require('./dianaDataEnrich.js');
 const _toc = require("./toc.js");
 const piledata = require ('./piledata.json')
-const dianaData = require ('./dianaFlowV2.json');
+const dianaFlowData = require ('./dianaFlowV2.json');
+const dianaLayoutData = require ('./dianaLayout.json')
 
 
 app.use(express.static(__dirname + "/views"));
@@ -22,14 +23,17 @@ app.engine("hbs", exphbs({
     extname: "hbs",
     defaultLayout: "index",
     helpers: {
+
+        toString: function(obj) {
+            return JSON.stringify(obj).replaceAll("\"","\\\"");
+        },
+
         formatDateTime: function (dateTime, dateTimeFormat) {
             let currentTime = moment(dateTime);
             let timeFixed = currentTime.local().format(dateTimeFormat);
             return timeFixed;
         },
-        toString: function(obj) {
-            return JSON.stringify(obj).replaceAll("\"","\\\"");
-        },
+       
         todaysDate: function () {
             let nowDate = moment().format("dddd DD MMMM YYYY")
             return nowDate
@@ -215,11 +219,18 @@ app.get('/pre', (req, res) => {
     res.render("prePurchaseInWaterSurvey", data);
 })
 
-app.get('/dianaConfig', (req, res) => {
+app.get('/dianaFlow', (req, res) => {
 
-    const data = dianaData
+    const data = dianaFlowData
     console.log("outputing result");
     res.render("dianaFlowV2", data);
+})
+
+app.get('/dianaLayout', (req, res) => {
+
+    const data = dianaLayoutData
+    console.log("outputing result");
+    res.render("dianaLayout", data);
 })
 
 
