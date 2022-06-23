@@ -1,0 +1,336 @@
+[
+    {
+      "_id": "8828c1d2-39cb-4db6-9cee-b7d2a9e1b93f",
+      "addedAtUtc": "2022-06-08T11:14:04.7224651Z",
+      "version": 1,
+      "partitionKey": "_id",
+      "workCodeTemplate": {
+        "key": "{$.now:yyyy}",
+        "template": "{$.shortCode}-{$.now:yyyy}-{$.next:000}"
+      },
+      "name": "Test/WorkFlow/Configuration",
+      "normalisedName": "TEST/WORKFLOW/CONFIGURATION",
+      "simpleName": "WorkFlow v2",
+      "displayName": "Work Flow v2",
+      "entities": null,
+      "entityType": "Workflows",
+      "comments": null,
+      "flowResourceType": "Work",
+      "resourceVersion": 2,
+      "resourceRevision": 0,
+      "revision": 0,
+      "layoutId": "00000000-0000-0000-0000-000000000000",
+      "cardLayoutId": "00000000-0000-0000-0000-000000000000",
+      "cardLayout": null,
+      "summaryCardLayout": null,
+      "summaryCardLayoutId": "00000000-0000-0000-0000-000000000000",
+      "task": null,
+      "action": null,
+      "flowId": "8828c1d2-39cb-4db6-9cee-b7d2a9e1b93f",
+      "acl": {
+        "guestAccessList": [],
+        "_id": "91de01ce-6780-4999-860d-b01db6013dc9",
+        "checkConstraint": null,
+        "ownerGroupId": "f93c2b84-8bdd-5ac8-b541-ce7e2734132e",
+        "rolePermissions": {
+          "ReadOnly": {
+            "Read": true
+          },
+          "Owner": {
+            "Read": true,
+            "Edit": true,
+            "Update": true,
+            "Save": true,
+            "Delegate": true,
+            "Delete": true,
+            "Start": true
+          },
+          "Everyone": {
+            "Read": true
+          },
+          "Contributor": {
+            "Read": true,
+            "Start": true
+          },
+          "FlowOwner": {}
+        },
+        "userPermissions": {},
+        "userRoles": {
+          "583a282f-1de6-551c-8618-2e1fa6079d20": [
+            "Owner",
+            "Everyone"
+          ],
+          "f1540045-f37f-5113-808f-9576e4e8f269": [
+            "Owner"
+          ],
+          "0113eb7b-3d94-5107-a8b1-9f7ee0ae41e4": [
+            "Everyone",
+            "Owner",
+            "FlowOwner"
+          ]
+        },
+        "displayName": ""
+      },
+      "steps": [
+        {
+          "_t": "DianaFlowStep",
+          "name": "Registration",
+          "normalisedName": "REGISTRATION",
+          "displayName": "User Registration",
+          "layoutId": "00000000-0000-0000-0000-000000000000",
+          "task": null,
+          "actions": [
+            {
+              "activities": [
+                {
+                  "_id": "00000000-0000-0000-0000-000000000000",
+                  "flowId": "00000000-0000-0000-0000-000000000000",
+                  "flowOriginId": "00000000-0000-0000-0000-000000000000",
+                  "flowType": null,
+                  "name": "DianaSmartContract",
+                  "normalisedName": "DIANASMARTCONTRACT",
+                  "displayName": "Diana Smart Contract Interaction",
+                  "comments": "Creates, Invites and Updates Event Stream in the smart contract",
+                  "executeWhen": "OnExecute",
+                  "properties": {
+                    "blockchainNetwork": "Diana",
+                    "enabled": true,
+                    "id": "00000000-0000-0000-0000-000000000000",
+                    "name": "DianaSmartContract",
+                    "normalisedName": "DIANASMARTCONTRACT",
+                    "displayName": "Diana Smart Contract Interaction",
+                    "comments": "Creates, Invites and Updates Event Stream in the smart contract",
+                    "executeWhen": "OnExecute",
+                    "imageUrl": null,
+                    "continueOnError": false,
+                    "configuration": null
+                  },
+                  "imageUrl": null,
+                  "continueOnError": false
+                },
+                {
+                  "_id": "00000000-0000-0000-0000-000000000000",
+                  "flowId": "00000000-0000-0000-0000-000000000000",
+                  "flowOriginId": "00000000-0000-0000-0000-000000000000",
+                  "flowType": null,
+                  "name": "SendEmail",
+                  "normalisedName": "SENDEMAIL",
+                  "displayName": "Send Email",
+                  "comments": "Sends an email",
+                  "executeWhen": "AfterExecute",
+                  "properties": {
+                    "sendEmail": true,
+                    "addAttachments": false,
+                    "templateUri": "https://cdn.rise-x.com/diana/templates/email/generic/DianaInviteEmailTemplate_v3.html",
+                    "buttonText": "Open Work Item",
+                    "callToAction": null,
+                    "title": null,
+                    "subject": "[{$.workCode}] - {$.from.name} has invited you to a new job.",
+                    "message": "{$.from.name} has shared a '{$.displayName}' work item with you and requires your input.",
+                    "fromEntity": "Initiator",
+                    "attachIcon": false,
+                    "toEntities": [
+                      "Next.To"
+                    ],
+                    "addQrCode": false,
+                    "addWallet": false,
+                    "attachReportUri": null,
+                    "fileName": null,
+                    "folder": null,
+                    "attachmentResourceIdPath": null,
+                    "attachmentsFolder": null,
+                    "id": "00000000-0000-0000-0000-000000000000",
+                    "name": "SendEmail",
+                    "normalisedName": "SENDEMAIL",
+                    "displayName": "Send Email",
+                    "comments": "Sends an email",
+                    "executeWhen": "AfterExecute",
+                    "imageUrl": null,
+                    "continueOnError": false,
+                    "configuration": null
+                  },
+                  "imageUrl": null,
+                  "continueOnError": false
+                }
+              ],
+              "name": "Submit Registration",
+              "normalisedName": "SUBMIT REGISTRATION",
+              "simpleName": null,
+              "displayName": "Registration Submitted",
+              "actionTypeName": "Submit Registration",
+              "comments": null,
+              "imageUrl": null,
+              "resourceVersion": 0,
+              "resourceRevision": 0,
+              "revision": 0,
+              "_id": "ab507ec6-a0ce-493f-9ee3-d490214d73d2",
+              "version": 1,
+              "execute": [],
+              "write": [],
+              "read": [],
+              "eventName": "Submit Registration",
+              "destination": {
+                "_t": "DianaFlowStepDestination",
+                "destinationType": "Next",
+                "target": "Next"
+              },
+              "mode": 0,
+              "stepStartMode": 0,
+              "created": {
+                "date": "0001-01-01T00:00:00.000+00:00",
+                "ticks": 0,
+                "offset": 0
+              },
+              "createdBy": "00000000-0000-0000-0000-000000000000",
+              "lastModified": {
+                "date": "0001-01-01T00:00:00.000+00:00",
+                "ticks": 0,
+                "offset": 0
+              },
+              "lastModifiedBy": "00000000-0000-0000-0000-000000000000",
+              "color": null,
+              "properties": {},
+              "entityType": null,
+              "data": {},
+              "dataMap": null,
+              "attachments": null,
+              "acl": null,
+              "companyId": "00000000-0000-0000-0000-000000000000",
+              "partitionKey": null,
+              "flowId": "00000000-0000-0000-0000-000000000000",
+              "flowOriginId": "00000000-0000-0000-0000-000000000000",
+              "flowType": null,
+              "ccRoles": null,
+              "executeStatus": "Complete",
+              "relationships": null,
+              "completedName": "Submit",
+              "sendDefaultEmail": true,
+              "executeMode": 2
+            }
+          ],
+          "entities": {
+            "_t": "DianaFlowEntities",
+            "entities": [
+              {
+                "partyName": "Owner",
+                "permissions": [
+                  "Write"
+                ],
+                "role": "To",
+                "dataPath": null
+              },
+              {
+                "partyName": "Requester",
+                "permissions": [
+                  "Write"
+                ],
+                "role": "Cc",
+                "dataPath": null
+              }
+            ]
+          },
+          "comments": "User registration",
+          "imageUrl": null,
+          "resourceVersion": 1,
+          "resourceRevision": 0,
+          "revision": 0,
+          "_id": "7a646d82-4b98-46fc-b9be-4e2a5fd1b385",
+          "version": 3,
+          "flowId": "8828c1d2-39cb-4db6-9cee-b7d2a9e1b93f",
+          "flowOriginId": "2136148d-1d2b-45eb-bad3-a57bb6391706",
+          "created": {
+            "date": "0001-01-01T00:00:00.000+00:00",
+            "ticks": 0,
+            "offset": 0
+          },
+          "createdBy": "00000000-0000-0000-0000-000000000000",
+          "lastModified": {
+            "date": "0001-01-01T00:00:00.000+00:00",
+            "ticks": 0,
+            "offset": 0
+          },
+          "lastModifiedBy": "00000000-0000-0000-0000-000000000000",
+          "entityType": null,
+          "data": {},
+          "dataMap": null,
+          "attachments": null,
+          "acl": null,
+          "companyId": "00000000-0000-0000-0000-000000000000",
+          "partitionKey": null,
+          "simpleName": null,
+          "flowType": "Registration",
+          "relationships": null,
+          "source": {
+            "sourceType": 1,
+            "source": null,
+            "when": 0
+          },
+          "destination": {
+            "destinationType": 0,
+            "destination": "Next"
+          },
+          "completedName": "Submit"
+        }
+      ],
+      "actions": null,
+      "flowType": "lupa/workflows/carbon",
+      "uniqueName": "test/workflow/configuration/v2",
+      "created": {
+        "date": "2022-06-08T11:14:04.723+00:00",
+        "ticks": 637902836447237100,
+        "offset": 480
+      },
+      "createdBy": "583a282f-1de6-551c-8618-2e1fa6079d20",
+      "lastModified": {
+        "date": "2022-06-08T11:14:04.723+00:00",
+        "ticks": 637902836447238500,
+        "offset": 0
+      },
+      "lastModifiedBy": "583a282f-1de6-551c-8618-2e1fa6079d20",
+      "environment": "Auxos",
+      "chains": null,
+      "group": null,
+      "companyId": "f93c2b84-8bdd-5ac8-b541-ce7e2734132e",
+      "data": {},
+      "dataMap": null,
+      "attachments": null,
+      "imageUrl": "https://cdn.rise-x.com/diana/icons/FlowIcon.svg",
+      "description": "Workflow to test the Flow.",
+      "originId": "2136148d-1d2b-45eb-bad3-a57bb6391706",
+      "displayNameTemplate": null,
+      "copiedFromId": "00000000-0000-0000-0000-000000000000",
+      "fieldConfig": {},
+      "printerContext": [],
+      "dianaVersion": {
+        "fromDate": {
+          "date": "2022-06-07T16:00:00.000+00:00",
+          "ticks": 637902144000000000,
+          "offset": 480
+        },
+        "toDate": {
+          "date": "9999-12-31T23:59:59.999+00:00",
+          "ticks": 3155378976000000000,
+          "offset": 0
+        },
+        "publishStatus": 0,
+        "versionName": "v1.0",
+        "publishedBy": "00000000-0000-0000-0000-000000000000",
+        "publishedDate": {
+          "date": "0001-01-01T00:00:00.000+00:00",
+          "ticks": 0,
+          "offset": 0
+        },
+        "comments": null,
+        "versionNumber": 2,
+        "revisionNumber": 0
+      },
+      "tags": {},
+      "exporters": [],
+      "properties": [],
+      "relationships": null,
+      "relatedFlows": null,
+      "source": null,
+      "destination": null,
+      "completedName": null
+    }
+  ]

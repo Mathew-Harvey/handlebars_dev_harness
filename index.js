@@ -9,6 +9,7 @@ const moment = require("moment");
 const diana = require('./dianaDataEnrich.js');
 const _toc = require("./toc.js");
 const piledata = require ('./piledata.json')
+const dianaData = require ('./dianaFlowV2.json')
 
 app.use(express.static(__dirname + "/views"));
 app.use(bodyParser.json())
@@ -209,4 +210,13 @@ app.get('/pre', (req, res) => {
 
     res.render("prePurchaseInWaterSurvey", data);
 })
+
+app.get('/dianaConfig', (req, res) => {
+
+    const data = dianaData
+    console.log("outputing result");
+    res.render("dianaFlowV2", data);
+})
+
+
 
