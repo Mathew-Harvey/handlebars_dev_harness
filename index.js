@@ -24,6 +24,15 @@ app.engine("hbs", exphbs({
     defaultLayout: "index",
     helpers: {
 
+        titleCaseSection: function (str) {
+            if(str === "section"){
+            var splitStr = str.toLowerCase().split(' ');
+            for (var i = 0; i < splitStr.length; i++) {
+                splitStr[i] = splitStr[i].charAt(0).toUpperCase() + splitStr[i].substring(1);     
+            }
+            return splitStr.join(' '); 
+         }},
+
         toString: function(obj) {
             return JSON.stringify(obj).replaceAll("\"","\\\"");
         },

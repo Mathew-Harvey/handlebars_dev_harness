@@ -37,15 +37,15 @@ namespace Diana.Initialisation
 
         public override int LayoutVersion => {{version}};
  
-        public override string DisplayName => "BFMP Creation Template";
+        public override string DisplayName => "{{displayName}}";
 
-        public override string Name => "Berth/Inspection/Creation";
+        public override string Name => "{{uniqueName}}"; //<b>Do we need to chop this up?</b>
 
         public override Guid CompanyId => AccessControlList.PublicCompany;
 
         public override DianaLayoutType TemplateType => DianaLayoutType.Form;
 
-        public override string IconName => "ship-line.svg";
+        public override string IconName => "{{imageUrl}}"; //<b>Do we need to chop this up?</b>
 
         protected override async Task<IDianaLayout_v2> AddOrUpdateLayout(ProcessStandards standards, IDianaLayout_v2 layout)
         {
@@ -54,10 +54,11 @@ namespace Diana.Initialisation
             layout = builder
             .Initialise(layout)
             .Clear()
-            .AddSection("Management Plan Details")
-
+            {{#each components}}
+            .Add{{ titleCaseSection component}}("{{name}}") //<b>think we need to toLowerCase all component names? Camel case is hard to programmicatlly make from lowercase</b>
+            {{/each}}
             .AddComponent(ComponentFactory.ThingSearch(new ComponentOptions()
-            {
+            { 
                 Title = "Management Plan",
                 Label = "Management Plan",
                 Placeholder = "Enter Management Plan Name",
@@ -71,7 +72,7 @@ namespace Diana.Initialisation
                 
             }), "Management Plan", defaultOn: false, "$.asset.displayName")
 
-           .AddComponent(ComponentFactory.VesselSearch(new ComponentOptions()
+           .AddComponent(ComponentFactory.VesselSearch(new ComponentOptions() //<b>think we need to toLowerCase all component names? Camel case is hard to programmicatlly make from lowercase</b>
             {
                 Title = "Vessel",
                 Label = "Select vessel",
