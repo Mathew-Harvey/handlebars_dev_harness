@@ -22,20 +22,10 @@ namespace Diana.Initialisation
 {
     using IDianaLayout_v2 = Diana.Core.IDianaLayout;
 
-    /// <summary>
-    /// MarineStream standard activity inspection engagement layout config
-    /// </summary>
     public class BFMPCreation_v1 : BFMPLayout
     {
         private readonly IServiceProvider _serviceProvider;
 
-        /// <summary>
-        /// Standard activity inspection engagement Layout config
-        /// </summary>
-        /// <param name="serviceProvider"></param>
-        /// <param name="logger"></param>
-        /// <param name="layoutService"></param>
-        /// <returns></returns>
         public BFMPCreation_v1(
                 IServiceProvider serviceProvider,
                 ILogger<DianaLayoutCreator> logger,
@@ -45,26 +35,18 @@ namespace Diana.Initialisation
             _serviceProvider = serviceProvider;
         }
 
-        public override int LayoutVersion => 1;
-
-        /// <summary>
-        ///
-        /// </summary>
+        public override int LayoutVersion => {{version}};
+ 
         public override string DisplayName => "BFMP Creation Template";
 
         public override string Name => "Berth/Inspection/Creation";
 
         public override Guid CompanyId => AccessControlList.PublicCompany;
+
         public override DianaLayoutType TemplateType => DianaLayoutType.Form;
 
         public override string IconName => "ship-line.svg";
 
-        /// <summary>
-        /// Add or update the layout
-        /// </summary>
-        /// <param name="standards"></param>
-        /// <param name="layout"></param>
-        /// <returns></returns>
         protected override async Task<IDianaLayout_v2> AddOrUpdateLayout(ProcessStandards standards, IDianaLayout_v2 layout)
         {
             DianaLayoutBuilder builder = new DianaLayoutBuilder(_serviceProvider);
@@ -73,7 +55,6 @@ namespace Diana.Initialisation
             .Initialise(layout)
             .Clear()
             .AddSection("Management Plan Details")
-
 
             .AddComponent(ComponentFactory.ThingSearch(new ComponentOptions()
             {
@@ -90,8 +71,6 @@ namespace Diana.Initialisation
                 
             }), "Management Plan", defaultOn: false, "$.asset.displayName")
 
-            // 1.0 Introduction 
-
            .AddComponent(ComponentFactory.VesselSearch(new ComponentOptions()
             {
                 Title = "Vessel",
@@ -106,10 +85,6 @@ namespace Diana.Initialisation
                 Value = ""
             }), "The Vessel", defaultOn: false, "$.displayName.displayName")
 
-          
-
-            // this needs v4 and not v5 of the product pricing component as
-            // v4 supports nested/deep paths but v5 only supports single level array/value pair.
             .AddSection("Biofouling Management Record Book")
             .AddComponent(ComponentFactory.ProductPricing_v4(new ComponentOptions()
             {
@@ -131,9 +106,8 @@ namespace Diana.Initialisation
                 Required = false,
                 Width = "col-12"
             }))
-  .AddSection("Biofouling Management Record Book - Instructions")
-                
-             .AddComponent(ComponentFactory.RichText(new ComponentOptions()
+            .AddSection("Biofouling Management Record Book - Instructions")
+            .AddComponent(ComponentFactory.RichText(new ComponentOptions()
             {
                 Title = "Biofouling Management Record Book",
                 Label = "Biofouling Management Record Book",
@@ -144,8 +118,8 @@ namespace Diana.Initialisation
                 ShowInReport = true,
                 AlwaysShow = true
             }))
-             .AddSection("Introduction")
-             .AddComponent(ComponentFactory.RichText(new ComponentOptions()
+            .AddSection("Introduction")
+            .AddComponent(ComponentFactory.RichText(new ComponentOptions()
             {
                 Title = "Introduction",
                 Label = "Introduction Text",
@@ -156,15 +130,12 @@ namespace Diana.Initialisation
                 ShowInReport = true,
                 AlwaysShow = true
             }))
-
-            // 2.0 Applicable Documents
-             .AddSection("Applicable Documents")
-             .AddComponent(ComponentFactory.Attachments(new ComponentOptions()
+            .AddSection("Applicable Documents")
+            .AddComponent(ComponentFactory.Attachments(new ComponentOptions()
             {
                 Title = "Applicable documents",
                 DataPath = "$.biofoulingUploadedDocumentsApplicableDocs",
                 Width = "col-12",
-             
                 Folder = "ApplicableDocs",
                 Required = false,
                 DateStamp = true,
@@ -195,10 +166,7 @@ namespace Diana.Initialisation
                     RiseJsonHelper.ToJson( new { displayName = "Verification", valuePath = "$.verification", type = "verification", entityType = "Work" }),
                 }
             }))
-
-
-            //3.0 Purpose
-               .AddComponent(ComponentFactory.RichText(new ComponentOptions()
+            .AddComponent(ComponentFactory.RichText(new ComponentOptions()
             {
                 Title = "Purpose",
                 Label = "Purpose",
@@ -209,8 +177,6 @@ namespace Diana.Initialisation
                 ShowInReport = true,
                 AlwaysShow = true
             }))
-
-            //4.0 Description of operating Profile
             .AddSection("Operating Profile")
             .AddComponent(ComponentFactory.TextInput(new ComponentOptions()
             {
@@ -230,7 +196,7 @@ namespace Diana.Initialisation
                 CopyData = false,
                 Required = false,
             }))
-              .AddComponent(ComponentFactory.TextInput(new ComponentOptions()
+            .AddComponent(ComponentFactory.TextInput(new ComponentOptions()
             {
                 Title = "Typical Operating Area",
                 Label = "Typical Operating Area",
@@ -239,7 +205,7 @@ namespace Diana.Initialisation
                 CopyData = false,
                 Required = false,
             }))
-              .AddComponent(ComponentFactory.TextInput(new ComponentOptions()
+            .AddComponent(ComponentFactory.TextInput(new ComponentOptions()
             {
                 Title = "Planned Duration Between Dry Docks (Yrs)",
                 Label = "Planned Duration Between Dry Docks (Yrs)",
@@ -248,10 +214,8 @@ namespace Diana.Initialisation
                 CopyData = false,
                 Required = false,
             }))
-
-            // 5.0 Description of the Anti Fouling System
             .AddSection("Antifouling System")
-               .AddComponent(ComponentFactory.RichText(new ComponentOptions()
+            .AddComponent(ComponentFactory.RichText(new ComponentOptions()
             {
                 Title = "The following anti-fouling system(s) are used on this Vessel",
                 Label = "The following anti-fouling system(s) are used on this Vessel",
@@ -262,7 +226,7 @@ namespace Diana.Initialisation
                 ShowInReport = true,
                 AlwaysShow = true
             }))
-                .AddComponent(ComponentFactory.RichText(new ComponentOptions()
+            .AddComponent(ComponentFactory.RichText(new ComponentOptions()
             {
                 Title = "Area / Location Applied and Date of Application",
                 Label = "Area / Location Applied and Date of Application",
@@ -273,7 +237,7 @@ namespace Diana.Initialisation
                 ShowInReport = true,
                 AlwaysShow = true
             }))
-              .AddComponent(ComponentFactory.TextInput(new ComponentOptions()
+            .AddComponent(ComponentFactory.TextInput(new ComponentOptions()
             {
                 Title = "Dry Film Thickness",
                 Label = "Dry Film Thickness",
@@ -282,7 +246,7 @@ namespace Diana.Initialisation
                 CopyData = false,
                 Required = false,
             }))
-             .AddComponent(ComponentFactory.TextInput(new ComponentOptions()
+            .AddComponent(ComponentFactory.TextInput(new ComponentOptions()
             {
                 Title = "Expected Life Time",
                 Label = "Expected Life Time",
@@ -291,7 +255,7 @@ namespace Diana.Initialisation
                 CopyData = false,
                 Required = false,
             }))
-             .AddComponent(ComponentFactory.RichText(new ComponentOptions()
+            .AddComponent(ComponentFactory.RichText(new ComponentOptions()
             {
                 Title = "System specifications",
                 Label = "System specifications",
@@ -302,7 +266,6 @@ namespace Diana.Initialisation
                 ShowInReport = true,
                 AlwaysShow = true
             }))
-
             .AddPanel("Detail any immersed areas where AFS are not applied or installed")
             .AddComponent(ComponentFactory.RichText(new ComponentOptions()
             {
@@ -337,7 +300,6 @@ namespace Diana.Initialisation
                 ShowInReport = true,
                 AlwaysShow = true
             }))
-
             .AddPanel("AFS Documents")
             .AddComponent(ComponentFactory.Attachments(new ComponentOptions()
             {
@@ -350,7 +312,6 @@ namespace Diana.Initialisation
                 DateStamp = true,
                 AlwaysShow = false
             }))
-        
             .AddComponent(ComponentFactory.Attachments(new ComponentOptions()
             {
                 Title = "Uploaded documents",
@@ -367,10 +328,8 @@ namespace Diana.Initialisation
                     RiseJsonHelper.ToJson( new { displayName = "Verification", valuePath = "$.verification", type = "verification", entityType = "Work" }),
                 }
             }))
-
-            // Description of areas of the Ship susceptible to biofouling
-             .AddSection("Description of areas of the Ship susceptible to biofouling")
-               .AddComponent(ComponentFactory.RichText(new ComponentOptions()
+            .AddSection("Description of areas of the Ship susceptible to biofouling")
+            .AddComponent(ComponentFactory.RichText(new ComponentOptions()
             {
                 Title = "Description of areas of the Ship susceptible to biofouling",
                 Label = "Description of areas of the Ship susceptible to biofouling",
@@ -381,7 +340,7 @@ namespace Diana.Initialisation
                 ShowInReport = true,
                 AlwaysShow = true
             }))
-             .AddComponent(ComponentFactory.Attachments(new ComponentOptions()
+            .AddComponent(ComponentFactory.Attachments(new ComponentOptions()
             {
                 Title = "Key of areas susceptible to biofouling",
                 DataPath = "$.antifoulingVesseldiagram",
@@ -392,10 +351,8 @@ namespace Diana.Initialisation
                 DateStamp = true,
                 AlwaysShow = false
             }))
-
-            // Biofouling Management Action Plan
-             .AddSection("Biofouling Management Action Plan")
-               .AddComponent(ComponentFactory.RichText(new ComponentOptions()
+            .AddSection("Biofouling Management Action Plan")
+            .AddComponent(ComponentFactory.RichText(new ComponentOptions()
             {
                 Title = "Biofouling Management Action Plan",
                 Label = "Biofouling Management Action Plan",
@@ -406,9 +363,8 @@ namespace Diana.Initialisation
                 ShowInReport = true,
                 AlwaysShow = true
             }))
-
             .AddPanel("Ship Area: External Hull Surfaces")
-             .AddComponent(ComponentFactory.RichText(new ComponentOptions()
+            .AddComponent(ComponentFactory.RichText(new ComponentOptions()
             {
                 Title = "Ship Area: External Hull Surfaces",
                 Label = "Ship Area: External Hull Surfaces",
@@ -428,7 +384,7 @@ namespace Diana.Initialisation
                 CopyData = false,
                 Required = false,
             }))
-              .AddComponent(ComponentFactory.TextInput(new ComponentOptions()
+            .AddComponent(ComponentFactory.TextInput(new ComponentOptions()
             {
                 Title = "Task Description",
                 Label = "Task Description",
@@ -455,7 +411,7 @@ namespace Diana.Initialisation
                 CopyData = false,
                 Required = false,
             }))
-             .AddComponent(ComponentFactory.RichText(new ComponentOptions()
+            .AddComponent(ComponentFactory.RichText(new ComponentOptions()
             {
                 Title = "Management action if ships operates outside its usual operating profile",
                 Label = "Management action if ships operates outside its usual operating profile",
@@ -466,10 +422,8 @@ namespace Diana.Initialisation
                 ShowInReport = true,
                 AlwaysShow = true
             }))
-
-
             .AddPanel("Ship Area: Hull Appendages and Fittings")
-             .AddComponent(ComponentFactory.RichText(new ComponentOptions()
+            .AddComponent(ComponentFactory.RichText(new ComponentOptions()
             {
                 Title = "Ship Area: Hull Appendages and Fittings",
                 Label = "Ship Area: Hull Appendages and Fittings",
@@ -489,7 +443,7 @@ namespace Diana.Initialisation
                 CopyData = false,
                 Required = false,
             }))
-              .AddComponent(ComponentFactory.TextInput(new ComponentOptions()
+            .AddComponent(ComponentFactory.TextInput(new ComponentOptions()
             {
                 Title = "Task Description",
                 Label = "Task Description",
@@ -516,7 +470,7 @@ namespace Diana.Initialisation
                 CopyData = false,
                 Required = false,
             }))
-             .AddComponent(ComponentFactory.RichText(new ComponentOptions()
+            .AddComponent(ComponentFactory.RichText(new ComponentOptions()
             {
                 Title = "Management action if ships operates outside its usual operating profile",
                 Label = "Management action if ships operates outside its usual operating profile",
@@ -527,10 +481,8 @@ namespace Diana.Initialisation
                 ShowInReport = true,
                 AlwaysShow = true
             }))
-
-
             .AddPanel("Ship Area: Steering and Propulsion")
-             .AddComponent(ComponentFactory.RichText(new ComponentOptions()
+            .AddComponent(ComponentFactory.RichText(new ComponentOptions()
             {
                 Title = "Ship Area: Steering and Propulsion",
                 Label = "Ship Area: Steering and Propulsion",
@@ -550,7 +502,7 @@ namespace Diana.Initialisation
                 CopyData = false,
                 Required = false,
             }))
-              .AddComponent(ComponentFactory.TextInput(new ComponentOptions()
+            .AddComponent(ComponentFactory.TextInput(new ComponentOptions()
             {
                 Title = "Task Description",
                 Label = "Task Description",
@@ -577,7 +529,7 @@ namespace Diana.Initialisation
                 CopyData = false,
                 Required = false,
             }))
-             .AddComponent(ComponentFactory.RichText(new ComponentOptions()
+            .AddComponent(ComponentFactory.RichText(new ComponentOptions()
             {
                 Title = "Management action if ships operates outside its usual operating profile",
                 Label = "Management action if ships operates outside its usual operating profile",
@@ -588,10 +540,8 @@ namespace Diana.Initialisation
                 ShowInReport = true,
                 AlwaysShow = true
             }))
-            
-
             .AddPanel("Ship Area: Seawater Intakes, Internal Seawater Cooling Systems and Anchor Compartments")
-             .AddComponent(ComponentFactory.RichText(new ComponentOptions()
+            .AddComponent(ComponentFactory.RichText(new ComponentOptions()
             {
                 Title = "Ship Area: Seawater Intakes, Internal Seawater Cooling Systems and Anchor Compartments",
                 Label = "Ship Area: Seawater Intakes, Internal Seawater Cooling Systems and Anchor Compartments",
@@ -611,7 +561,7 @@ namespace Diana.Initialisation
                 CopyData = false,
                 Required = false,
             }))
-              .AddComponent(ComponentFactory.TextInput(new ComponentOptions()
+            .AddComponent(ComponentFactory.TextInput(new ComponentOptions()
             {
                 Title = "Task Description",
                 Label = "Task Description",
@@ -638,7 +588,7 @@ namespace Diana.Initialisation
                 CopyData = false,
                 Required = false,
             }))
-             .AddComponent(ComponentFactory.RichText(new ComponentOptions()
+            .AddComponent(ComponentFactory.RichText(new ComponentOptions()
             {
                 Title = "Management action if ships operates outside its usual operating profile",
                 Label = "Management action if ships operates outside its usual operating profile",
@@ -649,12 +599,8 @@ namespace Diana.Initialisation
                 ShowInReport = true,
                 AlwaysShow = true
             }))
-    
-           // Operation and Maintenance of the Anti Fouling System
-
-           .AddSection("Operation and Maintenance of the Anti Fouling System")
-
-           .AddComponent(ComponentFactory.RichText(new ComponentOptions()
+            .AddSection("Operation and Maintenance of the Anti Fouling System")
+            .AddComponent(ComponentFactory.RichText(new ComponentOptions()
             {
                 Title = "Operation and Maintence of the Anti Fouling System",
                 Label = "Operation and Maintence of the Anti Fouling System",
@@ -676,7 +622,6 @@ namespace Diana.Initialisation
                 ShowInReport = true,
                 AlwaysShow = true
             }))
-                      
             .AddComponent(ComponentFactory.Attachments(new ComponentOptions()
             {
                 Title = "Schedule of activities and operational Procedures",
@@ -688,7 +633,6 @@ namespace Diana.Initialisation
                 DateStamp = true,
                 AlwaysShow = false
             }))
-        
             .AddComponent(ComponentFactory.Attachments(new ComponentOptions()
             {
                 Title = "",
@@ -716,7 +660,7 @@ namespace Diana.Initialisation
                 ShowInReport = true,
                 AlwaysShow = true
             }))
-                        .AddComponent(ComponentFactory.Attachments(new ComponentOptions()
+            .AddComponent(ComponentFactory.Attachments(new ComponentOptions()
             {
                 Title = "In-water Cleaning and Maintenance Procedures",
                 DataPath = "$.antifoulingInWaterCleaningAttachements",
@@ -727,7 +671,6 @@ namespace Diana.Initialisation
                 DateStamp = true,
                 AlwaysShow = false
             }))
-        
             .AddComponent(ComponentFactory.Attachments(new ComponentOptions()
             {
                 Title = "",
@@ -766,7 +709,6 @@ namespace Diana.Initialisation
                 DateStamp = true,
                 AlwaysShow = false
             }))
-        
             .AddComponent(ComponentFactory.Attachments(new ComponentOptions()
             {
                 Title = "",
@@ -783,17 +725,8 @@ namespace Diana.Initialisation
                     RiseJsonHelper.ToJson( new { displayName = "Verification", valuePath = "$.verification", type = "verification", entityType = "Work" }),
                 }
             }))
-
-
-
-
-
-
-
-           // Safety Procedures for the ship and crew
-
-           .AddSection("Safety Procedures for the ship and crew")
-             .AddComponent(ComponentFactory.RichText(new ComponentOptions()
+            .AddSection("Safety Procedures for the ship and crew")
+            .AddComponent(ComponentFactory.RichText(new ComponentOptions()
             {
                 Title = "Safety Procedures for the ship and crew",
                 Label = "Safety Procedures for the ship and crew",
@@ -804,11 +737,8 @@ namespace Diana.Initialisation
                 ShowInReport = true,
                 AlwaysShow = true
             }))
-
-           // Disposal of Biological Waste
-
-           .AddSection("Disposal of Biological Waste")
-             .AddComponent(ComponentFactory.RichText(new ComponentOptions()
+            .AddSection("Disposal of Biological Waste")
+            .AddComponent(ComponentFactory.RichText(new ComponentOptions()
             {
                 Title = "Disposal of Biological Waste",
                 Label = "Disposal of Biological Waste",
@@ -819,10 +749,8 @@ namespace Diana.Initialisation
                 ShowInReport = true,
                 AlwaysShow = true
             }))
-
-           // Recording Requirements
-           .AddSection("Recording Requirements")
-             .AddComponent(ComponentFactory.RichText(new ComponentOptions()
+            .AddSection("Recording Requirements")
+            .AddComponent(ComponentFactory.RichText(new ComponentOptions()
             {
                 Title = "Recording Requirements",
                 Label = "Recording Requirements",
@@ -833,11 +761,8 @@ namespace Diana.Initialisation
                 ShowInReport = true,
                 AlwaysShow = true
             }))
-
-           // Crew Training and Familiarisation
-
             .AddSection("Crew Training and Familiarisation")
-             .AddComponent(ComponentFactory.RichText(new ComponentOptions()
+            .AddComponent(ComponentFactory.RichText(new ComponentOptions()
             {
                 Title = "Crew Training and Familiarisation",
                 Label = "Crew Training and Familiarisation",
@@ -848,12 +773,8 @@ namespace Diana.Initialisation
                 ShowInReport = true,
                 AlwaysShow = true
             }))
-           
-
-           // Appedix
-
-           .AddSection("Appendix")
-             .AddComponent(ComponentFactory.RichText(new ComponentOptions()
+            .AddSection("Appendix")
+            .AddComponent(ComponentFactory.RichText(new ComponentOptions()
             {
                 Title = "Appendix",
                 Label = "Appendix",
@@ -864,7 +785,6 @@ namespace Diana.Initialisation
                 ShowInReport = true,
                 AlwaysShow = true
             }))
-
             .AddComponent(ComponentFactory.Attachments(new ComponentOptions()
             {
                 Title = "Appendix Attachments",
@@ -883,7 +803,6 @@ namespace Diana.Initialisation
 
             return await Task.FromResult(layout);
         }
-
     }
 }
 
