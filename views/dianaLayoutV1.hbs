@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <title>C# code reverse engineering</title>
+    </head>
+
+    <body>
+        <pre>
+        <code>
+            
+using System;
+using System.Threading.Tasks;
+using Diana.Core;
+using Diana.Flow.Common;
+using Diana.Layout;
+using Microsoft.Extensions.Logging;
+
+namespace Diana.Initialisation
+{
+    using IDianaLayout_v2 = Diana.Core.IDianaLayout;
+
+    /// <summary>
+    /// MarineStream standard activity inspection engagement layout config
+    /// </summary>
+    public class BFMPCreation_v1 : BFMPLayout
+    {
+        private readonly IServiceProvider _serviceProvider;
+
+        /// <summary>
+        /// Standard activity inspection engagement Layout config
+        /// </summary>
+        /// <param name="serviceProvider"></param>
+        /// <param name="logger"></param>
+        /// <param name="layoutService"></param>
+        /// <returns></returns>
+        public BFMPCreation_v1(
+                IServiceProvider serviceProvider,
+                ILogger<DianaLayoutCreator> logger,
+                IDianaLayoutService layoutService)
+        : base(logger, layoutService)
+        {
+            _serviceProvider = serviceProvider;
+        }
+
+        public override int LayoutVersion => 1;
+
+        /// <summary>
+        ///
+        /// </summary>
+        public override string DisplayName => "BFMP Creation Template";
+
+        public override string Name => "Berth/Inspection/Creation";
+
+        public override Guid CompanyId => AccessControlList.PublicCompany;
+        public override DianaLayoutType TemplateType => DianaLayoutType.Form;
+
+        public override string IconName => "ship-line.svg";
+
+        /// <summary>
+        /// Add or update the layout
+        /// </summary>
+        /// <param name="standards"></param>
+        /// <param name="layout"></param>
+        /// <returns></returns>
+        protected override async Task<IDianaLayout_v2> AddOrUpdateLayout(ProcessStandards standards, IDianaLayout_v2 layout)
+        {
+            DianaLayoutBuilder builder = new DianaLayoutBuilder(_serviceProvider);
+
+            layout = builder
+            .Initialise(layout)
+            .Clear()
+            .AddSection("Management Plan Details")
+
+
+            .AddComponent(ComponentFactory.ThingSearch(new ComponentOptions()
+            {
+                Title = "Management Plan",
+                Label = "Management Plan",
+                Placeholder = "Enter Management Plan Name",
+                DataPath = "$.asset",
+                Width = "col-6",
+                CopyData = true,
+                Required = true,
+                ThingType = "bfmp",
+                Field = "data.tags.marineStream.bfmp",
+                SearchBy = "FremantlePort",
+                
+            }), "Management Plan", defaultOn: false, "$.asset.displayName")
+
+            // 1.0 Introduction 
+
+           .AddComponent(ComponentFactory.VesselSearch(new ComponentOptions()
+            {
+                Title = "Vessel",
+                Label = "Select vessel",
+                DataPath = "$.bfmp.vessel",
+                Width = "col-4",
+                OnChange = "/api/v2/work/{$.id}/preset?entityName={$.data.vessel.displayName}&entityId={$.data.vessel.id}",
+                CopyData = true,
+                Required = true,
+                ThingType = "vessel",
+                Field = "",
+                Value = ""
+            }), "The Vessel", defaultOn: false, "$.displayName.displayName")
+
+          
+
+            // this needs v4 and not v5 of the product pricing component as
+            // v4 supports nested/deep paths but v5 only supports single level array/value pair.
+            .AddSection("Biofouling Management Record Book")
+            .AddComponent(ComponentFactory.ProductPricing_v4(new ComponentOptions()
+            {
+                Title = "Supporting Workflows",
+                CopyData = false,
+                ReadOnly = true,
+                DataPath = "$.hullClean",
+                Columns = new[] {
+                    "{\"type\":\"date\",\"name\":\"deliveryDate\",\"displayName\":\"Date\",\"disabled\":true}",
+                    "{\"type\":\"text\",\"name\":\"location\",\"displayName\":\"Ship Location\",\"disabled\":true}",
+                    "{\"type\":\"text\",\"name\":\"workCode\",\"displayName\":\"Code\",\"disabled\":true}",
+                    "{\"type\":\"text\",\"name\":\"workName\",\"displayName\":\"Work Name\",\"disabled\":true}",
+                    "{\"type\":\"text\",\"name\":\"state\",\"displayName\":\"State\",\"disabled\":true}",
+                    "{\"type\":\"work\",\"name\":\"workId\",\"displayName\":\"Open Work\",\"disabled\":true}",
+                },
+                Totals = new string[] { },
+                CurrencyCode = standards.CurrencyCode,
+                TaxCode = standards.TaxCode,
+                Required = false,
+                Width = "col-12"
+            }))
+  .AddSection("Biofouling Management Record Book - Instructions")
+                
+             .AddComponent(ComponentFactory.RichText(new ComponentOptions()
+            {
+                Title = "Biofouling Management Record Book",
+                Label = "Biofouling Management Record Book",
+                DataPath = "$.antifoulingAppendixBfmpRecordBook",
+                Width = "col-12",
+                CopyData = false,
+                Required = false,
+                ShowInReport = true,
+                AlwaysShow = true
+            }))
+             .AddSection("Introduction")
+             .AddComponent(ComponentFactory.RichText(new ComponentOptions()
+            {
+                Title = "Introduction",
+                Label = "Introduction Text",
+                DataPath = "$.bfmp.introduction",
+                Width = "col-12",
+                CopyData = false,
+                Required = false,
+                ShowInReport = true,
+                AlwaysShow = true
+            }))
+
+            // 2.0 Applicable Documents
+             .AddSection("Applicable Documents")
+             .AddComponent(ComponentFactory.Attachments(new ComponentOptions()
+            {
+                Title = "Applicable documents",
+                DataPath = "$.biofoulingUploadedDocumentsApplicableDocs",
+                Width = "col-12",
+             
+                Folder = "ApplicableDocs",
+                Required = false,
+                DateStamp = true,
+                AlwaysShow = false
+            }))
+            .AddComponent(ComponentFactory.ProductSelection(new ComponentOptions()
+            {
+                Title = "",
+                DataPath = "$.biofoulingUploadedDocumentsApplicableDocs.download",
+                Width = "col-12",
+                Folder = "ApplicableDocs",
+                CopyData = true,
+                Options = "Download"
+            }))
+            .AddComponent(ComponentFactory.Attachments(new ComponentOptions()
+            {
+                Title = "Uploaded documents",
+                DataPath = "$.biofoulingUploadedDocumentsApplicableDocs.list",
+                Width = "col-12",
+                  Folder = "ApplicableDocs",
+                Required = false,
+                DateStamp = true,
+                Presentation = "dynamic-list",
+                Columns = new[]
+                {
+                    RiseJsonHelper.ToJson( new { displayName = "Document Name", valuePath = "$.title", type = "string" }),
+                    RiseJsonHelper.ToJson( new { displayName = "Date", valuePath = "$.createdDate", type = "date" }),
+                    RiseJsonHelper.ToJson( new { displayName = "Verification", valuePath = "$.verification", type = "verification", entityType = "Work" }),
+                }
+            }))
+
+
+            //3.0 Purpose
+               .AddComponent(ComponentFactory.RichText(new ComponentOptions()
+            {
+                Title = "Purpose",
+                Label = "Purpose",
+                DataPath = "$.bfmpPurpose",
+                Width = "col-12",
+                CopyData = false,
+                Required = false,
+                ShowInReport = true,
+                AlwaysShow = true
+            }))
+
+            //4.0 Description of operating Profile
+            .AddSection("Operating Profile")
+            .AddComponent(ComponentFactory.TextInput(new ComponentOptions()
+            {
+                Title = "Typical Speed (kts)",
+                Label = "Typical Speed (kts)",
+                DataPath = "$.bfmpTypicalspeed",
+                Width = "col-6",
+                CopyData = false,
+                Required = false,
+            }))
+            .AddComponent(ComponentFactory.TextInput(new ComponentOptions()
+            {
+                Title = "Typical Period Underway (%)",
+                Label = "Typical Period Underway (%)",
+                DataPath = "$.bfmpTypicalperiod",
+                Width = "col-6",
+                CopyData = false,
+                Required = false,
+            }))
+              .AddComponent(ComponentFactory.TextInput(new ComponentOptions()
+            {
+                Title = "Typical Operating Area",
+                Label = "Typical Operating Area",
+                DataPath = "$.bfmpOperatingArea",
+                Width = "col-6",
+                CopyData = false,
+                Required = false,
+            }))
+              .AddComponent(ComponentFactory.TextInput(new ComponentOptions()
+            {
+                Title = "Planned Duration Between Dry Docks (Yrs)",
+                Label = "Planned Duration Between Dry Docks (Yrs)",
+                DataPath = "$.bfmpDurationdrydock",
+                Width = "col-6",
+                CopyData = false,
+                Required = false,
+            }))
+
+            // 5.0 Description of the Anti Fouling System
+            .AddSection("Antifouling System")
+               .AddComponent(ComponentFactory.RichText(new ComponentOptions()
+            {
+                Title = "The following anti-fouling system(s) are used on this Vessel",
+                Label = "The following anti-fouling system(s) are used on this Vessel",
+                DataPath = "$.antifoulingSystemOnVessel",
+                Width = "col-12",
+                CopyData = false,
+                Required = false,
+                ShowInReport = true,
+                AlwaysShow = true
+            }))
+                .AddComponent(ComponentFactory.RichText(new ComponentOptions()
+            {
+                Title = "Area / Location Applied and Date of Application",
+                Label = "Area / Location Applied and Date of Application",
+                DataPath = "$.antifoulingLocation",
+                Width = "col-12",
+                CopyData = false,
+                Required = false,
+                ShowInReport = true,
+                AlwaysShow = true
+            }))
+              .AddComponent(ComponentFactory.TextInput(new ComponentOptions()
+            {
+                Title = "Dry Film Thickness",
+                Label = "Dry Film Thickness",
+                DataPath = "$.antifoulingDryFilmThickness",
+                Width = "col-6",
+                CopyData = false,
+                Required = false,
+            }))
+             .AddComponent(ComponentFactory.TextInput(new ComponentOptions()
+            {
+                Title = "Expected Life Time",
+                Label = "Expected Life Time",
+                DataPath = "$.antifoulingExpectedLifeTime",
+                Width = "col-6",
+                CopyData = false,
+                Required = false,
+            }))
+             .AddComponent(ComponentFactory.RichText(new ComponentOptions()
+            {
+                Title = "System specifications",
+                Label = "System specifications",
+                DataPath = "$.antifoulingSystemSpecs",
+                Width = "col-12",
+                CopyData = false,
+                Required = false,
+                ShowInReport = true,
+                AlwaysShow = true
+            }))
+
+            .AddPanel("Detail any immersed areas where AFS are not applied or installed")
+            .AddComponent(ComponentFactory.RichText(new ComponentOptions()
+            {
+                Title = "Detail any immersed areas where AFS are not applied or installed",
+                Label = "Detail any immersed areas where AFS are not applied or installed",
+                DataPath = "$.antifoulingNotapplied",
+                Width = "col-12",
+                CopyData = false,
+                Required = false,
+                ShowInReport = true,
+                AlwaysShow = true
+            }))
+            .AddComponent(ComponentFactory.RichText(new ComponentOptions()
+            {
+                Title = "Marine Growth Prevention Systems (MGPSs) Dosing Frequency (AMCAP Baseline)",
+                Label = "Marine Growth Prevention Systems (MGPSs) Dosing Frequency (AMCAP Baseline)",
+                DataPath = "$.antifoulingMgps",
+                Width = "col-12",
+                CopyData = false,
+                Required = false,
+                ShowInReport = true,
+                AlwaysShow = true
+            }))
+            .AddComponent(ComponentFactory.RichText(new ComponentOptions()
+            {
+                Title = "List seawater systems without fitted MGPS",
+                Label = "List seawater systems without fitted MGPS",
+                DataPath = "$.antifoulingNoMgps",
+                Width = "col-12",
+                CopyData = false,
+                Required = false,
+                ShowInReport = true,
+                AlwaysShow = true
+            }))
+
+            .AddPanel("AFS Documents")
+            .AddComponent(ComponentFactory.Attachments(new ComponentOptions()
+            {
+                Title = "AFS Documents",
+                DataPath = "$.antifoulingUploadedDocuments",
+                Width = "col-12",
+                Size = "small",
+                Folder = "afsDocuments",
+                Required = false,
+                DateStamp = true,
+                AlwaysShow = false
+            }))
+        
+            .AddComponent(ComponentFactory.Attachments(new ComponentOptions()
+            {
+                Title = "Uploaded documents",
+                DataPath = "$.antifoulingUploadedDocuments.list",
+                Width = "col-12",
+                  Folder = "afsDocuments",
+                Required = false,
+                DateStamp = true,
+                Presentation = "dynamic-list",
+                Columns = new[]
+                {
+                    RiseJsonHelper.ToJson( new { displayName = "Document Name", valuePath = "$.title", type = "string" }),
+                    RiseJsonHelper.ToJson( new { displayName = "Date", valuePath = "$.createdDate", type = "date" }),
+                    RiseJsonHelper.ToJson( new { displayName = "Verification", valuePath = "$.verification", type = "verification", entityType = "Work" }),
+                }
+            }))
+
+            // Description of areas of the Ship susceptible to biofouling
+             .AddSection("Description of areas of the Ship susceptible to biofouling")
+               .AddComponent(ComponentFactory.RichText(new ComponentOptions()
+            {
+                Title = "Description of areas of the Ship susceptible to biofouling",
+                Label = "Description of areas of the Ship susceptible to biofouling",
+                DataPath = "$.antifoulingShipAreas",
+                Width = "col-12",
+                CopyData = false,
+                Required = false,
+                ShowInReport = true,
+                AlwaysShow = true
+            }))
+             .AddComponent(ComponentFactory.Attachments(new ComponentOptions()
+            {
+                Title = "Key of areas susceptible to biofouling",
+                DataPath = "$.antifoulingVesseldiagram",
+                Width = "col-12",
+                Size = "small",
+                Folder = "foulingAreas",
+                Required = false,
+                DateStamp = true,
+                AlwaysShow = false
+            }))
+
+            // Biofouling Management Action Plan
+             .AddSection("Biofouling Management Action Plan")
+               .AddComponent(ComponentFactory.RichText(new ComponentOptions()
+            {
+                Title = "Biofouling Management Action Plan",
+                Label = "Biofouling Management Action Plan",
+                DataPath = "$.antifoulingActionPlan",
+                Width = "col-12",
+                CopyData = false,
+                Required = false,
+                ShowInReport = true,
+                AlwaysShow = true
+            }))
+
+            .AddPanel("Ship Area: External Hull Surfaces")
+             .AddComponent(ComponentFactory.RichText(new ComponentOptions()
+            {
+                Title = "Ship Area: External Hull Surfaces",
+                Label = "Ship Area: External Hull Surfaces",
+                DataPath = "$.antifoulingHullSurfaces",
+                Width = "col-12",
+                CopyData = false,
+                Required = false,
+                ShowInReport = true,
+                AlwaysShow = true
+            }))
+            .AddComponent(ComponentFactory.TextInput(new ComponentOptions()
+            {
+                Title = "Inspection Frequency",
+                Label = "Inspection Frequency",
+                DataPath = "$.antifoulingInspectionFrequency",
+                Width = "col-6",
+                CopyData = false,
+                Required = false,
+            }))
+              .AddComponent(ComponentFactory.TextInput(new ComponentOptions()
+            {
+                Title = "Task Description",
+                Label = "Task Description",
+                DataPath = "$.antifoulingSurfacesTaskDescription",
+                Width = "col-6",
+                CopyData = false,
+                Required = false,
+            }))
+            .AddComponent(ComponentFactory.TextInput(new ComponentOptions()
+            {
+                Title = "Maintenance Frequency",
+                Label = "Maintenance Frequency",
+                DataPath = "$.antifoulingMaintenanceFrequency",
+                Width = "col-6",
+                CopyData = false,
+                Required = false,
+            }))
+            .AddComponent(ComponentFactory.TextInput(new ComponentOptions()
+            {
+                Title = "Task Description",
+                Label = "Task Description",
+                DataPath = "$.antifoulingMaintainencefrequencyTaskDescription",
+                Width = "col-6",
+                CopyData = false,
+                Required = false,
+            }))
+             .AddComponent(ComponentFactory.RichText(new ComponentOptions()
+            {
+                Title = "Management action if ships operates outside its usual operating profile",
+                Label = "Management action if ships operates outside its usual operating profile",
+                DataPath = "$.antifoulingHullsurfacesMgmtactions",
+                Width = "col-12",
+                CopyData = false,
+                Required = false,
+                ShowInReport = true,
+                AlwaysShow = true
+            }))
+
+
+            .AddPanel("Ship Area: Hull Appendages and Fittings")
+             .AddComponent(ComponentFactory.RichText(new ComponentOptions()
+            {
+                Title = "Ship Area: Hull Appendages and Fittings",
+                Label = "Ship Area: Hull Appendages and Fittings",
+                DataPath = "$.antifoulingActionPlanHullappendages",
+                Width = "col-12",
+                CopyData = false,
+                Required = false,
+                ShowInReport = true,
+                AlwaysShow = true
+            }))
+            .AddComponent(ComponentFactory.TextInput(new ComponentOptions()
+            {
+                Title = "Inspection Frequency",
+                Label = "Inspection Frequency",
+                DataPath = "$.antifoulingHullappendagesInspectionFrequency",
+                Width = "col-6",
+                CopyData = false,
+                Required = false,
+            }))
+              .AddComponent(ComponentFactory.TextInput(new ComponentOptions()
+            {
+                Title = "Task Description",
+                Label = "Task Description",
+                DataPath = "$.antifoulingHullappendagesTaskDescription",
+                Width = "col-6",
+                CopyData = false,
+                Required = false,
+            }))
+            .AddComponent(ComponentFactory.TextInput(new ComponentOptions()
+            {
+                Title = "Maintenance Frequency",
+                Label = "Maintenance Frequency",
+                DataPath = "$.antifoulingHullappendagesMaintenanceFrequency",
+                Width = "col-6",
+                CopyData = false,
+                Required = false,
+            }))
+            .AddComponent(ComponentFactory.TextInput(new ComponentOptions()
+            {
+                Title = "Task Description",
+                Label = "Task Description",
+                DataPath = "$.antifoulingHullappendagesMaintenanceFrequencyTaskDescription",
+                Width = "col-6",
+                CopyData = false,
+                Required = false,
+            }))
+             .AddComponent(ComponentFactory.RichText(new ComponentOptions()
+            {
+                Title = "Management action if ships operates outside its usual operating profile",
+                Label = "Management action if ships operates outside its usual operating profile",
+                DataPath = "$.antifoulingHullappendagesMgmtactions",
+                Width = "col-12",
+                CopyData = false,
+                Required = false,
+                ShowInReport = true,
+                AlwaysShow = true
+            }))
+
+
+            .AddPanel("Ship Area: Steering and Propulsion")
+             .AddComponent(ComponentFactory.RichText(new ComponentOptions()
+            {
+                Title = "Ship Area: Steering and Propulsion",
+                Label = "Ship Area: Steering and Propulsion",
+                DataPath = "$.antifoulingActionPlanSteeringPropulsion",
+                Width = "col-12",
+                CopyData = false,
+                Required = false,
+                ShowInReport = true,
+                AlwaysShow = true
+            }))
+            .AddComponent(ComponentFactory.TextInput(new ComponentOptions()
+            {
+                Title = "Inspection Frequency",
+                Label = "Inspection Frequency",
+                DataPath = "$.antifoulingSteeringPropulsionInspectionFrequency",
+                Width = "col-6",
+                CopyData = false,
+                Required = false,
+            }))
+              .AddComponent(ComponentFactory.TextInput(new ComponentOptions()
+            {
+                Title = "Task Description",
+                Label = "Task Description",
+                DataPath = "$.antifoulingSteeringPropulsionTaskDescription",
+                Width = "col-6",
+                CopyData = false,
+                Required = false,
+            }))
+            .AddComponent(ComponentFactory.TextInput(new ComponentOptions()
+            {
+                Title = "Maintenance Frequency",
+                Label = "Maintenance Frequency",
+                DataPath = "$.antifoulingSteeringPropulsionMaintenanceFrequency",
+                Width = "col-6",
+                CopyData = false,
+                Required = false,
+            }))
+            .AddComponent(ComponentFactory.TextInput(new ComponentOptions()
+            {
+                Title = "Task Description",
+                Label = "Task Description",
+                DataPath = "$.antifoulingSteeringPropulsionMaintanenceFrequencyTaskDescription",
+                Width = "col-6",
+                CopyData = false,
+                Required = false,
+            }))
+             .AddComponent(ComponentFactory.RichText(new ComponentOptions()
+            {
+                Title = "Management action if ships operates outside its usual operating profile",
+                Label = "Management action if ships operates outside its usual operating profile",
+                DataPath = "$.antifoulingSteeringPropulsionMgmtActions",
+                Width = "col-12",
+                CopyData = false,
+                Required = false,
+                ShowInReport = true,
+                AlwaysShow = true
+            }))
+            
+
+            .AddPanel("Ship Area: Seawater Intakes, Internal Seawater Cooling Systems and Anchor Compartments")
+             .AddComponent(ComponentFactory.RichText(new ComponentOptions()
+            {
+                Title = "Ship Area: Seawater Intakes, Internal Seawater Cooling Systems and Anchor Compartments",
+                Label = "Ship Area: Seawater Intakes, Internal Seawater Cooling Systems and Anchor Compartments",
+                DataPath = "$.antifoulingActionPlanSeaWaterIntakes",
+                Width = "col-12",
+                CopyData = false,
+                Required = false,
+                ShowInReport = true,
+                AlwaysShow = true
+            }))
+            .AddComponent(ComponentFactory.TextInput(new ComponentOptions()
+            {
+                Title = "Inspection Frequency",
+                Label = "Inspection Frequency",
+                DataPath = "$.antifoulingSeaWaterIntakesInspectionFrequency",
+                Width = "col-6",
+                CopyData = false,
+                Required = false,
+            }))
+              .AddComponent(ComponentFactory.TextInput(new ComponentOptions()
+            {
+                Title = "Task Description",
+                Label = "Task Description",
+                DataPath = "$.antifoulingSeaWaterIntakesTaskDescription",
+                Width = "col-6",
+                CopyData = false,
+                Required = false,
+            }))
+            .AddComponent(ComponentFactory.TextInput(new ComponentOptions()
+            {
+                Title = "Maintenance Frequency",
+                Label = "Maintenance Frequency",
+                DataPath = "$.antifoulingSeaWaterIntakesMaintenanceFrequency",
+                Width = "col-6",
+                CopyData = false,
+                Required = false,
+            }))
+            .AddComponent(ComponentFactory.TextInput(new ComponentOptions()
+            {
+                Title = "Task Description",
+                Label = "Task Description",
+                DataPath = "$.antifoulingSeaWaterIntakesMaintanenceFrequencyTaskDescription",
+                Width = "col-6",
+                CopyData = false,
+                Required = false,
+            }))
+             .AddComponent(ComponentFactory.RichText(new ComponentOptions()
+            {
+                Title = "Management action if ships operates outside its usual operating profile",
+                Label = "Management action if ships operates outside its usual operating profile",
+                DataPath = "$.antifoulingExternalsurfacesMgmtactionsSeaWaterIntakes",
+                Width = "col-12",
+                CopyData = false,
+                Required = false,
+                ShowInReport = true,
+                AlwaysShow = true
+            }))
+    
+           // Operation and Maintenance of the Anti Fouling System
+
+           .AddSection("Operation and Maintenance of the Anti Fouling System")
+
+           .AddComponent(ComponentFactory.RichText(new ComponentOptions()
+            {
+                Title = "Operation and Maintence of the Anti Fouling System",
+                Label = "Operation and Maintence of the Anti Fouling System",
+                DataPath = "$.antifoulingOperationMaintenance",
+                Width = "col-12",
+                CopyData = false,
+                Required = false,
+                ShowInReport = true,
+                AlwaysShow = true
+            }))
+            .AddComponent(ComponentFactory.RichText(new ComponentOptions()
+            {
+                Title = "Timing of Operational and Maintenance Activities",
+                Label = "Timing of Operational and Maintenance Activities",
+                DataPath = "$.antifoulingTimingOpAndMaintActivities",
+                Width = "col-12",
+                CopyData = false,
+                Required = false,
+                ShowInReport = true,
+                AlwaysShow = true
+            }))
+                      
+            .AddComponent(ComponentFactory.Attachments(new ComponentOptions()
+            {
+                Title = "Schedule of activities and operational Procedures",
+                DataPath = "$.antifoulingScheduleActivitiesProceedures",
+                Width = "col-12",
+                Size = "small",
+                Folder = "activitiesProcedures",
+                Required = false,
+                DateStamp = true,
+                AlwaysShow = false
+            }))
+        
+            .AddComponent(ComponentFactory.Attachments(new ComponentOptions()
+            {
+                Title = "",
+                DataPath = "$.antifoulingScheduleActivitiesProceedures",
+                Width = "col-12",
+                Folder = "activitiesProcedures",
+                Required = false,
+                DateStamp = true,
+                Presentation = "dynamic-list",
+                Columns = new[]
+                {
+                    RiseJsonHelper.ToJson( new { displayName = "Document Name", valuePath = "$.title", type = "string" }),
+                    RiseJsonHelper.ToJson( new { displayName = "Date", valuePath = "$.createdDate", type = "date" }),
+                    RiseJsonHelper.ToJson( new { displayName = "Verification", valuePath = "$.verification", type = "verification", entityType = "Work" }),
+                }
+            }))
+            .AddComponent(ComponentFactory.RichText(new ComponentOptions()
+            {
+                Title = "In-water Cleaning and Maintenance Procedures",
+                Label = "In-water Cleaning and Maintenance Procedures",
+                DataPath = "$.antifoulingInWaterCleaning",
+                Width = "col-12",
+                CopyData = false,
+                Required = false,
+                ShowInReport = true,
+                AlwaysShow = true
+            }))
+                        .AddComponent(ComponentFactory.Attachments(new ComponentOptions()
+            {
+                Title = "In-water Cleaning and Maintenance Procedures",
+                DataPath = "$.antifoulingInWaterCleaningAttachements",
+                Width = "col-12",
+                Size = "small",
+                Folder = "inwatercleaningattachements",
+                Required = false,
+                DateStamp = true,
+                AlwaysShow = false
+            }))
+        
+            .AddComponent(ComponentFactory.Attachments(new ComponentOptions()
+            {
+                Title = "",
+                DataPath = "$.antifoulingScheduleActivitiesProceedures",
+                Width = "col-12",
+                Folder = "inwatercleaningattachements",
+                Required = false,
+                DateStamp = true,
+                Presentation = "dynamic-list",
+                Columns = new[]
+                {
+                    RiseJsonHelper.ToJson( new { displayName = "Document Name", valuePath = "$.title", type = "string" }),
+                    RiseJsonHelper.ToJson( new { displayName = "Date", valuePath = "$.createdDate", type = "date" }),
+                    RiseJsonHelper.ToJson( new { displayName = "Verification", valuePath = "$.verification", type = "verification", entityType = "Work" }),
+                }
+            }))
+            .AddComponent(ComponentFactory.RichText(new ComponentOptions()
+            {
+                Title = "Operation of on-board treatment process",
+                Label = "Operation of on-board treatment process",
+                DataPath = "$.antifoulingOpTreatmentProcess",
+                Width = "col-12",
+                CopyData = false,
+                Required = false,
+                ShowInReport = true,
+                AlwaysShow = true
+            }))
+            .AddComponent(ComponentFactory.Attachments(new ComponentOptions()
+            {
+                Title = "Operation of on-board treatment proces",
+                DataPath = "$.antifoulingOpTreatmetnProcessAttachements",
+                Width = "col-12",
+                Size = "small",
+                Folder = "optreatmentprocessattachements",
+                Required = false,
+                DateStamp = true,
+                AlwaysShow = false
+            }))
+        
+            .AddComponent(ComponentFactory.Attachments(new ComponentOptions()
+            {
+                Title = "",
+                DataPath = "$.antifoulingOpTreatmetnProcessAttachements",
+                Width = "col-12",
+                Folder = "optreatmentprocessattachements",
+                Required = false,
+                DateStamp = true,
+                Presentation = "dynamic-list",
+                Columns = new[]
+                {
+                    RiseJsonHelper.ToJson( new { displayName = "Document Name", valuePath = "$.title", type = "string" }),
+                    RiseJsonHelper.ToJson( new { displayName = "Date", valuePath = "$.createdDate", type = "date" }),
+                    RiseJsonHelper.ToJson( new { displayName = "Verification", valuePath = "$.verification", type = "verification", entityType = "Work" }),
+                }
+            }))
+
+
+
+
+
+
+
+           // Safety Procedures for the ship and crew
+
+           .AddSection("Safety Procedures for the ship and crew")
+             .AddComponent(ComponentFactory.RichText(new ComponentOptions()
+            {
+                Title = "Safety Procedures for the ship and crew",
+                Label = "Safety Procedures for the ship and crew",
+                DataPath = "$.antifoulingSafetyShipCrew",
+                Width = "col-12",
+                CopyData = false,
+                Required = false,
+                ShowInReport = true,
+                AlwaysShow = true
+            }))
+
+           // Disposal of Biological Waste
+
+           .AddSection("Disposal of Biological Waste")
+             .AddComponent(ComponentFactory.RichText(new ComponentOptions()
+            {
+                Title = "Disposal of Biological Waste",
+                Label = "Disposal of Biological Waste",
+                DataPath = "$.antifoulingWasteDisposal",
+                Width = "col-12",
+                CopyData = false,
+                Required = false,
+                ShowInReport = true,
+                AlwaysShow = true
+            }))
+
+           // Recording Requirements
+           .AddSection("Recording Requirements")
+             .AddComponent(ComponentFactory.RichText(new ComponentOptions()
+            {
+                Title = "Recording Requirements",
+                Label = "Recording Requirements",
+                DataPath = "$.antifoulingRecordingRequirements",
+                Width = "col-12",
+                CopyData = false,
+                Required = false,
+                ShowInReport = true,
+                AlwaysShow = true
+            }))
+
+           // Crew Training and Familiarisation
+
+            .AddSection("Crew Training and Familiarisation")
+             .AddComponent(ComponentFactory.RichText(new ComponentOptions()
+            {
+                Title = "Crew Training and Familiarisation",
+                Label = "Crew Training and Familiarisation",
+                DataPath = "$.antifoulingCrewTraining",
+                Width = "col-12",
+                CopyData = false,
+                Required = false,
+                ShowInReport = true,
+                AlwaysShow = true
+            }))
+           
+
+           // Appedix
+
+           .AddSection("Appendix")
+             .AddComponent(ComponentFactory.RichText(new ComponentOptions()
+            {
+                Title = "Appendix",
+                Label = "Appendix",
+                DataPath = "$.antifoulingAppendix",
+                Width = "col-12",
+                CopyData = false,
+                Required = false,
+                ShowInReport = true,
+                AlwaysShow = true
+            }))
+
+            .AddComponent(ComponentFactory.Attachments(new ComponentOptions()
+            {
+                Title = "Appendix Attachments",
+                DataPath = "$.antifoulingAppendixAttachments",
+                Width = "col-12",
+                Size = "small",
+                Folder = "appendixAttachements",
+                Required = false,
+                DateStamp = true,
+                AlwaysShow = false
+            }))
+           
+            .Build();
+
+            layout.Acl.AddUser(AccessControlList.PublicCompany, AccessControlList.ReadOnly);
+
+            return await Task.FromResult(layout);
+        }
+
+    }
+}
+
+        </code>
+    </pre>
+</body>
