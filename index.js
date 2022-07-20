@@ -128,8 +128,7 @@ app.get('/biofouling', (req, res) => {
     data.data.sections.map(section => {
         console.log({ ...section })
     });
-
-    res.render("BioFoulingReport", data);
+ 
 })
 
 app.get('/classSurvey', (req, res) => {
