@@ -131,6 +131,7 @@ app.get('/biofouling', (req, res) => {
 
     res.render("BioFoulingReport", data);
 })
+
 app.get('/classSurvey', (req, res) => {
     console.log("outputing result");
     
@@ -142,6 +143,7 @@ app.get('/classSurvey', (req, res) => {
 
     res.render("classSurvey", data);
 })
+
 app.get('/dotmooring', (req, res) => {
     console.log("outputing result");
 
@@ -153,6 +155,7 @@ app.get('/dotmooring', (req, res) => {
 
     res.render("dotMooringReport_v5", data);
 })
+
 app.get('/mooring', (req, res) => {
     console.log("outputing result");
 

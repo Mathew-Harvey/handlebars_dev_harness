@@ -53,7 +53,7 @@
 
             font-size: 22px;
             text-transform: uppercase;
-            text-align: center;
+            text-align: left;
             color: #365F91
         }
 
@@ -61,7 +61,7 @@
 
             font-size: 20px;
             text-transform: uppercase;
-            text-align: center;
+            text-align: left;
             color: #365F91
         }
 
@@ -311,69 +311,69 @@
                         <!--*** CONTENT GOES HERE ***-->
                         <div class="page">
                             <h1>{{data.report.title}}</h1>
-                                                    <h2> {{data.pile.data.displayName}} Inpsection / Repair Report</h2>
+                        
                                                     
-                            &nbsp;
-                            <h2>{{data.vessel.displayName}}</h2>                         
+                                           
                        
-<b>Delivery Team Supervisor:</b> NAME: {{data.invites.seller.0.email}} {{data.invites.seller.0.email}}
+<b>Delivery Team Supervisor:</b>&nbsp;NAME: &nbsp;{{data.invites.seller.0.name}}, EMAIL: &nbsp;{{data.invites.seller.0.email}}
 <br>
-<b>Quality Assurance:</b>{{data.invites.qa.0.email}}
+<b>Quality Assurance:</b>&nbsp;{{data.invites.qa.0.email}}
 <br>
-<b>Divers:</b>{{data.invites.divers_workers.0.name}}, {{data.invites.divers_workers.1.name}}
+<b>Divers:</b>&nbsp;{{data.invites.divers_workers.0.name}},&nbsp; {{data.invites.divers_workers.1.name}}
 <br>
 <H1>Pile Repair Report: </H1> {{{data.assetDetails.PileRepairReport}}}
 
-{{steps.1.steps.0.layout.components.1.properties.title}}
+<h3>{{steps.1.steps.0.layout.components.1.properties.title}}</h3>
 {{#each attachments}}
 {{#if (eq path 'attachementsOne')}}
 <img src="{{getImageUri fullUri}}"   />
 {{/if}}
 {{/each}}
 
-{{steps.1.steps.0.layout.components.2.properties.title}}
+<h3>{{steps.1.steps.0.layout.components.2.properties.title}}</h3>
 {{#each attachments}}
 {{#if (eq path 'attachementsTwo')}}
-<img src="{{getImageUri fullUri}}"/>
+<img src="{{getImageUri fullUri}}" width="640" />
+       
 {{/if}}
 {{/each}}
 
-{{steps.1.steps.0.layout.components.3.properties.title}}
+<h3>{{steps.1.steps.0.layout.components.3.properties.title}}</h3>
 {{#each attachments}}
 {{#if (eq path 'attachementsThree')}}
 <img src="{{getImageUri fullUri}}"  />
 {{/if}}
 {{/each}}
 
-{{steps.1.steps.0.layout.components.4.properties.title}}
+<h3>{{steps.1.steps.0.layout.components.4.properties.title}}</h3>
 {{#each attachments}}
 {{#if (eq path 'attachementsFour')}}
 <img src="{{getImageUri fullUri}}"  />
 {{/if}}
 {{/each}}
 
-{{steps.1.steps.0.layout.components.5.properties.title}}
+<h3>{{steps.1.steps.0.layout.components.5.properties.title}}</h3>
 {{#each attachments}}
 {{#if (eq path 'attachementsFive')}}
 <img src="{{getImageUri fullUri}}"  />
 {{/if}}
 {{/each}}
 
-{{steps.1.steps.0.layout.components.6.properties.title}}
+<h3>{{steps.1.steps.0.layout.components.6.properties.title}}
 {{#each attachments}}
 {{#if (eq path 'attachementsSix')}}
 <img src="{{getImageUri fullUri}}"  />
 {{/if}}
 {{/each}}
 
-{{steps.1.steps.0.layout.components.7.properties.title}}
+<h3>{{steps.1.steps.0.layout.components.7.properties.title}}</h3>
 {{#each attachments}}
 {{#if (eq path 'attachementsSeven')}}
 <img src="{{getImageUri fullUri}}" />
 {{/if}}
 {{/each}}
 
-{{steps.1.steps.0.layout.components.8.properties.title}}
+<h3>{{steps.1.steps.0.layout.components.8.properties.title}}</h3>
 {{#each attachments}}
 {{#if (eq path 'attachementsEight')}}
 <img src="{{getImageUri fullUri}}"  />
