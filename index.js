@@ -9,6 +9,9 @@ const moment = require("moment");
 const diana = require('./dianaDataEnrich.js');
 const _toc = require("./toc.js");
 const piledata = require ('./piledata.json')
+const dianaFlowData = require ('./dianaFlowV2.json');
+const dianaLayoutData = require ('./dianaLayoutV1.json');
+
 
 app.use(express.static(__dirname + "/views"));
 app.use(bodyParser.json())
@@ -20,11 +23,26 @@ app.engine("hbs", exphbs({
     extname: "hbs",
     defaultLayout: "index",
     helpers: {
+
+        titleCaseSection: function (str) {
+            if(str === "section"){
+            var splitStr = str.toLowerCase().split(' ');
+            for (var i = 0; i < splitStr.length; i++) {
+                splitStr[i] = splitStr[i].charAt(0).toUpperCase() + splitStr[i].substring(1);     
+            }
+            return splitStr.join(' '); 
+         }},
+
+        toString: function(obj) {
+            return JSON.stringify(obj).replaceAll("\"","\\\"");
+        },
+
         formatDateTime: function (dateTime, dateTimeFormat) {
             let currentTime = moment(dateTime);
             let timeFixed = currentTime.local().format(dateTimeFormat);
             return timeFixed;
         },
+       
         todaysDate: function () {
             let nowDate = moment().format("dddd DD MMMM YYYY")
             return nowDate
@@ -97,7 +115,7 @@ app.get("/views/", (req, res) => {
 });
 
 app.get('/', (req, res) => {
-    console.log("outputing result");
+
 
     const data = diana.enrichData(vesselData);
 
@@ -111,7 +129,7 @@ app.get('/', (req, res) => {
 app.get('/pile', (req, res) => {
     const data = diana.enrichData(piledata);
 
-    console.log("outputing result");
+  
 
     data.data.sections.map(section => {
         console.log({ ...section })
@@ -121,7 +139,7 @@ app.get('/pile', (req, res) => {
 })
 
 app.get('/biofouling', (req, res) => {
-    console.log("outputing result");
+
 
     const data = diana.enrichData(bioFouling);
 
@@ -132,7 +150,7 @@ app.get('/biofouling', (req, res) => {
 })
 
 app.get('/classSurvey', (req, res) => {
-    console.log("outputing result");
+ 
     
     const data = diana.enrichData(vesselData);
 
@@ -144,7 +162,7 @@ app.get('/classSurvey', (req, res) => {
 })
 
 app.get('/dotmooring', (req, res) => {
-    console.log("outputing result");
+   
 
     const data = diana.enrichData(mooringData);
 
@@ -156,7 +174,7 @@ app.get('/dotmooring', (req, res) => {
 })
 
 app.get('/mooring', (req, res) => {
-    console.log("outputing result");
+  
 
     const data = diana.enrichData(mooringData);
 
@@ -167,7 +185,7 @@ app.get('/mooring', (req, res) => {
     res.render("mooringReport_v9", data);
 })
 app.get('/repairmooring', (req, res) => {
-    console.log("outputing result");
+   
 
     const data = diana.enrichData(mooringData);
 
@@ -179,7 +197,7 @@ app.get('/repairmooring', (req, res) => {
 })
 
 app.get('/basic', (req, res) => {
-    console.log("outputing result");
+   
 
     const data = diana.enrichData(vesselData);
 
@@ -190,7 +208,7 @@ app.get('/basic', (req, res) => {
     res.render("basicReport", data);
 })
 app.get('/IWHC', (req, res) => {
-    console.log("outputing result");
+  
 
     const data = diana.enrichData(vesselData);
 
@@ -201,7 +219,7 @@ app.get('/IWHC', (req, res) => {
     res.render("inWaterHullClean", data);
 })
 app.get('/pre', (req, res) => {
-    console.log("outputing result");
+  
 
     const data = diana.enrichData(vesselData);
 
@@ -211,4 +229,14 @@ app.get('/pre', (req, res) => {
 
     res.render("prePurchaseInWaterSurvey", data);
 })
+
+app.get('/dianaFlow', (req, res) => {
+    res.render("dianaFlowV2",dianaFlowData);
+})
+
+app.get('/dianaLayout', (req, res) => {
+    res.render("dianaLayoutV1", dianaLayoutData);
+})
+
+
 

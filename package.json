@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "main": "report.js",
   "dependencies": {
-    "body-parser": "^1.19.0",
-    "express": "^4.17.1",
+    "all": "^0.0.0",
+    "body-parser": "^1.20.0",
+    "express": "^4.18.1",
     "express-handlebars": "^5.3.2",
     "fetch": "^1.1.0",
     "handlebars": "^4.7.7",
@@ -17,8 +18,16 @@
   },
   "author": "",
   "license": "ISC",
-  "description": "",
+  "description": "Problems:",
   "devDependencies": {
-    "nodemon": "^2.0.15"
-  }
+    "nodemon": "^2.0.18"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mathew-Harvey/handlebars_dev_harness.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Mathew-Harvey/handlebars_dev_harness/issues"
+  },
+  "homepage": "https://github.com/Mathew-Harvey/handlebars_dev_harness#readme"
 }

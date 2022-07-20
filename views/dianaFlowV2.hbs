@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>C# code reverse engineering</title>
+</head>
+
+<body>
+
+        <pre><code>
+
+using System;
+using Diana.Core;
+using Diana.Flow;
+using Diana.Flow.Common;
+using Diana.Workflow.Common.v2;
+
+namespace Diana.DatabaseUpgrade
+{
+    public class TestFlow_v2 : ICreateFlow_v2
+    {
+        public string Name => "{{name}}";
+
+        public string Id => "{{_id}}";
+
+        public string FlowOriginId => "{{originId}}";
+
+        public int Version => {{resourceVersion}};
+
+        public IDianaFlowConfiguration CreateFlow()
+        {
+            return Diana.Workflow.Common.v2.DianaFlowBuilder_v2.Create(
+                name: "{{name}}",
+                displayName: "{{displayName}}",
+                description: "{{description}}",
+                flowVersion: {{resourceVersion}},
+                id: {{_id}},
+                originId: {{originId}},
+                flowType: "{{flowType}}",
+                entityType: "{{entityType}}",
+                imageUrl: "{{imageUrl}}")
+            .AddTags("Project:Carbon") // <b>what is this</b>
+       
+            {{#each steps }}
+            .AddStep(
+                id: "{{_id}}",
+                name: "{{name}}",
+                displayName: "{{displayName}}",
+                description: "{{comments}}",
+                layout: "Auxos/rise-x/test/workFlow",  // <b>What is this</b>
+                flowId: {{flowId}},
+                flowOriginId: {{flowOriginId}})
+             
+                 {{#each actions }}
+                .AddAction(
+                    id: "{{_id}}",
+                    name: "{{name}}",
+                    completedName: "{{displayName}}",
+                    displayName: "{{completedName}}", 
+                    sendDefaultEmail: {{sendDefaultEmail}},
+                    executeMode: DianaStepMode.Event, // <b>what is this</b>
+                    destinationType: {{destination._t}}.{{destination.destinationType}})
+                  
+                     {{#each activities}}
+                    .AddActivity(
+                        new Flow.Common.v2.DianaActivityConfigurationBase()
+                        {
+                            Name = "{{name}}",
+                            DisplayName = "{{displayName}}",
+                            Configuration = JObject.Parse("{{toString properties}}"),
+                            Comments = "{{comments}}",
+                            ContinueOnError = {{continueOnError}},
+                            ExecuteWhen = DianaExecuteWhen.{{executeWhen}}, 
+                            Id = Guid.Parse("{{_id}}"),
+                            ImageUrl = new Uri("{{imageUrl}}", UriKind.Absolute),
+                            NormalisedName = "{{normalisedName}}"
+                        }
+
+                    {{/each}}
+                {{/each}}
+            {{/each}}
+            
+                .Validate()
+                .Build();
+        }
+    }
+}
+</code>
+</pre>
+
+
+</body>
