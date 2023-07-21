@@ -3,14 +3,13 @@ const app = express();
 const bodyParser = require("body-parser");
 const exphbs = require("express-handlebars");
 const vesselData = require("./vesselData.json");
-const mooringData = require("./mooringData.json");
-const bioFouling = require("./Biofouling.json");
+
 const moment = require("moment");
 const diana = require("./dianaDataEnrich.js");
 const _toc = require("./toc.js");
 const piledata = require("./piledata.json");
-const dianaFlowData = require("./dianaFlowV2.json");
-const dianaLayoutData = require("./dianaLayoutV1.json");
+const newBioWF = require("./newBioWF.json")
+
 
 app.use(express.static(__dirname + "/views"));
 app.use(bodyParser.json());
@@ -84,6 +83,10 @@ app.engine(
           value === "<p></p>\n" ||
           value === ""
         );
+      },
+
+      array: function() {
+        return Array.from(arguments).slice(0, -1);
       },
 
       lookAtMultiValue: function (values) {
@@ -442,95 +445,13 @@ app.get("/", (req, res) => {
   res.render("mainClassInspection", data);
 });
 
-app.get("/pile", (req, res) => {
-  const data = diana.enrichData(piledata);
+app.get("/newBioWF", (req, res) => {
+  const data = diana.enrichData(newBioWF);
 
   data.data.sections.map((section) => {
     console.log({ ...section });
   });
 
-  res.render("pileReport", data);
+  res.render("newBioWF", data);
 });
 
-app.get("/biofouling", (req, res) => {
-  const data = diana.enrichData(bioFouling);
-
-  data.data.sections.map((section) => {
-    console.log({ ...section });
-  });
-});
-
-app.get("/classSurvey", (req, res) => {
-  const data = diana.enrichData(vesselData);
-
-  data.data.sections.map((section) => {
-    console.log({ ...section });
-  });
-
-  res.render("classSurvey", data);
-});
-
-app.get("/dotmooring", (req, res) => {
-  const data = diana.enrichData(mooringData);
-
-  data.data.sections.map((section) => {
-    console.log({ ...section });
-  });
-
-  res.render("dotMooringReport_v5", data);
-});
-
-app.get("/mooring", (req, res) => {
-  const data = diana.enrichData(mooringData);
-
-  data.data.sections.map((section) => {
-    console.log({ ...section });
-  });
-
-  res.render("mooringReport_v9", data);
-});
-app.get("/repairmooring", (req, res) => {
-  const data = diana.enrichData(mooringData);
-
-  data.data.sections.map((section) => {
-    console.log({ ...section });
-  });
-
-  res.render("classSurvey", data);
-});
-
-app.get("/basic", (req, res) => {
-  const data = diana.enrichData(vesselData);
-
-  data.data.sections.map((section) => {
-    console.log({ ...section });
-  });
-
-  res.render("basicReport", data);
-});
-app.get("/IWHC", (req, res) => {
-  const data = diana.enrichData(vesselData);
-
-  data.data.sections.map((section) => {
-    console.log({ ...section });
-  });
-
-  res.render("inWaterHullClean", data);
-});
-app.get("/pre", (req, res) => {
-  const data = diana.enrichData(vesselData);
-
-  data.data.sections.map((section) => {
-    console.log({ ...section });
-  });
-
-  res.render("prePurchaseInWaterSurvey", data);
-});
-
-app.get("/dianaFlow", (req, res) => {
-  res.render("dianaFlowV2", dianaFlowData);
-});
-
-app.get("/dianaLayout", (req, res) => {
-  res.render("dianaLayoutV1", dianaLayoutData);
-});
