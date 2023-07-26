@@ -9,6 +9,7 @@ const diana = require("./dianaDataEnrich.js");
 const _toc = require("./toc.js");
 const piledata = require("./piledata.json");
 const newBioWF = require("./newBioWF.json")
+const supReportPack = require("./supReportPack")
 
 
 app.use(express.static(__dirname + "/views"));
@@ -453,5 +454,15 @@ app.get("/newBioWF", (req, res) => {
   });
 
   res.render("newBioWF", data);
+});
+
+app.get("/supReportPack", (req, res) => {
+  const data = diana.enrichData(supReportPack);
+
+  data.data.sections.map((section) => {
+    console.log({ ...section });
+  });
+
+  res.render("supReportPack", data);
 });
 

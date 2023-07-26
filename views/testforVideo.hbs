@@ -54,15 +54,6 @@
 
         }
 
-       #tableFixed {
-            border-collapse: collapse;
-            width: 90%;
-            height: 90%;
-            table-layout: fixed;
-            page-break-inside: auto;
-            position: center;
-       } 
-
         table {
             border-collapse: collapse;
             width: 90%;
@@ -70,6 +61,15 @@
             page-break-inside: auto;
             position: center;
         }
+
+        #tableFixed {
+            border-collapse: collapse;
+            width: 90%;
+            height: 90%;
+            table-layout: fixed;
+            page-break-inside: auto;
+            position: center;
+       } 
 
         h1 {
 
@@ -362,8 +362,14 @@
             <table class="table">
                 <tr>
                     <td>
-                        <img src="https://cdn.marinestream.io/logos/FranMarine_wText_compressed.png" alt="Franmarine Logo"
-                            style="max-width:300px;max-height:90px; padding-top:5px; float:left">
+                        {{#each attachments}}
+                        {{#if (eq path 'repairAgent')}}
+                        <img src="{{getImageUri fullUri}}" alt="Repair Agent Logo" style="max-width:300px;max-height:90px; padding-top:5px; float:left" >
+                        {{/if}}
+                        {{/each}}
+                       
+                   
+                       
                     </td>
                     <td>
                         {{#if data.confidential.checked }}<p id="confidential">CONFIDENTIAL</p>{{/if}}
@@ -372,20 +378,21 @@
                         {{#each attachments}}
                         {{#if (eq path 'ClientLogo')}}
 
-                        <img src="{{getImageUri fullUri}}" alt="" style="max-width:300px;max-height:90px; float:right" />
+                        <img src="{{getImageUri fullUri}}" alt=""
+                            style="max-width:300px;max-height:90px; float:right" />
                         {{/if}}
                         {{/each}}
                     </td>
                 </tr>
             </table>
         </div>
-
-        <div class="page-footer-cover">
+         <div class="page-footer-cover">
             <tr>
-                <td><img src="https://cdn.marinestream.io/templates/logos/FooterFUS.png" alt="FUS footer cover page"
+                <td><img src="https://cdn.marinestream.io/templates/logos/FooterBLANK.png" alt="footer"
                         style="width:790px; float:left"></td>
             </tr>
         </div>
+
 
 
         {{!-- <div class="page-footer" style="font-size:xx-small">
@@ -411,17 +418,9 @@
                     <td style="width:90%">
                         <!--*** CONTENT GOES HERE ***-->
                         <div class="page">
-                            <h1>For Instruction Video</h1>
+                            <h1>Report</h1>
                             &nbsp;
-
-                            {{!-- {{#if (hasValue data.vessel.data.name)}}
-                                <h2>{{data.vessel.data.name}}</h2>
-                            <!--<h2>{{data.vessel.data.name.displayName}}</h2>-->
-                            {{else}}
-                                <h2>{{data.vessel.name}}</h2>
-                            {{/if}} --}}
-
-                            {{#if (hasValue data.vessel.name)}}
+                             {{#if (hasValue data.vessel.name)}}
                                 <h2>{{data.vessel.name}}</h2>
                             <!--<h2>{{data.vessel.data.name.displayName}}</h2>-->
                             {{else}}
@@ -429,11 +428,10 @@
                             {{/if}}
 
                             {{#if (hasValue data.otherJobTitle)}}
-                                <h2>{{data.otherJobTitle}}</h2>
+                            <h2>{{data.otherJobTitle}}</h2>
                             {{else}}
-                                <h2>{{data.jobType}}</h2>
+                            <h2>{{data.jobType}}</h2>
                             {{/if}}
-
                             <div id="largeImgDiv" style="margin-left: auto; margin-right: auto; ">
                                 {{#each attachments}}
                                 {{#if (eq path 'ReportCover')}}
@@ -480,27 +478,11 @@
                                     </td>
                                     <td style="border:none"></td>
                                 </tr>
-                                {{#if data.vessel.data.generalArrangement.[0].frRatingData.[0].levelOfFoulingLoF}}  
-                                <tr>
-                                    <td style="width:20px;border:none"></td>
-                                    <td style="border:none;font-size:14px;text-transform: uppercase;"> 
-                                        4.1 Level of Fouling (LOF) Scale
-                                    </td>
-                                    <td style="text-align: left;width:30px;border:none;font-size:14px;"></td>
-                                </tr>
-                                {{else}}
-                                <tr>
-                                    <td style="width:20px;border:none"></td>
-                                    <td style="border:none;font-size:14px;text-transform: uppercase;"> 
-                                        4.1 Fouling Rating (FR) Scale
-                                    </td>
-                                    <td style="text-align: left;width:30px;border:none;font-size:14px;"></td>
-                                </tr>
-                                {{/if}}
+                              
                                 <tr>
                                     <td style="width:20px;border:none"></td>
                                     <td style="border:none;font-size:14px;text-transform: uppercase;">
-                                        4.2 Paint Deterioration Rating (PDR) Scale
+                                        4.1 Paint Deterioration Rating (PDR) Scale
                                     </td>
                                     <td style="text-align: left;width:30px;border:none;font-size:14px;"></td>
                                 </tr>
@@ -511,12 +493,7 @@
                                     <td style="border:none"></td>
                                 </tr>
                                 {{#each data.vessel.data.generalArrangement}}
-                                {{#if (ifn diverSupervisorComments false)}}
-                                {{#if (hasValue diverSupervisorComments)}}
-
-
-
-
+                                {{#if (lookAtMultiValue (array diverSupervisorComments expertInspectorComments commentsObservations.[0].Comments commentsObservations.[0].Item commentsObservations.[0].ReadingOne commentsObservations.[0].ReadingTwo ))}}
                                 <tr>
                                     <td colspan="2" style="border:none;font-size:14px;text-transform: uppercase;">
 
@@ -531,8 +508,6 @@
                                     </td>
                                     <td style="text-align: left;width:30px;border:none;font-size:14px;"></td>
                                 </tr>
-
-                                {{/if}}
                                 {{/if}}
                                 {{/each}}
                                 <tr>
@@ -547,11 +522,12 @@
                             <p></p>
                             
                             <h4>1. PROJECT PARTICULARS</h4>
-                            <table style="border:1px solid #000; border-collapse:collapse; width:100%; position:center;">
+                                              <table style="border:1px solid #000; border-collapse:collapse; width:100%; position:center;">
                                 <tr>
                                     <td style="padding:5px 5px; background-color: #365F91;height:40px; border:1px solid #000; color: rgb(255, 255, 255);"><b>PROJECT:</b></td>
                                     <td colspan="2" style="padding:5px 5px; width:60px; border:1px solid;;height:40px">{{data.jobType}}</td>
                                 </tr>
+
                                 <tr>
                                     <td style="padding:5px 5px; background-color: #365F91;height:40px; border:1px solid #000; color: rgb(255, 255, 255);"><b>VESSEL DETAILS:</b></td>
                                     <td style="padding:5px 5px; border:1px;height:40px"><b>Vessel:</b></td>
@@ -565,6 +541,7 @@
                                     <td colspan="1" style="padding:5px 5px;border:1px solid;;height:40px">{{data.vessel.data.yearBuilt}}</td>
                                 </tr>
                                 {{else}}
+                             
                                 <tr style="border:1px solid;;height:40px">
                                     <td style="background-color: #365F91;height:40px; border:1px solid;"></td>
                                     <td style="padding:5px 5px; border:1px;height:40px"><b>Year Built:</b></td>
@@ -579,7 +556,7 @@
                                     <td colspan="1" style="padding:5px 5px;width:50px; border:1px solid;">{{data.vessel.data.imo}}</td>
                                 </tr>
                                 {{else}}
-                             
+                     
                                 <tr style="border:1px solid;">
                                     <td style="background-color: #365F91;height:40px; border:1px solid;"></td>
                                     <td style="padding:5px 5px; width:15px; border:1px;"><b>IMO:</b></td>
@@ -594,6 +571,7 @@
                                     <td colspan="1" style="padding:5px 5px;width:50px; border:1px solid;">{{data.vessel.data.length}}</td>
                                 </tr>
                                 {{else}}
+                            
                                 <tr style="border:1px solid;">
                                     <td style="background-color: #365F91;height:40px; border:1px solid;"></td>
                                     <td style="padding:5px 5px; width:15px; border:1px;"><b>Length (m):</b></td>
@@ -620,7 +598,7 @@
                                     <td colspan="3" style="padding:5px 5px;border:1px solid;">{{data.vessel.data.vesselDraft}}</td>
                                 </tr>
                                 {{else}}
-                            
+                                
                                 <tr style="border:1px solid;">
                                     <td style="padding:5px 5px; width:65px; background-color: #365F91;height:40px; border:1px solid #000; color: rgb(255, 255, 255);"><b>DRAFT:</b></td>
                                     <td colspan="3" style="padding:5px 5px;border:1px solid;">{{data.vessel.vesselDraft}}</td>
@@ -885,96 +863,9 @@
                         <div class="page">
                             <p></p>
                             <h4>4. REFERENCE TABLES</h4>
-                            <p>The below tables are referenced throughout the report to formally standardise both
-                                biofouling and antifouling condition ratings referred to herein.</p>
-                        
-                        {{#if data.vessel.data.generalArrangement.[0].frRatingData.[0].levelOfFoulingLoF}}  
-                            <h4>4.1 LEVEL OF FOULING (LOF) SCALE</h4>
-                            <table style="width:100%">
-                                <th style="background-color: #365F91; height:30px; border:1px solid #000; padding-top: 5px; padding:10px 0px;color: rgb(255, 255, 255);">
-                                    LEVEL OF FOULING
-                                </th>
-                                <th style="background-color: #365F91; height:30px; border:1px solid #000; padding:5px 5px;color: rgb(255, 255, 255);">
-                                    DESCRIPTION</th>
-                                <tr>
-                                    <td style="width:75px; text-align:center; border:1px solid; padding-top: 5px; padding:10px 0px;"><b>Rank: 0</b></td>
-                                    <td style="border:1px solid; padding:5px 5px;">0% No slime layer. No macrofouling. Only clean surfaces.</td>
-                                </tr>
-                                <tr>
-                                    <td style="width:75px; text-align:center; border:1px solid; padding-top: 5px; padding:10px 0px;"><b>Rank: 1</b></td>
-                                    <td style="border:1px solid; padding:5px 5px;">0% Slime Layer on some or all surfaces. No macrofouling.</td>
-                                </tr>
-                                <tr>
-                                    <td style="width:75px; text-align:center; border:1px solid; padding-top: 5px; padding:10px 0px;"><b>Rank: 2</b></td>
-                                    <td style="border:1px solid; padding:5px 5px;">1-5%  of visible surfaces - Macrofouling present in small patches or a few isolated individuals or small colonies.</td>
-                                </tr>
-                                <tr>
-                                    <td style="width:75px; text-align:center; border:1px solid; padding-top: 5px; padding:10px 0px;"><b>Rank: 3</b></td>
-                                    <td style="border:1px solid; padding:5px 5px;">6-15% of visible surfaces - Considerable macrofouling on surfaces.</td>
-                                </tr>
-                                <tr>
-                                    <td style="width:75px; text-align:center; border:1px solid; padding-top: 5px; padding:10px 0px;"><b>Rank: 4</b></td>
-                                    <td style="border:1px solid; padding:5px 5px;">16-40% of visible surfaces - Extensive macrofouling present but more than hald of surfaces without biofouling.</td>
-                                </tr>
-                                <tr>
-                                    <td style="width:75px; text-align:center; border:1px solid; padding-top: 5px; padding:10px 0px;"><b>Rank: 5</b></td>
-                                    <td style="border:1px solid; padding:5px 5px;">41-100% of visible surfaces - Very heavy macrofouling present covering substantial portions of visible surfaces.</td>
-                                </tr>
-                            </table>
-
-                        {{else}}
-
-                            <h4>4.1 FOULING RATINGS (FR) SCALE</h4>
-                            <table style="width:100%">
-                                <th style="background-color: #365F91; height:30px; border:1px solid #000; padding-top: 5px; padding:10px 0px;color: rgb(255, 255, 255);">
-                                    FOULING RATING
-                                </th>
-                                <th style="background-color: #365F91; height:30px; border:1px solid #000; padding:5px 5px;color: rgb(255, 255, 255);">
-                                    DESCRIPTION</th>
-                                <tr>
-                                    <td style="width:75px; text-align:center; border:1px solid; padding-top: 5px; padding:10px 0px;"><b>Rank: 0</b></td>
-                                    <td style="border:1px solid; padding:5px 5px;">No visible fouling. Hull entirely
-                                        clean, no biofilm on visible submerged parts of the hull, Visual Estimate of
-                                        Fouling cover: Nil.</td>
-                                </tr>
-                                <tr>
-                                    <td style="width:75px; text-align:center; border:1px solid; padding-top: 5px; padding:10px 0px;"><b>Rank: 1</b></td>
-                                    <td style="border:1px solid; padding:5px 5px;">Slime fouling only. Submerged hull
-                                        areas partially or entirely covered in biofilm, but absence of any macrofouling,
-                                        Visual Estimate of Fouling cover: Nil.</td>
-                                </tr>
-                                <tr>
-                                    <td style="width:75px; text-align:center; border:1px solid; padding-top: 5px; padding:10px 0px;"><b>Rank: 2</b></td>
-                                    <td style="border:1px solid; padding:5px 5px;">Light fouling. Hull covered in
-                                        biofilm and 1 to 2 very small patches of macrofouling (only one taxon)., Visual
-                                        Estimate of Fouling cover: 1% to 5% of visible submerged surfaces.</td>
-                                </tr>
-                                <tr>
-                                    <td style="width:75px; text-align:center; border:1px solid; padding-top: 5px; padding:10px 0px;"><b>Rank: 3</b></td>
-                                    <td style="border:1px solid; padding:5px 5px;">Considerable fouling. Presence of
-                                        biofilm, and macrofouling still patchy but clearly visible and comprised of
-                                        either one single or several different taxa. Visual Estimate of Fouling cover:
-                                        6% to 15% of visible submerged surfaces.</td>
-                                </tr>
-                                <tr>
-                                    <td style="width:75px; text-align:center; border:1px solid; padding-top: 5px; padding:10px 0px;"><b>Rank: 4</b></td>
-                                    <td style="border:1px solid; padding:5px 5px;">Extensive fouling. Presence of
-                                        biofilm and abundant fouling assemblages consisting of more than one taxon. 16%
-                                        to 40% of visible submerged surfaces, Visual Estimate of Fouling cover: 16% to
-                                        40% of visible submerged surfaces.</td>
-                                </tr>
-                                <tr>
-                                    <td style="width:75px; text-align:center; border:1px solid; padding-top: 5px; padding:10px 0px;"><b>Rank: 5</b></td>
-                                    <td style="border:1px solid; padding:5px 5px;">Very heavy fouling. Diverse
-                                        assemblages covering most of visible hull surfaces., Visual Estimate of Fouling
-                                        cover: 41% to 100% of visible submerged surfaces.</td>
-                                </tr>
-                            </table>
-                        {{/if}}
-                    </div>       
-
-                        <div class="page">
-                            <h4>4.2 PAINT DETERIORATION RATING (PDR) SCALE</h4>
+                            <p>The below tables are referenced throughout the report to formally standardise antifouling condition ratings referred to herein.</p>
+               
+                            <h4>4.1 PAINT DETERIORATION RATING (PDR) SCALE</h4>
                             <table style="width:100%">
                                 <th style="background-color: #365F91;height:30px; border:1px solid #000; padding-top: 5px; padding:10px 0px; color: rgb(255, 255, 255);">RATING
                                 </th>
@@ -1081,12 +972,9 @@
                         </div>
 
                         {{#each data.vessel.data.generalArrangement}}
-
-                        {{!-- {{#if (lookAtMultiValue [diverSupervisorComments, expertInspectorComments] )}} --}}
-                        {{#if (lookAtMultiValue (array diverSupervisorComments expertInspectorComments frRatingData.[0].description frRatingData.[0].pdrRating frRatingData.[0].Comments))}}
-
+                        {{#if (lookAtMultiValue (array diverSupervisorComments expertInspectorComments commentsObservations.[0].Comments commentsObservations.[0].Item commentsObservations.[0].ReadingOne commentsObservations.[0].ReadingTwo ))}}
                         <div class="page" id="{{id}}">
-
+                            <p></p>
                             <p></p>
                             <p></p>
                             <p></p>
@@ -1096,38 +984,42 @@
                             <h4>
                                 5.{{increment @index 1}}.1 Observations and Findings {{{comments}}}
                             </h4>
-                            <div>
-      
-                                <p>{{{diverSupervisorComments}}}</p>
+                    <div>
+                                {{!-- <h4> Dive Supervisor Comments</h4> --}}
+                                <p>
+                                    {{{diverSupervisorComments}}}
+                                </p>
 
-                        {{#if frRatingData.[0].levelOfFoulingLoF}}
 
+                            {{#if commentsObservations}}
+                            <p><b>Comments and Observations Table</b></p>
+                            <p></p>
                             <table id="tableFixed" style="border:1px solid #000; border-collapse:collapse; width:100%; position:center;">
                                 <thead style="background-color: #365F91;height:30px; border:1px solid #000; padding-top: 5px; padding:10px 0px; color: rgb(255, 255, 255);">
                                 <tr>
-                                    <th style="background-color: #365F91; height:30px; border:1px solid #000; padding:5px 5px;color: rgb(255, 255, 255);">Description</th>
-                                    <th style="background-color: #365F91; height:30px; border:1px solid #000; padding:5px 5px;color: rgb(255, 255, 255);">Level of fouling (LOF)</th>
-                                    <th style="background-color: #365F91; height:30px; border:1px solid #000; padding:5px 5px;color: rgb(255, 255, 255);">PDR Rating</th>
+                                    <th style="background-color: #365F91; height:30px; border:1px solid #000; padding:5px 5px;color: rgb(255, 255, 255);">Item</th>
+                                    <th style="background-color: #365F91; height:30px; border:1px solid #000; padding:5px 5px;color: rgb(255, 255, 255);">Reading 1</th>
+                                    <th style="background-color: #365F91; height:30px; border:1px solid #000; padding:5px 5px;color: rgb(255, 255, 255);">Reading 2</th>
                                     <th style="background-color: #365F91; height:30px; border:1px solid #000; padding:5px 5px;color: rgb(255, 255, 255);">Comments</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                {{#each frRatingData}}
+                                {{#each commentsObservations}}
                                 <tr>
-                                    {{#if description}}
-                                    <td style="border:1px solid; padding:5px 5px; word-wrap:break-word;">{{description}}</td>
+                                    {{#if Item}}
+                                    <td style="border:1px solid; padding:5px 5px; word-wrap:break-word;">{{Item}}</td>
                                     {{else}}
-                                    <td style="border:1px solid; padding:5px 5px; word-wrap:break-word;">No description available</td>
+                                    <td style="border:1px solid; padding:5px 5px; word-wrap:break-word;">No item available</td>
                                     {{/if}}
-                                    {{#if levelOfFoulingLoF}}
-                                    <td style="border:1px solid; padding:5px 5px; word-wrap:break-word;">{{levelOfFoulingLoF}}</td>
+                                    {{#if ReadingOne}}
+                                    <td style="border:1px solid; padding:5px 5px; word-wrap:break-word;">{{ReadingOne}}</td>
                                     {{else}}
-                                    <td style="border:1px solid; padding:5px 5px; word-wrap:break-word;">No level of fouling data available</td>
+                                    <td style="border:1px solid; padding:5px 5px; word-wrap:break-word;">No reading 1 data available</td>
                                     {{/if}}
-                                    {{#if pdrRating}}
-                                    <td style="border:1px solid; padding:5px 5px; word-wrap:break-word;">{{pdrRating}}</td>
+                                    {{#if ReadingTwo}}
+                                    <td style="border:1px solid; padding:5px 5px; word-wrap:break-word;">{{ReadingTwo}}</td>
                                     {{else}}
-                                    <td style="border:1px solid; padding:5px 5px; word-wrap:break-word;">No pdr data available</td>
+                                    <td style="border:1px solid; padding:5px 5px; word-wrap:break-word;">No reading 2 data available</td>
                                     {{/if}}
                                     {{#if Comments}}
                                     <td style="border:1px solid; padding:5px 5px; word-wrap:break-word;">{{Comments}}</td>
@@ -1139,34 +1031,26 @@
                                 </tbody>
                             </table>
                            
-                        {{else}}
+                 {{/if}}
+
+                 {{#if pdrRatingData}}
+                        <p><b>Paint Deterioration Rating (PDR) Table</b></p>
+                            <p></p>
                             <table id="tableFixed" style="border:1px solid #000; border-collapse:collapse; width:100%; position:center;">
                                 <thead style="background-color: #365F91;height:30px; border:1px solid #000; padding-top: 5px; padding:10px 0px; color: rgb(255, 255, 255);">
                                 <tr>
-                                    <th style="background-color: #365F91; height:30px; border:1px solid #000; padding:5px 5px;color: rgb(255, 255, 255);">Description</th>
-                                    <th style="background-color: #365F91; height:30px; border:1px solid #000; padding:5px 5px;color: rgb(255, 255, 255);">Fouling Rating (Type)</th>
-                                    <th style="background-color: #365F91; height:30px; border:1px solid #000; padding:5px 5px;color: rgb(255, 255, 255);">Fouling Coverage</th>
-                                    <th style="background-color: #365F91; height:30px; border:1px solid #000; padding:5px 5px;color: rgb(255, 255, 255);">PDR Rating</th>
+                                    <th style="background-color: #365F91; height:30px; border:1px solid #000; padding:5px 5px;color: rgb(255, 255, 255);">Percent Paint Cover</th>
+                                    <th style="background-color: #365F91; height:30px; border:1px solid #000; padding:5px 5px;color: rgb(255, 255, 255);">PDR</th>
                                     <th style="background-color: #365F91; height:30px; border:1px solid #000; padding:5px 5px;color: rgb(255, 255, 255);">Comments</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                {{#each frRatingData}}
+                                {{#each pdrRatingData}}
                                 <tr>
-                                    {{#if description}}
-                                    <td style="border:1px solid; padding:5px 5px; word-wrap:break-word;">{{description}}</td>
+                                    {{#if coverPaint}}
+                                    <td style="border:1px solid; padding:5px 5px; word-wrap:break-word;">{{coverPaint}}</td>
                                     {{else}}
-                                    <td style="border:1px solid; padding:5px 5px; word-wrap:break-word;">No description available</td>
-                                    {{/if}}
-                                    {{#if foulingRatingType}}
-                                    <td style="border:1px solid; padding:5px 5px; word-wrap:break-word;">{{foulingRatingType}}</td>
-                                    {{else}}
-                                    <td style="border:1px solid; padding:5px 5px; word-wrap:break-word;">No fouling rating data available</td>
-                                    {{/if}}
-                                    {{#if foulingCoverage}}
-                                    <td style="border:1px solid; padding:5px 5px; word-wrap:break-word;">{{foulingCoverage}}</td>
-                                    {{else}}
-                                    <td style="border:1px solid; padding:5px 5px; word-wrap:break-word;">No fouling coverage data available</td>
+                                    <td style="border:1px solid; padding:5px 5px; word-wrap:break-word;">No % paint cover available</td>
                                     {{/if}}
                                     {{#if pdrRating}}
                                     <td style="border:1px solid; padding:5px 5px; word-wrap:break-word;">{{pdrRating}}</td>
@@ -1176,17 +1060,13 @@
                                     {{#if Comments}}
                                     <td style="border:1px solid; padding:5px 5px; word-wrap:break-word;">{{Comments}}</td>
                                     {{else}}
-                                    <td style="border:1px solid; padding:5px 5px; word-wrap:break-word;">No comments avialable</td>
+                                    <td style="border:1px solid; padding:5px 5px; word-wrap:break-word;">No comments available</td>
                                     {{/if}}
                                 </tr>
                                 {{/each}}
                                 </tbody>
                             </table>
-               
-                        {{/if}}
-
-
-
+              {{/if}}
                             </div>
                             {{#if (hasValue expertInspectorComments)}}
                             <h4>Inspector Comments</h4>
@@ -1194,26 +1074,20 @@
                             {{/if}}
 
                             <div class="row">
-
-
                                 {{#getImages name ../attachments}}
                                 <div class="column">
                                     <img src="{{fullApiUrl}}" height="300px" width="auto" />
                                     {{!-- {{<p>{{title}} ({{unsafeOriginalFileName}})</p>}} --}}
                                     {{!-- <p>{{fullApiUrl}}</p> --}}
-
                                     {{!-- This is removed until the barrel eye is correctly configured --}}
                                     {{!-- <p id="caption">{{title}} - {{formatDateTime createdDate "MMM Do YY, h:mm:ss
                                         a"}}</p> --}}
                                     <p id="caption">{{title}}</p>
                                 </div>
                                 {{/getImages}}
-
-
                             </div>
                         </div>
                         {{/if}}
-
                         {{/each}}
     </div>
     </div>
@@ -1300,7 +1174,7 @@
 
                 <tr>
                     <td style="border:1px solid; padding:5px 5px;"><b>Revision 1</b></td>
-                    <td style="border:1px solid; padding:5px 5px;"><b>Document Owner:</b><br>Adam Falconer-West
+                    <td style="border:1px solid; padding:5px 5px;"><b>Document Owner:</b><br>Author of this Report
                     </td>
                     <td style="border:1px solid; padding:5px 5px;"><b>Document Number:</b><br></td>
                 </tr>
@@ -1336,14 +1210,14 @@
 
                 <tr>
                     <td style="border:1px solid; padding:5px 5px;">Prepared By</td>
-                    <td style="border:1px solid; padding:5px 5px;">Franmarine Powered by MarineStream</td>
+                    <td style="border:1px solid; padding:5px 5px;">MarineStream</td>
                     <td style="border:1px solid; padding:5px 5px;">{{formatDateTime
                         data.actualDelivery.startDateTime.date "dddd DD MMMM YYYY"}}</td>
 
                 </tr>
                 <tr>
                     <td style="border:1px solid; padding:5px 5px;">Approved By</td>
-                    <td style="border:1px solid; padding:5px 5px;">Adam Falconer-West</td>
+                    <td style="border:1px solid; padding:5px 5px;">The auther of this report</td>
                     <td style="border:1px solid; padding:5px 5px;">{{formatDateTime
                         z "dddd DD MMMM YYYY"}}</td>
 
@@ -1360,7 +1234,7 @@
                 <tr style="border:1px solid; padding:5px 5px;">
                     <td style="border:1px solid; padding:5px 5px;">
 
-                        <b>Franmarine Underwater Services Pty Ltd (FUS)</b> is the sole owner of
+                        <b>The author of this report</b> is the sole owner of
                         the
                         intellectual property contained in any
                         documentation bearing its name. All materials, including internet pages,
@@ -1373,11 +1247,11 @@
                         <b>Copyright Act 1968</b>, no part of this
                         document may be reproduced, transmitted in any
                         form or re-used for any commercial purposes whatsoever without the prior
-                        written permission of FUS.
+                        written permission of the Author.
                         This document represents the status of the topic at the date shown and
                         is subject to change without notice.
                         The latest version of this document is available from Document Control.<br>
-                        <b>©2022 FUS. All Rights Reserved.</b>
+                        <b>©2022, All Rights Reserved.</b>
                     </td>
                 </tr>
             </table>
@@ -1392,14 +1266,14 @@
     </tr>
     </tbody>
 
-    <tfoot style="width:90%">
+    {{!-- <tfoot style="width:90%">
         <tr>
             <td style="width:90%">
                 <!--place holder for the fixed-position footer-->
                 
             </td>
         </tr>
-    </tfoot>
+    </tfoot> --}}
 
     </table>
     

@@ -349,7 +349,7 @@
     </style>
 
     <title>
-        <div>{{data.jobType}} Report</div>
+        <div>Supervisors Report Package</div>
     </title>
 </head>
 
@@ -366,15 +366,8 @@
                             style="max-width:300px;max-height:90px; padding-top:5px; float:left">
                     </td>
                     <td>
-                        {{#if data.confidential.checked }}<p id="confidential">CONFIDENTIAL</p>{{/if}}
                     </td>
                     <td>
-                        {{#each attachments}}
-                        {{#if (eq path 'ClientLogo')}}
-
-                        <img src="{{getImageUri fullUri}}" alt="" style="max-width:300px;max-height:90px; float:right" />
-                        {{/if}}
-                        {{/each}}
                     </td>
                 </tr>
             </table>
@@ -411,469 +404,273 @@
                     <td style="width:90%">
                         <!--*** CONTENT GOES HERE ***-->
                         <div class="page">
-                            <h1>For Instruction Video</h1>
+                            <h1>Supervisors Report Package</h1>
                             &nbsp;
+                                <h2>{{data.project.name}}, {{data.location.job}}, {{data.franmarine.jobNumber}}</h2>
 
-                            {{!-- {{#if (hasValue data.vessel.data.name)}}
-                                <h2>{{data.vessel.data.name}}</h2>
-                            <!--<h2>{{data.vessel.data.name.displayName}}</h2>-->
-                            {{else}}
-                                <h2>{{data.vessel.name}}</h2>
-                            {{/if}} --}}
-
-                            {{#if (hasValue data.vessel.name)}}
-                                <h2>{{data.vessel.name}}</h2>
-                            <!--<h2>{{data.vessel.data.name.displayName}}</h2>-->
-                            {{else}}
-                                <h2>{{data.vessel.data.name}}</h2>
-                            {{/if}}
-
-                            {{#if (hasValue data.otherJobTitle)}}
-                                <h2>{{data.otherJobTitle}}</h2>
-                            {{else}}
-                                <h2>{{data.jobType}}</h2>
-                            {{/if}}
-
-                            <div id="largeImgDiv" style="margin-left: auto; margin-right: auto; ">
-                                {{#each attachments}}
-                                {{#if (eq path 'ReportCover')}}
-
-                                <img src="{{getImageUri fullUri}}" alt="Report Cover" id="largeImg" />
-                                {{/if}}
-                                {{/each}}
-                            </div>
-                            <h2>{{createdBy.companyName}}</h2>
+                            <h2>Date: {{formatDateTime data.supervisor.date.date "dddd Do MMMM YYYY"}}</h2>
+                            <h2>Vessel / Facility: {{data.vessel.facility}}</h2>
+               
                             
-                            
-                            <h2>{{formatDateTime data.actualDelivery.startDateTime.date "dddd Do MMMM YYYY"}}</h2>
-                        </div>
-
-                        <div class="page">
-                            <p></p>
-                            <p></p>
-                            <p></p>
-                            <p></p>
-                            <p></p>
-                            <h4>Table of Contents </h4>
-                            <table class="table">
-                                <tr>
-                                    <td colspan="2" style="border:none;font-size:14px;text-transform: uppercase; ">
-                                        1 Project Particulars
-                                    </td>
-                                    <td style="border:none"></td>
-                                </tr>
-                                <tr>
-                                    <td colspan="2" style="border:none;font-size:14px;text-transform: uppercase;">
-                                        2 Overview
-                                    </td>
-                                    <td style="border:none"></td>
-                                </tr>
-                                <tr>
-                                    <td colspan="2" style="border:none;font-size:14px;text-transform: uppercase;">
-                                        3 Methodology
-                                    </td>
-                                    <td style="border:none"></td>
-                                </tr>
-                                <tr>
-                                    <td colspan="2" style="border:none;font-size:14px;text-transform: uppercase;">
-                                        4 Reference Tables
-                                    </td>
-                                    <td style="border:none"></td>
-                                </tr>
-                                {{#if data.vessel.data.generalArrangement.[0].frRatingData.[0].levelOfFoulingLoF}}  
-                                <tr>
-                                    <td style="width:20px;border:none"></td>
-                                    <td style="border:none;font-size:14px;text-transform: uppercase;"> 
-                                        4.1 Level of Fouling (LOF) Scale
-                                    </td>
-                                    <td style="text-align: left;width:30px;border:none;font-size:14px;"></td>
-                                </tr>
-                                {{else}}
-                                <tr>
-                                    <td style="width:20px;border:none"></td>
-                                    <td style="border:none;font-size:14px;text-transform: uppercase;"> 
-                                        4.1 Fouling Rating (FR) Scale
-                                    </td>
-                                    <td style="text-align: left;width:30px;border:none;font-size:14px;"></td>
-                                </tr>
-                                {{/if}}
-                                <tr>
-                                    <td style="width:20px;border:none"></td>
-                                    <td style="border:none;font-size:14px;text-transform: uppercase;">
-                                        4.2 Paint Deterioration Rating (PDR) Scale
-                                    </td>
-                                    <td style="text-align: left;width:30px;border:none;font-size:14px;"></td>
-                                </tr>
-                                <tr>
-                                    <td colspan="2" style="border:none;font-size:14px;text-transform: uppercase;">
-                                        5 General Arrangement
-                                    </td>
-                                    <td style="border:none"></td>
-                                </tr>
-                                {{#each data.vessel.data.generalArrangement}}
-                                {{#if (ifn diverSupervisorComments false)}}
-                                {{#if (hasValue diverSupervisorComments)}}
-
-
-
-
-                                <tr>
-                                    <td colspan="2" style="border:none;font-size:14px;text-transform: uppercase;">
-
-                                    </td>
-                                    <td style="border:none"></td>
-                                </tr>
-                                <tr>
-                                    <td style="width:20px;border:none"></td>
-                                    <td style="border:none;font-size:14px; text-transform: uppercase;">
-                                        <a href="#{{id}}">
-                                            5.{{addOne @index}} {{name}}</a>
-                                    </td>
-                                    <td style="text-align: left;width:30px;border:none;font-size:14px;"></td>
-                                </tr>
-
-                                {{/if}}
-                                {{/if}}
-                                {{/each}}
-                                <tr>
-                                    <td colspan="2" style="border:none;font-size:14px;text-transform: uppercase;">
-                                        6 Report Summary
-                                    </td>
-                                    <td style="border:none"></td>
-                                </tr>
-                            </table>
+                            <h2></h2>
                         </div>
                         <div class="page">
                             <p></p>
                             
-                            <h4>1. PROJECT PARTICULARS</h4>
-                            <table style="border:1px solid #000; border-collapse:collapse; width:100%; position:center;">
-                                <tr>
-                                    <td style="padding:5px 5px; background-color: #365F91;height:40px; border:1px solid #000; color: rgb(255, 255, 255);"><b>PROJECT:</b></td>
-                                    <td colspan="2" style="padding:5px 5px; width:60px; border:1px solid;;height:40px">{{data.jobType}}</td>
+                            <h4>1. Client Details</h4>
+                        <table style="border:1px solid #000; border-collapse:collapse; width:100%; position:center;">
+                            <tr>
+                                <td style="padding:5px 5px; background-color: #365F91; height:40px; border:1px solid #000; color: rgb(255, 255, 255); width: 50%;"><b>CLIENT:</b></td>
+                                <td style="padding:5px 5px; border:1px solid; height:40px; width: 50%;">{{data.client.detail}}</td>
+                            </tr>
+
+                            <tr style="border:1px solid;">
+                                <td style="padding:5px 5px; background-color: #365F91;height:40px; border:1px solid #000; color: rgb(255, 255, 255); width: 50%;"><b>CLIENT PURCHASE ORDER:</b></td>
+                                <td style="padding:5px 5px; border:1px solid; height:40px; width: 50%;">{{data.client.purchaseOrder}}</td>
+                            </tr>
+
+                            <tr style="border:1px solid;">
+                                <td style="padding:5px 5px; background-color: #365F91;height:40px; border:1px solid #000; color: rgb(255, 255, 255); width: 50%;"><b>CLIENT REPRESENTATIVE:</b></td>
+                                <td style="padding:5px 5px;border:1px solid; height:40px; width: 50%;">{{data.client.representative}}</td>
+                            </tr>
+
+                            <tr style="border:1px solid;">
+                                <td style="padding:5px 5px; background-color: #365F91;height:40px; border:1px solid #000; color: rgb(255, 255, 255); width: 50%;"><b>CLIENT REPRESENTATIVE CONTACT NUMBER:</b></td>
+                                <td style="padding:5px 5px;border:1px solid; height:40px; width: 50%;">{{data.contact.number}}</td>
+                            </tr>
+                        </table>
+
+                        <h4>2. Diver Supervisor</h4>
+
+                        <table style="border:1px solid #000; border-collapse:collapse; width:100%; position:center;">
+                            <tr>
+                                <td style="padding:5px 5px; background-color: #365F91; height:40px; border:1px solid #000; color: rgb(255, 255, 255); width: 50%;"><b>NAME:</b></td>
+                                <td style="padding:5px 5px; border:1px solid; height:40px; width: 50%;">{{data.diveSupervisors.name}}</td>
+
+                            </tr>
+
+                            <tr style="border:1px solid;">
+                                <td style="padding:5px 5px; background-color: #365F91;height:40px; border:1px solid #000; color: rgb(255, 255, 255); width: 50%;"><b>SIGNATURE:</b></td>
+                                <td style="padding:5px 5px; border:1px solid; height:40px; width: 50%;"><img src={{data.diveSupervisors.signature.signature}} width="80%" , {{#if (isDarkMode)}}id="darkSig" {{/if}} /></td>
+                            </tr>
+                        </table>
+                        
+
+                        <h4>3. Dive Team</h4>
+
+<table style="border:1px solid #000; border-collapse:collapse; width:100%; position:center;">
+
+    {{#if (hasValue data.diver1One.name)}}
+    <tr style="border:1px solid;">
+        <td style="padding:5px 5px; background-color: #365F91;height:40px; border:1px solid #000; color: rgb(255, 255, 255); width: 33.33%;">Divers:</td>
+        <td style="padding:5px 5px;width:33.33%; border:1px solid;">{{data.diver1One.name}}</td>
+        <td style="padding:5px 5px;width:33.33%; border:1px solid;"><img src={{data.diver1One.signature.signature}} width="80%" , {{#if (isDarkMode)}}id="darkSig" {{/if}} /></td>
+    </tr>
+    {{/if}}
+
+    {{#if (hasValue data.diver2One.name)}}
+    <tr style="border:1px solid;">
+        <td style="padding:5px 5px; background-color: #365F91;height:40px; border:1px solid #000; color: rgb(255, 255, 255); width: 33.33%;">Divers:</td>
+        <td style="padding:5px 5px;width:33.33%; border:1px solid;">{{data.diver2One.name}}</td>
+        <td style="padding:5px 5px;width:33.33%; border:1px solid;"><img src={{data.diver2One.signature.signature}} width="80%" , {{#if (isDarkMode)}}id="darkSig" {{/if}} /></td>
+    </tr>
+    <tr style="border:1px solid;">
+        <td style="padding:5px 5px; background-color: #365F91;height:40px; border:1px solid #000; color: rgb(255, 255, 255); width: 33.33%;">Divers:</td>
+        <td style="padding:5px 5px;width:33.33%; border:1px solid;">{{data.diver2One.name}}</td>
+        <td style="padding:5px 5px;width:33.33%; border:1px solid;"><img src={{data.diver2One.signature.signature}} width="80%" , {{#if (isDarkMode)}}id="darkSig" {{/if}} /></td>
+    </tr>
+    {{/if}}
+
+    {{#if (hasValue data.diver3One.name)}}
+    <tr style="border:1px solid;">
+        <td style="padding:5px 5px; background-color: #365F91;height:40px; border:1px solid #000; color: rgb(255, 255, 255); width: 33.33%;">Divers:</td>
+        <td style="padding:5px 5px;width:33.33%; border:1px solid;">{{data.diver3One.name}}</td>
+        <td style="padding:5px 5px;width:33.33%; border:1px solid;"><img src={{data.diver3One.signature.signature}} width="80%" , {{#if (isDarkMode)}}id="darkSig" {{/if}} /></td>
+    </tr>
+
+    <tr style="border:1px solid;">
+        <td style="padding:5px 5px; background-color: #365F91;height:40px; border:1px solid #000; color: rgb(255, 255, 255); width: 33.33%;">Divers:</td>
+        <td style="padding:5px 5px;width:33.33%; border:1px solid;">{{data.diver3Two.name}}</td>
+        <td style="padding:5px 5px;width:33.33%; border:1px solid;"><img src={{data.diver3Two.signature.signature}} width="80%" , {{#if (isDarkMode)}}id="darkSig" {{/if}} /></td>
+    </tr>
+
+    <tr style="border:1px solid;">
+        <td style="padding:5px 5px; background-color: #365F91;height:40px; border:1px solid #000; color: rgb(255, 255, 255); width: 33.33%;">Divers:</td>
+        <td style="padding:5px 5px;width:33.33%; border:1px solid;">{{data.diver3Three.name}}</td>
+        <td style="padding:5px 5px;width:33.33%; border:1px solid;"><img src={{data.diver3Three.signature.signature}} width="80%" , {{#if (isDarkMode)}}id="darkSig" {{/if}} /></td>
+    </tr>
+                                {{/if}}
+                                {{#if (hasValue data.diver4One.name)}}
+                                <tr style="border:1px solid;">
+                                    <td style="padding:5px 5px; background-color: #365F91;height:40px; border:1px solid #000; color: rgb(255, 255, 255); width: 50%;">Divers:</td>
+                                    <td style="padding:5px 5px;width:50px; border:1px solid;">{{data.diver1One.name}}</td>
+                                    <td style="padding:5px 5px;width:50px; border:1px solid;"></td><img src={{data.diver1One.signature.signature}} width="80%" , {{#if (isDarkMode)}}id="darkSig" {{/if}} /></td>
                                 </tr>
-                                <tr>
-                                    <td style="padding:5px 5px; background-color: #365F91;height:40px; border:1px solid #000; color: rgb(255, 255, 255);"><b>VESSEL DETAILS:</b></td>
-                                    <td style="padding:5px 5px; border:1px;height:40px"><b>Vessel:</b></td>
-                                    <td colspan="1" style="padding:5px 5px;width: 60; border:1px solid;;height:40">{{#if (hasValue data.vessel.name)}}{{data.vessel.name}}{{else}}{{data.vessel.data.name}}{{/if}}</td>
+                                <tr style="border:1px solid;">
+                                    <td style="padding:5px 5px; background-color: #365F91;height:40px; border:1px solid #000; color: rgb(255, 255, 255); width: 50%;">Divers:</td>
+                                    <td style="padding:5px 5px;width:50px; border:1px solid;">{{data.diver1One.name}}</td>
+                                    <td style="padding:5px 5px;width:50px; border:1px solid;"></td><img src={{data.diver1One.signature.signature}} width="80%" , {{#if (isDarkMode)}}id="darkSig" {{/if}} /></td>
                                 </tr>
-                                
-                                {{#if (hasValue data.vessel.data.yearBuilt)}}
-                                <tr style="border:1px solid;;height:40px">
-                                    <td style="background-color: #365F91;height:40px; border:1px solid;"></td>
-                                    <td style="padding:5px 5px; border:1px;height:40px"><b>Year Built:</b></td>
-                                    <td colspan="1" style="padding:5px 5px;border:1px solid;;height:40px">{{data.vessel.data.yearBuilt}}</td>
+                                <tr style="border:1px solid;">
+                                    <td style="padding:5px 5px; background-color: #365F91;height:40px; border:1px solid #000; color: rgb(255, 255, 255); width: 50%;">Divers:</td>
+                                    <td style="padding:5px 5px;width:50px; border:1px solid;">{{data.diver1One.name}}</td>
+                                    <td style="padding:5px 5px;width:50px; border:1px solid;"></td><img src={{data.diver1One.signature.signature}} width="80%" , {{#if (isDarkMode)}}id="darkSig" {{/if}} /></td>
                                 </tr>
-                                {{else}}
-                                <tr style="border:1px solid;;height:40px">
-                                    <td style="background-color: #365F91;height:40px; border:1px solid;"></td>
-                                    <td style="padding:5px 5px; border:1px;height:40px"><b>Year Built:</b></td>
-                                    <td colspan="1" style="padding:5px 5px;border:1px solid;;height:40px">{{data.vessel.yearBuilt}}</td>
+                                <tr style="border:1px solid;">
+                                    <td style="padding:5px 5px; background-color: #365F91;height:40px; border:1px solid #000; color: rgb(255, 255, 255); width: 50%;">Divers:</td>
+                                    <td style="padding:5px 5px;width:50px; border:1px solid;">{{data.diver1One.name}}</td>
+                                    <td style="padding:5px 5px;width:50px; border:1px solid;"></td><img src={{data.diver1One.signature.signature}} width="80%" , {{#if (isDarkMode)}}id="darkSig" {{/if}} /></td>
+                                </tr>
+                                {{/if}}
+                                {{#if (hasValue data.diver5One.name)}}
+                                <tr style="border:1px solid;">
+                                    <td style="padding:5px 5px; background-color: #365F91;height:40px; border:1px solid #000; color: rgb(255, 255, 255); width: 50%;">Divers:</td>
+                                    <td style="padding:5px 5px;width:50px; border:1px solid;">{{data.diver1One.name}}</td>
+                                    <td style="padding:5px 5px;width:50px; border:1px solid;"></td><img src={{data.diver1One.signature.signature}} width="80%" , {{#if (isDarkMode)}}id="darkSig" {{/if}} /></td>
+                                </tr>
+                                <tr style="border:1px solid;">
+                                    <td style="padding:5px 5px; background-color: #365F91;height:40px; border:1px solid #000; color: rgb(255, 255, 255); width: 50%;">Divers:</td>
+                                    <td style="padding:5px 5px;width:50px; border:1px solid;">{{data.diver1One.name}}</td>
+                                    <td style="padding:5px 5px;width:50px; border:1px solid;"></td><img src={{data.diver1One.signature.signature}} width="80%" , {{#if (isDarkMode)}}id="darkSig" {{/if}} /></td>
+                                </tr>
+                                <tr style="border:1px solid;">
+                                    <td style="padding:5px 5px; background-color: #365F91;height:40px; border:1px solid #000; color: rgb(255, 255, 255); width: 50%;">Divers:</td>
+                                    <td style="padding:5px 5px;width:50px; border:1px solid;">{{data.diver1One.name}}</td>
+                                    <td style="padding:5px 5px;width:50px; border:1px solid;"></td><img src={{data.diver1One.signature.signature}} width="80%" , {{#if (isDarkMode)}}id="darkSig" {{/if}} /></td>
+                                </tr>
+                                <tr style="border:1px solid;">
+                                    <td style="padding:5px 5px; background-color: #365F91;height:40px; border:1px solid #000; color: rgb(255, 255, 255); width: 50%;">Divers:</td>
+                                    <td style="padding:5px 5px;width:50px; border:1px solid;">{{data.diver1One.name}}</td>
+                                    <td style="padding:5px 5px;width:50px; border:1px solid;"></td><img src={{data.diver1One.signature.signature}} width="80%" , {{#if (isDarkMode)}}id="darkSig" {{/if}} /></td>
+                                </tr>
+                                <tr style="border:1px solid;">
+                                    <td style="padding:5px 5px; background-color: #365F91;height:40px; border:1px solid #000; color: rgb(255, 255, 255); width: 50%;">Divers:</td>
+                                    <td style="padding:5px 5px;width:50px; border:1px solid;">{{data.diver1One.name}}</td>
+                                    <td style="padding:5px 5px;width:50px; border:1px solid;"></td><img src={{data.diver1One.signature.signature}} width="80%" , {{#if (isDarkMode)}}id="darkSig" {{/if}} /></td>
+                                </tr>
+                                {{/if}}
+                                {{#if (hasValue data.diver6One.name)}}
+                                <tr style="border:1px solid;">
+                                    <td style="padding:5px 5px; background-color: #365F91;height:40px; border:1px solid #000; color: rgb(255, 255, 255); width: 50%;">Divers:</td>
+                                    <td style="padding:5px 5px;width:50px; border:1px solid;">{{data.diver1One.name}}</td>
+                                    <td style="padding:5px 5px;width:50px; border:1px solid;"></td><img src={{data.diver1One.signature.signature}} width="80%" , {{#if (isDarkMode)}}id="darkSig" {{/if}} /></td>
+                                </tr>
+                                <tr style="border:1px solid;">
+                                    <td style="padding:5px 5px; background-color: #365F91;height:40px; border:1px solid #000; color: rgb(255, 255, 255); width: 50%;">Divers:</td>
+                                    <td style="padding:5px 5px;width:50px; border:1px solid;">{{data.diver1One.name}}</td>
+                                    <td style="padding:5px 5px;width:50px; border:1px solid;"></td><img src={{data.diver1One.signature.signature}} width="80%" , {{#if (isDarkMode)}}id="darkSig" {{/if}} /></td>
+                                </tr>
+                                <tr style="border:1px solid;">
+                                    <td style="padding:5px 5px; background-color: #365F91;height:40px; border:1px solid #000; color: rgb(255, 255, 255); width: 50%;">Divers:</td>
+                                    <td style="padding:5px 5px;width:50px; border:1px solid;">{{data.diver1One.name}}</td>
+                                    <td style="padding:5px 5px;width:50px; border:1px solid;"></td><img src={{data.diver1One.signature.signature}} width="80%" , {{#if (isDarkMode)}}id="darkSig" {{/if}} /></td>
+                                </tr>
+                                <tr style="border:1px solid;">
+                                    <td style="padding:5px 5px; background-color: #365F91;height:40px; border:1px solid #000; color: rgb(255, 255, 255); width: 50%;">Divers:</td>
+                                    <td style="padding:5px 5px;width:50px; border:1px solid;">{{data.diver1One.name}}</td>
+                                    <td style="padding:5px 5px;width:50px; border:1px solid;"></td><img src={{data.diver1One.signature.signature}} width="80%" , {{#if (isDarkMode)}}id="darkSig" {{/if}} /></td>
+                                </tr>
+                                <tr style="border:1px solid;">
+                                    <td style="padding:5px 5px; background-color: #365F91;height:40px; border:1px solid #000; color: rgb(255, 255, 255); width: 50%;">Divers:</td>
+                                    <td style="padding:5px 5px;width:50px; border:1px solid;">{{data.diver1One.name}}</td>
+                                    <td style="padding:5px 5px;width:50px; border:1px solid;"></td><img src={{data.diver1One.signature.signature}} width="80%" , {{#if (isDarkMode)}}id="darkSig" {{/if}} /></td>
+                                </tr>
+                                <tr style="border:1px solid;">
+                                    <td style="padding:5px 5px; background-color: #365F91;height:40px; border:1px solid #000; color: rgb(255, 255, 255); width: 50%;">Divers:</td>
+                                    <td style="padding:5px 5px;width:50px; border:1px solid;">{{data.diver1One.name}}</td>
+                                    <td style="padding:5px 5px;width:50px; border:1px solid;"></td><img src={{data.diver1One.signature.signature}} width="80%" , {{#if (isDarkMode)}}id="darkSig" {{/if}} /></td>
+                                </tr>
+                                {{/if}}
+                                {{#if (hasValue data.diver7One.name)}}
+                                <tr style="border:1px solid;">
+                                    <td style="padding:5px 5px; background-color: #365F91;height:40px; border:1px solid #000; color: rgb(255, 255, 255); width: 50%;">Divers:</td>
+                                    <td style="padding:5px 5px;width:50px; border:1px solid;">{{data.diver1One.name}}</td>
+                                    <td style="padding:5px 5px;width:50px; border:1px solid;"></td><img src={{data.diver1One.signature.signature}} width="80%" , {{#if (isDarkMode)}}id="darkSig" {{/if}} /></td>
+                                </tr>
+                                <tr style="border:1px solid;">
+                                    <td style="padding:5px 5px; background-color: #365F91;height:40px; border:1px solid #000; color: rgb(255, 255, 255); width: 50%;">Divers:</td>
+                                    <td style="padding:5px 5px;width:50px; border:1px solid;">{{data.diver1One.name}}</td>
+                                    <td style="padding:5px 5px;width:50px; border:1px solid;"></td><img src={{data.diver1One.signature.signature}} width="80%" , {{#if (isDarkMode)}}id="darkSig" {{/if}} /></td>
+                                </tr>
+                                <tr style="border:1px solid;">
+                                    <td style="padding:5px 5px; background-color: #365F91;height:40px; border:1px solid #000; color: rgb(255, 255, 255); width: 50%;">Divers:</td>
+                                    <td style="padding:5px 5px;width:50px; border:1px solid;">{{data.diver1One.name}}</td>
+                                    <td style="padding:5px 5px;width:50px; border:1px solid;"></td><img src={{data.diver1One.signature.signature}} width="80%" , {{#if (isDarkMode)}}id="darkSig" {{/if}} /></td>
+                                </tr>
+                                <tr style="border:1px solid;">
+                                    <td style="padding:5px 5px; background-color: #365F91;height:40px; border:1px solid #000; color: rgb(255, 255, 255); width: 50%;">Divers:</td>
+                                    <td style="padding:5px 5px;width:50px; border:1px solid;">{{data.diver1One.name}}</td>
+                                    <td style="padding:5px 5px;width:50px; border:1px solid;"></td><img src={{data.diver1One.signature.signature}} width="80%" , {{#if (isDarkMode)}}id="darkSig" {{/if}} /></td>
+                                </tr>
+                                <tr style="border:1px solid;">
+                                    <td style="padding:5px 5px; background-color: #365F91;height:40px; border:1px solid #000; color: rgb(255, 255, 255); width: 50%;">Divers:</td>
+                                    <td style="padding:5px 5px;width:50px; border:1px solid;">{{data.diver1One.name}}</td>
+                                    <td style="padding:5px 5px;width:50px; border:1px solid;"></td><img src={{data.diver1One.signature.signature}} width="80%" , {{#if (isDarkMode)}}id="darkSig" {{/if}} /></td>
+                                </tr>
+                                <tr style="border:1px solid;">
+                                    <td style="padding:5px 5px; background-color: #365F91;height:40px; border:1px solid #000; color: rgb(255, 255, 255); width: 50%;">Divers:</td>
+                                    <td style="padding:5px 5px;width:50px; border:1px solid;">{{data.diver1One.name}}</td>
+                                    <td style="padding:5px 5px;width:50px; border:1px solid;"></td><img src={{data.diver1One.signature.signature}} width="80%" , {{#if (isDarkMode)}}id="darkSig" {{/if}} /></td>
+                                </tr>
+                                <tr style="border:1px solid;">
+                                    <td style="padding:5px 5px; background-color: #365F91;height:40px; border:1px solid #000; color: rgb(255, 255, 255); width: 50%;">Divers:</td>
+                                    <td style="padding:5px 5px;width:50px; border:1px solid;">{{data.diver1One.name}}</td>
+                                    <td style="padding:5px 5px;width:50px; border:1px solid;"></td><img src={{data.diver1One.signature.signature}} width="80%" , {{#if (isDarkMode)}}id="darkSig" {{/if}} /></td>
+                                </tr>
+                                {{/if}}
+                                {{#if (hasValue data.diver8One.name)}}
+                                <tr style="border:1px solid;">
+                                    <td style="padding:5px 5px; background-color: #365F91;height:40px; border:1px solid #000; color: rgb(255, 255, 255); width: 50%;">Divers:</td>
+                                    <td style="padding:5px 5px;width:50px; border:1px solid;">{{data.diver1One.name}}</td>
+                                    <td style="padding:5px 5px;width:50px; border:1px solid;"></td><img src={{data.diver1One.signature.signature}} width="80%" , {{#if (isDarkMode)}}id="darkSig" {{/if}} /></td>
+                                </tr>
+                                <tr style="border:1px solid;">
+                                    <td style="padding:5px 5px; background-color: #365F91;height:40px; border:1px solid #000; color: rgb(255, 255, 255); width: 50%;">Divers:</td>
+                                    <td style="padding:5px 5px;width:50px; border:1px solid;">{{data.diver1One.name}}</td>
+                                    <td style="padding:5px 5px;width:50px; border:1px solid;"></td><img src={{data.diver1One.signature.signature}} width="80%" , {{#if (isDarkMode)}}id="darkSig" {{/if}} /></td>
+                                </tr>
+                                <tr style="border:1px solid;">
+                                    <td style="padding:5px 5px; background-color: #365F91;height:40px; border:1px solid #000; color: rgb(255, 255, 255); width: 50%;">Divers:</td>
+                                    <td style="padding:5px 5px;width:50px; border:1px solid;">{{data.diver1One.name}}</td>
+                                    <td style="padding:5px 5px;width:50px; border:1px solid;"></td><img src={{data.diver1One.signature.signature}} width="80%" , {{#if (isDarkMode)}}id="darkSig" {{/if}} /></td>
+                                </tr>
+                                <tr style="border:1px solid;">
+                                    <td style="padding:5px 5px; background-color: #365F91;height:40px; border:1px solid #000; color: rgb(255, 255, 255); width: 50%;">Divers:</td>
+                                    <td style="padding:5px 5px;width:50px; border:1px solid;">{{data.diver1One.name}}</td>
+                                    <td style="padding:5px 5px;width:50px; border:1px solid;"></td><img src={{data.diver1One.signature.signature}} width="80%" , {{#if (isDarkMode)}}id="darkSig" {{/if}} /></td>
+                                </tr>
+                                <tr style="border:1px solid;">
+                                    <td style="padding:5px 5px; background-color: #365F91;height:40px; border:1px solid #000; color: rgb(255, 255, 255); width: 50%;">Divers:</td>
+                                    <td style="padding:5px 5px;width:50px; border:1px solid;">{{data.diver1One.name}}</td>
+                                    <td style="padding:5px 5px;width:50px; border:1px solid;"></td><img src={{data.diver1One.signature.signature}} width="80%" , {{#if (isDarkMode)}}id="darkSig" {{/if}} /></td>
+                                </tr>
+                                <tr style="border:1px solid;">
+                                    <td style="padding:5px 5px; background-color: #365F91;height:40px; border:1px solid #000; color: rgb(255, 255, 255); width: 50%;">Divers:</td>
+                                    <td style="padding:5px 5px;width:50px; border:1px solid;">{{data.diver1One.name}}</td>
+                                    <td style="padding:5px 5px;width:50px; border:1px solid;"></td><img src={{data.diver1One.signature.signature}} width="80%" , {{#if (isDarkMode)}}id="darkSig" {{/if}} /></td>
+                                </tr>
+                                <tr style="border:1px solid;">
+                                    <td style="padding:5px 5px; background-color: #365F91;height:40px; border:1px solid #000; color: rgb(255, 255, 255); width: 50%;">Divers:</td>
+                                    <td style="padding:5px 5px;width:50px; border:1px solid;">{{data.diver1One.name}}</td>
+                                    <td style="padding:5px 5px;width:50px; border:1px solid;"></td><img src={{data.diver1One.signature.signature}} width="80%" , {{#if (isDarkMode)}}id="darkSig" {{/if}} /></td>
+                                </tr>
+                                <tr style="border:1px solid;">
+                                    <td style="padding:5px 5px; background-color: #365F91;height:40px; border:1px solid #000; color: rgb(255, 255, 255); width: 50%;">Divers:</td>
+                                    <td style="padding:5px 5px;width:50px; border:1px solid;">{{data.diver1One.name}}</td>
+                                    <td style="padding:5px 5px;width:50px; border:1px solid;"></td><img src={{data.diver1One.signature.signature}} width="80%" , {{#if (isDarkMode)}}id="darkSig" {{/if}} /></td>
                                 </tr>
                                 {{/if}}
 
-                                {{#if (hasValue data.vessel.data.imo)}}
-                                <tr style="border:1px solid;">
-                                    <td style="background-color: #365F91;height:40px; border:1px solid;"></td>
-                                    <td style="padding:5px 5px; width:15px; border:1px;"><b>IMO:</b></td>
-                                    <td colspan="1" style="padding:5px 5px;width:50px; border:1px solid;">{{data.vessel.data.imo}}</td>
-                                </tr>
-                                {{else}}
-                             
-                                <tr style="border:1px solid;">
-                                    <td style="background-color: #365F91;height:40px; border:1px solid;"></td>
-                                    <td style="padding:5px 5px; width:15px; border:1px;"><b>IMO:</b></td>
-                                    <td colspan="1" style="padding:5px 5px;width:50px; border:1px solid;">{{data.vessel.imo}}</td>
-                                </tr>
-                                {{/if}}
-
-                                {{#if (hasValue data.vessel.data.length)}}
-                                <tr style="border:1px solid;">
-                                    <td style="background-color: #365F91;height:40px; border:1px solid;"></td>
-                                    <td style="padding:5px 5px; width:15px; border:1px;"><b>Length (m):</b></td>
-                                    <td colspan="1" style="padding:5px 5px;width:50px; border:1px solid;">{{data.vessel.data.length}}</td>
-                                </tr>
-                                {{else}}
-                                <tr style="border:1px solid;">
-                                    <td style="background-color: #365F91;height:40px; border:1px solid;"></td>
-                                    <td style="padding:5px 5px; width:15px; border:1px;"><b>Length (m):</b></td>
-                                    <td colspan="1" style="padding:5px 5px;width:50px; border:1px solid;">{{data.vessel.length}}</td>
-                                </tr>
-                                {{/if}}
-
-                                <tr style="border:1px solid;">
-                                    <td style="padding:5px 5px; background-color: #365F91;height:40px; border:1px solid #000; color: rgb(255, 255, 255);"><b>DATE OF INSPECTION:</b></td>
-                                    <td colspan="3" style="padding:5px 5px;width:65px; border:1px solid;">{{formatDateTime
-                                        data.actualDelivery.startDateTime.date "dddd DD MMMM YYYY"}}</td>
-                                </tr>
-
-                                {{#if (hasValue data.visibility)}}
-                                <tr style="border:1px solid;">
-                                    <td style="padding:5px 5px; width:65px; background-color: #365F91;height:40px; border:1px solid #000; color: rgb(255, 255, 255);"><b>VISIBILITY:</b></td>
-                                    <td colspan="3" style="padding:5px 5px;border:1px solid;">{{data.visibility}}</td>
-                                </tr>
-                                {{/if}}
-
-                                {{#if (hasValue data.vessel.data.vesselDraft)}}
-                                <tr style="border:1px solid;">
-                                    <td style="padding:5px 5px; width:65px; background-color: #365F91;height:40px; border:1px solid #000; color: rgb(255, 255, 255);"><b>DRAFT:</b></td>
-                                    <td colspan="3" style="padding:5px 5px;border:1px solid;">{{data.vessel.data.vesselDraft}}</td>
-                                </tr>
-                                {{else}}
                             
-                                <tr style="border:1px solid;">
-                                    <td style="padding:5px 5px; width:65px; background-color: #365F91;height:40px; border:1px solid #000; color: rgb(255, 255, 255);"><b>DRAFT:</b></td>
-                                    <td colspan="3" style="padding:5px 5px;border:1px solid;">{{data.vessel.vesselDraft}}</td>
-                                </tr>
-                                {{/if}}
-
-                                {{#if (hasValue data.clientDetails)}}
-                                <tr style="border:1px solid;">
-                                    <td style="padding:5px 5px; width:65px; background-color: #365F91;height:40px; border:1px solid #000; color: rgb(255, 255, 255);"><b>CLIENT:</b></td>
-                                    <td colspan="3" style="padding:5px 5px;border:1px solid;">{{data.clientDetails}}</td>
-                                </tr>
-                                {{/if}}
-                                {{#if (hasValue data.invites.buyer.0.name) }}
-                                <tr style="border:1px solid;">
-                                    <td style="padding:5px 5px; width:65px; background-color: #365F91;height:40px; border:1px solid #000; color: rgb(255, 255, 255);"><b>CLIENT REP:</b></td>
-                                    <td colspan="3" style="padding:5px 5px;border:1px solid;">{{data.invites.buyer.0.name}}</td>
-                                </tr>
-                                {{/if}}
-                                <tr style="border:1px solid;">
-                                    <td style="padding:5px 5px; width:65px; background-color: #365F91;height:40px; border:1px solid #000; color: rgb(255, 255, 255);"><b>JOB LOCATION:</b></td>
-                                    <td colspan="3" style="padding:5px 5px; border:1px solid;">{{data.location.data.portName}}, {{data.berthAnchorageLocation}}</td>
+                                </table>
 
 
-                                <tr style="border:1px solid;">
-                                    <td style="padding:5px 5px; background-color: #365F91;height:40px; border:1px solid #000; color: rgb(255, 255, 255);"><b>DIVE TEAM:</b></td>
-                                    <td colspan="1" style="padding:5px 5px; width:15px; border:1px solid;">Supervisor:</td>
-                                    <td style="padding:5px 5px;width:50px; border:1px solid;">{{data.supervisor.name}}</td>
-                                </tr>
-
-
-
-                                {{#if (hasValue data.repairAgent.name)}}
-                                <tr style="border:1px solid;">
-                                    <td style="background-color: #365F91;height:40px; border:1px solid;"></td>
-                                    <td colspan="1" style="padding:5px 5px;  width:15px; border:1px solid;">Repair Agent:</td>
-                                    <td style="padding:5px 5px;width:50px; border:1px solid;">{{data.repairAgent.name}}</td>
-                                </tr>
-                                {{/if}}
-
-
-
-                                {{#if (hasValue data.deliveryDivers.diver1OneName)}}
-                                <tr style="border:1px solid;">
-                                    <td style="background-color: #365F91;height:40px; border:1px solid;"></td>
-                                    <td colspan="1" style="padding:5px 5px; width:15px; border:1px;"> Divers:</td>
-                                    <td style="padding:5px 5px;width:50px; border:1px solid;">{{data.deliveryDivers.diver1OneName}}</td>
-                                </tr>
-                                {{/if}}
-                                {{#if (hasValue deliveryDivers.diver2OneName)}}
-                                <tr style="border:1px solid;">
-                                    <td style="background-color: #365F91;height:40px; border:1px solid;"></td>
-                                    <td colspan="1" style="padding:5px 5px; width:15px; border:1px;"> Divers:</td>
-                                    <td style="padding:5px 5px;width:50px; border:1px solid;">{{data.deliveryDivers.diver2OneName}}</td>
-                                </tr>
-                                <tr style="border:1px solid;">
-                                    <td style="background-color: #365F91;height:40px; border:1px solid;"></td>
-                                    <td style="width:15px;border:1px;"></td>
-                                    <td style="padding:5px 5px;width:50px; border:1px solid;">{{data.deliveryDivers.diver2TwoName}}</td>
-                                </tr>
-                                {{/if}}
-                                {{#if (hasValue data.deliveryDivers.diver3OneName)}}
-                                <tr style="border:1px solid;">
-                                    <td style="background-color: #365F91;height:40px; border:1px solid;"></td>
-                                    <td colspan="1" style="padding:5px 5px; width:15px; border:1px;"> Divers:</td>
-                                    <td style="padding:5px 5px;width:50px; border:1px solid;">{{data.deliveryDivers.diver3OneName}}</td>
-                                </tr>
-                                <tr style="border:1px solid;">
-                                    <td style="background-color: #365F91;height:40px; border:1px solid;"></td>
-                                    <td style="width:15px; border:1px;"></td>
-                                    <td style="padding:5px 5px;width:50px; border:1px solid;">{{data.deliveryDivers.diver3TwoName}}</td>
-                                </tr>
-                                <tr style="border:1px solid;">
-                                    <td style="background-color: #365F91;height:40px; border:1px solid;"></td>
-                                    <td style="width:15px; border:1px;"></td>
-                                    <td style="padding:5px 5px;width:50px; border:1px solid;">{{data.deliveryDivers.diver3ThreeName}}</td>
-                                </tr>
-                                {{/if}}
-                                {{#if (hasValue data.deliveryDivers.diver4OneName)}}
-                                <tr style="border:1px solid;">
-                                    <td style="background-color: #365F91;height:40px; border:1px solid;"></td>
-                                    <td colspan="1" style="padding:5px 5px; width:15px; border:1px;"> Divers:</td>
-                                    <td style="padding:5px 5px;width:50px; border:1px solid;">{{data.deliveryDivers.diver4OneName}}</td>
-                                </tr>
-                                <tr style="border:1px solid;">
-                                    <td style="background-color: #365F91;height:40px; border:1px solid;"></td>
-                                    <td style="width:15px; border:1px;"></td>
-                                    <td style="padding:5px 5px;width:50px; border:1px solid;">{{data.deliveryDivers.diver4TwoName}}</td>
-                                </tr>
-                                <tr style="border:1px solid;">
-                                    <td style="background-color: #365F91;height:40px; border:1px solid;"></td>
-                                    <td style="width:15px; border:1px;"></td>
-                                    <td style="padding:5px 5px;width:50px; border:1px solid;">{{data.deliveryDivers.diver4ThreeName}}</td>
-                                </tr>
-                                <tr style="border:1px solid;">
-                                    <td style="background-color: #365F91;height:40px; border:1px solid;"></td>
-                                    <td style="width:15px; border:1px;"></td>
-                                    <td style="padding:5px 5px;width:50px; border:1px solid;">{{data.deliveryDivers.diver4FourName}}</td>
-                                </tr>
-                                {{/if}}
-                                {{#if (hasValue data.deliveryDivers.diver5OneName)}}
-                                <tr style="border:1px solid;">
-                                    <td style="background-color: #365F91;height:40px; border:1px solid;"></td>
-                                    <td style="padding:5px 5px; width:15px; border:1px;"> Divers:</td>
-                                    <td style="padding:5px 5px;width:50px; border:1px solid;">{{data.deliveryDivers.diver5OneName}}</td>
-                                </tr>
-                                <tr style="border:1px solid;">
-                                    <td style="background-color: #365F91;height:40px; border:1px solid;"></td>
-                                    <td style="width:15px; border:1px;"></td>
-                                    <td style="padding:5px 5px;width:50px; border:1px solid;">{{data.deliveryDivers.diver5TwoName}}</td>
-                                </tr>
-                                <tr style="border:1px solid;">
-                                    <td style="background-color: #365F91;height:40px; border:1px solid;"></td>
-                                    <td style="width:15px; border:1px;"></td>
-                                    <td style="padding:5px 5px;width:50px; border:1px solid;">{{data.deliveryDivers.diver5ThreeName}}</td>
-                                </tr>
-                                <tr style="border:1px solid;">
-                                    <td style="background-color: #365F91;height:40px; border:1px solid;"></td>
-                                    <td style="width:15px; border:1px;"></td>
-                                    <td style="padding:5px 5px;width:50px; border:1px solid;">{{data.deliveryDivers.diver5FourName}}</td>
-                                </tr>
-                                <tr style="border:1px solid;">
-                                    <td style="background-color: #365F91;height:40px; border:1px solid;"></td>
-                                    <td style="width:15px; border:1px;"></td>
-                                    <td style="padding:5px 5px;width:50px; border:1px solid;">{{data.deliveryDivers.diver5FiveName}}</td>
-                                </tr>
-                                {{/if}}
-                                {{#if (hasValue data.deliveryDivers.diver6OneName)}}
-                                <tr style="border:1px solid;">
-                                    <td style="background-color: #365F91;height:40px; border:1px solid;"></td>
-                                    <td style="padding:5px 5px; width:15px; border:1px;"> Divers:</td>
-                                    <td style="padding:5px 5px;width:50px; border:1px solid;">{{data.deliveryDivers.diver6OneName}}</td>
-                                </tr>
-                                <tr style="border:1px solid;">
-                                    <td style="background-color: #365F91;height:40px; border:1px solid;"></td>
-                                    <td style="width:15px; border:1px;"></td>
-                                    <td style="padding:5px 5px;width:50px; border:1px solid;">{{data.deliveryDivers.diver6TwoName}}</td>
-                                </tr>
-                                <tr style="border:1px solid;">
-                                    <td style="background-color: #365F91;height:40px; border:1px solid;"></td>
-                                    <td style="width:15px; border:1px;"></td>
-                                    <td style="padding:5px 5px;width:50px; border:1px solid;">{{data.deliveryDivers.diver6ThreeName}}</td>
-                                </tr>
-                                <tr style="border:1px solid;">
-                                    <td style="background-color: #365F91;height:40px; border:1px solid;"></td>
-                                    <td style="width:15px; border:1px;"></td>
-                                    <td style="padding:5px 5px;width:50px; border:1px solid;">{{data.deliveryDivers.diver6FourName}}</td>
-                                </tr>
-                                <tr style="border:1px solid;">
-                                    <td style="background-color: #365F91;height:40px; border:1px solid;"></td>
-                                    <td style="width:15px; border:1px;"></td>
-                                    <td style="padding:5px 5px;width:50px; border:1px solid;">{{data.deliveryDivers.diver6FiveName}}</td>
-                                </tr>
-                                <tr style="border:1px solid;">
-                                    <td style="background-color: #365F91;height:40px; border:1px solid;"></td>
-                                    <td style="width:15px; border:1px;"></td>
-                                    <td style="padding:5px 5px;width:50px; border:1px solid;">{{data.deliveryDivers.diver6SixName}}</td>
-                                </tr>
-                                {{/if}}
-                                {{#if (hasValue data.deliveryDivers.diver7OneName)}}
-                                <tr style="border:1px solid;">
-                                    <td style="background-color: #365F91;height:40px; border:1px solid;"></td>
-                                    <td style="padding:5px 5px; width:15px; border:1px;"> Divers:</td>
-                                    <td style="padding:5px 5px;width:50px; border:1px solid;">{{data.deliveryDivers.diver7OneName}}</td>
-                                </tr>
-                                <tr style="border:1px solid;">
-                                    <td style="background-color: #365F91;height:40px; border:1px solid;"></td>
-                                    <td style="width:15px; border:1px;"></td>
-                                    <td style="padding:5px 5px;width:50px; border:1px solid;">{{data.deliveryDivers.diver7TwoName}}</td>
-                                </tr>
-                                <tr style="border:1px solid;">
-                                    <td style="background-color: #365F91;height:40px; border:1px solid;"></td>
-                                    <td style="width:15px; border:1px;"></td>
-                                    <td style="padding:5px 5px;width:50px; border:1px solid;">{{data.deliveryDivers.diver7ThreeName}}</td>
-                                </tr>
-                                <tr style="border:1px solid;">
-                                    <td style="background-color: #365F91;height:40px; border:1px solid;"></td>
-                                    <td style="width:15px; border:1px;"></td>
-                                    <td style="padding:5px 5px;width:50px; border:1px solid;">{{data.deliveryDivers.diver7FourName}}</td>
-                                </tr>
-                                <tr style="border:1px solid;">
-                                    <td style="background-color: #365F91;height:40px; border:1px solid;"></td>
-                                    <td style="width:15px; border:1px;"></td>
-                                    <td style="padding:5px 5px;width:50px; border:1px solid;">{{data.deliveryDivers.diver7FiveName}}</td>
-                                </tr>
-                                <tr style="border:1px solid;">
-                                    <td style="background-color: #365F91;height:40px; border:1px solid;"></td>
-                                    <td style="width:15px; border:1px;"></td>
-                                    <td style="padding:5px 5px;width:50px; border:1px solid;">{{data.deliveryDivers.diver7SixName}}</td>
-                                </tr>
-                                <tr style="border:1px solid;">
-                                    <td style="background-color: #365F91;height:40px; border:1px solid;"></td>
-                                    <td style="width:15px; border:1px;"></td>
-                                    <td style="padding:5px 5px;width:50px; border:1px solid;">{{data.deliveryDivers.diver7SevenName}}</td>
-                                </tr>
-                                {{/if}}
-                                {{#if (hasValue data.deliveryDivers.diver8OneName)}}
-                                <tr style="border:1px solid;">
-                                    <td style="background-color: #365F91;height:40px; border:1px solid;"></td>
-                                    <td style="padding:5px 5px; width:15px; border:1px;"> Divers:</td>
-                                    <td style="padding:5px 5px;width:50px; border:1px solid;">{{data.deliveryDivers.diver8OneName}}</td>
-                                </tr>
-                                <tr style="border:1px solid;">
-                                    <td style="background-color: #365F91;height:40px; border:1px solid;"></td>
-                                    <td style="width:15px; border:1px;"></td>
-                                    <td style="padding:5px 5px;width:50px; border:1px solid;">{{data.deliveryDivers.diver8TwoName}}</td>
-                                </tr>
-                                <tr style="border:1px solid;">
-                                    <td style="background-color: #365F91;height:40px; border:1px solid;"></td>
-                                    <td style="width:15px; border:1px;"></td>
-                                    <td style="padding:5px 5px;width:50px; border:1px solid;">{{data.deliveryDivers.diver8ThreeName}}</td>
-                                </tr>
-                                <tr style="border:1px solid;">
-                                    <td style="background-color: #365F91;height:40px; border:1px solid;"></td>
-                                    <td style="width:15px; border:1px;"></td>
-                                    <td style="padding:5px 5px;width:50px; border:1px solid;">{{data.deliveryDivers.diver8FourName}}</td>
-                                </tr>
-                                <tr style="border:1px solid;">
-                                    <td style="background-color: #365F91;height:40px; border:1px solid;"></td>
-                                    <td style="width:15px; border:1px;"></td>
-                                    <td style="padding:5px 5px;width:50px; border:1px solid;">{{data.deliveryDivers.diver8FiveName}}</td>
-                                </tr>
-                                <tr style="border:1px solid;">
-                                    <td style="background-color: #365F91;height:40px; border:1px solid;"></td>
-                                    <td style="width:15px;border:1px;"></td>
-                                    <td style="padding:5px 5px;width:50px; border:1px solid;">{{data.deliveryDivers.diver8SixName}}</td>
-                                </tr>
-                                <tr style="border:1px solid;">
-                                    <td style="background-color: #365F91;height:40px; border:1px solid;"></td>
-                                    <td style="width:15px; border:1px;"></td>
-                                    <td style="padding:5px 5px;width:50px; border:1px solid;">{{data.deliveryDivers.diver8SevenName}}</td>
-                                </tr>
-                                <tr style="border:1px solid;">
-                                    <td style="background-color: #365F91;height:40px; border:1px solid;"></td>
-                                    <td style="width:15px; border:1px;"></td>
-                                    <td style="padding:5px 5px;width:50px; border:1px solid;">{{data.deliveryDivers.diver8EightName}}</td>
-                                </tr>
-                                {{/if}}
-
-                                {{#if (hasValue data.inspector.name)}}
-                                <tr style="border:1px solid;">
-                                    <td style="padding:5px 5px; color: rgb(255, 255, 255); background-color: #365F91;height:40px; border:1px solid #000;"><b>INSPECTOR:</b></td>
-                                    <td style="width:15px; border:1px;"></td>
-                                    <td style="padding:5px 5px;width:50px; border:1px solid;">{{data.inspector.name}}</td>
-                                </tr>
-                                {{/if}}
-
-                            </table>
-                        </div>
+                        
                         <div class="page">
-                            {{!-- <p></p> --}}
+    
                             <p></p>
                             
-                            <h4>2. OVERVIEW</h4>
+                           
                             
                             {{{data.report.overview}}}
                             <br>
