@@ -83,8 +83,8 @@
                 {
                     "id": "55f24899-72a7-4f4f-9626-64fdb6931d69",
                     "requirement": "Permit to dive & isolations signed",
-                    "complete": "true",
-                    "checked": "true"
+                    "complete": "false",
+                    "checked": "false"
                 },
                 {
                     "id": "000f9896-605c-4f25-ac82-40a5554c76aa",

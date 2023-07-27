@@ -1,11 +1,9 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <meta http-equiv=Content-Type content="text/html; charset=UTF-8">
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-
     <style>
         * {
             font-family: 'Calibri', sans-serif;
@@ -118,8 +116,6 @@
         h4.custom-heading[style="margin-bottom: 0;"] {
             margin-bottom: 0 !important;
         }
-
-
         h5 {
 
             font-size: 16px;
@@ -347,16 +343,11 @@
                 content: counter(name);
             }
     </style>
-
     <title>
         <div>Supervisors Report Package</div>
     </title>
 </head>
-
-
-
 <body>
-
     <div class="section">
         <div class="page-header">
             <table class="table">
@@ -372,68 +363,48 @@
                 </tr>
             </table>
         </div>
-
         <div class="page-footer-cover">
             <tr>
                 <td><img src="https://cdn.marinestream.io/templates/logos/FooterFUS.png" alt="FUS footer cover page"
                         style="width:790px; float:left"></td>
             </tr>
         </div>
-
-
-        {{!-- <div class="page-footer" style="font-size:xx-small">
-            {{data.vessel.data.name}} - {{createdBy.companyName}} - {{formatDateTime
-            data.actualDelivery.startDateTime.date "dddd DD MMMM YYYY"}} - {{data.jobType}}
-        </div> --}}
-
-
-
         <table style="width:100%;position:center">
 
             <thead style="width:100%">
                 <tr style="width:90%">
                     <td style="width:90%">
-                        <!--place holder for the fixed-position header-->
                         <div class="page-header-space"></div>
                     </td>
                 </tr>
             </thead>
-
             <tbody style="width:100%">
                 <tr style="width:90%">
                     <td style="width:90%">
-                        <!--*** CONTENT GOES HERE ***-->
                         <div class="page">
                             <h1>Supervisors Report Package</h1>
                             &nbsp;
-                                <h2>{{data.project.name}}, {{data.location.job}}, {{data.franmarine.jobNumber}}</h2>
-
+                            <h2>{{data.project.name}}, {{data.location.job}}, {{data.franmarine.jobNumber}}</h2>
                             <h2>Date: {{formatDateTime data.supervisor.date.date "dddd Do MMMM YYYY"}}</h2>
                             <h2>Vessel / Facility: {{data.vessel.facility}}</h2>
-               
-                            
                             <h2></h2>
                         </div>
                         <div class="page">
                             <p></p>
-                            
                             <h4>1. Client Details</h4>
                         <table style="border:1px solid #000; border-collapse:collapse; width:100%; position:center;">
                             <tr>
                                 <td style="padding:5px 5px; background-color: #365F91; height:40px; border:1px solid #000; color: rgb(255, 255, 255); width: 50%;"><b>CLIENT:</b></td>
                                 <td style="padding:5px 5px; border:1px solid; height:40px; width: 50%;">{{data.client.detail}}</td>
                             </tr>
-
                             <tr style="border:1px solid;">
                                 <td style="padding:5px 5px; background-color: #365F91;height:40px; border:1px solid #000; color: rgb(255, 255, 255); width: 50%;"><b>CLIENT PURCHASE ORDER:</b></td>
                                 <td style="padding:5px 5px; border:1px solid; height:40px; width: 50%;">{{data.client.purchaseOrder}}</td>
                             </tr>
-
                             <tr style="border:1px solid;">
                                 <td style="padding:5px 5px; background-color: #365F91;height:40px; border:1px solid #000; color: rgb(255, 255, 255); width: 50%;"><b>CLIENT REPRESENTATIVE:</b></td>
                                 <td style="padding:5px 5px;border:1px solid; height:40px; width: 50%;">{{data.client.representative}}</td>
                             </tr>
-
                             <tr style="border:1px solid;">
                                 <td style="padding:5px 5px; background-color: #365F91;height:40px; border:1px solid #000; color: rgb(255, 255, 255); width: 50%;"><b>CLIENT REPRESENTATIVE CONTACT NUMBER:</b></td>
                                 <td style="padding:5px 5px;border:1px solid; height:40px; width: 50%;">{{data.contact.number}}</td>
@@ -446,748 +417,866 @@
                             <tr>
                                 <td style="padding:5px 5px; background-color: #365F91; height:40px; border:1px solid #000; color: rgb(255, 255, 255); width: 50%;"><b>NAME:</b></td>
                                 <td style="padding:5px 5px; border:1px solid; height:40px; width: 50%;">{{data.diveSupervisors.name}}</td>
-
                             </tr>
-
                             <tr style="border:1px solid;">
                                 <td style="padding:5px 5px; background-color: #365F91;height:40px; border:1px solid #000; color: rgb(255, 255, 255); width: 50%;"><b>SIGNATURE:</b></td>
                                 <td style="padding:5px 5px; border:1px solid; height:40px; width: 50%;"><img src={{data.diveSupervisors.signature.signature}} width="80%" , {{#if (isDarkMode)}}id="darkSig" {{/if}} /></td>
                             </tr>
                         </table>
-                        
-
                         <h4>3. Dive Team</h4>
+                        <table style="border:1px solid #000; border-collapse:collapse; width:100%; position:center;">
+                            {{#if (hasValue data.diver1One.name)}}
+                            <tr style="border:1px solid;">
+                                <td style="padding:5px 5px; background-color: #365F91;height:40px; border:1px solid #000; color: rgb(255, 255, 255); width: 33.33%;">Diver 1:</td>
+                                <td style="padding:5px 5px;width:33.33%; border:1px solid;">{{data.diver1One.name}}</td>
+                                <td style="padding:5px 5px;width:33.33%; border:1px solid;"><img src={{data.diver1One.signature.signature}} width="80%" , {{#if (isDarkMode)}}id="darkSig" {{/if}} /></td>
+                            </tr>
+                            {{/if}}
+                            {{#if (hasValue data.diver2One.name)}}
+                            <tr style="border:1px solid;">
+                                <td style="padding:5px 5px; background-color: #365F91;height:40px; border:1px solid #000; color: rgb(255, 255, 255); width: 33.33%;">Diver 1:</td>
+                                <td style="padding:5px 5px;width:33.33%; border:1px solid;">{{data.diver2One.name}}</td>
+                                <td style="padding:5px 5px;width:33.33%; border:1px solid;"><img src={{data.diver2One.signature.signature}} width="80%" , {{#if (isDarkMode)}}id="darkSig" {{/if}} /></td>
+                            </tr>
+                            <tr style="border:1px solid;">
+                                <td style="padding:5px 5px; background-color: #365F91;height:40px; border:1px solid #000; color: rgb(255, 255, 255); width: 33.33%;">Diver 2:</td>
+                                <td style="padding:5px 5px;width:33.33%; border:1px solid;">{{data.diver2One.name}}</td>
+                                <td style="padding:5px 5px;width:33.33%; border:1px solid;"><img src={{data.diver2One.signature.signature}} width="80%" , {{#if (isDarkMode)}}id="darkSig" {{/if}} /></td>
+                            </tr>
+                            {{/if}}
+                            {{#if (hasValue data.diver3One.name)}}
+                            <tr style="border:1px solid;">
+                                <td style="padding:5px 5px; background-color: #365F91;height:40px; border:1px solid #000; color: rgb(255, 255, 255); width: 33.33%;">Diver 1:</td>
+                                <td style="padding:5px 5px;width:33.33%; border:1px solid;">{{data.diver3One.name}}</td>
+                                <td style="padding:5px 5px;width:33.33%; border:1px solid;"><img src={{data.diver3One.signature.signature}} width="80%" , {{#if (isDarkMode)}}id="darkSig" {{/if}} /></td>
+                            </tr>
 
-<table style="border:1px solid #000; border-collapse:collapse; width:100%; position:center;">
+                            <tr style="border:1px solid;">
+                                <td style="padding:5px 5px; background-color: #365F91;height:40px; border:1px solid #000; color: rgb(255, 255, 255); width: 33.33%;">Diver 2:</td>
+                                <td style="padding:5px 5px;width:33.33%; border:1px solid;">{{data.diver3Two.name}}</td>
+                                <td style="padding:5px 5px;width:33.33%; border:1px solid;"><img src={{data.diver3Two.signature.signature}} width="80%" , {{#if (isDarkMode)}}id="darkSig" {{/if}} /></td>
+                            </tr>
 
-    {{#if (hasValue data.diver1One.name)}}
-    <tr style="border:1px solid;">
-        <td style="padding:5px 5px; background-color: #365F91;height:40px; border:1px solid #000; color: rgb(255, 255, 255); width: 33.33%;">Divers:</td>
-        <td style="padding:5px 5px;width:33.33%; border:1px solid;">{{data.diver1One.name}}</td>
-        <td style="padding:5px 5px;width:33.33%; border:1px solid;"><img src={{data.diver1One.signature.signature}} width="80%" , {{#if (isDarkMode)}}id="darkSig" {{/if}} /></td>
-    </tr>
-    {{/if}}
-
-    {{#if (hasValue data.diver2One.name)}}
-    <tr style="border:1px solid;">
-        <td style="padding:5px 5px; background-color: #365F91;height:40px; border:1px solid #000; color: rgb(255, 255, 255); width: 33.33%;">Divers:</td>
-        <td style="padding:5px 5px;width:33.33%; border:1px solid;">{{data.diver2One.name}}</td>
-        <td style="padding:5px 5px;width:33.33%; border:1px solid;"><img src={{data.diver2One.signature.signature}} width="80%" , {{#if (isDarkMode)}}id="darkSig" {{/if}} /></td>
-    </tr>
-    <tr style="border:1px solid;">
-        <td style="padding:5px 5px; background-color: #365F91;height:40px; border:1px solid #000; color: rgb(255, 255, 255); width: 33.33%;">Divers:</td>
-        <td style="padding:5px 5px;width:33.33%; border:1px solid;">{{data.diver2One.name}}</td>
-        <td style="padding:5px 5px;width:33.33%; border:1px solid;"><img src={{data.diver2One.signature.signature}} width="80%" , {{#if (isDarkMode)}}id="darkSig" {{/if}} /></td>
-    </tr>
-    {{/if}}
-
-    {{#if (hasValue data.diver3One.name)}}
-    <tr style="border:1px solid;">
-        <td style="padding:5px 5px; background-color: #365F91;height:40px; border:1px solid #000; color: rgb(255, 255, 255); width: 33.33%;">Divers:</td>
-        <td style="padding:5px 5px;width:33.33%; border:1px solid;">{{data.diver3One.name}}</td>
-        <td style="padding:5px 5px;width:33.33%; border:1px solid;"><img src={{data.diver3One.signature.signature}} width="80%" , {{#if (isDarkMode)}}id="darkSig" {{/if}} /></td>
-    </tr>
-
-    <tr style="border:1px solid;">
-        <td style="padding:5px 5px; background-color: #365F91;height:40px; border:1px solid #000; color: rgb(255, 255, 255); width: 33.33%;">Divers:</td>
-        <td style="padding:5px 5px;width:33.33%; border:1px solid;">{{data.diver3Two.name}}</td>
-        <td style="padding:5px 5px;width:33.33%; border:1px solid;"><img src={{data.diver3Two.signature.signature}} width="80%" , {{#if (isDarkMode)}}id="darkSig" {{/if}} /></td>
-    </tr>
-
-    <tr style="border:1px solid;">
-        <td style="padding:5px 5px; background-color: #365F91;height:40px; border:1px solid #000; color: rgb(255, 255, 255); width: 33.33%;">Divers:</td>
-        <td style="padding:5px 5px;width:33.33%; border:1px solid;">{{data.diver3Three.name}}</td>
-        <td style="padding:5px 5px;width:33.33%; border:1px solid;"><img src={{data.diver3Three.signature.signature}} width="80%" , {{#if (isDarkMode)}}id="darkSig" {{/if}} /></td>
-    </tr>
-                                {{/if}}
-                                {{#if (hasValue data.diver4One.name)}}
-                                <tr style="border:1px solid;">
-                                    <td style="padding:5px 5px; background-color: #365F91;height:40px; border:1px solid #000; color: rgb(255, 255, 255); width: 50%;">Divers:</td>
-                                    <td style="padding:5px 5px;width:50px; border:1px solid;">{{data.diver1One.name}}</td>
-                                    <td style="padding:5px 5px;width:50px; border:1px solid;"></td><img src={{data.diver1One.signature.signature}} width="80%" , {{#if (isDarkMode)}}id="darkSig" {{/if}} /></td>
-                                </tr>
-                                <tr style="border:1px solid;">
-                                    <td style="padding:5px 5px; background-color: #365F91;height:40px; border:1px solid #000; color: rgb(255, 255, 255); width: 50%;">Divers:</td>
-                                    <td style="padding:5px 5px;width:50px; border:1px solid;">{{data.diver1One.name}}</td>
-                                    <td style="padding:5px 5px;width:50px; border:1px solid;"></td><img src={{data.diver1One.signature.signature}} width="80%" , {{#if (isDarkMode)}}id="darkSig" {{/if}} /></td>
-                                </tr>
-                                <tr style="border:1px solid;">
-                                    <td style="padding:5px 5px; background-color: #365F91;height:40px; border:1px solid #000; color: rgb(255, 255, 255); width: 50%;">Divers:</td>
-                                    <td style="padding:5px 5px;width:50px; border:1px solid;">{{data.diver1One.name}}</td>
-                                    <td style="padding:5px 5px;width:50px; border:1px solid;"></td><img src={{data.diver1One.signature.signature}} width="80%" , {{#if (isDarkMode)}}id="darkSig" {{/if}} /></td>
-                                </tr>
-                                <tr style="border:1px solid;">
-                                    <td style="padding:5px 5px; background-color: #365F91;height:40px; border:1px solid #000; color: rgb(255, 255, 255); width: 50%;">Divers:</td>
-                                    <td style="padding:5px 5px;width:50px; border:1px solid;">{{data.diver1One.name}}</td>
-                                    <td style="padding:5px 5px;width:50px; border:1px solid;"></td><img src={{data.diver1One.signature.signature}} width="80%" , {{#if (isDarkMode)}}id="darkSig" {{/if}} /></td>
-                                </tr>
-                                {{/if}}
-                                {{#if (hasValue data.diver5One.name)}}
-                                <tr style="border:1px solid;">
-                                    <td style="padding:5px 5px; background-color: #365F91;height:40px; border:1px solid #000; color: rgb(255, 255, 255); width: 50%;">Divers:</td>
-                                    <td style="padding:5px 5px;width:50px; border:1px solid;">{{data.diver1One.name}}</td>
-                                    <td style="padding:5px 5px;width:50px; border:1px solid;"></td><img src={{data.diver1One.signature.signature}} width="80%" , {{#if (isDarkMode)}}id="darkSig" {{/if}} /></td>
-                                </tr>
-                                <tr style="border:1px solid;">
-                                    <td style="padding:5px 5px; background-color: #365F91;height:40px; border:1px solid #000; color: rgb(255, 255, 255); width: 50%;">Divers:</td>
-                                    <td style="padding:5px 5px;width:50px; border:1px solid;">{{data.diver1One.name}}</td>
-                                    <td style="padding:5px 5px;width:50px; border:1px solid;"></td><img src={{data.diver1One.signature.signature}} width="80%" , {{#if (isDarkMode)}}id="darkSig" {{/if}} /></td>
-                                </tr>
-                                <tr style="border:1px solid;">
-                                    <td style="padding:5px 5px; background-color: #365F91;height:40px; border:1px solid #000; color: rgb(255, 255, 255); width: 50%;">Divers:</td>
-                                    <td style="padding:5px 5px;width:50px; border:1px solid;">{{data.diver1One.name}}</td>
-                                    <td style="padding:5px 5px;width:50px; border:1px solid;"></td><img src={{data.diver1One.signature.signature}} width="80%" , {{#if (isDarkMode)}}id="darkSig" {{/if}} /></td>
-                                </tr>
-                                <tr style="border:1px solid;">
-                                    <td style="padding:5px 5px; background-color: #365F91;height:40px; border:1px solid #000; color: rgb(255, 255, 255); width: 50%;">Divers:</td>
-                                    <td style="padding:5px 5px;width:50px; border:1px solid;">{{data.diver1One.name}}</td>
-                                    <td style="padding:5px 5px;width:50px; border:1px solid;"></td><img src={{data.diver1One.signature.signature}} width="80%" , {{#if (isDarkMode)}}id="darkSig" {{/if}} /></td>
-                                </tr>
-                                <tr style="border:1px solid;">
-                                    <td style="padding:5px 5px; background-color: #365F91;height:40px; border:1px solid #000; color: rgb(255, 255, 255); width: 50%;">Divers:</td>
-                                    <td style="padding:5px 5px;width:50px; border:1px solid;">{{data.diver1One.name}}</td>
-                                    <td style="padding:5px 5px;width:50px; border:1px solid;"></td><img src={{data.diver1One.signature.signature}} width="80%" , {{#if (isDarkMode)}}id="darkSig" {{/if}} /></td>
-                                </tr>
-                                {{/if}}
-                                {{#if (hasValue data.diver6One.name)}}
-                                <tr style="border:1px solid;">
-                                    <td style="padding:5px 5px; background-color: #365F91;height:40px; border:1px solid #000; color: rgb(255, 255, 255); width: 50%;">Divers:</td>
-                                    <td style="padding:5px 5px;width:50px; border:1px solid;">{{data.diver1One.name}}</td>
-                                    <td style="padding:5px 5px;width:50px; border:1px solid;"></td><img src={{data.diver1One.signature.signature}} width="80%" , {{#if (isDarkMode)}}id="darkSig" {{/if}} /></td>
-                                </tr>
-                                <tr style="border:1px solid;">
-                                    <td style="padding:5px 5px; background-color: #365F91;height:40px; border:1px solid #000; color: rgb(255, 255, 255); width: 50%;">Divers:</td>
-                                    <td style="padding:5px 5px;width:50px; border:1px solid;">{{data.diver1One.name}}</td>
-                                    <td style="padding:5px 5px;width:50px; border:1px solid;"></td><img src={{data.diver1One.signature.signature}} width="80%" , {{#if (isDarkMode)}}id="darkSig" {{/if}} /></td>
-                                </tr>
-                                <tr style="border:1px solid;">
-                                    <td style="padding:5px 5px; background-color: #365F91;height:40px; border:1px solid #000; color: rgb(255, 255, 255); width: 50%;">Divers:</td>
-                                    <td style="padding:5px 5px;width:50px; border:1px solid;">{{data.diver1One.name}}</td>
-                                    <td style="padding:5px 5px;width:50px; border:1px solid;"></td><img src={{data.diver1One.signature.signature}} width="80%" , {{#if (isDarkMode)}}id="darkSig" {{/if}} /></td>
-                                </tr>
-                                <tr style="border:1px solid;">
-                                    <td style="padding:5px 5px; background-color: #365F91;height:40px; border:1px solid #000; color: rgb(255, 255, 255); width: 50%;">Divers:</td>
-                                    <td style="padding:5px 5px;width:50px; border:1px solid;">{{data.diver1One.name}}</td>
-                                    <td style="padding:5px 5px;width:50px; border:1px solid;"></td><img src={{data.diver1One.signature.signature}} width="80%" , {{#if (isDarkMode)}}id="darkSig" {{/if}} /></td>
-                                </tr>
-                                <tr style="border:1px solid;">
-                                    <td style="padding:5px 5px; background-color: #365F91;height:40px; border:1px solid #000; color: rgb(255, 255, 255); width: 50%;">Divers:</td>
-                                    <td style="padding:5px 5px;width:50px; border:1px solid;">{{data.diver1One.name}}</td>
-                                    <td style="padding:5px 5px;width:50px; border:1px solid;"></td><img src={{data.diver1One.signature.signature}} width="80%" , {{#if (isDarkMode)}}id="darkSig" {{/if}} /></td>
-                                </tr>
-                                <tr style="border:1px solid;">
-                                    <td style="padding:5px 5px; background-color: #365F91;height:40px; border:1px solid #000; color: rgb(255, 255, 255); width: 50%;">Divers:</td>
-                                    <td style="padding:5px 5px;width:50px; border:1px solid;">{{data.diver1One.name}}</td>
-                                    <td style="padding:5px 5px;width:50px; border:1px solid;"></td><img src={{data.diver1One.signature.signature}} width="80%" , {{#if (isDarkMode)}}id="darkSig" {{/if}} /></td>
-                                </tr>
-                                {{/if}}
-                                {{#if (hasValue data.diver7One.name)}}
-                                <tr style="border:1px solid;">
-                                    <td style="padding:5px 5px; background-color: #365F91;height:40px; border:1px solid #000; color: rgb(255, 255, 255); width: 50%;">Divers:</td>
-                                    <td style="padding:5px 5px;width:50px; border:1px solid;">{{data.diver1One.name}}</td>
-                                    <td style="padding:5px 5px;width:50px; border:1px solid;"></td><img src={{data.diver1One.signature.signature}} width="80%" , {{#if (isDarkMode)}}id="darkSig" {{/if}} /></td>
-                                </tr>
-                                <tr style="border:1px solid;">
-                                    <td style="padding:5px 5px; background-color: #365F91;height:40px; border:1px solid #000; color: rgb(255, 255, 255); width: 50%;">Divers:</td>
-                                    <td style="padding:5px 5px;width:50px; border:1px solid;">{{data.diver1One.name}}</td>
-                                    <td style="padding:5px 5px;width:50px; border:1px solid;"></td><img src={{data.diver1One.signature.signature}} width="80%" , {{#if (isDarkMode)}}id="darkSig" {{/if}} /></td>
-                                </tr>
-                                <tr style="border:1px solid;">
-                                    <td style="padding:5px 5px; background-color: #365F91;height:40px; border:1px solid #000; color: rgb(255, 255, 255); width: 50%;">Divers:</td>
-                                    <td style="padding:5px 5px;width:50px; border:1px solid;">{{data.diver1One.name}}</td>
-                                    <td style="padding:5px 5px;width:50px; border:1px solid;"></td><img src={{data.diver1One.signature.signature}} width="80%" , {{#if (isDarkMode)}}id="darkSig" {{/if}} /></td>
-                                </tr>
-                                <tr style="border:1px solid;">
-                                    <td style="padding:5px 5px; background-color: #365F91;height:40px; border:1px solid #000; color: rgb(255, 255, 255); width: 50%;">Divers:</td>
-                                    <td style="padding:5px 5px;width:50px; border:1px solid;">{{data.diver1One.name}}</td>
-                                    <td style="padding:5px 5px;width:50px; border:1px solid;"></td><img src={{data.diver1One.signature.signature}} width="80%" , {{#if (isDarkMode)}}id="darkSig" {{/if}} /></td>
-                                </tr>
-                                <tr style="border:1px solid;">
-                                    <td style="padding:5px 5px; background-color: #365F91;height:40px; border:1px solid #000; color: rgb(255, 255, 255); width: 50%;">Divers:</td>
-                                    <td style="padding:5px 5px;width:50px; border:1px solid;">{{data.diver1One.name}}</td>
-                                    <td style="padding:5px 5px;width:50px; border:1px solid;"></td><img src={{data.diver1One.signature.signature}} width="80%" , {{#if (isDarkMode)}}id="darkSig" {{/if}} /></td>
-                                </tr>
-                                <tr style="border:1px solid;">
-                                    <td style="padding:5px 5px; background-color: #365F91;height:40px; border:1px solid #000; color: rgb(255, 255, 255); width: 50%;">Divers:</td>
-                                    <td style="padding:5px 5px;width:50px; border:1px solid;">{{data.diver1One.name}}</td>
-                                    <td style="padding:5px 5px;width:50px; border:1px solid;"></td><img src={{data.diver1One.signature.signature}} width="80%" , {{#if (isDarkMode)}}id="darkSig" {{/if}} /></td>
-                                </tr>
-                                <tr style="border:1px solid;">
-                                    <td style="padding:5px 5px; background-color: #365F91;height:40px; border:1px solid #000; color: rgb(255, 255, 255); width: 50%;">Divers:</td>
-                                    <td style="padding:5px 5px;width:50px; border:1px solid;">{{data.diver1One.name}}</td>
-                                    <td style="padding:5px 5px;width:50px; border:1px solid;"></td><img src={{data.diver1One.signature.signature}} width="80%" , {{#if (isDarkMode)}}id="darkSig" {{/if}} /></td>
-                                </tr>
-                                {{/if}}
-                                {{#if (hasValue data.diver8One.name)}}
-                                <tr style="border:1px solid;">
-                                    <td style="padding:5px 5px; background-color: #365F91;height:40px; border:1px solid #000; color: rgb(255, 255, 255); width: 50%;">Divers:</td>
-                                    <td style="padding:5px 5px;width:50px; border:1px solid;">{{data.diver1One.name}}</td>
-                                    <td style="padding:5px 5px;width:50px; border:1px solid;"></td><img src={{data.diver1One.signature.signature}} width="80%" , {{#if (isDarkMode)}}id="darkSig" {{/if}} /></td>
-                                </tr>
-                                <tr style="border:1px solid;">
-                                    <td style="padding:5px 5px; background-color: #365F91;height:40px; border:1px solid #000; color: rgb(255, 255, 255); width: 50%;">Divers:</td>
-                                    <td style="padding:5px 5px;width:50px; border:1px solid;">{{data.diver1One.name}}</td>
-                                    <td style="padding:5px 5px;width:50px; border:1px solid;"></td><img src={{data.diver1One.signature.signature}} width="80%" , {{#if (isDarkMode)}}id="darkSig" {{/if}} /></td>
-                                </tr>
-                                <tr style="border:1px solid;">
-                                    <td style="padding:5px 5px; background-color: #365F91;height:40px; border:1px solid #000; color: rgb(255, 255, 255); width: 50%;">Divers:</td>
-                                    <td style="padding:5px 5px;width:50px; border:1px solid;">{{data.diver1One.name}}</td>
-                                    <td style="padding:5px 5px;width:50px; border:1px solid;"></td><img src={{data.diver1One.signature.signature}} width="80%" , {{#if (isDarkMode)}}id="darkSig" {{/if}} /></td>
-                                </tr>
-                                <tr style="border:1px solid;">
-                                    <td style="padding:5px 5px; background-color: #365F91;height:40px; border:1px solid #000; color: rgb(255, 255, 255); width: 50%;">Divers:</td>
-                                    <td style="padding:5px 5px;width:50px; border:1px solid;">{{data.diver1One.name}}</td>
-                                    <td style="padding:5px 5px;width:50px; border:1px solid;"></td><img src={{data.diver1One.signature.signature}} width="80%" , {{#if (isDarkMode)}}id="darkSig" {{/if}} /></td>
-                                </tr>
-                                <tr style="border:1px solid;">
-                                    <td style="padding:5px 5px; background-color: #365F91;height:40px; border:1px solid #000; color: rgb(255, 255, 255); width: 50%;">Divers:</td>
-                                    <td style="padding:5px 5px;width:50px; border:1px solid;">{{data.diver1One.name}}</td>
-                                    <td style="padding:5px 5px;width:50px; border:1px solid;"></td><img src={{data.diver1One.signature.signature}} width="80%" , {{#if (isDarkMode)}}id="darkSig" {{/if}} /></td>
-                                </tr>
-                                <tr style="border:1px solid;">
-                                    <td style="padding:5px 5px; background-color: #365F91;height:40px; border:1px solid #000; color: rgb(255, 255, 255); width: 50%;">Divers:</td>
-                                    <td style="padding:5px 5px;width:50px; border:1px solid;">{{data.diver1One.name}}</td>
-                                    <td style="padding:5px 5px;width:50px; border:1px solid;"></td><img src={{data.diver1One.signature.signature}} width="80%" , {{#if (isDarkMode)}}id="darkSig" {{/if}} /></td>
-                                </tr>
-                                <tr style="border:1px solid;">
-                                    <td style="padding:5px 5px; background-color: #365F91;height:40px; border:1px solid #000; color: rgb(255, 255, 255); width: 50%;">Divers:</td>
-                                    <td style="padding:5px 5px;width:50px; border:1px solid;">{{data.diver1One.name}}</td>
-                                    <td style="padding:5px 5px;width:50px; border:1px solid;"></td><img src={{data.diver1One.signature.signature}} width="80%" , {{#if (isDarkMode)}}id="darkSig" {{/if}} /></td>
-                                </tr>
-                                <tr style="border:1px solid;">
-                                    <td style="padding:5px 5px; background-color: #365F91;height:40px; border:1px solid #000; color: rgb(255, 255, 255); width: 50%;">Divers:</td>
-                                    <td style="padding:5px 5px;width:50px; border:1px solid;">{{data.diver1One.name}}</td>
-                                    <td style="padding:5px 5px;width:50px; border:1px solid;"></td><img src={{data.diver1One.signature.signature}} width="80%" , {{#if (isDarkMode)}}id="darkSig" {{/if}} /></td>
-                                </tr>
-                                {{/if}}
-
-                            
-                                </table>
-
-
-                        
+                            <tr style="border:1px solid;">
+                                <td style="padding:5px 5px; background-color: #365F91;height:40px; border:1px solid #000; color: rgb(255, 255, 255); width: 33.33%;">Diver 3:</td>
+                                <td style="padding:5px 5px;width:33.33%; border:1px solid;">{{data.diver3Three.name}}</td>
+                                <td style="padding:5px 5px;width:33.33%; border:1px solid;"><img src={{data.diver3Three.signature.signature}} width="80%" , {{#if (isDarkMode)}}id="darkSig" {{/if}} /></td>
+                            </tr>
+                            {{/if}}
+                            {{#if (hasValue data.diver4One.name)}}
+                            <tr style="border:1px solid;">
+                                <td style="padding:5px 5px; background-color: #365F91;height:40px; border:1px solid #000; color: rgb(255, 255, 255); width: 33.33%%;">Diver 1:</td>
+                                <td style="padding:5px 5px;width:50px; border:1px solid;">{{data.diver4One.name}}</td>
+                                <td style="padding:5px 5px;width:50px; border:1px solid;"></td><img src={{data.diver4One.signature.signature}} width="80%" , {{#if (isDarkMode)}}id="darkSig" {{/if}} /></td>
+                            </tr>
+                            <tr style="border:1px solid;">
+                                <td style="padding:5px 5px; background-color: #365F91;height:40px; border:1px solid #000; color: rgb(255, 255, 255); width: 33.33%%;">Diver 2:</td>
+                                <td style="padding:5px 5px;width:50px; border:1px solid;">{{data.diver4Two.name}}</td>
+                                <td style="padding:5px 5px;width:50px; border:1px solid;"></td><img src={{data.diver4Two.signature.signature}} width="80%" , {{#if (isDarkMode)}}id="darkSig" {{/if}} /></td>
+                            </tr>
+                            <tr style="border:1px solid;">
+                                <td style="padding:5px 5px; background-color: #365F91;height:40px; border:1px solid #000; color: rgb(255, 255, 255); width: 33.33%%;">Diver 3:</td>
+                                <td style="padding:5px 5px;width:50px; border:1px solid;">{{data.diver4Three.name}}</td>
+                                <td style="padding:5px 5px;width:50px; border:1px solid;"></td><img src={{data.diver4Three.signature.signature}} width="80%" , {{#if (isDarkMode)}}id="darkSig" {{/if}} /></td>
+                            </tr>
+                            <tr style="border:1px solid;">
+                                <td style="padding:5px 5px; background-color: #365F91;height:40px; border:1px solid #000; color: rgb(255, 255, 255); width: 33.33%%;">Diver 4:</td>
+                                <td style="padding:5px 5px;width:50px; border:1px solid;">{{data.diver4Four.name}}</td>
+                                <td style="padding:5px 5px;width:50px; border:1px solid;"></td><img src={{data.diver4Four.signature.signature}} width="80%" , {{#if (isDarkMode)}}id="darkSig" {{/if}} /></td>
+                            </tr>
+                            {{/if}}
+                            {{#if (hasValue data.diver5One.name)}}
+                            <tr style="border:1px solid;">
+                                <td style="padding:5px 5px; background-color: #365F91;height:40px; border:1px solid #000; color: rgb(255, 255, 255); width: 50%;">Diver 1:</td>
+                                <td style="padding:5px 5px;width:50px; border:1px solid;">{{data.diver5One.name}}</td>
+                                <td style="padding:5px 5px;width:50px; border:1px solid;"></td><img src={{data.diver5One.signature.signature}} width="80%" , {{#if (isDarkMode)}}id="darkSig" {{/if}} /></td>
+                            </tr>
+                            <tr style="border:1px solid;">
+                                <td style="padding:5px 5px; background-color: #365F91;height:40px; border:1px solid #000; color: rgb(255, 255, 255); width: 50%;">Diver 2:</td>
+                                <td style="padding:5px 5px;width:50px; border:1px solid;">{{data.diver5Two.name}}</td>
+                                <td style="padding:5px 5px;width:50px; border:1px solid;"></td><img src={{data.diver5Two.signature.signature}} width="80%" , {{#if (isDarkMode)}}id="darkSig" {{/if}} /></td>
+                            </tr>
+                            <tr style="border:1px solid;">
+                                <td style="padding:5px 5px; background-color: #365F91;height:40px; border:1px solid #000; color: rgb(255, 255, 255); width: 50%;">Diver 3:</td>
+                                <td style="padding:5px 5px;width:50px; border:1px solid;">{{data.diver5Three.name}}</td>
+                                <td style="padding:5px 5px;width:50px; border:1px solid;"></td><img src={{data.diver5Three.signature.signature}} width="80%" , {{#if (isDarkMode)}}id="darkSig" {{/if}} /></td>
+                            </tr>
+                            <tr style="border:1px solid;">
+                                <td style="padding:5px 5px; background-color: #365F91;height:40px; border:1px solid #000; color: rgb(255, 255, 255); width: 50%;">Diver 4:</td>
+                                <td style="padding:5px 5px;width:50px; border:1px solid;">{{data.diver5Four.name}}</td>
+                                <td style="padding:5px 5px;width:50px; border:1px solid;"></td><img src={{data.diver5Four.signature.signature}} width="80%" , {{#if (isDarkMode)}}id="darkSig" {{/if}} /></td>
+                            </tr>
+                            <tr style="border:1px solid;">
+                                <td style="padding:5px 5px; background-color: #365F91;height:40px; border:1px solid #000; color: rgb(255, 255, 255); width: 50%;">Diver 5:</td>
+                                <td style="padding:5px 5px;width:50px; border:1px solid;">{{data.diver5Five.name}}</td>
+                                <td style="padding:5px 5px;width:50px; border:1px solid;"></td><img src={{data.diver5Five.signature.signature}} width="80%" , {{#if (isDarkMode)}}id="darkSig" {{/if}} /></td>
+                            </tr>
+                            {{/if}}
+                            {{#if (hasValue data.diver6One.name)}}
+                            <tr style="border:1px solid;">
+                                <td style="padding:5px 5px; background-color: #365F91;height:40px; border:1px solid #000; color: rgb(255, 255, 255); width: 50%;">Diver 1:</td>
+                                <td style="padding:5px 5px;width:50px; border:1px solid;">{{data.diver6One.name}}</td>
+                                <td style="padding:5px 5px;width:50px; border:1px solid;"></td><img src={{data.diver6One.signature.signature}} width="80%" , {{#if (isDarkMode)}}id="darkSig" {{/if}} /></td>
+                            </tr>
+                            <tr style="border:1px solid;">
+                                <td style="padding:5px 5px; background-color: #365F91;height:40px; border:1px solid #000; color: rgb(255, 255, 255); width: 50%;">Diver 2:</td>
+                                <td style="padding:5px 5px;width:50px; border:1px solid;">{{data.diver6Two.name}}</td>
+                                <td style="padding:5px 5px;width:50px; border:1px solid;"></td><img src={{data.diver6Two.signature.signature}} width="80%" , {{#if (isDarkMode)}}id="darkSig" {{/if}} /></td>
+                            </tr>
+                            <tr style="border:1px solid;">
+                                <td style="padding:5px 5px; background-color: #365F91;height:40px; border:1px solid #000; color: rgb(255, 255, 255); width: 50%;">Diver 3:</td>
+                                <td style="padding:5px 5px;width:50px; border:1px solid;">{{data.diver6Three.name}}</td>
+                                <td style="padding:5px 5px;width:50px; border:1px solid;"></td><img src={{data.diver6Three.signature.signature}} width="80%" , {{#if (isDarkMode)}}id="darkSig" {{/if}} /></td>
+                            </tr>
+                            <tr style="border:1px solid;">
+                                <td style="padding:5px 5px; background-color: #365F91;height:40px; border:1px solid #000; color: rgb(255, 255, 255); width: 50%;">Diver 4:</td>
+                                <td style="padding:5px 5px;width:50px; border:1px solid;">{{data.diver6Four.name}}</td>
+                                <td style="padding:5px 5px;width:50px; border:1px solid;"></td><img src={{data.diver6Four.signature.signature}} width="80%" , {{#if (isDarkMode)}}id="darkSig" {{/if}} /></td>
+                            </tr>
+                            <tr style="border:1px solid;">
+                                <td style="padding:5px 5px; background-color: #365F91;height:40px; border:1px solid #000; color: rgb(255, 255, 255); width: 50%;">Diver 5:</td>
+                                <td style="padding:5px 5px;width:50px; border:1px solid;">{{data.diver6Five.name}}</td>
+                                <td style="padding:5px 5px;width:50px; border:1px solid;"></td><img src={{data.diver6Five.signature.signature}} width="80%" , {{#if (isDarkMode)}}id="darkSig" {{/if}} /></td>
+                            </tr>
+                            <tr style="border:1px solid;">
+                                <td style="padding:5px 5px; background-color: #365F91;height:40px; border:1px solid #000; color: rgb(255, 255, 255); width: 50%;">Diver 6:</td>
+                                <td style="padding:5px 5px;width:50px; border:1px solid;">{{data.diver6Six.name}}</td>
+                                <td style="padding:5px 5px;width:50px; border:1px solid;"></td><img src={{data.diver6Six.signature.signature}} width="80%" , {{#if (isDarkMode)}}id="darkSig" {{/if}} /></td>
+                            </tr>
+                            {{/if}}
+                            {{#if (hasValue data.diver7One.name)}}
+                            <tr style="border:1px solid;">
+                                <td style="padding:5px 5px; background-color: #365F91;height:40px; border:1px solid #000; color: rgb(255, 255, 255); width: 50%;">Diver 1:</td>
+                                <td style="padding:5px 5px;width:50px; border:1px solid;">{{data.diver7One.name}}</td>
+                                <td style="padding:5px 5px;width:50px; border:1px solid;"></td><img src={{data.diver7One.signature.signature}} width="80%" , {{#if (isDarkMode)}}id="darkSig" {{/if}} /></td>
+                            </tr>
+                            <tr style="border:1px solid;">
+                                <td style="padding:5px 5px; background-color: #365F91;height:40px; border:1px solid #000; color: rgb(255, 255, 255); width: 50%;">Diver 2:</td>
+                                <td style="padding:5px 5px;width:50px; border:1px solid;">{{data.diver7Two.name}}</td>
+                                <td style="padding:5px 5px;width:50px; border:1px solid;"></td><img src={{data.diver7Two.signature.signature}} width="80%" , {{#if (isDarkMode)}}id="darkSig" {{/if}} /></td>
+                            </tr>
+                            <tr style="border:1px solid;">
+                                <td style="padding:5px 5px; background-color: #365F91;height:40px; border:1px solid #000; color: rgb(255, 255, 255); width: 50%;">Diver 3:</td>
+                                <td style="padding:5px 5px;width:50px; border:1px solid;">{{data.diver7Three.name}}</td>
+                                <td style="padding:5px 5px;width:50px; border:1px solid;"></td><img src={{data.diver7Three.signature.signature}} width="80%" , {{#if (isDarkMode)}}id="darkSig" {{/if}} /></td>
+                            </tr>
+                            <tr style="border:1px solid;">
+                                <td style="padding:5px 5px; background-color: #365F91;height:40px; border:1px solid #000; color: rgb(255, 255, 255); width: 50%;">Diver 4:</td>
+                                <td style="padding:5px 5px;width:50px; border:1px solid;">{{data.diver7Four.name}}</td>
+                                <td style="padding:5px 5px;width:50px; border:1px solid;"></td><img src={{data.diver7Four.signature.signature}} width="80%" , {{#if (isDarkMode)}}id="darkSig" {{/if}} /></td>
+                            </tr>
+                            <tr style="border:1px solid;">
+                                <td style="padding:5px 5px; background-color: #365F91;height:40px; border:1px solid #000; color: rgb(255, 255, 255); width: 50%;">Diver 5:</td>
+                                <td style="padding:5px 5px;width:50px; border:1px solid;">{{data.diver7Five.name}}</td>
+                                <td style="padding:5px 5px;width:50px; border:1px solid;"></td><img src={{data.diver7Five.signature.signature}} width="80%" , {{#if (isDarkMode)}}id="darkSig" {{/if}} /></td>
+                            </tr>
+                            <tr style="border:1px solid;">
+                                <td style="padding:5px 5px; background-color: #365F91;height:40px; border:1px solid #000; color: rgb(255, 255, 255); width: 50%;">Diver 6:</td>
+                                <td style="padding:5px 5px;width:50px; border:1px solid;">{{data.diver7Six.name}}</td>
+                                <td style="padding:5px 5px;width:50px; border:1px solid;"></td><img src={{data.diver7Six.signature.signature}} width="80%" , {{#if (isDarkMode)}}id="darkSig" {{/if}} /></td>
+                            </tr>
+                            <tr style="border:1px solid;">
+                                <td style="padding:5px 5px; background-color: #365F91;height:40px; border:1px solid #000; color: rgb(255, 255, 255); width: 50%;">Diver 7:</td>
+                                <td style="padding:5px 5px;width:50px; border:1px solid;">{{data.diver7Seven.name}}</td>
+                                <td style="padding:5px 5px;width:50px; border:1px solid;"></td><img src={{data.diver7Seven.signature.signature}} width="80%" , {{#if (isDarkMode)}}id="darkSig" {{/if}} /></td>
+                            </tr>
+                            {{/if}}
+                            {{#if (hasValue data.diver8One.name)}}
+                            <tr style="border:1px solid;">
+                                <td style="padding:5px 5px; background-color: #365F91;height:40px; border:1px solid #000; color: rgb(255, 255, 255); width: 50%;">Diver 1:</td>
+                                <td style="padding:5px 5px;width:50px; border:1px solid;">{{data.diver8One.name}}</td>
+                                <td style="padding:5px 5px;width:50px; border:1px solid;"></td><img src={{data.diver8One.signature.signature}} width="80%" , {{#if (isDarkMode)}}id="darkSig" {{/if}} /></td>
+                            </tr>
+                            <tr style="border:1px solid;">
+                                <td style="padding:5px 5px; background-color: #365F91;height:40px; border:1px solid #000; color: rgb(255, 255, 255); width: 50%;">Diver 2:</td>
+                                <td style="padding:5px 5px;width:50px; border:1px solid;">{{data.diver8Two.name}}</td>
+                                <td style="padding:5px 5px;width:50px; border:1px solid;"></td><img src={{data.diverdiver8TwoOne.signature.signature}} width="80%" , {{#if (isDarkMode)}}id="darkSig" {{/if}} /></td>
+                            </tr>
+                            <tr style="border:1px solid;">
+                                <td style="padding:5px 5px; background-color: #365F91;height:40px; border:1px solid #000; color: rgb(255, 255, 255); width: 50%;">Diver 3:</td>
+                                <td style="padding:5px 5px;width:50px; border:1px solid;">{{data.diver8Three.name}}</td>
+                                <td style="padding:5px 5px;width:50px; border:1px solid;"></td><img src={{data.diver8Three.signature.signature}} width="80%" , {{#if (isDarkMode)}}id="darkSig" {{/if}} /></td>
+                            </tr>
+                            <tr style="border:1px solid;">
+                                <td style="padding:5px 5px; background-color: #365F91;height:40px; border:1px solid #000; color: rgb(255, 255, 255); width: 50%;">Diver 4:</td>
+                                <td style="padding:5px 5px;width:50px; border:1px solid;">{{data.diver8Four.name}}</td>
+                                <td style="padding:5px 5px;width:50px; border:1px solid;"></td><img src={{data.diver8Four.signature.signature}} width="80%" , {{#if (isDarkMode)}}id="darkSig" {{/if}} /></td>
+                            </tr>
+                            <tr style="border:1px solid;">
+                                <td style="padding:5px 5px; background-color: #365F91;height:40px; border:1px solid #000; color: rgb(255, 255, 255); width: 50%;">Diver 5:</td>
+                                <td style="padding:5px 5px;width:50px; border:1px solid;">{{data.diver8Five.name}}</td>
+                                <td style="padding:5px 5px;width:50px; border:1px solid;"></td><img src={{data.diver8Five.signature.signature}} width="80%" , {{#if (isDarkMode)}}id="darkSig" {{/if}} /></td>
+                            </tr>
+                            <tr style="border:1px solid;">
+                                <td style="padding:5px 5px; background-color: #365F91;height:40px; border:1px solid #000; color: rgb(255, 255, 255); width: 50%;">Diver 6:</td>
+                                <td style="padding:5px 5px;width:50px; border:1px solid;">{{data.diver8Six.name}}</td>
+                                <td style="padding:5px 5px;width:50px; border:1px solid;"></td><img src={{data.diver8Six.signature.signature}} width="80%" , {{#if (isDarkMode)}}id="darkSig" {{/if}} /></td>
+                            </tr>
+                            <tr style="border:1px solid;">
+                                <td style="padding:5px 5px; background-color: #365F91;height:40px; border:1px solid #000; color: rgb(255, 255, 255); width: 50%;">Diver 7:</td>
+                                <td style="padding:5px 5px;width:50px; border:1px solid;">{{data.diver8Seven.name}}</td>
+                                <td style="padding:5px 5px;width:50px; border:1px solid;"></td><img src={{data.diver8Seven.signature.signature}} width="80%" , {{#if (isDarkMode)}}id="darkSig" {{/if}} /></td>
+                            </tr>
+                            <tr style="border:1px solid;">
+                                <td style="padding:5px 5px; background-color: #365F91;height:40px; border:1px solid #000; color: rgb(255, 255, 255); width: 50%;">Diver 8:</td>
+                                <td style="padding:5px 5px;width:50px; border:1px solid;">{{data.diver8Eight.name}}</td>
+                                <td style="padding:5px 5px;width:50px; border:1px solid;"></td><img src={{data.diver8Eight.signature.signature}} width="80%" , {{#if (isDarkMode)}}id="darkSig" {{/if}} /></td>
+                            </tr>
+                            {{/if}}
+                            </table>
+                        </div>
                         <div class="page">
-    
                             <p></p>
-                            
-                           
-                            
-                            {{{data.report.overview}}}
+                            {{#if (hasValue data.toolbox.facilitated.by)}}
+                            <h4>4. TOOLBOX</h4>
+                        <table style="border:1px solid #000; border-collapse:collapse; width:100%; position:center;">
+                            <tr>
+                                <td style="padding:5px 5px; background-color: #365F91; height:40px; border:1px solid #000; color: rgb(255, 255, 255); width: 50%;"><b>Toolbox Facilitated By:</b></td>
+                                <td style="padding:5px 5px; border:1px solid; height:40px; width: 50%;">{{data.toolbox.facilitated.by}}</td>
+                            </tr>
+                            <tr style="border:1px solid;">
+                                <td style="padding:5px 5px; background-color: #365F91;height:40px; border:1px solid #000; color: rgb(255, 255, 255); width: 50%;"><b>Time of Toolbox:</b></td>
+                                <td style="padding:5px 5px; border:1px solid; height:40px; width: 50%;">{{data.timeToolbox.date}}</td>                            
+                            </tr>
+                        </table>
+                        <br>
+                        <h5>Attendees Present</h5>
+                            <table id="tableFixed" style="border:1px solid #000; border-collapse:collapse; width:100%; position:center;">
+                                <thead style="background-color: #365F91;height:30px; border:1px solid #000; padding-top: 5px; padding:10px 0px; color: rgb(255, 255, 255);">
+                                <tr>
+                                    <th style="background-color: #365F91; height:30px; border:1px solid #000; padding:5px 5px;color: rgb(255, 255, 255);">Name</th>
+                                    <th style="background-color: #365F91; height:30px; border:1px solid #000; padding:5px 5px;color: rgb(255, 255, 255);">Company</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {{#each data.attendees.present}}
+                                <tr>
+                                    <td style="border:1px solid; padding:5px 5px; word-wrap:break-word;">{{nameattendees}}</td>
+                                    <td style="border:1px solid; padding:5px 5px; word-wrap:break-word;">{{companys}}</td>
+                                </tr>
+                                {{/each}}
+                                </tbody>
+                            </table>
                             <br>
-                            <h4>3. METHODOLOGY</h4>
-                            
-                            {{{data.report.methodology}}}
-                        </div>
-                        
-                        <div class="page">
-                            <p></p>
-                            <h4>4. REFERENCE TABLES</h4>
-                            <p>The below tables are referenced throughout the report to formally standardise both
-                                biofouling and antifouling condition ratings referred to herein.</p>
-                        
-                        {{#if data.vessel.data.generalArrangement.[0].frRatingData.[0].levelOfFoulingLoF}}  
-                            <h4>4.1 LEVEL OF FOULING (LOF) SCALE</h4>
-                            <table style="width:100%">
-                                <th style="background-color: #365F91; height:30px; border:1px solid #000; padding-top: 5px; padding:10px 0px;color: rgb(255, 255, 255);">
-                                    LEVEL OF FOULING
-                                </th>
-                                <th style="background-color: #365F91; height:30px; border:1px solid #000; padding:5px 5px;color: rgb(255, 255, 255);">
-                                    DESCRIPTION</th>
+                            <h5>Scope Of Work Discussed</h5>
+                            {{{data.scope.of.work.discussed}}}
+                            <br>
+                            <h5>Potential Hazards Identified and Discussed</h5>
+                            <br>
+                            <table id="tableFixed" style="border:1px solid #000; border-collapse:collapse; width:100%; position:center;">
+                                <thead style="background-color: #365F91;height:30px; border:1px solid #000; padding-top: 5px; padding:10px 0px; color: rgb(255, 255, 255);">
                                 <tr>
-                                    <td style="width:75px; text-align:center; border:1px solid; padding-top: 5px; padding:10px 0px;"><b>Rank: 0</b></td>
-                                    <td style="border:1px solid; padding:5px 5px;">0% No slime layer. No macrofouling. Only clean surfaces.</td>
+                                    <th style="background-color: #365F91; height:30px; border:1px solid #000; padding:5px 5px;color: rgb(255, 255, 255);">Issues</th>
+                                    <th style="background-color: #365F91; height:30px; border:1px solid #000; padding:5px 5px;color: rgb(255, 255, 255);">Resolved</th>
                                 </tr>
+                                </thead>
+                                <tbody>
+                                {{#each data.potential.hazards.check}}
                                 <tr>
-                                    <td style="width:75px; text-align:center; border:1px solid; padding-top: 5px; padding:10px 0px;"><b>Rank: 1</b></td>
-                                    <td style="border:1px solid; padding:5px 5px;">0% Slime Layer on some or all surfaces. No macrofouling.</td>
+                                    <td style="border:1px solid; padding:5px 5px; word-wrap:break-word;">{{issues}}</td>
+                                    <td style="border:1px solid; padding:5px 5px; word-wrap:break-word;">{{resolved}}</td>
                                 </tr>
-                                <tr>
-                                    <td style="width:75px; text-align:center; border:1px solid; padding-top: 5px; padding:10px 0px;"><b>Rank: 2</b></td>
-                                    <td style="border:1px solid; padding:5px 5px;">1-5%  of visible surfaces - Macrofouling present in small patches or a few isolated individuals or small colonies.</td>
-                                </tr>
-                                <tr>
-                                    <td style="width:75px; text-align:center; border:1px solid; padding-top: 5px; padding:10px 0px;"><b>Rank: 3</b></td>
-                                    <td style="border:1px solid; padding:5px 5px;">6-15% of visible surfaces - Considerable macrofouling on surfaces.</td>
-                                </tr>
-                                <tr>
-                                    <td style="width:75px; text-align:center; border:1px solid; padding-top: 5px; padding:10px 0px;"><b>Rank: 4</b></td>
-                                    <td style="border:1px solid; padding:5px 5px;">16-40% of visible surfaces - Extensive macrofouling present but more than hald of surfaces without biofouling.</td>
-                                </tr>
-                                <tr>
-                                    <td style="width:75px; text-align:center; border:1px solid; padding-top: 5px; padding:10px 0px;"><b>Rank: 5</b></td>
-                                    <td style="border:1px solid; padding:5px 5px;">41-100% of visible surfaces - Very heavy macrofouling present covering substantial portions of visible surfaces.</td>
-                                </tr>
+                                {{/each}}
+                                </tbody>
                             </table>
 
-                        {{else}}
-
-                            <h4>4.1 FOULING RATINGS (FR) SCALE</h4>
-                            <table style="width:100%">
-                                <th style="background-color: #365F91; height:30px; border:1px solid #000; padding-top: 5px; padding:10px 0px;color: rgb(255, 255, 255);">
-                                    FOULING RATING
-                                </th>
-                                <th style="background-color: #365F91; height:30px; border:1px solid #000; padding:5px 5px;color: rgb(255, 255, 255);">
-                                    DESCRIPTION</th>
+                            <h5>Environmental Aspects</h5>
+                            <br>
+                            <table id="tableFixed" style="border:1px solid #000; border-collapse:collapse; width:100%; position:center;">
+                                <thead style="background-color: #365F91;height:30px; border:1px solid #000; padding-top: 5px; padding:10px 0px; color: rgb(255, 255, 255);">
                                 <tr>
-                                    <td style="width:75px; text-align:center; border:1px solid; padding-top: 5px; padding:10px 0px;"><b>Rank: 0</b></td>
-                                    <td style="border:1px solid; padding:5px 5px;">No visible fouling. Hull entirely
-                                        clean, no biofilm on visible submerged parts of the hull, Visual Estimate of
-                                        Fouling cover: Nil.</td>
+                                    <th style="background-color: #365F91; height:30px; border:1px solid #000; padding:5px 5px;color: rgb(255, 255, 255);">Impact</th>
+                                    <th style="background-color: #365F91; height:30px; border:1px solid #000; padding:5px 5px;color: rgb(255, 255, 255);">Control</th>
                                 </tr>
+                                </thead>
+                                <tbody>
+                                {{#each data.environmental.aspects.check}}
                                 <tr>
-                                    <td style="width:75px; text-align:center; border:1px solid; padding-top: 5px; padding:10px 0px;"><b>Rank: 1</b></td>
-                                    <td style="border:1px solid; padding:5px 5px;">Slime fouling only. Submerged hull
-                                        areas partially or entirely covered in biofilm, but absence of any macrofouling,
-                                        Visual Estimate of Fouling cover: Nil.</td>
+                                    <td style="border:1px solid; padding:5px 5px; word-wrap:break-word;">{{impact}}</td>
+                                    <td style="border:1px solid; padding:5px 5px; word-wrap:break-word;">{{control}}</td>
                                 </tr>
-                                <tr>
-                                    <td style="width:75px; text-align:center; border:1px solid; padding-top: 5px; padding:10px 0px;"><b>Rank: 2</b></td>
-                                    <td style="border:1px solid; padding:5px 5px;">Light fouling. Hull covered in
-                                        biofilm and 1 to 2 very small patches of macrofouling (only one taxon)., Visual
-                                        Estimate of Fouling cover: 1% to 5% of visible submerged surfaces.</td>
-                                </tr>
-                                <tr>
-                                    <td style="width:75px; text-align:center; border:1px solid; padding-top: 5px; padding:10px 0px;"><b>Rank: 3</b></td>
-                                    <td style="border:1px solid; padding:5px 5px;">Considerable fouling. Presence of
-                                        biofilm, and macrofouling still patchy but clearly visible and comprised of
-                                        either one single or several different taxa. Visual Estimate of Fouling cover:
-                                        6% to 15% of visible submerged surfaces.</td>
-                                </tr>
-                                <tr>
-                                    <td style="width:75px; text-align:center; border:1px solid; padding-top: 5px; padding:10px 0px;"><b>Rank: 4</b></td>
-                                    <td style="border:1px solid; padding:5px 5px;">Extensive fouling. Presence of
-                                        biofilm and abundant fouling assemblages consisting of more than one taxon. 16%
-                                        to 40% of visible submerged surfaces, Visual Estimate of Fouling cover: 16% to
-                                        40% of visible submerged surfaces.</td>
-                                </tr>
-                                <tr>
-                                    <td style="width:75px; text-align:center; border:1px solid; padding-top: 5px; padding:10px 0px;"><b>Rank: 5</b></td>
-                                    <td style="border:1px solid; padding:5px 5px;">Very heavy fouling. Diverse
-                                        assemblages covering most of visible hull surfaces., Visual Estimate of Fouling
-                                        cover: 41% to 100% of visible submerged surfaces.</td>
-                                </tr>
+                                {{/each}}
+                                </tbody>
                             </table>
-                        {{/if}}
-                    </div>       
 
-                        <div class="page">
-                            <h4>4.2 PAINT DETERIORATION RATING (PDR) SCALE</h4>
-                            <table style="width:100%">
-                                <th style="background-color: #365F91;height:30px; border:1px solid #000; padding-top: 5px; padding:10px 0px; color: rgb(255, 255, 255);">RATING
-                                </th>
-                                <th style="background-color: #365F91;height:30px; border:1px solid #000; padding:5px 5px; color: rgb(255, 255, 255);">
-                                    DESCRIPTION</th>
+                            <h5>Requirement Checklist</h5>
+                            <br>
+                            <table id="tableFixed" style="border:1px solid #000; border-collapse:collapse; width:100%; position:center;">
+                                <thead style="background-color: #365F91;height:30px; border:1px solid #000; padding-top: 5px; padding:10px 0px; color: rgb(255, 255, 255);">
                                 <tr>
-                                    <td
-                                        style="width:75px; text-align:center; border:1px solid; padding-top: 5px; padding:10px 0px;">
-                                        <b>PDR: 10</b>
-                                    </td>
-                                    <td style="border:1px solid; padding:5px 5px;">Anti-Foul (AF) Paint intact.</td>
+                                    <th style="background-color: #365F91; width:50%; height:30px; border:1px solid #000; padding:5px 5px;color: rgb(255, 255, 255);">Requirement</th>
+                                    <th style="background-color: #365F91; height:30px; border:1px solid #000; padding:5px 5px;color: rgb(255, 255, 255);">Complete</th>
+                                    <th style="background-color: #365F91; height:30px; border:1px solid #000; padding:5px 5px;color: rgb(255, 255, 255);">Checked</th>
+
                                 </tr>
+                                </thead>
+                                <tbody>
+                                {{#each data.requirements.check}}
                                 <tr>
-                                    <td style="width:75px; text-align:center; border:1px solid; padding:5px 0px;">
-                                        <b>PDR: 20</b>
-                                    </td>
-                                    <td style="border:1px solid; padding:5px 5px;">AF paint missing from edges, corners,
-                                        seams, welds, rivet, or bolt heads to expose anti corrosion (AC) paint.
-                                        (undercoat).</td>
+                                    <td style="border:1px solid; padding:5px 5px; word-wrap:break-word;">{{requirement}}</td>
+                                    <td style="border:1px solid; padding:5px 5px; word-wrap:break-word;">{{#if (eq complete "true")}}<p>&#10003 YES</p>{{else}}<p>&#10007; NO</p>{{/if}}</td>
+                                    <td style="border:1px solid; padding:5px 5px; word-wrap:break-word;">{{#if (eq checked "true")}}<p>&#10003 YES</p>{{else}}<p>&#10007; NO</p>{{/if}}</td>
                                 </tr>
-                                <tr>
-                                    <td style="width:75px; text-align:center; border:1px solid; padding:5px 0px;">
-                                        <b>PDR: 30</b>
-                                    </td>
-                                    <td style="border:1px solid; padding:5px 5px;">AF paint missing from slightly curved
-                                        or flat areas to expose underlying AC paint; An AF paint with visible brush
-                                        swirl marks within the outermost layer – not extending into underlying layers of
-                                        paint.</td>
-                                </tr>
-                                <tr>
-                                    <td
-                                        style="width:75px; text-align:center; border:1px solid; padding-top: 5px; padding:10px 0px;">
-                                        <b>PDR: 40</b>
-                                    </td>
-                                    <td style="border:1px solid; padding:5px 5px;">AF paint missing from intact blisters
-                                        to expose AC paint or an AF coating with visible brush swirl marks exposing the
-                                        next underlying layer of AF or AC paint.</td>
-                                </tr>
-                                <tr>
-                                    <td
-                                        style="width:75px; text-align:center; border:1px solid; padding-top: 5px; padding:10px 0px;">
-                                        <b>PDR: 50</b>
-                                    </td>
-                                    <td style="border:1px solid; padding:5px 5px;">AF blisters ruptured to expose intact
-                                        AC paint.</td>
-                                </tr>
-                                <tr>
-                                    <td
-                                        style="width:75px; text-align:center; border:1px solid; padding-top: 5px; padding:10px 0px;">
-                                        <b>PDR: 60</b>
-                                    </td>
-                                    <td style="border:1px solid; padding:5px 5px;">AF/AC paint missing or peeling to
-                                        expose steel substrate with corrosion present.</td>
-                                </tr>
-                                <tr>
-                                    <td
-                                        style="width:75px; text-align:center; border:1px solid; padding-top: 5px; padding:10px 0px;">
-                                        <b>PDR: 70</b>
-                                    </td>
-                                    <td style="border:1px solid; padding:5px 5px;">AF/AC paint removed from edges,
-                                        corners, seams, welds, rivet or bolt heads to expose steel substrate with
-                                        corrosion present.</td>
-                                </tr>
-                                <tr>
-                                    <td
-                                        style="width:75px; text-align:center; border:1px solid; padding-top: 5px; padding:10px 0px;">
-                                        <b>PDR: 80</b>
-                                    </td>
-                                    <td style="border:1px solid; padding:5px 5px;">Ruptured AF/AC blisters on slightly
-                                        curved or flat surfaces with corrosion or corrosion stains present.</td>
-                                </tr>
-                                <tr>
-                                    <td
-                                        style="width:75px; text-align:center; border:1px solid; padding-top: 5px; padding:10px 0px;">
-                                        <b>PDR: 90</b>
-                                    </td>
-                                    <td style="border:1px solid; padding:5px 5px;">Area corrosion of steel substrate
-                                        with no AF/AC paint cover due to peeling or abrasion damage.</td>
-                                </tr>
-                                <tr>
-                                    <td
-                                        style="width:75px; text-align:center; border:1px solid; padding-top: 5px; padding:10px 0px;">
-                                        <b>PDR: 100</b>
-                                    </td>
-                                    <td style="border:1px solid; padding:5px 5px;">Area corrosion showing visible
-                                        surface evidence of pitting, scaling, and roughening of steel substrate.</td>
-                                </tr>
+                                {{/each}}
+                                </tbody>
                             </table>
-                        </div>
-
-                        <div class="page">
-                            <p></p>
-                            <p></p>
-                            <p></p>
-                            <p></p>
-                            <p></p>
-                            <h3>5. GENERAL ARRANGEMENT</h3>
+                            <br>
+                            <h5>Considered Safe to Proceed: {{#if (eq data.considered.safe.to.proceed "true")}}&#10003 YES{{else}}&#10007; NO{{/if}}</h5>
+                            {{/if}}
+                          
+                            <h4>5. Dive Hat Daily Check</h4>
                             {{#each attachments}}
-                            {{#if (eq path 'GeneralArrangement')}}
-                            <img src="{{getImageUri fullUri}}" alt="General Arrangement" style="max-width: 100%" />
+                            {{#if (eq path "DiveHat")}}
+                            <img src="{{getImageUri fullUri}}" alt="Dive Hat Check Uploaded Document / Photo" id="largeImg" />
+                            {{/if}}
+                            {{/each}}
+                            <h4>6. Equipment</h4>
+                            <h5>FUS Equipment</h5>
+                            <table id="tableFixed" style="border:1px solid #000; border-collapse:collapse; width:100%; position:center;">
+                                <thead style="background-color: #365F91;height:30px; border:1px solid #000; padding-top: 5px; padding:10px 0px; color: rgb(255, 255, 255);">
+                                <tr>
+                                    <th style="background-color: #365F91; width:30%; height:30px; border:1px solid #000; padding:5px 5px;color: rgb(255, 255, 255);">Type</th>
+                                    <th style="background-color: #365F91; height:30px; border:1px solid #000; padding:5px 5px;color: rgb(255, 255, 255);">Asset ID</th>
+                                    <th style="background-color: #365F91; height:30px; border:1px solid #000; padding:5px 5px;color: rgb(255, 255, 255);">Daily Log and Maintenance Completed?</th>
+                                    <th style="background-color: #365F91; height:30px; border:1px solid #000; padding:5px 5px;color: rgb(255, 255, 255);">Comments</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {{#each data.fus.equipment.check}}
+                                <tr>
+                                    <td style="border:1px solid; padding:5px 5px; word-wrap:break-word;">{{type}}</td>
+                                    <td style="border:1px solid; padding:5px 5px; word-wrap:break-word;">{{assetid}}</td>
+                                    <td style="border:1px solid; padding:5px 5px; word-wrap:break-word;">{{#if (eq dailylog "true")}}<p>&#10003 YES</p>{{else}}<p>&#10007; NO</p>{{/if}}</td>
+                                    <td style="border:1px solid; padding:5px 5px; word-wrap:break-word;">{{commentequip}}</td>
+
+                                </tr>
+                                {{/each}}
+                                </tbody>
+                            </table>
+                            <h5>Upload Daily Log and Maintenance Book</h5>
+                            {{#each attachments}}
+                            {{#if (eq path "LogMaintenance")}}
+                            <img src="{{getImageUri fullUri}}" alt="Upload Daily Log and Maintenance Book / Photo" id="largeImg" />
                             {{/if}}
                             {{/each}}
 
-                        </div>
-
-                        {{#each data.vessel.data.generalArrangement}}
-
-                        {{!-- {{#if (lookAtMultiValue [diverSupervisorComments, expertInspectorComments] )}} --}}
-                        {{#if (lookAtMultiValue (array diverSupervisorComments expertInspectorComments frRatingData.[0].description frRatingData.[0].pdrRating frRatingData.[0].Comments))}}
-
-                        <div class="page" id="{{id}}">
-
-                            <p></p>
-                            <p></p>
-                            <p></p>
-                            <p></p>
-
-                            <h3>5.{{increment @index 1}} {{name}}</h3>
-                            <h4>
-                                5.{{increment @index 1}}.1 Observations and Findings {{{comments}}}
-                            </h4>
-                            <div>
-      
-                                <p>{{{diverSupervisorComments}}}</p>
-
-                        {{#if frRatingData.[0].levelOfFoulingLoF}}
-
-                            <table id="tableFixed" style="border:1px solid #000; border-collapse:collapse; width:100%; position:center;">
-                                <thead style="background-color: #365F91;height:30px; border:1px solid #000; padding-top: 5px; padding:10px 0px; color: rgb(255, 255, 255);">
-                                <tr>
-                                    <th style="background-color: #365F91; height:30px; border:1px solid #000; padding:5px 5px;color: rgb(255, 255, 255);">Description</th>
-                                    <th style="background-color: #365F91; height:30px; border:1px solid #000; padding:5px 5px;color: rgb(255, 255, 255);">Level of fouling (LOF)</th>
-                                    <th style="background-color: #365F91; height:30px; border:1px solid #000; padding:5px 5px;color: rgb(255, 255, 255);">PDR Rating</th>
-                                    <th style="background-color: #365F91; height:30px; border:1px solid #000; padding:5px 5px;color: rgb(255, 255, 255);">Comments</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                {{#each frRatingData}}
-                                <tr>
-                                    {{#if description}}
-                                    <td style="border:1px solid; padding:5px 5px; word-wrap:break-word;">{{description}}</td>
-                                    {{else}}
-                                    <td style="border:1px solid; padding:5px 5px; word-wrap:break-word;">No description available</td>
-                                    {{/if}}
-                                    {{#if levelOfFoulingLoF}}
-                                    <td style="border:1px solid; padding:5px 5px; word-wrap:break-word;">{{levelOfFoulingLoF}}</td>
-                                    {{else}}
-                                    <td style="border:1px solid; padding:5px 5px; word-wrap:break-word;">No level of fouling data available</td>
-                                    {{/if}}
-                                    {{#if pdrRating}}
-                                    <td style="border:1px solid; padding:5px 5px; word-wrap:break-word;">{{pdrRating}}</td>
-                                    {{else}}
-                                    <td style="border:1px solid; padding:5px 5px; word-wrap:break-word;">No pdr data available</td>
-                                    {{/if}}
-                                    {{#if Comments}}
-                                    <td style="border:1px solid; padding:5px 5px; word-wrap:break-word;">{{Comments}}</td>
-                                    {{else}}
-                                    <td style="border:1px solid; padding:5px 5px; word-wrap:break-word;">No comments avialable</td>
-                                    {{/if}}
-                                </tr>
-                                {{/each}}
-                                </tbody>
-                            </table>
-                           
-                        {{else}}
-                            <table id="tableFixed" style="border:1px solid #000; border-collapse:collapse; width:100%; position:center;">
-                                <thead style="background-color: #365F91;height:30px; border:1px solid #000; padding-top: 5px; padding:10px 0px; color: rgb(255, 255, 255);">
-                                <tr>
-                                    <th style="background-color: #365F91; height:30px; border:1px solid #000; padding:5px 5px;color: rgb(255, 255, 255);">Description</th>
-                                    <th style="background-color: #365F91; height:30px; border:1px solid #000; padding:5px 5px;color: rgb(255, 255, 255);">Fouling Rating (Type)</th>
-                                    <th style="background-color: #365F91; height:30px; border:1px solid #000; padding:5px 5px;color: rgb(255, 255, 255);">Fouling Coverage</th>
-                                    <th style="background-color: #365F91; height:30px; border:1px solid #000; padding:5px 5px;color: rgb(255, 255, 255);">PDR Rating</th>
-                                    <th style="background-color: #365F91; height:30px; border:1px solid #000; padding:5px 5px;color: rgb(255, 255, 255);">Comments</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                {{#each frRatingData}}
-                                <tr>
-                                    {{#if description}}
-                                    <td style="border:1px solid; padding:5px 5px; word-wrap:break-word;">{{description}}</td>
-                                    {{else}}
-                                    <td style="border:1px solid; padding:5px 5px; word-wrap:break-word;">No description available</td>
-                                    {{/if}}
-                                    {{#if foulingRatingType}}
-                                    <td style="border:1px solid; padding:5px 5px; word-wrap:break-word;">{{foulingRatingType}}</td>
-                                    {{else}}
-                                    <td style="border:1px solid; padding:5px 5px; word-wrap:break-word;">No fouling rating data available</td>
-                                    {{/if}}
-                                    {{#if foulingCoverage}}
-                                    <td style="border:1px solid; padding:5px 5px; word-wrap:break-word;">{{foulingCoverage}}</td>
-                                    {{else}}
-                                    <td style="border:1px solid; padding:5px 5px; word-wrap:break-word;">No fouling coverage data available</td>
-                                    {{/if}}
-                                    {{#if pdrRating}}
-                                    <td style="border:1px solid; padding:5px 5px; word-wrap:break-word;">{{pdrRating}}</td>
-                                    {{else}}
-                                    <td style="border:1px solid; padding:5px 5px; word-wrap:break-word;">No pdr data available</td>
-                                    {{/if}}
-                                    {{#if Comments}}
-                                    <td style="border:1px solid; padding:5px 5px; word-wrap:break-word;">{{Comments}}</td>
-                                    {{else}}
-                                    <td style="border:1px solid; padding:5px 5px; word-wrap:break-word;">No comments avialable</td>
-                                    {{/if}}
-                                </tr>
-                                {{/each}}
-                                </tbody>
-                            </table>
-               
-                        {{/if}}
-
-
-
-                            </div>
-                            {{#if (hasValue expertInspectorComments)}}
-                            <h4>Inspector Comments</h4>
-                            <p>{{{expertInspectorComments}}}</p>
+                            <h4>7. Resources</h4>
+                            <h5>SWPs and Manuals</h5>
+                            {{#each attachments}}
+                            {{#if (eq path "Manuals")}}
+                            <img src="{{getImageUri fullUri}}" alt="SWP's and Manuals / Photo" id="largeImg" />
                             {{/if}}
-
-                            <div class="row">
-
-
-                                {{#getImages name ../attachments}}
-                                <div class="column">
-                                    <img src="{{fullApiUrl}}" height="300px" width="auto" />
-                                    {{!-- {{<p>{{title}} ({{unsafeOriginalFileName}})</p>}} --}}
-                                    {{!-- <p>{{fullApiUrl}}</p> --}}
-
-                                    {{!-- This is removed until the barrel eye is correctly configured --}}
-                                    {{!-- <p id="caption">{{title}} - {{formatDateTime createdDate "MMM Do YY, h:mm:ss
-                                        a"}}</p> --}}
-                                    <p id="caption">{{title}}</p>
-                                </div>
-                                {{/getImages}}
+                            {{/each}}
 
 
-                            </div>
-                        </div>
-                        {{/if}}
-
-                        {{/each}}
-    </div>
-    </div>
-    <div class="page">
-        <p></p>
-        <p></p>
-        <p></p>
-        <p></p>
-        <p></p>
-        <h4> Report Summary </h4>
-        <p> {{{data.report.summary}}}</p>
-        <div style="display: block; margin-left:auto; margin-right: auto"> Please note that
-            additional still photographs may be provided upon client request. <br><br><br> &nbsp;
-            
-            <b style="color: #365F91; text-align:center; display: block;">
-                <i>Please be advised that CCTV imagery and additional still photographs may be provided upon client request.<br><br>
-                    Thank you for the opportunity to provide our services.<br><br>
-                    If we can be of any future assistance, please do not hesitate to contact us at any time
-                </i>
-            </b>
-        <p></p>            
-        </div>
-
-        {{{inspectorComments}}}
-           <div style="page-break-inside: avoid">
-            <table style="width:100%">
-                {{#if (hasValue data.ims.declaration)}}
-                <tr style="border:1px solid;padding:5px 5px;">
-                    <td colspan="4" style="padding:5px 5px; background-color: #365F91; text-align:center;color:rgb(255, 255, 255); border:1px solid #000;">
-                        IMS Declaration</td>
-                </tr>
-                <tr style="border:1px solid; padding:5px 5px;">
-                    <td style="padding:5px 5px; border:1px solid" colspan="4">
-
-                        <p>{{{data.ims.declaration}}}</p>
-                        <b>Signed:</b><img src={{data.ims.signature.signature}} width="80%" , {{#if (isDarkMode)}}id="darkSig" {{/if}}/>
-                        {{#if (hasValue data.ims.signature.signature)}}
-                        <p><b>Date: </b>{{formatDateTime data.ims.signature.date "dddd DD MMMM YYYY"}}</p>
-                        {{/if}}
-                    </td>
-                </tr>
-                {{/if}}
-            </table>
-        </div>
 
 
-        <div style="page-break-inside: avoid">
-            <table style="width:100%">
-                {{#if (hasValue data.repair.declaration)}}
-                <tr style="border:1px solid;padding:5px 5px;">
-                    <td colspan="4" style="padding:5px 5px; background-color: #365F91; text-align:center;color:rgb(255, 255, 255); border:1px solid #000;">
-                        Repair Declaration</td>
-                </tr>
-                <tr style="border:1px solid; padding:5px 5px;">
-                    <td style="border:1px solid" colspan="4">
+                            <h4>8. Dive Logs</h4>
+                            <h5>Table Used: DCEIM</h5>
+                            <table id="tableFixed" style="border:1px solid #000; border-collapse:collapse; width:100%; position:center;">
+                                <thead style="background-color: #365F91;height:30px; border:1px solid #000; padding-top: 5px; padding:10px 0px; color: rgb(255, 255, 255);">
+                                <tr>
+                                    <th style="font-size:10px; background-color: #365F91; width:7.69%; height:30px; border:1px solid #000; padding:5px 5px;color: rgb(255, 255, 255);">Diver No.</th>
+                                    <th style="font-size:10px; background-color: #365F91; height:30px; border:1px solid #000; padding:5px 5px;color: rgb(255, 255, 255);">Surface Interval</th>
+                                    <th style="font-size:10px;background-color: #365F91; height:30px; border:1px solid #000; padding:5px 5px;color: rgb(255, 255, 255);">Repetitive Factor</th>
+                                    <th style="font-size:10px; background-color: #365F91; height:30px; border:1px solid #000; padding:5px 5px;color: rgb(255, 255, 255);">Bail Out Pressure</th>
+                                    <th style="font-size:10px; background-color: #365F91; height:30px; border:1px solid #000; padding:5px 5px;color: rgb(255, 255, 255);">Hat Secure</th>
+                                    <th style="font-size:10px; background-color: #365F91; height:30px; border:1px solid #000; padding:5px 5px;color: rgb(255, 255, 255);">Left Surface</th>
+                                    <th style="font-size:10px; background-color: #365F91; height:30px; border:1px solid #000; padding:5px 5px;color: rgb(255, 255, 255);">Depth</th>
+                                    <th style="font-size:10px; background-color: #365F91; height:30px; border:1px solid #000; padding:5px 5px;color: rgb(255, 255, 255);">Test</th>
+                                    <th style="font-size:10px; background-color: #365F91; height:30px; border:1px solid #000; padding:5px 5px;color: rgb(255, 255, 255);">Left Bottom</th>
+                                    <th style="font-size:10px; background-color: #365F91; height:30px; border:1px solid #000; padding:5px 5px;color: rgb(255, 255, 255);">Bottom Time</th>
+                                    <th style="font-size:10px; background-color: #365F91; height:30px; border:1px solid #000; padding:5px 5px;color: rgb(255, 255, 255);">Arrived Surface</th>
+                                    <th style="font-size:10px; background-color: #365F91; height:30px; border:1px solid #000; padding:5px 5px;color: rgb(255, 255, 255);">Total Dive Time</th>
+                                    <th style="font-size:10px; background-color: #365F91; height:30px; border:1px solid #000; padding:5px 5px;color: rgb(255, 255, 255);">Repetitive Group</th>
 
-                        <p>{{{data.repair.declaration}}}</p>
-                        <b>Signed:</b><img src={{data.repair.signature.signature}} width="80%" , {{#if (isDarkMode)}}id="darkSig" {{/if}} />
-                        {{#if (hasValue data.repair.signature.signature)}}
-                        <p><b>Date: </b>{{formatDateTime data.repair.signature.date "dddd DD MMMM YYYY"}}</p>
-                        {{/if}}
-                    </td>
-                </tr>
-                {{/if}}
-            </table>
-        </div>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {{#each data.table.diver.check}}
+                                <tr>
+                                    <td style="font-size:12px; border:1px solid; padding:5px 5px; word-wrap:break-word;">{{divernum}}</td>
+                                    <td style="font-size:12px; border:1px solid; padding:5px 5px; word-wrap:break-word;">{{surfaceinterval}}</td>
+                                    <td style="font-size:12px; border:1px solid; padding:5px 5px; word-wrap:break-word;">{{repetitivefactor}}</td>
+                                    <td style="font-size:12px; border:1px solid; padding:5px 5px; word-wrap:break-word;">{{bailoutpressure}}</td>
+                                    <td style="font-size:12px; border:1px solid; padding:5px 5px; word-wrap:break-word;">{{#if (eq hatsecure "true")}}<p>&#10003 YES</p>{{else}}<p>&#10007; NO</p>{{/if}}</td>
+                                    <td style="font-size:12px; border:1px solid; padding:5px 5px; word-wrap:break-word;">{{leftsurface}}</td>
+                                    <td style="font-size:12px; border:1px solid; padding:5px 5px; word-wrap:break-word;">{{depth}}</td>
+                                    <td style="font-size:12px; border:1px solid; padding:5px 5px; word-wrap:break-word;">{{test}}</td>
+                                    <td style="font-size:12px; border:1px solid; padding:5px 5px; word-wrap:break-word;">{{leftbottom}}</td>
+                                    <td style="font-size:12px; border:1px solid; padding:5px 5px; word-wrap:break-word;">{{bottomtime}}</td>
+                                    <td style="font-size:12px; border:1px solid; padding:5px 5px; word-wrap:break-word;">{{arrivedsurface}}</td>
+                                    <td style="font-size:12px; border:1px solid; padding:5px 5px; word-wrap:break-word;">{{totaldive}}</td>
+                                    <td style="font-size:12px; border:1px solid; padding:5px 5px; word-wrap:break-word;">{{repetitivegroup}}</td>
+                                </tr>
+                                {{/each}}
+                                </tbody>
+                            </table>
+                            <h5>Supervisors Signature</h5>
+                            <table style="width:100%">
+                                <tr style="border:1px solid;padding:5px 5px;">
+                                    <td colspan="4" style="padding:5px 5px; background-color: #365F91; text-align:center;color:rgb(255, 255, 255); border:1px solid #000;">
+                                        Signature and Date</td>
+                                </tr>
+                                <tr style="border:1px solid; padding:5px 5px;">
+                                    <td style="border:1px solid" colspan="4"><b>Signed:</b><img src={{data.tableSupervisor.signature.signature}} width="80%" , {{#if (isDarkMode)}}id="darkSig" {{/if}} />
+                                        {{#if (hasValue data.tableSupervisor.signature.signature)}}
+                                        <p><b>Date: </b>{{formatDateTime data.tableSupervisor.signature.date "dddd DD MMMM YYYY"}}</p>
+                                        {{/if}}
+                                    </td>
+                                </tr>
+                            </table>
+                            <h4>9. Activity Log</h4>
+                            <br>
+                            <table id="tableFixed" style="border:1px solid #000; border-collapse:collapse; width:100%; position:center;">
+                                <thead style="background-color: #365F91;height:30px; border:1px solid #000; padding-top: 5px; padding:10px 0px; color: rgb(255, 255, 255);">
+                                <tr>
+                                    <th style="background-color: #365F91; width:50%; height:30px; border:1px solid #000; padding:5px 5px;color: rgb(255, 255, 255);">Time</th>
+                                    <th style="background-color: #365F91; height:30px; border:1px solid #000; padding:5px 5px;color: rgb(255, 255, 255);">Daily Activity</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {{#each data.activity.log.check}}
+                                <tr>
+                                    <td style="border:1px solid; padding:5px 5px; word-wrap:break-word;">{{time}}</td>
+                                    <td style="border:1px solid; padding:5px 5px; word-wrap:break-word;">{{dailyactivity}}</td>
+                                </tr>
+                                {{/each}}
+                                </tbody>
+                            </table>
+                            <br>
+                            <h4>10. Emergency Drill Report</h4>
+                            <h5>Attendees Present</h5>
+                            <table id="tableFixed" style="border:1px solid #000; border-collapse:collapse; width:100%; position:center;">
+                                <thead style="background-color: #365F91;height:30px; border:1px solid #000; padding-top: 5px; padding:10px 0px; color: rgb(255, 255, 255);">
+                                <tr>
+                                    <th style="background-color: #365F91; width:50%; height:30px; border:1px solid #000; padding:5px 5px;color: rgb(255, 255, 255);">Name</th>
+                                    <th style="background-color: #365F91; height:30px; border:1px solid #000; padding:5px 5px;color: rgb(255, 255, 255);">Company</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {{#each data.attendeesTwo}}
+                                <tr>
+                                    <td style="border:1px solid; padding:5px 5px; word-wrap:break-word;">{{anames}}</td>
+                                    <td style="border:1px solid; padding:5px 5px; word-wrap:break-word;">{{acompanys}}</td>
+                                </tr>
+                                {{/each}}
+                                </tbody>
+                            </table>
+                            <h5>Emergency Drills</h5>
+                            <table id="tableFixed" style="border:1px solid #000; border-collapse:collapse; width:100%; position:center;">
+                                <thead style="background-color: #365F91;height:30px; border:1px solid #000; padding-top: 5px; padding:10px 0px; color: rgb(255, 255, 255);">
+                                <tr>
+                                    <th style="background-color: #365F91; width:50%; height:30px; border:1px solid #000; padding:5px 5px;color: rgb(255, 255, 255);">Time</th>
+                                    <th style="background-color: #365F91; height:30px; border:1px solid #000; padding:5px 5px;color: rgb(255, 255, 255);">Emergency Drill Step</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {{#each data.drills.check}}
+                                <tr>
+                                    <td style="border:1px solid; padding:5px 5px; word-wrap:break-word;">{{formatDateTime etime.date "dddd DD MMMM YYYY"}}</td>
+                                    <td style="border:1px solid; padding:5px 5px; word-wrap:break-word;">{{drillstep}}</td>
+                                </tr>
+                                {{/each}}
+                                </tbody>
+                            </table>
+                            
+                            <h5>Equipment Used</h5>
+                            {{{data.equipmentUsed}}}
+                            <h5>Comments</h5>
+                            {{{data.comments}}}
+                            <h4>11. Dive Permit and Isolations</h4>
+                            <h5>Isolations</h5>
+                            <table id="tableFixed" style="border:1px solid #000; border-collapse:collapse; width:100%; position:center;">
+                                <thead style="background-color: #365F91;height:30px; border:1px solid #000; padding-top: 5px; padding:10px 0px; color: rgb(255, 255, 255);">
+                                <tr>
+                                    <th style="background-color: #365F91; width:30%; height:30px; border:1px solid #000; padding:5px 5px;color: rgb(255, 255, 255);">Isolation Descritpion</th>
+                                    <th style="background-color: #365F91; height:30px; border:1px solid #000; padding:5px 5px;color: rgb(255, 255, 255);">Exempt</th>
+                                    <th style="background-color: #365F91; height:30px; border:1px solid #000; padding:5px 5px;color: rgb(255, 255, 255);">Initial If Tagged</th>
+                                    <th style="background-color: #365F91; height:30px; border:1px solid #000; padding:5px 5px;color: rgb(255, 255, 255);">Tag Verified</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {{#each data.isolation.descrip.check}}
+                                <tr>
+                                    <td style="border:1px solid; padding:5px 5px; word-wrap:break-word;">{{isodescriptions}}</td>
+                                    <td style="border:1px solid; padding:5px 5px; word-wrap:break-word;">{{#if (eq exempt "true")}}<p>&#10003 YES</p>{{else}}<p>&#10007; NO</p>{{/if}}</td>
+                                    <td style="border:1px solid; padding:5px 5px; word-wrap:break-word;">{{decription}}</td>
+                                    <td style="border:1px solid; padding:5px 5px; word-wrap:break-word;">{{#if (eq verified "true")}}<p>&#10003 YES</p>{{else}}<p>&#10007; NO</p>{{/if}}</td>
+
+                                </tr>
+                                {{/each}}
+                                </tbody>
+                            </table>
+                            <h5>Exemptions</h5>
+                            <table id="tableFixed" style="border:1px solid #000; border-collapse:collapse; width:100%; position:center;">
+                                <thead style="background-color: #365F91;height:30px; border:1px solid #000; padding-top: 5px; padding:10px 0px; color: rgb(255, 255, 255);">
+                                <tr>
+                                    <th style="background-color: #365F91; width:30%; height:30px; border:1px solid #000; padding:5px 5px;color: rgb(255, 255, 255);">Equipment Exemptions</th>
+                                    <th style="background-color: #365F91; height:30px; border:1px solid #000; padding:5px 5px;color: rgb(255, 255, 255);">Location</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {{#each data.exemptions.check}}
+                                <tr>
+                                    <td style="border:1px solid; padding:5px 5px; word-wrap:break-word;">{{equipmentexemptions}}</td>
+                                    <td style="border:1px solid; padding:5px 5px; word-wrap:break-word;">{{location}}</td>
+                                </tr>
+                                {{/each}}
+                                </tbody>
+                            </table>
+                            <h5>Simultaneous Operations and Communication</h5>
+                            {{{data.simultaneous.operations}}}
+                            <h5>Work Description and Location </h5>
+                            {{{data.work.description}}}
+                            <h5>The Permit is Valid Until </h5>
+                            {{{formatDateTime data.permitValid.date.date "dddd DD MMMM YYYY"}}}
+                            <h5>Supervisors Signature</h5>
+                            <table style="width:100%">
+                                <tr style="border:1px solid;padding:5px 5px;">
+                                    <td colspan="4" style="padding:5px 5px; background-color: #365F91; text-align:center;color:rgb(255, 255, 255); border:1px solid #000;">
+                                        Signature and Date</td>
+                                </tr>
+                                <tr style="border:1px solid; padding:5px 5px;">
+                                    <td style="border:1px solid" colspan="4"><b>Name:</b>{{data.permirSupervisor.signature.user.name}}<p><b>Signed:</b><img src={{data.permirSupervisor.signature.signature}} width="80%" , {{#if (isDarkMode)}}id="darkSig" {{/if}}</p> 
+                                        {{#if (hasValue data.permirSupervisor.signature.signature)}}
+                                        <p><b>Date: </b>{{formatDateTime data.permirSupervisor.signature.date "dddd DD MMMM YYYY"}}</p>
+                                        {{/if}}
+                                    </td>
+                                </tr>
+                            </table>
+                              <h5>Engineer / Master's Signature</h5>
+                             <table style="width:100%">
+                                <tr style="border:1px solid;padding:5px 5px;">
+                                    <td colspan="4" style="padding:5px 5px; background-color: #365F91; text-align:center;color:rgb(255, 255, 255); border:1px solid #000;">
+                                        Signature and Date</td>
+                                </tr>
+                                <tr style="border:1px solid; padding:5px 5px;">
+                                    <td style="border:1px solid" colspan="4"><b>Name:</b>{{data.engineerMaster.name}}<p><b>Signed:</b><img src={{data.engineer.signature.signature}} width="80%" , {{#if (isDarkMode)}}id="darkSig" {{/if}}</p> 
+                                        {{#if (hasValue data.engineer.signature.signature)}}
+                                        <p><b>Date: </b>{{formatDateTime data.engineer.signature.date "dddd DD MMMM YYYY"}}</p>
+                                        {{/if}}
+                                    </td>
+                                </tr>
+                            </table>
 
 
-        <div class="centeredText">
-            <h2>END OF REPORT</h2>
-        </div>
+                            <h4>12. Onsite Inspection Checklist</h4>
+                            <h5>1. Fire and Safety</h5>
+                            <table id="tableFixed" style="border:1px solid #000; border-collapse:collapse; width:100%; position:center;">
+                                <thead style="background-color: #365F91;height:30px; border:1px solid #000; padding-top: 5px; padding:10px 0px; color: rgb(255, 255, 255);">
+                                <tr>
+                                    <th style="background-color: #365F91; width:30%; height:30px; border:1px solid #000; padding:5px 5px;color: rgb(255, 255, 255);">Item</th>
+                                    <th style="background-color: #365F91; height:30px; border:1px solid #000; padding:5px 5px;color: rgb(255, 255, 255);">Checked</th>
+                                    <th style="background-color: #365F91; height:30px; border:1px solid #000; padding:5px 5px;color: rgb(255, 255, 255);">N/A</th>
+                                    <th style="background-color: #365F91; height:30px; border:1px solid #000; padding:5px 5px;color: rgb(255, 255, 255);">Comments</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {{#each data.fire.safety.check}}
+                                <tr>
+                                    <td style="border:1px solid; padding:5px 5px; word-wrap:break-word;">{{item}}</td>
+                                    <td style="border:1px solid; padding:5px 5px; word-wrap:break-word;">{{#if (eq fchecked "true")}}<p>&#10003 YES</p>{{else}}<p>&#10007; NO</p>{{/if}}</td>
+                                    <td style="border:1px solid; padding:5px 5px; word-wrap:break-word;">{{#if (eq fna "true")}}<p>&#10003 YES</p>{{else}}<p>&#10007; NO</p>{{/if}}</td>
+                                    <td style="border:1px solid; padding:5px 5px; word-wrap:break-word;">{{fcomments}}</td>
 
-        <div style="break-after:page"></div>
-     
-       
-        <div class="page">
-            <table style="width:100%">
-                <tr>
-                    <td colspan="4"
-                        style="padding:5px 5px; background-color: #365F91;height:30px; border:1px solid #000; color:rgb(255, 255, 255)">
-                        Document Status
-                    </td>
-                </tr>
+                                </tr>
+                                {{/each}}
+                                </tbody>
+                            </table>
+                            <h5>2. Electrical</h5>
+                            <table id="tableFixed" style="border:1px solid #000; border-collapse:collapse; width:100%; position:center;">
+                                <thead style="background-color: #365F91;height:30px; border:1px solid #000; padding-top: 5px; padding:10px 0px; color: rgb(255, 255, 255);">
+                                <tr>
+                                    <th style="background-color: #365F91; width:30%; height:30px; border:1px solid #000; padding:5px 5px;color: rgb(255, 255, 255);">Item</th>
+                                    <th style="background-color: #365F91; height:30px; border:1px solid #000; padding:5px 5px;color: rgb(255, 255, 255);">Checked</th>
+                                    <th style="background-color: #365F91; height:30px; border:1px solid #000; padding:5px 5px;color: rgb(255, 255, 255);">N/A</th>
+                                    <th style="background-color: #365F91; height:30px; border:1px solid #000; padding:5px 5px;color: rgb(255, 255, 255);">Comments</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {{#each data.electrical.check}}
+                                <tr>
+                                    <td style="border:1px solid; padding:5px 5px; word-wrap:break-word;">{{electricalitem}}</td>
+                                    <td style="border:1px solid; padding:5px 5px; word-wrap:break-word;">{{#if (eq echecked "true")}}<p>&#10003 YES</p>{{else}}<p>&#10007; NO</p>{{/if}}</td>
+                                    <td style="border:1px solid; padding:5px 5px; word-wrap:break-word;">{{#if (eq ena "true")}}<p>&#10003 YES</p>{{else}}<p>&#10007; NO</p>{{/if}}</td>
+                                    <td style="border:1px solid; padding:5px 5px; word-wrap:break-word;">{{ecomments}}</td>
 
-                <tr>
-                    <td style="border:1px solid; padding:5px 5px;"><b>Revision 1</b></td>
-                    <td style="border:1px solid; padding:5px 5px;"><b>Document Owner:</b><br>Adam Falconer-West
-                    </td>
-                    <td style="border:1px solid; padding:5px 5px;"><b>Document Number:</b><br></td>
-                </tr>
+                                </tr>
+                                {{/each}}
+                                </tbody>
+                            </table>
+                            <h5>3. General Lighting</h5>
+                            <table id="tableFixed" style="border:1px solid #000; border-collapse:collapse; width:100%; position:center;">
+                                <thead style="background-color: #365F91;height:30px; border:1px solid #000; padding-top: 5px; padding:10px 0px; color: rgb(255, 255, 255);">
+                                <tr>
+                                    <th style="background-color: #365F91; width:30%; height:30px; border:1px solid #000; padding:5px 5px;color: rgb(255, 255, 255);">Item</th>
+                                    <th style="background-color: #365F91; height:30px; border:1px solid #000; padding:5px 5px;color: rgb(255, 255, 255);">Checked</th>
+                                    <th style="background-color: #365F91; height:30px; border:1px solid #000; padding:5px 5px;color: rgb(255, 255, 255);">N/A</th>
+                                    <th style="background-color: #365F91; height:30px; border:1px solid #000; padding:5px 5px;color: rgb(255, 255, 255);">Comments</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {{#each data.general.lighting.check}}
+                                <tr>
+                                    <td style="border:1px solid; padding:5px 5px; word-wrap:break-word;">{{generalitem}}</td>
+                                    <td style="border:1px solid; padding:5px 5px; word-wrap:break-word;">{{#if (eq gchecked "true")}}<p>&#10003 YES</p>{{else}}<p>&#10007; NO</p>{{/if}}</td>
+                                    <td style="border:1px solid; padding:5px 5px; word-wrap:break-word;">{{#if (eq gna "true")}}<p>&#10003 YES</p>{{else}}<p>&#10007; NO</p>{{/if}}</td>
+                                    <td style="border:1px solid; padding:5px 5px; word-wrap:break-word;">{{gcomments}}</td>
 
-                <tr>
-                    <td style="background-color:lightgrey;border:1px solid; height:20px; padding:5px 5px;">
-                        <b>Action</b>
-                    </td>
-                    <td style="background-color:lightgrey;border:1px solid; padding:5px 5px;"><b>Name and
-                            Position</b></td>
-                    <td style="background-color:lightgrey;border:1px solid; padding:5px 5px;"><b>Date</b></td>
-                </tr>
+                                </tr>
+                                {{/each}}
+                                </tbody>
+                            </table>
+                            <h5>4. Walkways</h5>
+                            <table id="tableFixed" style="border:1px solid #000; border-collapse:collapse; width:100%; position:center;">
+                                <thead style="background-color: #365F91;height:30px; border:1px solid #000; padding-top: 5px; padding:10px 0px; color: rgb(255, 255, 255);">
+                                <tr>
+                                    <th style="background-color: #365F91; width:30%; height:30px; border:1px solid #000; padding:5px 5px;color: rgb(255, 255, 255);">Item</th>
+                                    <th style="background-color: #365F91; height:30px; border:1px solid #000; padding:5px 5px;color: rgb(255, 255, 255);">Checked</th>
+                                    <th style="background-color: #365F91; height:30px; border:1px solid #000; padding:5px 5px;color: rgb(255, 255, 255);">N/A</th>
+                                    <th style="background-color: #365F91; height:30px; border:1px solid #000; padding:5px 5px;color: rgb(255, 255, 255);">Comments</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {{#each data.walkways.check}}
+                                <tr>
+                                    <td style="border:1px solid; padding:5px 5px; word-wrap:break-word;">{{walkitem}}</td>
+                                    <td style="border:1px solid; padding:5px 5px; word-wrap:break-word;">{{#if (eq wchecked "true")}}<p>&#10003 YES</p>{{else}}<p>&#10007; NO</p>{{/if}}</td>
+                                    <td style="border:1px solid; padding:5px 5px; word-wrap:break-word;">{{#if (eq wna "true")}}<p>&#10003 YES</p>{{else}}<p>&#10007; NO</p>{{/if}}</td>
+                                    <td style="border:1px solid; padding:5px 5px; word-wrap:break-word;">{{wcomments}}</td>
 
-                <tr>
-                    <td style="border:1px solid; padding:5px 5px;">Reviewed By</td>
-                    <td style="border:1px solid; padding:5px 5px;">{{data.invites.reviewer.name}}</td>
-                    <td style="border:1px solid; padding:5px 5px;">{{formatDateTime
-                        data.reviewDate.date "dddd DD MMMM YYYY"}}</td>
+                                </tr>
+                                {{/each}}
+                                </tbody>
+                            </table>
+                            <h5>5. Rubbish</h5>
+                            <table id="tableFixed" style="border:1px solid #000; border-collapse:collapse; width:100%; position:center;">
+                                <thead style="background-color: #365F91;height:30px; border:1px solid #000; padding-top: 5px; padding:10px 0px; color: rgb(255, 255, 255);">
+                                <tr>
+                                    <th style="background-color: #365F91; width:30%; height:30px; border:1px solid #000; padding:5px 5px;color: rgb(255, 255, 255);">Item</th>
+                                    <th style="background-color: #365F91; height:30px; border:1px solid #000; padding:5px 5px;color: rgb(255, 255, 255);">Checked</th>
+                                    <th style="background-color: #365F91; height:30px; border:1px solid #000; padding:5px 5px;color: rgb(255, 255, 255);">N/A</th>
+                                    <th style="background-color: #365F91; height:30px; border:1px solid #000; padding:5px 5px;color: rgb(255, 255, 255);">Comments</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {{#each data.rubbish.check}}
+                                <tr>
+                                    <td style="border:1px solid; padding:5px 5px; word-wrap:break-word;">{{rubitem}}</td>
+                                    <td style="border:1px solid; padding:5px 5px; word-wrap:break-word;">{{#if (eq rchecked "true")}}<p>&#10003 YES</p>{{else}}<p>&#10007; NO</p>{{/if}}</td>
+                                    <td style="border:1px solid; padding:5px 5px; word-wrap:break-word;">{{#if (eq rna "true")}}<p>&#10003 YES</p>{{else}}<p>&#10007; NO</p>{{/if}}</td>
+                                    <td style="border:1px solid; padding:5px 5px; word-wrap:break-word;">{{rcomments}}</td>
 
-                </tr>
+                                </tr>
+                                {{/each}}
+                                </tbody>
+                            </table>
+                            <h5>6. Work Area</h5>
+                            <table id="tableFixed" style="border:1px solid #000; border-collapse:collapse; width:100%; position:center;">
+                                <thead style="background-color: #365F91;height:30px; border:1px solid #000; padding-top: 5px; padding:10px 0px; color: rgb(255, 255, 255);">
+                                <tr>
+                                    <th style="background-color: #365F91; width:30%; height:30px; border:1px solid #000; padding:5px 5px;color: rgb(255, 255, 255);">Item</th>
+                                    <th style="background-color: #365F91; height:30px; border:1px solid #000; padding:5px 5px;color: rgb(255, 255, 255);">Checked</th>
+                                    <th style="background-color: #365F91; height:30px; border:1px solid #000; padding:5px 5px;color: rgb(255, 255, 255);">N/A</th>
+                                    <th style="background-color: #365F91; height:30px; border:1px solid #000; padding:5px 5px;color: rgb(255, 255, 255);">Comments</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {{#each data.work.area.check}}
+                                <tr>
+                                    <td style="border:1px solid; padding:5px 5px; word-wrap:break-word;">{{workitem}}</td>
+                                    <td style="border:1px solid; padding:5px 5px; word-wrap:break-word;">{{#if (eq wchecked "true")}}<p>&#10003 YES</p>{{else}}<p>&#10007; NO</p>{{/if}}</td>
+                                    <td style="border:1px solid; padding:5px 5px; word-wrap:break-word;">{{#if (eq wna "true")}}<p>&#10003 YES</p>{{else}}<p>&#10007; NO</p>{{/if}}</td>
+                                    <td style="border:1px solid; padding:5px 5px; word-wrap:break-word;">{{wcomments}}</td>
 
-                <tr style="border:1px solid; padding:5px 5px;">
-                    <td style="border:1px solid; padding:5px 5px;">Quality Assurance</td>
-                    <td style="border:1px solid; padding:5px 5px;">{{data.qa.name}}</td>
-                    
-                </tr>
+                                </tr>
+                                {{/each}}
+                                </tbody>
+                            </table>
+                            <h5>7. Storage</h5>
+                            <table id="tableFixed" style="border:1px solid #000; border-collapse:collapse; width:100%; position:center;">
+                                <thead style="background-color: #365F91;height:30px; border:1px solid #000; padding-top: 5px; padding:10px 0px; color: rgb(255, 255, 255);">
+                                <tr>
+                                    <th style="background-color: #365F91; width:30%; height:30px; border:1px solid #000; padding:5px 5px;color: rgb(255, 255, 255);">Item</th>
+                                    <th style="background-color: #365F91; height:30px; border:1px solid #000; padding:5px 5px;color: rgb(255, 255, 255);">Checked</th>
+                                    <th style="background-color: #365F91; height:30px; border:1px solid #000; padding:5px 5px;color: rgb(255, 255, 255);">N/A</th>
+                                    <th style="background-color: #365F91; height:30px; border:1px solid #000; padding:5px 5px;color: rgb(255, 255, 255);">Comments</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {{#each data.storage.check}}
+                                <tr>
+                                    <td style="border:1px solid; padding:5px 5px; word-wrap:break-word;">{{storageitem}}</td>
+                                    <td style="border:1px solid; padding:5px 5px; word-wrap:break-word;">{{#if (eq schecked "true")}}<p>&#10003 YES</p>{{else}}<p>&#10007; NO</p>{{/if}}</td>
+                                    <td style="border:1px solid; padding:5px 5px; word-wrap:break-word;">{{#if (eq sna "true")}}<p>&#10003 YES</p>{{else}}<p>&#10007; NO</p>{{/if}}</td>
+                                    <td style="border:1px solid; padding:5px 5px; word-wrap:break-word;">{{scomments}}</td>
 
-                <tr style="border:1px solid; padding:5px 5px;">
-                    <td style="border:1px solid; padding:5px 5px;">Approver</td>
-                    <td style="border:1px solid; padding:5px 5px;">{{data.approver.name}}</td>
-                </tr>
+                                </tr>
+                                {{/each}}
+                                </tbody>
+                            </table>
+                            <h5>8. Chemicals</h5>
+                            <table id="tableFixed" style="border:1px solid #000; border-collapse:collapse; width:100%; position:center;">
+                                <thead style="background-color: #365F91;height:30px; border:1px solid #000; padding-top: 5px; padding:10px 0px; color: rgb(255, 255, 255);">
+                                <tr>
+                                    <th style="background-color: #365F91; width:30%; height:30px; border:1px solid #000; padding:5px 5px;color: rgb(255, 255, 255);">Item</th>
+                                    <th style="background-color: #365F91; height:30px; border:1px solid #000; padding:5px 5px;color: rgb(255, 255, 255);">Checked</th>
+                                    <th style="background-color: #365F91; height:30px; border:1px solid #000; padding:5px 5px;color: rgb(255, 255, 255);">N/A</th>
+                                    <th style="background-color: #365F91; height:30px; border:1px solid #000; padding:5px 5px;color: rgb(255, 255, 255);">Comments</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {{#each data.chemicals.check}}
+                                <tr>
+                                    <td style="border:1px solid; padding:5px 5px; word-wrap:break-word;">{{chemitem}}</td>
+                                    <td style="border:1px solid; padding:5px 5px; word-wrap:break-word;">{{#if (eq chchecked "true")}}<p>&#10003 YES</p>{{else}}<p>&#10007; NO</p>{{/if}}</td>
+                                    <td style="border:1px solid; padding:5px 5px; word-wrap:break-word;">{{#if (eq chna "true")}}<p>&#10003 YES</p>{{else}}<p>&#10007; NO</p>{{/if}}</td>
+                                    <td style="border:1px solid; padding:5px 5px; word-wrap:break-word;">{{chcomments}}</td>
+
+                                </tr>
+                                {{/each}}
+                                </tbody>
+                            </table>
+                            <h5>9. First Aid</h5>
+                            <table id="tableFixed" style="border:1px solid #000; border-collapse:collapse; width:100%; position:center;">
+                                <thead style="background-color: #365F91;height:30px; border:1px solid #000; padding-top: 5px; padding:10px 0px; color: rgb(255, 255, 255);">
+                                <tr>
+                                    <th style="background-color: #365F91; width:30%; height:30px; border:1px solid #000; padding:5px 5px;color: rgb(255, 255, 255);">Item</th>
+                                    <th style="background-color: #365F91; height:30px; border:1px solid #000; padding:5px 5px;color: rgb(255, 255, 255);">Checked</th>
+                                    <th style="background-color: #365F91; height:30px; border:1px solid #000; padding:5px 5px;color: rgb(255, 255, 255);">N/A</th>
+                                    <th style="background-color: #365F91; height:30px; border:1px solid #000; padding:5px 5px;color: rgb(255, 255, 255);">Comments</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {{#each data.first.aid.check}}
+                                <tr>
+                                    <td style="border:1px solid; padding:5px 5px; word-wrap:break-word;">{{aiditem}}</td>
+                                    <td style="border:1px solid; padding:5px 5px; word-wrap:break-word;">{{#if (eq aichecked "true")}}<p>&#10003 YES</p>{{else}}<p>&#10007; NO</p>{{/if}}</td>
+                                    <td style="border:1px solid; padding:5px 5px; word-wrap:break-word;">{{#if (eq aina "true")}}<p>&#10003 YES</p>{{else}}<p>&#10007; NO</p>{{/if}}</td>
+                                    <td style="border:1px solid; padding:5px 5px; word-wrap:break-word;">{{aicomments}}</td>
+
+                                </tr>
+                                {{/each}}
+                                </tbody>
+                            </table>
+                            <h5>10. Ground</h5>
+                            <table id="tableFixed" style="border:1px solid #000; border-collapse:collapse; width:100%; position:center;">
+                                <thead style="background-color: #365F91;height:30px; border:1px solid #000; padding-top: 5px; padding:10px 0px; color: rgb(255, 255, 255);">
+                                <tr>
+                                    <th style="background-color: #365F91; width:30%; height:30px; border:1px solid #000; padding:5px 5px;color: rgb(255, 255, 255);">Item</th>
+                                    <th style="background-color: #365F91; height:30px; border:1px solid #000; padding:5px 5px;color: rgb(255, 255, 255);">Checked</th>
+                                    <th style="background-color: #365F91; height:30px; border:1px solid #000; padding:5px 5px;color: rgb(255, 255, 255);">N/A</th>
+                                    <th style="background-color: #365F91; height:30px; border:1px solid #000; padding:5px 5px;color: rgb(255, 255, 255);">Comments</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {{#each data.ten.ground.check}}
+                                <tr>
+                                    <td style="border:1px solid; padding:5px 5px; word-wrap:break-word;">{{grounditem}}</td>
+                                    <td style="border:1px solid; padding:5px 5px; word-wrap:break-word;">{{#if (eq grchecked "true")}}<p>&#10003 YES</p>{{else}}<p>&#10007; NO</p>{{/if}}</td>
+                                    <td style="border:1px solid; padding:5px 5px; word-wrap:break-word;">{{#if (eq grna "true")}}<p>&#10003 YES</p>{{else}}<p>&#10007; NO</p>{{/if}}</td>
+                                    <td style="border:1px solid; padding:5px 5px; word-wrap:break-word;">{{grcomments}}</td>
+
+                                </tr>
+                                {{/each}}
+                                </tbody>
+                            </table>
+                            <h5>11. Equipment</h5>
+                            <table id="tableFixed" style="border:1px solid #000; border-collapse:collapse; width:100%; position:center;">
+                                <thead style="background-color: #365F91;height:30px; border:1px solid #000; padding-top: 5px; padding:10px 0px; color: rgb(255, 255, 255);">
+                                <tr>
+                                    <th style="background-color: #365F91; width:30%; height:30px; border:1px solid #000; padding:5px 5px;color: rgb(255, 255, 255);">Item</th>
+                                    <th style="background-color: #365F91; height:30px; border:1px solid #000; padding:5px 5px;color: rgb(255, 255, 255);">Checked</th>
+                                    <th style="background-color: #365F91; height:30px; border:1px solid #000; padding:5px 5px;color: rgb(255, 255, 255);">N/A</th>
+                                    <th style="background-color: #365F91; height:30px; border:1px solid #000; padding:5px 5px;color: rgb(255, 255, 255);">Comments</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {{#each data.eleven.equipment.check}}
+                                <tr>
+                                    <td style="border:1px solid; padding:5px 5px; word-wrap:break-word;">{{elevenitem}}</td>
+                                    <td style="border:1px solid; padding:5px 5px; word-wrap:break-word;">{{#if (eq elvchecked "true")}}<p>&#10003 YES</p>{{else}}<p>&#10007; NO</p>{{/if}}</td>
+                                    <td style="border:1px solid; padding:5px 5px; word-wrap:break-word;">{{#if (eq elvna "true")}}<p>&#10003 YES</p>{{else}}<p>&#10007; NO</p>{{/if}}</td>
+                                    <td style="border:1px solid; padding:5px 5px; word-wrap:break-word;">{{elvcomments}}</td>
+
+                                </tr>
+                                {{/each}}
+                                </tbody>
+                            </table>
+                            <h5>12. Display Material</h5>
+                            <table id="tableFixed" style="border:1px solid #000; border-collapse:collapse; width:100%; position:center;">
+                                <thead style="background-color: #365F91;height:30px; border:1px solid #000; padding-top: 5px; padding:10px 0px; color: rgb(255, 255, 255);">
+                                <tr>
+                                    <th style="background-color: #365F91; width:30%; height:30px; border:1px solid #000; padding:5px 5px;color: rgb(255, 255, 255);">Item</th>
+                                    <th style="background-color: #365F91; height:30px; border:1px solid #000; padding:5px 5px;color: rgb(255, 255, 255);">Checked</th>
+                                    <th style="background-color: #365F91; height:30px; border:1px solid #000; padding:5px 5px;color: rgb(255, 255, 255);">N/A</th>
+                                    <th style="background-color: #365F91; height:30px; border:1px solid #000; padding:5px 5px;color: rgb(255, 255, 255);">Comments</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {{#each data.display.material.check}}
+                                <tr>
+                                    <td style="border:1px solid; padding:5px 5px; word-wrap:break-word;">{{dispitem}}</td>
+                                    <td style="border:1px solid; padding:5px 5px; word-wrap:break-word;">{{#if (eq dischecked "true")}}<p>&#10003 YES</p>{{else}}<p>&#10007; NO</p>{{/if}}</td>
+                                    <td style="border:1px solid; padding:5px 5px; word-wrap:break-word;">{{#if (eq disna "true")}}<p>&#10003 YES</p>{{else}}<p>&#10007; NO</p>{{/if}}</td>
+                                    <td style="border:1px solid; padding:5px 5px; word-wrap:break-word;">{{discomments}}</td>
+
+                                </tr>
+                                {{/each}}
+                                </tbody>
+                            </table>
+                            <h5>13. WHS Information</h5>
+                            <table id="tableFixed" style="border:1px solid #000; border-collapse:collapse; width:100%; position:center;">
+                                <thead style="background-color: #365F91;height:30px; border:1px solid #000; padding-top: 5px; padding:10px 0px; color: rgb(255, 255, 255);">
+                                <tr>
+                                    <th style="background-color: #365F91; width:30%; height:30px; border:1px solid #000; padding:5px 5px;color: rgb(255, 255, 255);">Item</th>
+                                    <th style="background-color: #365F91; height:30px; border:1px solid #000; padding:5px 5px;color: rgb(255, 255, 255);">Checked</th>
+                                    <th style="background-color: #365F91; height:30px; border:1px solid #000; padding:5px 5px;color: rgb(255, 255, 255);">N/A</th>
+                                    <th style="background-color: #365F91; height:30px; border:1px solid #000; padding:5px 5px;color: rgb(255, 255, 255);">Comments</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {{#each data.whs.information.check}}
+                                <tr>
+                                    <td style="border:1px solid; padding:5px 5px; word-wrap:break-word;">{{whsitem}}</td>
+                                    <td style="border:1px solid; padding:5px 5px; word-wrap:break-word;">{{#if (eq whschecked "true")}}<p>&#10003 YES</p>{{else}}<p>&#10007; NO</p>{{/if}}</td>
+                                    <td style="border:1px solid; padding:5px 5px; word-wrap:break-word;">{{#if (eq whsna "true")}}<p>&#10003 YES</p>{{else}}<p>&#10007; NO</p>{{/if}}</td>
+                                    <td style="border:1px solid; padding:5px 5px; word-wrap:break-word;">{{whscomments}}</td>
+
+                                </tr>
+                                {{/each}}
+                                </tbody>
+                            </table>
+                            <h5>14. PPE</h5>
+                            <table id="tableFixed" style="border:1px solid #000; border-collapse:collapse; width:100%; position:center;">
+                                <thead style="background-color: #365F91;height:30px; border:1px solid #000; padding-top: 5px; padding:10px 0px; color: rgb(255, 255, 255);">
+                                <tr>
+                                    <th style="background-color: #365F91; width:30%; height:30px; border:1px solid #000; padding:5px 5px;color: rgb(255, 255, 255);">Item</th>
+                                    <th style="background-color: #365F91; height:30px; border:1px solid #000; padding:5px 5px;color: rgb(255, 255, 255);">Checked</th>
+                                    <th style="background-color: #365F91; height:30px; border:1px solid #000; padding:5px 5px;color: rgb(255, 255, 255);">N/A</th>
+                                    <th style="background-color: #365F91; height:30px; border:1px solid #000; padding:5px 5px;color: rgb(255, 255, 255);">Comments</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {{#each data.ppe.check}}
+                                <tr>
+                                    <td style="border:1px solid; padding:5px 5px; word-wrap:break-word;">{{ppeitem}}</td>
+                                    <td style="border:1px solid; padding:5px 5px; word-wrap:break-word;">{{#if (eq ppechecked "true")}}<p>&#10003 YES</p>{{else}}<p>&#10007; NO</p>{{/if}}</td>
+                                    <td style="border:1px solid; padding:5px 5px; word-wrap:break-word;">{{#if (eq ppena "true")}}<p>&#10003 YES</p>{{else}}<p>&#10007; NO</p>{{/if}}</td>
+                                    <td style="border:1px solid; padding:5px 5px; word-wrap:break-word;">{{ppecomments}}</td>
+
+                                </tr>
+                                {{/each}}
+                                </tbody>
+                            </table>
 
 
-                <tr>
-                    <td style="border:1px solid; padding:5px 5px;">Prepared By</td>
-                    <td style="border:1px solid; padding:5px 5px;">Franmarine Powered by MarineStream</td>
-                    <td style="border:1px solid; padding:5px 5px;">{{formatDateTime
-                        data.actualDelivery.startDateTime.date "dddd DD MMMM YYYY"}}</td>
 
-                </tr>
-                <tr>
-                    <td style="border:1px solid; padding:5px 5px;">Approved By</td>
-                    <td style="border:1px solid; padding:5px 5px;">Adam Falconer-West</td>
-                    <td style="border:1px solid; padding:5px 5px;">{{formatDateTime
-                        z "dddd DD MMMM YYYY"}}</td>
 
-                </tr>
-            </table>
-            <p></p>&nbsp;
 
-            <table style="width:100%">
-                <tr style="border:1px solid">
-                    <td colspan="4" style="padding:5px 5px; background-color: #365F91; text-align:center;color:rgb(255, 255, 255); border:1px solid #000;">
-                        Copyright
-                        Notice</td>
-                </tr>
-                <tr style="border:1px solid; padding:5px 5px;">
-                    <td style="border:1px solid; padding:5px 5px;">
 
-                        <b>Franmarine Underwater Services Pty Ltd (FUS)</b> is the sole owner of
-                        the
-                        intellectual property contained in any
-                        documentation bearing its name. All materials, including internet pages,
-                        document and online graphics, audio
-                        and video, are protected by copyright law.
-                        <br>
-                        <br>
-                        Apart from any fair dealing for the purpose of private study, research,
-                        criticism or review as permitted under the provisions of the
-                        <b>Copyright Act 1968</b>, no part of this
-                        document may be reproduced, transmitted in any
-                        form or re-used for any commercial purposes whatsoever without the prior
-                        written permission of FUS.
-                        This document represents the status of the topic at the date shown and
-                        is subject to change without notice.
-                        The latest version of this document is available from Document Control.<br>
-                        <b>©2022 FUS. All Rights Reserved.</b>
-                    </td>
-                </tr>
-            </table>
-            
-        </div>
 
-        
-    </div>
-    </div>
-
-    </td>
-    </tr>
-    </tbody>
 
     <tfoot style="width:90%">
         <tr>
