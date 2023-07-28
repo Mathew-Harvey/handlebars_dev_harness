@@ -34,6 +34,25 @@ app.engine(
       // getImageUri: function (fullUri) {
       //   return getImageUrl(fullUri);
       // },
+findNumbers: function(obj, options) {
+  let result = '';
+  
+  function traverseObject(o) {
+    for (let key in o) {
+      if (typeof o[key] === 'object' && o[key] !== null) {
+        traverseObject(o[key]);
+      } else {
+        if (/^\d+\.$/.test(o[key])) {
+          result += `<p>${key}: ${o[key]}</p>`;
+        }
+      }
+    }
+  }
+  
+  traverseObject(obj);
+  
+  return result;
+},
 
       getImages: function (path, attachments, options) {
         // make sure that the attachment path does not have any spaces and is lower case
