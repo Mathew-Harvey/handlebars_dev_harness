@@ -391,6 +391,7 @@
                         </div>
                         <div class="page">
                             <p></p>
+        <div style="page-break-inside: avoid">
                             <h4>1. Client Details</h4>
                         <table style="border:1px solid #000; border-collapse:collapse; width:100%; position:center;">
                             <tr>
@@ -423,6 +424,14 @@
                                 <td style="padding:5px 5px; border:1px solid; height:40px; width: 50%;"><img src={{data.diveSupervisors.signature.signature}} width="80%" , {{#if (isDarkMode)}}id="darkSig" {{/if}} /></td>
                             </tr>
                         </table>
+                        </div>
+
+                        <div class="page">
+                            <p></p>
+        <div style="page-break-inside: avoid">
+{{#if (lookAtMultiValue (array data.diver1One.name data.diver2One.name data.diver3One.name data.diver4One.name data.diver5One.name data.diver6One.name data.diver7One.name data.diver8One.name ))}}
+
+
                         <h4>3. Dive Team</h4>
                         <table style="border:1px solid #000; border-collapse:collapse; width:100%; position:center;">
                             {{#if (hasValue data.diver1One.name)}}
@@ -625,8 +634,10 @@
                             {{/if}}
                             </table>
                         </div>
-                        <div class="page">
-                            <p></p>
+                        </div>
+         {{/if}}
+        <div class="page">
+        <div style="page-break-inside: avoid">
                             {{#if (hasValue data.toolbox.facilitated.by)}}
                             <h4>4. TOOLBOX</h4>
                         <table style="border:1px solid #000; border-collapse:collapse; width:100%; position:center;">
@@ -660,9 +671,9 @@
                             <br>
                             <h5>Scope Of Work Discussed</h5>
                             {{{data.scope.of.work.discussed}}}
-                            <br>
+                            </div>
+                            
                             <h5>Potential Hazards Identified and Discussed</h5>
-                            <br>
                             <table id="tableFixed" style="border:1px solid #000; border-collapse:collapse; width:100%; position:center;">
                                 <thead style="background-color: #365F91;height:30px; border:1px solid #000; padding-top: 5px; padding:10px 0px; color: rgb(255, 255, 255);">
                                 <tr>
@@ -679,7 +690,7 @@
                                 {{/each}}
                                 </tbody>
                             </table>
-
+<div class="page">
                             <h5>Environmental Aspects</h5>
                             <br>
                             <table id="tableFixed" style="border:1px solid #000; border-collapse:collapse; width:100%; position:center;">
@@ -698,9 +709,9 @@
                                 {{/each}}
                                 </tbody>
                             </table>
-
+<div class="page">
                             <h5>Requirement Checklist</h5>
-                            <br>
+                  
                             <table id="tableFixed" style="border:1px solid #000; border-collapse:collapse; width:100%; position:center;">
                                 <thead style="background-color: #365F91;height:30px; border:1px solid #000; padding-top: 5px; padding:10px 0px; color: rgb(255, 255, 255);">
                                 <tr>
@@ -720,16 +731,19 @@
                                 {{/each}}
                                 </tbody>
                             </table>
-                            <br>
+                          
+                    
                             <h5>Considered Safe to Proceed: {{#if (eq data.considered.safe.to.proceed "true")}}&#10003 YES{{else}}&#10007; NO{{/if}}</h5>
                             {{/if}}
-                          
-                            <h4>5. Dive Hat Daily Check</h4>
+</div>
+                            
                             {{#each attachments}}
                             {{#if (eq path "DiveHat")}}
+                            <h4>5. Dive Hat Daily Check</h4>
                             <img src="{{getImageUri fullUri}}" alt="Dive Hat Check Uploaded Document / Photo" id="largeImg" />
                             {{/if}}
                             {{/each}}
+                            {{#if data.fus.equipment.check.[0].type}}
                             <h4>6. Equipment</h4>
                             <h5>FUS Equipment</h5>
                             <table id="tableFixed" style="border:1px solid #000; border-collapse:collapse; width:100%; position:center;">
@@ -759,18 +773,17 @@
                             <img src="{{getImageUri fullUri}}" alt="Upload Daily Log and Maintenance Book / Photo" id="largeImg" />
                             {{/if}}
                             {{/each}}
-
-                            <h4>7. Resources</h4>
-                            <h5>SWPs and Manuals</h5>
+                            {{/if}}
+                            </div>
+                            <div class="page">
                             {{#each attachments}}
                             {{#if (eq path "Manuals")}}
+                            <h4>7. Resources</h4>
+                            <h5>SWPs and Manuals</h5>
                             <img src="{{getImageUri fullUri}}" alt="SWP's and Manuals / Photo" id="largeImg" />
                             {{/if}}
                             {{/each}}
-
-
-
-
+                            {{#if data.table.diver.check.[0].surfaceinterval}}
                             <h4>8. Dive Logs</h4>
                             <h5>Table Used: DCEIM</h5>
                             <table id="tableFixed" style="border:1px solid #000; border-collapse:collapse; width:100%; position:center;">
@@ -826,6 +839,12 @@
                                     </td>
                                 </tr>
                             </table>
+
+                            </div>
+                            {{/if}}
+                  
+                            <div class="page">
+                                {{#if data.activity.log.check.[0].dailyactivity }}
                             <h4>9. Activity Log</h4>
                             <br>
                             <table id="tableFixed" style="border:1px solid #000; border-collapse:collapse; width:100%; position:center;">
@@ -844,7 +863,8 @@
                                 {{/each}}
                                 </tbody>
                             </table>
-                            <br>
+                            {{/if}}
+                            {{#if data.attendeesTwo.[0].anames}}
                             <h4>10. Emergency Drill Report</h4>
                             <h5>Attendees Present</h5>
                             <table id="tableFixed" style="border:1px solid #000; border-collapse:collapse; width:100%; position:center;">
@@ -880,11 +900,14 @@
                                 {{/each}}
                                 </tbody>
                             </table>
-                            
                             <h5>Equipment Used</h5>
                             {{{data.equipmentUsed}}}
                             <h5>Comments</h5>
                             {{{data.comments}}}
+                            </div>
+                            <div class="page">
+                            {{/if}}
+                            {{#if data.isolation.descrip.check.[0].isodescriptions}}
                             <h4>11. Dive Permit and Isolations</h4>
                             <h5>Isolations</h5>
                             <table id="tableFixed" style="border:1px solid #000; border-collapse:collapse; width:100%; position:center;">
@@ -908,6 +931,8 @@
                                 {{/each}}
                                 </tbody>
                             </table>
+                            </div>
+                            <div class="page">
                             <h5>Exemptions</h5>
                             <table id="tableFixed" style="border:1px solid #000; border-collapse:collapse; width:100%; position:center;">
                                 <thead style="background-color: #365F91;height:30px; border:1px solid #000; padding-top: 5px; padding:10px 0px; color: rgb(255, 255, 255);">
@@ -959,9 +984,14 @@
                                     </td>
                                 </tr>
                             </table>
+                            {{/if}}
+</div>
+<div class="page">          
 
 
                             <h4>12. Onsite Inspection Checklist</h4>
+                         
+                            
                             <h5>1. Fire and Safety</h5>
                             <table id="tableFixed" style="border:1px solid #000; border-collapse:collapse; width:100%; position:center;">
                                 <thead style="background-color: #365F91;height:30px; border:1px solid #000; padding-top: 5px; padding:10px 0px; color: rgb(255, 255, 255);">
@@ -984,6 +1014,7 @@
                                 {{/each}}
                                 </tbody>
                             </table>
+                          
                             <h5>2. Electrical</h5>
                             <table id="tableFixed" style="border:1px solid #000; border-collapse:collapse; width:100%; position:center;">
                                 <thead style="background-color: #365F91;height:30px; border:1px solid #000; padding-top: 5px; padding:10px 0px; color: rgb(255, 255, 255);">
@@ -1006,6 +1037,8 @@
                                 {{/each}}
                                 </tbody>
                             </table>
+                            </div>
+                            <div class="page">
                             <h5>3. General Lighting</h5>
                             <table id="tableFixed" style="border:1px solid #000; border-collapse:collapse; width:100%; position:center;">
                                 <thead style="background-color: #365F91;height:30px; border:1px solid #000; padding-top: 5px; padding:10px 0px; color: rgb(255, 255, 255);">
@@ -1050,6 +1083,8 @@
                                 {{/each}}
                                 </tbody>
                             </table>
+                            </div>
+                            <div class="page">
                             <h5>5. Rubbish</h5>
                             <table id="tableFixed" style="border:1px solid #000; border-collapse:collapse; width:100%; position:center;">
                                 <thead style="background-color: #365F91;height:30px; border:1px solid #000; padding-top: 5px; padding:10px 0px; color: rgb(255, 255, 255);">
@@ -1094,6 +1129,8 @@
                                 {{/each}}
                                 </tbody>
                             </table>
+                            </div>
+                            <div class="page">
                             <h5>7. Storage</h5>
                             <table id="tableFixed" style="border:1px solid #000; border-collapse:collapse; width:100%; position:center;">
                                 <thead style="background-color: #365F91;height:30px; border:1px solid #000; padding-top: 5px; padding:10px 0px; color: rgb(255, 255, 255);">
@@ -1138,6 +1175,8 @@
                                 {{/each}}
                                 </tbody>
                             </table>
+                            </div>
+                            <div class="page">
                             <h5>9. First Aid</h5>
                             <table id="tableFixed" style="border:1px solid #000; border-collapse:collapse; width:100%; position:center;">
                                 <thead style="background-color: #365F91;height:30px; border:1px solid #000; padding-top: 5px; padding:10px 0px; color: rgb(255, 255, 255);">
@@ -1182,6 +1221,8 @@
                                 {{/each}}
                                 </tbody>
                             </table>
+                            </div>
+                            <div class="page">
                             <h5>11. Equipment</h5>
                             <table id="tableFixed" style="border:1px solid #000; border-collapse:collapse; width:100%; position:center;">
                                 <thead style="background-color: #365F91;height:30px; border:1px solid #000; padding-top: 5px; padding:10px 0px; color: rgb(255, 255, 255);">
@@ -1226,6 +1267,8 @@
                                 {{/each}}
                                 </tbody>
                             </table>
+                            </div>
+                            <div class="page">
                             <h5>13. WHS Information</h5>
                             <table id="tableFixed" style="border:1px solid #000; border-collapse:collapse; width:100%; position:center;">
                                 <thead style="background-color: #365F91;height:30px; border:1px solid #000; padding-top: 5px; padding:10px 0px; color: rgb(255, 255, 255);">
@@ -1270,27 +1313,34 @@
                                 {{/each}}
                                 </tbody>
                             </table>
-
-
-
-
-
-
-
-
+                             <div style="page-break-inside: avoid">
+                            <h5>Additonal Comments </h5>
+                            {{{data.addition.comment}}}
+                            <h5>Completion Signature</h5>
+                            <table style="width:100%">
+                                <tr style="border:1px solid;padding:5px 5px;">
+                                    <td colspan="4" style="padding:5px 5px; background-color: #365F91; text-align:center;color:rgb(255, 255, 255); border:1px solid #000;">
+                                        Signature and Date</td>
+                                </tr>
+                                <tr style="border:1px solid; padding:5px 5px;">
+                                    <td style="border:1px solid" colspan="4"><b>Name:</b>{{data.onsite.completed.by}}<p><b>Signed:</b><img src={{data.onsite.signature.signature}} width="80%" , {{#if (isDarkMode)}}id="darkSig" {{/if}}</p> 
+                                        {{#if (hasValue data.onsite.signature.signature)}}
+                                        <p><b>Date: </b>{{formatDateTime data.onsite.signature.date "dddd DD MMMM YYYY"}}</p>
+                                        {{/if}}
+                                    </td>
+                                </tr>
+                            </table>
     <tfoot style="width:90%">
         <tr>
             <td style="width:90%">
                 <!--place holder for the fixed-position footer-->
-                
             </td>
         </tr>
     </tfoot>
-
     </table>
-    
     </div>
-    
+    </div>
+    </div>
 </body>
 
 </html>
