@@ -1404,7 +1404,28 @@
     </table>
     
     </div>
-    
+
+    {{#sectionCounter sections}}
+  <div>Section: {{section}}, Count: {{count}}</div>
+{{/sectionCounter}}
+
+    {{#each sections as |section|}}
+  {{#if @first}}
+    <!-- Initialize the sectionsCount variable on the first iteration -->
+    {{#with (lookup ../sectionsCount section)}}
+      {{#unless this}}
+        {{@root.sectionsCount.[section] 1}}
+      {{/unless}}
+    {{/with}}
+  {{else}}
+    <!-- Increment the sectionsCount variable for the current section -->
+    {{#with (lookup ../sectionsCount section)}}
+      {{@root.sectionsCount.[section] (add1 this)}}
+    {{/with}}
+  {{/if}}
+  <!-- Print the current count for this section -->
+  <div>Section: {{section}}, Count: {{lookup ../sectionsCount section}}</div>
+{{/each}}
 </body>
 
 </html>

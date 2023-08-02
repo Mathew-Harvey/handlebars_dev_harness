@@ -9,6 +9,7 @@ const diana = require("./dianaDataEnrich.js");
 const _toc = require("./toc.js");
 const piledata = require("./piledata.json");
 const newBioWF = require("./newBioWF.json")
+const newEngWF = require("./newEngWF.json")
 const supReportPack = require("./supReportPack")
 
 
@@ -16,24 +17,22 @@ app.use(express.static(__dirname + "/views"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+var levelOneCounter = 0;
+var levelTwoCounter = 0;
+
 //Handlebars settings
 app.set("view engine", "hbs");
 app.engine(
   "hbs",
   exphbs({
     extname: "hbs",
+
     defaultLayout: "index",
     helpers: {
 
 
-      // loadImage: function (fullUri) {
-      //   const image = getImageUrl(fullUri);
-      //   return `<img alt='${image}' src='${image}' width='180' height='136'/>`;
-      // },
+  
 
-      // getImageUri: function (fullUri) {
-      //   return getImageUrl(fullUri);
-      // },
 findNumbers: function(obj, options) {
   let result = '';
   
@@ -176,6 +175,31 @@ findNumbers: function(obj, options) {
         return 0;
       },
 
+      sectionCounter: function(context, options) {
+        var counts = {};
+      
+        for (var i = 0; i < context.length; i++) {
+          var sectionName = context[i];
+          if (!counts[sectionName]) {
+            counts[sectionName] = 1;
+          } else {
+            counts[sectionName]++;
+          }
+        }
+      
+        var out = "";
+        for (var section in counts) {
+          out += options.fn({section: section, count: counts[section]});
+        }
+      
+        return out;
+      },
+
+      add1: function(value) {
+        return value + 1;
+      },
+      
+
       formatDate: function (dateTime, dateTimeFormat, timeZone = "utc") {
         if (dateTime === undefined || dateTime === null) {
           return DefaultEmptyPrintValue;
@@ -224,6 +248,30 @@ findNumbers: function(obj, options) {
       userInvite: function (user, role) {
         return `{ "id": "${user.id}", "name":"${user.name}", "email":"${user.email}", "roles":["${role}"]}`;
       },
+
+     
+
+
+        incrementLevelOneCounter: function() {
+            levelOneCounter++;
+        },
+    
+        getLevelOneCounter: function() {
+            return levelOneCounter;
+        },
+        
+        getLevelTwoCounter: function() {
+          return levelTwoCounter;
+        },
+    
+        incrementLevelTwoCounter: function() {
+            levelTwoCounter++;
+            return levelTwoCounter;
+        },
+    
+        resetLevelTwoCounter: function() {
+            levelTwoCounter = 0;
+        },
 
       increment: function (value) {
         return (value ?? 0) + 1;
@@ -474,6 +522,18 @@ app.get("/newBioWF", (req, res) => {
 
   res.render("newBioWF", data);
 });
+
+
+app.get("/newEngWF", (req, res) => {
+  const data = diana.enrichData(newEngWF);
+
+  data.data.sections.map((section) => {
+    console.log({ ...section });
+  });
+
+  res.render("newEngWF", data);
+});
+
 
 app.get("/supReportPack", (req, res) => {
   const data = diana.enrichData(supReportPack);
