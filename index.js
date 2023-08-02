@@ -17,8 +17,9 @@ app.use(express.static(__dirname + "/views"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-var levelOneCounter = 0;
-var levelTwoCounter = 0;
+let levelOneCounter = 0;
+let levelTwoCounter = 0;
+let levelThreeCounter = 0;
 
 //Handlebars settings
 app.set("view engine", "hbs");
@@ -254,12 +255,16 @@ findNumbers: function(obj, options) {
 
         incrementLevelOneCounter: function() {
             levelOneCounter++;
+            return levelOneCounter
         },
     
         getLevelOneCounter: function() {
             return levelOneCounter;
         },
-        
+        resetLevelOneCounter: function () {
+          levelOneCounter = 0
+        },
+
         getLevelTwoCounter: function() {
           return levelTwoCounter;
         },
@@ -271,6 +276,19 @@ findNumbers: function(obj, options) {
     
         resetLevelTwoCounter: function() {
             levelTwoCounter = 0;
+        },
+
+        getLevelThreeCounter: function() {
+          return levelThreeCounter;
+        },
+    
+        incrementLevelThreeCounter: function() {
+            levelThreeCounter++;
+            return levelThreeCounter;
+        },
+    
+        resetLevelThreeCounter: function() {
+            levelThreeCounter = 0;
         },
 
       increment: function (value) {
